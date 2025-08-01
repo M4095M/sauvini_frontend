@@ -1,3 +1,7 @@
+/* Importing the fonts we'd use from now on*/
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap");
+
 @import "tailwindcss";
 
 :root {
@@ -49,6 +53,96 @@
   /* Legacy compatibility */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* =============================================================================
+     TYPOGRAPHY SYSTEM
+     Font families and responsive typography scales
+     ============================================================================= */
+
+  /* === FONT FAMILIES === */
+  --font-work-sans: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-tajawal: "Tajawal", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  /* === WORK SANS TYPOGRAPHY (English) === */
+
+  /* Display Typography */
+  --font-display-1-desktop: 700 192px/1.1 var(--font-work-sans);
+  --font-display-1-mobile: 700 96px/1.1 var(--font-work-sans);
+  --font-display-2-desktop: 700 128px/1.1 var(--font-work-sans);
+  --font-display-2-mobile: 700 72px/1.1 var(--font-work-sans);
+  --font-display-3-desktop: 700 96px/1.1 var(--font-work-sans);
+  --font-display-3-mobile: 700 48px/1.1 var(--font-work-sans);
+
+  /* Header Typography */
+  --font-header-1-desktop: 600 64px/1.2 var(--font-work-sans);
+  --font-header-1-mobile: 600 32px/1.2 var(--font-work-sans);
+  --font-header-2-desktop: 600 48px/1.2 var(--font-work-sans);
+  --font-header-2-mobile: 600 28px/1.2 var(--font-work-sans);
+  --font-header-3-desktop: 600 36px/1.2 var(--font-work-sans);
+  --font-header-3-mobile: 600 24px/1.2 var(--font-work-sans);
+
+  /* Sub-header Typography */
+  --font-subheader-1-desktop: 500 24px/1.3 var(--font-work-sans);
+  --font-subheader-1-mobile: 500 20px/1.3 var(--font-work-sans);
+  --font-subheader-2-desktop: 500 20px/1.3 var(--font-work-sans);
+  --font-subheader-2-mobile: 500 16px/1.3 var(--font-work-sans);
+
+  /* Body Typography */
+  --font-body-medium-desktop: 500 16px/1.5 var(--font-work-sans);
+  --font-body-medium-mobile: 500 14px/1.5 var(--font-work-sans);
+  --font-body-regular-desktop: 400 16px/1.5 var(--font-work-sans);
+  --font-body-regular-mobile: 400 14px/1.5 var(--font-work-sans);
+
+  /* Small Text */
+  --font-small-desktop: 400 14px/1.4 var(--font-work-sans);
+  --font-small-mobile: 400 12px/1.4 var(--font-work-sans);
+
+  /* Captions */
+  --font-captions-desktop: 400 12px/1.3 var(--font-work-sans);
+  --font-captions-mobile: 400 10px/1.3 var(--font-work-sans);
+
+  /* === TAJAWAL TYPOGRAPHY (Arabic) === */
+
+  /* Display Typography */
+  --font-display-1-desktop-ar: 800 192px/1.1 var(--font-tajawal);
+  --font-display-1-mobile-ar: 800 96px/1.1 var(--font-tajawal);
+  --font-display-2-desktop-ar: 800 128px/1.1 var(--font-tajawal);
+  --font-display-2-mobile-ar: 800 72px/1.1 var(--font-tajawal);
+  --font-display-3-desktop-ar: 800 96px/1.1 var(--font-tajawal);
+  --font-display-3-mobile-ar: 800 48px/1.1 var(--font-tajawal);
+
+  /* Header Typography */
+  --font-header-1-desktop-ar: 600 64px/1.2 var(--font-tajawal);
+  --font-header-1-mobile-ar: 600 32px/1.2 var(--font-tajawal);
+  --font-header-2-desktop-ar: 600 48px/1.2 var(--font-tajawal);
+  --font-header-2-mobile-ar: 600 28px/1.2 var(--font-tajawal);
+  --font-header-3-desktop-ar: 600 36px/1.2 var(--font-tajawal);
+  --font-header-3-mobile-ar: 600 24px/1.2 var(--font-tajawal);
+
+  /* Sub-header Typography */
+  --font-subheader-1-desktop-ar: 500 24px/1.3 var(--font-tajawal);
+  --font-subheader-1-mobile-ar: 500 20px/1.3 var(--font-tajawal);
+  --font-subheader-2-desktop-ar: 500 20px/1.3 var(--font-tajawal);
+  --font-subheader-2-mobile-ar: 500 16px/1.3 var(--font-tajawal);
+
+  /* Body Typography */
+  --font-body-medium-desktop-ar: 500 16px/1.5 var(--font-tajawal);
+  --font-body-medium-mobile-ar: 500 14px/1.5 var(--font-tajawal);
+  --font-body-regular-desktop-ar: 400 16px/1.5 var(--font-tajawal);
+  --font-body-regular-mobile-ar: 400 14px/1.5 var(--font-tajawal);
+
+  /* Small Text */
+  --font-small-desktop-ar: 400 14px/1.4 var(--font-tajawal);
+  --font-small-mobile-ar: 400 12px/1.4 var(--font-tajawal);
+
+  /* Captions */
+  --font-captions-desktop-ar: 400 12px/1.3 var(--font-tajawal);
+  --font-captions-mobile-ar: 400 10px/1.3 var(--font-tajawal);
+
+  /* === LETTER SPACING === */
+  --letter-spacing-tight: -0.02em; /* -2% as specified in typography systems */
 }
 
 @theme inline {
@@ -383,4 +477,295 @@ body {
 }
 .border-success-100 {
   border-color: var(--success-100);
+}
+
+/* =============================================================================
+   TYPOGRAPHY UTILITY CLASSES
+   Pre-built classes for responsive typography system
+   ============================================================================= */
+
+/* === FONT FAMILY UTILITIES === */
+.font-work-sans {
+  font-family: var(--font-work-sans);
+}
+
+.font-tajawal {
+  font-family: var(--font-tajawal);
+}
+
+/* === WORK SANS (ENGLISH) TYPOGRAPHY UTILITIES === */
+
+/* Display Typography - English */
+.text-display-1 {
+  font: var(--font-display-1-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-display-2 {
+  font: var(--font-display-2-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-display-3 {
+  font: var(--font-display-3-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Header Typography - English */
+.text-header-1 {
+  font: var(--font-header-1-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-header-2 {
+  font: var(--font-header-2-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-header-3 {
+  font: var(--font-header-3-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Sub-header Typography - English */
+.text-subheader-1 {
+  font: var(--font-subheader-1-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-subheader-2 {
+  font: var(--font-subheader-2-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Body Typography - English */
+.text-body-medium {
+  font: var(--font-body-medium-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-body-regular {
+  font: var(--font-body-regular-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Small Text - English */
+.text-small {
+  font: var(--font-small-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Captions - English */
+.text-captions {
+  font: var(--font-captions-mobile);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* === TAJAWAL (ARABIC) TYPOGRAPHY UTILITIES === */
+
+/* Display Typography - Arabic */
+.text-display-1-ar {
+  font: var(--font-display-1-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+.text-display-2-ar {
+  font: var(--font-display-2-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+.text-display-3-ar {
+  font: var(--font-display-3-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+/* Header Typography - Arabic */
+.text-header-1-ar {
+  font: var(--font-header-1-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+.text-header-2-ar {
+  font: var(--font-header-2-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+.text-header-3-ar {
+  font: var(--font-header-3-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+/* Sub-header Typography - Arabic */
+.text-subheader-1-ar {
+  font: var(--font-subheader-1-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+.text-subheader-2-ar {
+  font: var(--font-subheader-2-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+/* Body Typography - Arabic */
+.text-body-medium-ar {
+  font: var(--font-body-medium-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+.text-body-regular-ar {
+  font: var(--font-body-regular-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+/* Small Text - Arabic */
+.text-small-ar {
+  font: var(--font-small-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+/* Captions - Arabic */
+.text-captions-ar {
+  font: var(--font-captions-mobile-ar);
+  letter-spacing: var(--letter-spacing-tight);
+  direction: rtl;
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+/* Desktop styles (768px and up) */
+@media (min-width: 768px) {
+  /* Display Typography - English */
+  .text-display-1 {
+    font: var(--font-display-1-desktop);
+  }
+
+  .text-display-2 {
+    font: var(--font-display-2-desktop);
+  }
+
+  .text-display-3 {
+    font: var(--font-display-3-desktop);
+  }
+
+  /* Header Typography - English */
+  .text-header-1 {
+    font: var(--font-header-1-desktop);
+  }
+
+  .text-header-2 {
+    font: var(--font-header-2-desktop);
+  }
+
+  .text-header-3 {
+    font: var(--font-header-3-desktop);
+  }
+
+  /* Sub-header Typography - English */
+  .text-subheader-1 {
+    font: var(--font-subheader-1-desktop);
+  }
+
+  .text-subheader-2 {
+    font: var(--font-subheader-2-desktop);
+  }
+
+  /* Body Typography - English */
+  .text-body-medium {
+    font: var(--font-body-medium-desktop);
+  }
+
+  .text-body-regular {
+    font: var(--font-body-regular-desktop);
+  }
+
+  /* Small Text - English */
+  .text-small {
+    font: var(--font-small-desktop);
+  }
+
+  /* Captions - English */
+  .text-captions {
+    font: var(--font-captions-desktop);
+  }
+
+  /* Display Typography - Arabic */
+  .text-display-1-ar {
+    font: var(--font-display-1-desktop-ar);
+  }
+
+  .text-display-2-ar {
+    font: var(--font-display-2-desktop-ar);
+  }
+
+  .text-display-3-ar {
+    font: var(--font-display-3-desktop-ar);
+  }
+
+  /* Header Typography - Arabic */
+  .text-header-1-ar {
+    font: var(--font-header-1-desktop-ar);
+  }
+
+  .text-header-2-ar {
+    font: var(--font-header-2-desktop-ar);
+  }
+
+  .text-header-3-ar {
+    font: var(--font-header-3-desktop-ar);
+  }
+
+  /* Sub-header Typography - Arabic */
+  .text-subheader-1-ar {
+    font: var(--font-subheader-1-desktop-ar);
+  }
+
+  .text-subheader-2-ar {
+    font: var(--font-subheader-2-desktop-ar);
+  }
+
+  /* Body Typography - Arabic */
+  .text-body-medium-ar {
+    font: var(--font-body-medium-desktop-ar);
+  }
+
+  .text-body-regular-ar {
+    font: var(--font-body-regular-desktop-ar);
+  }
+
+  /* Small Text - Arabic */
+  .text-small-ar {
+    font: var(--font-small-desktop-ar);
+  }
+
+  /* Captions - Arabic */
+  .text-captions-ar {
+    font: var(--font-captions-desktop-ar);
+  }
+}
+
+/* === UTILITY CLASSES FOR MIXED CONTENT === */
+/* For elements that might need to switch between languages */
+.font-en {
+  font-family: var(--font-work-sans);
+  direction: ltr;
+}
+
+.font-ar {
+  font-family: var(--font-tajawal);
+  direction: rtl;
+}
+
+/* Letter spacing utility */
+.tracking-tight {
+  letter-spacing: var(--letter-spacing-tight);
 }
