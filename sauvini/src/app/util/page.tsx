@@ -17,8 +17,8 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <header className="font-work-sans text-header-1 p-4 text-center text-primary-500">
-        Sauvini Theme Demo
+      <header className="font-work-sans text-header-1 p-4 text-center">
+        Sauvini Theme DemoZ
       </header>
       <div className="flex flex-col gap-4 justify-center items-center mt-10">
         <div className="font-work-sans text-header-1">
