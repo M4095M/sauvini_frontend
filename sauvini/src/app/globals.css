@@ -1,6 +1,52 @@
 @import "tailwindcss";
 
 :root {
+  /* Black & White */
+  --black: #000000;
+  --white: #ffffff;
+
+  /* Neutral Colors */
+  --neutral-600: #1f1f1f;
+  --neutral-500: #464646;
+  --neutral-400: #7c7c7c;
+  --neutral-300: #bdbdbd;
+  --neutral-200: #eaeaea;
+  --neutral-100: #f8f8f8;
+
+  /* Primary Colors */
+  --primary-500: #0c1931;
+  --primary-400: #0f4cbe;
+  --primary-300: #1479ff;
+  --primary-200: #70b7ff;
+  --primary-100: #e6f3ff;
+
+  /* Second Color 01 */
+  --second01-200: #ffd427;
+  --second01-100: #fdecb2;
+
+  /* Second Color 02 */
+  --second02-200: #9663fe;
+  --second02-100: #dfd8ff;
+
+  /* Error */
+  --error-400: #dd3030;
+  --error-300: #ff4444;
+  --error-200: #ff6e6e;
+  --error-100: #ffecec;
+
+  /* Warning */
+  --warning-400: #ffbb33;
+  --warning-300: #ffca61;
+  --warning-200: #ffd98f;
+  --warning-100: #fff8ea;
+
+  /* Success */
+  --success-400: #00a844;
+  --success-300: #0aff6d;
+  --success-200: #67ffa4;
+  --success-100: #e9fff2;
+
+  /* Legacy compatibility */
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -23,4 +69,318 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =============================================================================
+   UTILITY CLASSES
+   Pre-built classes for the color system
+   ============================================================================= */
+
+/* === BACKGROUND UTILITIES === */
+.bg-black {
+  background-color: var(--black);
+}
+.bg-white {
+  background-color: var(--white);
+}
+
+/* Neutral backgrounds */
+.bg-neutral-600 {
+  background-color: var(--neutral-600);
+}
+.bg-neutral-500 {
+  background-color: var(--neutral-500);
+}
+.bg-neutral-400 {
+  background-color: var(--neutral-400);
+}
+.bg-neutral-300 {
+  background-color: var(--neutral-300);
+}
+.bg-neutral-200 {
+  background-color: var(--neutral-200);
+}
+.bg-neutral-100 {
+  background-color: var(--neutral-100);
+}
+
+/* Primary backgrounds */
+.bg-primary-500 {
+  background-color: var(--primary-500);
+}
+.bg-primary-400 {
+  background-color: var(--primary-400);
+}
+.bg-primary-300 {
+  background-color: var(--primary-300);
+}
+.bg-primary-200 {
+  background-color: var(--primary-200);
+}
+.bg-primary-100 {
+  background-color: var(--primary-100);
+}
+
+/* Second Color 01 backgrounds */
+.bg-second01-200 {
+  background-color: var(--second01-200);
+}
+.bg-second01-100 {
+  background-color: var(--second01-100);
+}
+
+/* Second Color 02 backgrounds */
+.bg-second02-200 {
+  background-color: var(--second02-200);
+}
+.bg-second02-100 {
+  background-color: var(--second02-100);
+}
+
+/* Error backgrounds */
+.bg-error-400 {
+  background-color: var(--error-400);
+}
+.bg-error-300 {
+  background-color: var(--error-300);
+}
+.bg-error-200 {
+  background-color: var(--error-200);
+}
+.bg-error-100 {
+  background-color: var(--error-100);
+}
+
+/* Warning backgrounds */
+.bg-warning-400 {
+  background-color: var(--warning-400);
+}
+.bg-warning-300 {
+  background-color: var(--warning-300);
+}
+.bg-warning-200 {
+  background-color: var(--warning-200);
+}
+.bg-warning-100 {
+  background-color: var(--warning-100);
+}
+
+/* Success backgrounds */
+.bg-success-400 {
+  background-color: var(--success-400);
+}
+.bg-success-300 {
+  background-color: var(--success-300);
+}
+.bg-success-200 {
+  background-color: var(--success-200);
+}
+.bg-success-100 {
+  background-color: var(--success-100);
+}
+
+/* === TEXT COLOR UTILITIES === */
+.text-black {
+  color: var(--black);
+}
+.text-white {
+  color: var(--white);
+}
+
+/* Neutral text colors */
+.text-neutral-600 {
+  color: var(--neutral-600);
+}
+.text-neutral-500 {
+  color: var(--neutral-500);
+}
+.text-neutral-400 {
+  color: var(--neutral-400);
+}
+.text-neutral-300 {
+  color: var(--neutral-300);
+}
+.text-neutral-200 {
+  color: var(--neutral-200);
+}
+.text-neutral-100 {
+  color: var(--neutral-100);
+}
+
+/* Primary text colors */
+.text-primary-500 {
+  color: var(--primary-500);
+}
+.text-primary-400 {
+  color: var(--primary-400);
+}
+.text-primary-300 {
+  color: var(--primary-300);
+}
+.text-primary-200 {
+  color: var(--primary-200);
+}
+.text-primary-100 {
+  color: var(--primary-100);
+}
+
+/* Second Color 01 text colors */
+.text-second01-200 {
+  color: var(--second01-200);
+}
+.text-second01-100 {
+  color: var(--second01-100);
+}
+
+/* Second Color 02 text colors */
+.text-second02-200 {
+  color: var(--second02-200);
+}
+.text-second02-100 {
+  color: var(--second02-100);
+}
+
+/* Error text colors */
+.text-error-400 {
+  color: var(--error-400);
+}
+.text-error-300 {
+  color: var(--error-300);
+}
+.text-error-200 {
+  color: var(--error-200);
+}
+.text-error-100 {
+  color: var(--error-100);
+}
+
+/* Warning text colors */
+.text-warning-400 {
+  color: var(--warning-400);
+}
+.text-warning-300 {
+  color: var(--warning-300);
+}
+.text-warning-200 {
+  color: var(--warning-200);
+}
+.text-warning-100 {
+  color: var(--warning-100);
+}
+
+/* Success text colors */
+.text-success-400 {
+  color: var(--success-400);
+}
+.text-success-300 {
+  color: var(--success-300);
+}
+.text-success-200 {
+  color: var(--success-200);
+}
+.text-success-100 {
+  color: var(--success-100);
+}
+
+/* === BORDER UTILITIES === */
+.border-black {
+  border-color: var(--black);
+}
+.border-white {
+  border-color: var(--white);
+}
+
+/* Neutral borders */
+.border-neutral-600 {
+  border-color: var(--neutral-600);
+}
+.border-neutral-500 {
+  border-color: var(--neutral-500);
+}
+.border-neutral-400 {
+  border-color: var(--neutral-400);
+}
+.border-neutral-300 {
+  border-color: var(--neutral-300);
+}
+.border-neutral-200 {
+  border-color: var(--neutral-200);
+}
+.border-neutral-100 {
+  border-color: var(--neutral-100);
+}
+
+/* Primary borders */
+.border-primary-500 {
+  border-color: var(--primary-500);
+}
+.border-primary-400 {
+  border-color: var(--primary-400);
+}
+.border-primary-300 {
+  border-color: var(--primary-300);
+}
+.border-primary-200 {
+  border-color: var(--primary-200);
+}
+.border-primary-100 {
+  border-color: var(--primary-100);
+}
+
+/* Second Color 01 borders */
+.border-second01-200 {
+  border-color: var(--second01-200);
+}
+.border-second01-100 {
+  border-color: var(--second01-100);
+}
+
+/* Second Color 02 borders */
+.border-second02-200 {
+  border-color: var(--second02-200);
+}
+.border-second02-100 {
+  border-color: var(--second02-100);
+}
+
+/* Error borders */
+.border-error-400 {
+  border-color: var(--error-400);
+}
+.border-error-300 {
+  border-color: var(--error-300);
+}
+.border-error-200 {
+  border-color: var(--error-200);
+}
+.border-error-100 {
+  border-color: var(--error-100);
+}
+
+/* Warning borders */
+.border-warning-400 {
+  border-color: var(--warning-400);
+}
+.border-warning-300 {
+  border-color: var(--warning-300);
+}
+.border-warning-200 {
+  border-color: var(--warning-200);
+}
+.border-warning-100 {
+  border-color: var(--warning-100);
+}
+
+/* Success borders */
+.border-success-400 {
+  border-color: var(--success-400);
+}
+.border-success-300 {
+  border-color: var(--success-300);
+}
+.border-success-200 {
+  border-color: var(--success-200);
+}
+.border-success-100 {
+  border-color: var(--success-100);
 }
