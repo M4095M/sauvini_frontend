@@ -1,0 +1,9 @@
+{
+  "about_us" : {
+    "title" : "À Propos de Nous",
+    "description" : "Nous sommes une équipe de développeurs passionnés qui s'efforcent d'offrir la meilleure expérience possible à nos utilisateurs. Nous croyons au pouvoir de la technologie pour améliorer la vie quotidienne."
+  },
+  "common" : {
+    "language": "Langue"
+  }
+}
