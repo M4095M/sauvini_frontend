@@ -1,7 +1,9 @@
 "use client";
+import Button from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { ThemeSwitcher, ThemeToggle } from "@/components/ui/theme-switcher";
 import { useLanguage } from "@/context/LanguageContext";
+import { Check } from "lucide-react";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -26,6 +28,18 @@ export default function Home() {
         </div>
         <div className="font-work-sans text-body-1">
           {t("about_us.description")}
+        </div>
+      </div>
+      <div className="font-work-sans mt-10">
+        <div className="flex flex-col gap-4 justify-center items-center">
+          <Button
+            state="filled"
+            size="M"
+            icon_position="left"
+            text="Log in"
+            disabled={false}
+            icon={<Check />}
+          />
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ export function LanguageSwitcher({ className = "" }: LanguageSwitcherProps) {
   const { language, setLanguage, t } = useLanguage();
 
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
+    <div className={`flex items-center gap-3  ${className}`}>
       <span className="text-sm font-medium">{t("common.language")}:</span>
       <select
         value={language}
