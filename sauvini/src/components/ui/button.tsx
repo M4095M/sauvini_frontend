@@ -44,7 +44,7 @@ export default function Button({
             `${prev} hover:bg-[#70B7FF14] ${
               disabled
                 ? "text-neutral-600 bg-neutral-200 cursor-not-allowed "
-                : "text-neutral-300 cursor-pointer"
+                : "text-primary-300 cursor-pointer"
             }`
         );
         break;
@@ -79,11 +79,13 @@ export default function Button({
       case "XL":
         setClassName(
           (prev) =>
-            `${prev} gap-4 h-[136px] text-3xl ${
-              icon_position === "icon-only"
-                ? "aspect-square p-12"
-                : "py-12 px-16"
-            } `
+            `${prev} gap-4 h-[136px] text-3xl
+               
+           ${
+             icon_position === "icon-only"
+               ? "aspect-square p-12"
+               : "py-12 px-16"
+           } `
         );
         break;
 
@@ -161,10 +163,24 @@ export default function Button({
 
   return (
     <button
-      className={`rounded-full flex justify-center items-center${className}`}
+      className={`rounded-full flex justify-center items-center w-full relative overflow-hidden group ${className}`}
     >
       <span>{icon}</span>
       <span>{text}</span>
+
+      {/* animate when button is pressed */}
+      <div className={`${activeButtonAnimationColor(state)}text-neutral-100 opacity-10`}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="248"
+          height="82"
+          viewBox="0 0 248 82"
+          fill="currentColor"
+          className="absolute left-1/2 top-full -translate-x-1/2 translate-y-0 group-active:top-1/2 group-active:-translate-y-1/2 transition-all duration-300 ease-in-out"
+        >
+          <path d="M248 9.14852V82H0C0 36.7126 76.0784 0 169.926 0C198.073 0 224.623 3.30257 248 9.14852Z" />
+        </svg>
+      </div>
     </button>
   );
 }
@@ -188,5 +204,28 @@ function returnElevationForSize(size: string): string {
 
     default:
       return "btn-elevation-1";
+  }
+}
+
+
+function activeButtonAnimationColor(style: string) {
+  switch (style) {
+    case "filled":
+      return "text-neutral-100";
+  
+    case "outlined":
+      return "text-neutral-600";
+
+    case "text":
+      return "text-neutral-300";
+
+    case "elevated":
+      return "text-neutral-300";
+    
+    case "tonal":
+      return "text-neutral-300";
+
+    default:
+      break;
   }
 }

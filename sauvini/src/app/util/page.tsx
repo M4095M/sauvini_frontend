@@ -13,7 +13,7 @@ export default function Home() {
   const { t } = useLanguage();
   return (
     <div className="min-h-screen">
-      <header className="w-full flex flex-row justify-around border-b border-neutral-200">
+      <header className="w-full flex flex-row flex-flex-wrap justify-around border-b border-neutral-200">
         <div className="font-work-sans text-subheader-1 p-4">Theme Demo</div>
         <div className="flex gap-4 justify-center items-center">
           <LanguageSwitcher />
@@ -36,14 +36,16 @@ export default function Home() {
       </div>
       <div className="font-work-sans mt-10">
         <div className="flex flex-col flex-flex-wrap gap-10 justify-center items-center mb-10">
-          <Button
-            state="filled"
-            size="M"
-            icon_position="left"
-            text="Log in"
-            disabled={false}
-            icon={<Check />}
-          />
+          <div className="flex flex-row  gap-10">
+            <Button
+              state="text"
+              size="M"
+              icon_position="left"
+              text="Log in"
+              disabled={false}
+              icon={<Check />}
+            />
+          </div>
           <AuthRoleCard
             user={"Student"}
             benefits={[
