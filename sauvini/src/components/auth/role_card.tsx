@@ -11,7 +11,7 @@ export default function AuthRoleCard({
   const [selected, setSelected] = useState(false);
   return (
     <div
-      className={`w-72 h-52 rounded-3xl flex flex-col gap-2 cursor-pointer transition-all duration-200
+      className={`w-72 h-52 rounded-3xl flex flex-col  cursor-pointer transition-all duration-200
         hover:shadow-[0px_4px_9px_0px_rgba(0,0,0,0.1)]
         active:bg-second01-100 active:border-primary-300 
         ${
@@ -21,7 +21,7 @@ export default function AuthRoleCard({
         }`}
       onClick={() => setSelected(!selected)}
     >
-      <RadioButton state={selected ? "clicked" : "default"}  color="primary-300"/>
+      <RadioButton state={selected ? "clicked" : "default"}/>
       {/* ...existing code... */}
       <div className="flex flex-col gap-4 justify-center items-start ml-6 ">
         <div className="flex justify-center items-center gap-2">
