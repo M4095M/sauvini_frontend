@@ -1,4 +1,6 @@
 "use client";
+import AuthRoleCard from "@/components/auth/role_card";
+import InputButton from "@/components/input/InputButton";
 import Button from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { ThemeSwitcher, ThemeToggle } from "@/components/ui/theme-switcher";
@@ -31,7 +33,7 @@ export default function Home() {
         </div>
       </div>
       <div className="font-work-sans mt-10">
-        <div className="flex flex-col gap-4 justify-center items-center">
+        <div className="flex flex-rol gap-4 justify-center items-center">
           <Button
             state="filled"
             size="M"
@@ -40,6 +42,16 @@ export default function Home() {
             disabled={false}
             icon={<Check />}
           />
+          <AuthRoleCard
+            user={"Student"}
+            benefits={[
+              "Learn with videos & notes",
+              "Track your progress",
+              "Ask professors directly",
+            ]}
+            icon={<Check />}
+          />
+          <InputButton label={"Label"} type="plus-minus" />
         </div>
       </div>
     </div>
