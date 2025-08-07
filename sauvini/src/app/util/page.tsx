@@ -38,7 +38,7 @@ export default function Home() {
         <div className="flex flex-col flex-flex-wrap gap-10 justify-center items-center mb-10">
           <div className="flex flex-row  gap-10">
             <Button
-              state="text"
+              state="tonal"
               size="M"
               icon_position="left"
               text="Log in"
