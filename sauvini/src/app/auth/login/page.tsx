@@ -34,8 +34,7 @@ return (
   <div
     className="min-h-screen flex items-center justify-center px-4 sm:px-0"
     style={{
-      background:
-        "radial-gradient(221.6% 141.42% at 0% 0%, #DFFEC9 0%, #DFD8FF 100%)",
+      background: "radial-gradient(221.6% 141.42% at 0% 0%, var(--Gradient-Main-Left, #E6F5DB) 0%, var(--Gradient-Main-Right, #FEF9E6) 100%)",
       direction: isRTL ? "rtl" : "ltr",
     }}
   >
@@ -46,6 +45,7 @@ return (
         width: "1200px",
         height: "700px",
         borderRadius: "80px",
+        border: "4px solid var(--Component-Primary, #06A64C)",
         background: "#F8F8F8",
         position: "relative",
       }}
@@ -89,7 +89,7 @@ return (
             style={{
               width: "390px",
               height: "86px",
-              top: "180px",
+              top: "140px",
               left: isRTL ? undefined : "101px",
               right: isRTL ? "101px" : undefined,
               gap: "8px",
@@ -107,7 +107,7 @@ return (
             style={{
               width: "390px",
               height: "353px",
-              top: "320px",
+              top: "260px",
               left: isRTL ? undefined : "101px",
               right: isRTL ? "101px" : undefined,
             }}
@@ -298,7 +298,7 @@ return (
 
               <div style={{ textAlign: isRTL ? "right" : "left" }}>
                 <Link
-                  href="/forgot-password"
+                  href="/auth/forgot-password"
                   className="text-sm font-medium text-[#06A64C] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
                 >
                   {t("auth.login.forgotPassword")}
