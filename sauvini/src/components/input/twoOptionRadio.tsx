@@ -1,3 +1,5 @@
+"use client"
+
 import { twoOptionRadioProps } from "@/types/twoOptionRadioProps";
 import RadioButton from "../ui/radio-button";
 import React from "react";

@@ -1,3 +1,5 @@
+"use client"
+
 import { InputButtonProps } from "@/types/inputButton";
 import { useState } from "react";
 

@@ -3,15 +3,15 @@
 import { SimpleInputProps } from "@/types/simpleInput";
 import { useRef } from "react";
 
-export default function SimpleInput({ label, value }: SimpleInputProps) {
+export default function SimpleInput({ label, value, type }: SimpleInputProps) {
   const firstName = useRef<HTMLInputElement>(null);
   return (
-    <div className="max-w-xl min-w-2xs w-full flex flex-col gap-2">
+    <div className="max-w-xl min-w-2xs shrink grow flex flex-col gap-2">
       <div className="font-work-sans text-neutral-600 font-normal px-4">
         {label}
       </div>
       <input
-        type="text"
+        type={type}
         name={value}
         ref={firstName}
         className="appearance-none outline-[var(--primary-200)] p-0 m-0 shadow-none 

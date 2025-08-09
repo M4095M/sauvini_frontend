@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function RegisterPage() {
   return (
-    <div className="w-full h-full p-10 flex flex-col justify-center items-center gap-10 mt-10">
+    <div className="w-full h-full p-10 flex flex-col justify-center items-center gap-10 mt-14">
       {/* header */}
       <div className="flex flex-col justify-center items-center gap-3">
         <span className="font-work-sans font-semibold lg:text-4xl text-neutral-600 text-center text-2xl">
