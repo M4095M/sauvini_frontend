@@ -15,7 +15,6 @@ export default function ResetPasswordPage() {
   const [showNewPw, setShowNewPw] = useState(false)
   const [showConfirmPw, setShowConfirmPw] = useState(false)
   const [success, setSuccess] = useState(false)
-
   const { t, language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
 
@@ -29,7 +28,7 @@ export default function ResetPasswordPage() {
     setSuccess(true)
   }
 
-  // Success content 
+  // Success content
   const SuccessContent = ({ className = "" }: { className?: string }) => (
     <div className={`flex flex-col items-center text-center ${className}`}>
       <div
@@ -39,18 +38,15 @@ export default function ResetPasswordPage() {
       >
         <Check className="w-14 h-14 text-white" />
       </div>
-
       <h2 className="mt-8 text-2xl sm:text-3xl font-extrabold" style={{ color: "var(--primary-300)" }}>
         {t("auth.reset.successTitle") || "Password Changed Successfully!"}
       </h2>
-
       <p className="mt-4 text-gray-600 max-w-md">
         {t("auth.reset.successBody") ||
           "Your password has been reset successfully. You can now log in with your new password."}
       </p>
-
       <div className="mt-8">
-        <Link href="/login" className="block">
+        <Link href="/auth/login" className="block">
           <Button state="filled" size="M" icon_position="none" text={t("auth.reset.successCta") || "Go to Login"} />
         </Link>
       </div>
@@ -58,14 +54,7 @@ export default function ResetPasswordPage() {
   )
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center px-4 sm:px-0"
-      style={{
-        background:
-          "radial-gradient(221.6% 141.42% at 0% 0%, var(--Gradient-Main-Left, #E6F5DB) 0%, var(--Gradient-Main-Right, #FEF9E6) 100%)",
-        direction: isRTL ? "rtl" : "ltr",
-      }}
-    >
+    <>
       {/* DESKTOP Layout */}
       <div
         className="hidden lg:block overflow-hidden shadow-2xl"
@@ -90,7 +79,7 @@ export default function ResetPasswordPage() {
           }}
         >
           {success ? (
-            // SUCCESS: 
+            // SUCCESS:
             <div className="relative w-full h-full">
               {/* S Logo */}
               <div
@@ -119,10 +108,10 @@ export default function ResetPasswordPage() {
               </div>
             </div>
           ) : (
-            // DEFAULT: 
+            // DEFAULT:
             <div className="flex justify-between w-full h-full">
               {/* Content Panel */}
-              <div className="relative" style={{ width: "592px", height: "660px", order: isRTL ? 2 as any : 1 as any }}>
+              <div className="relative" style={{ width: "592px", height: "660px", order: (isRTL ? 2 : 1) as any }}>
                 {/* S Logo */}
                 <div
                   className="absolute flex items-center justify-center"
@@ -170,13 +159,11 @@ export default function ResetPasswordPage() {
                       label={t("auth.reset.newPassword") || "New password"}
                       value="newPassword"
                     />
-
                     {/* Confirm password */}
                     <SimpleInput
                       label={t("auth.reset.confirmPassword") || "Confirm new password"}
                       value="confirmPassword"
                     />
-
                     {/* Submit */}
                     <div className="pt-3">
                       <Button
@@ -304,12 +291,10 @@ export default function ResetPasswordPage() {
                       label={t("auth.reset.newPassword") || "Password"}
                       value="newPassword"
                     />
-
                     <SimpleInput
                       label={t("auth.reset.confirmPassword") || "Confirm password"}
                       value="confirmPassword"
                     />
-
                     <div className="pt-4 sm:pt-2">
                       <Button
                         state="filled"
@@ -330,6 +315,6 @@ export default function ResetPasswordPage() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

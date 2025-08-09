@@ -1,9 +1,10 @@
 "use client"
 
-import React, { useState } from "react"
+import type React from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft } from "lucide-react"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
 import Button from "@/components/ui/button"
 import SimpleInput from "@/components/input/simpleInput"
@@ -33,14 +34,7 @@ export default function VerifyCodePage() {
   }
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center px-4 sm:px-0"
-      style={{
-        background:
-          "radial-gradient(221.6% 141.42% at 0% 0%, var(--Gradient-Main-Left, #E6F5DB) 0%, var(--Gradient-Main-Right, #FEF9E6) 100%)",
-        direction: isRTL ? "rtl" : "ltr",
-      }}
-    >
+    <>
       {/* DESKTOP Layout */}
       <div
         className="hidden lg:block overflow-hidden shadow-2xl"
@@ -66,10 +60,7 @@ export default function VerifyCodePage() {
           }}
         >
           {/* Content Panel */}
-          <div
-            className={`relative ${isRTL ? "order-2" : "order-1"}`}
-            style={{ width: "592px", height: "660px" }}
-          >
+          <div className={`relative ${isRTL ? "order-2" : "order-1"}`} style={{ width: "592px", height: "660px" }}>
             {/* S Logo */}
             <div
               className="absolute flex items-center justify-center"
@@ -93,15 +84,12 @@ export default function VerifyCodePage() {
                 right: isRTL ? "86px" : undefined,
               }}
             >
-              <h1 className="text-4xl font-bold text-gray-900 mb-3">
-                {t("auth.verify.title") || "Check Your Email"}
-              </h1>
+              <h1 className="text-4xl font-bold text-gray-900 mb-3">{t("auth.verify.title") || "Check Your Email"}</h1>
               <p className="text-gray-600 text-lg mb-1">
                 {t("auth.verify.subtitle") || "Enter the 6-digit code we sent you"}
               </p>
               <p className="text-gray-500 text-sm">
-                {t("auth.verify.helper") ||
-                  "Didn't receive it? Check your spam folder or request a new code"}
+                {t("auth.verify.helper") || "Didn't receive it? Check your spam folder or request a new code"}
               </p>
             </div>
 
@@ -115,18 +103,15 @@ export default function VerifyCodePage() {
                 right: isRTL ? "86px" : undefined,
               }}
             >
-              <SimpleInput
-                label={t("auth.verify.email") || "Email"}
-                value="Example@gmail.com"
-              />
+              <SimpleInput label={t("auth.verify.email") || "Email"} value="Example@gmail.com" />
             </div>
 
-            {/* OTP Input (shadcn)*/}
+            {/* OTP Input */}
             <div
               className="absolute"
               style={{
                 width: "420px",
-                top: "360px", 
+                top: "360px",
                 left: isRTL ? undefined : "86px",
                 right: isRTL ? "86px" : undefined,
               }}
@@ -167,7 +152,7 @@ export default function VerifyCodePage() {
                 </InputOTP>
               </div>
 
-              {/* Resend Code Link  */}
+              {/* Resend Code Link */}
               <div className={`${isRTL ? "text-left" : "text-right"}`}>
                 <button
                   onClick={handleResendCode}
@@ -208,9 +193,7 @@ export default function VerifyCodePage() {
                       size="M"
                       icon_position="none"
                       text={
-                        isLoading
-                          ? t("common.verifying") || "Verifying..."
-                          : t("auth.verify.button") || "Verify Code"
+                        isLoading ? t("common.verifying") || "Verifying..." : t("auth.verify.button") || "Verify Code"
                       }
                       disabled={isLoading || code.length < 6}
                     />
@@ -238,10 +221,7 @@ export default function VerifyCodePage() {
             }}
           >
             {/* Language Switcher */}
-            <div
-              className="absolute z-20"
-              style={{ top: "24px", ...(isRTL ? { left: "24px" } : { right: "24px" }) }}
-            >
+            <div className="absolute z-20" style={{ top: "24px", ...(isRTL ? { left: "24px" } : { right: "24px" }) }}>
               <LanguageSwitcher className="flex items-center gap-2" />
             </div>
 
@@ -270,12 +250,7 @@ export default function VerifyCodePage() {
                 ...(isRTL ? { left: "32px" } : { right: "32px" }),
               }}
             >
-              <Image
-                src="/your_future_starts_here.svg"
-                alt="Your Future Starts Here"
-                width={96}
-                height={96}
-              />
+              <Image src="/your_future_starts_here.svg" alt="Your Future Starts Here" width={96} height={96} />
             </div>
           </div>
         </div>
@@ -308,24 +283,18 @@ export default function VerifyCodePage() {
 
             {/* Text */}
             <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? "text-right" : "text-left"}`}>
-              <h1 className="text-3xl font-bold text-gray-900 mb-3">
-                {t("auth.verify.title") || "Check Your Email"}
-              </h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-3">{t("auth.verify.title") || "Check Your Email"}</h1>
               <p className="text-gray-600 text-base sm:text-lg">
                 {t("auth.verify.subtitle") || "Enter the 6-digit code we sent you"}
               </p>
               <p className="text-gray-500 text-sm mt-2">
-                {t("auth.verify.helper") ||
-                  "Didn't receive it? Check your spam folder or request a new code"}
+                {t("auth.verify.helper") || "Didn't receive it? Check your spam folder or request a new code"}
               </p>
             </div>
 
             {/* Email InputButton */}
             <div className="px-5 sm:px-6 mt-6">
-              <SimpleInput
-                label={t("auth.verify.email") || "Email"}
-                value="Example@gmail.com"
-              />
+              <SimpleInput label={t("auth.verify.email") || "Email"} value="Example@gmail.com" />
             </div>
 
             {/* OTP */}
@@ -387,7 +356,6 @@ export default function VerifyCodePage() {
                     text={t("common.back") || "Back"}
                   />
                 </Link>
-
                 <form onSubmit={handleVerify}>
                   <Link href="/auth/forgot-password/reset-password">
                     <Button
@@ -395,9 +363,7 @@ export default function VerifyCodePage() {
                       size="M"
                       icon_position="none"
                       text={
-                        isLoading
-                          ? t("common.verifying") || "Verifying..."
-                          : t("auth.verify.button") || "Verify Code"
+                        isLoading ? t("common.verifying") || "Verifying..." : t("auth.verify.button") || "Verify Code"
                       }
                       disabled={isLoading || code.length < 6}
                     />
@@ -408,6 +374,6 @@ export default function VerifyCodePage() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

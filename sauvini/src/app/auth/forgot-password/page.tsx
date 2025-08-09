@@ -26,14 +26,7 @@ export default function ForgotPasswordPage() {
   }
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center px-4 sm:px-0"
-      style={{
-        background:
-          "radial-gradient(221.6% 141.42% at 0% 0%, var(--Gradient-Main-Left, #E6F5DB) 0%, var(--Gradient-Main-Right, #FEF9E6) 100%)",
-        direction: isRTL ? "rtl" : "ltr",
-      }}
-    >
+    <>
       {/* DESKTOP Layout */}
       <div
         className="hidden lg:block overflow-hidden shadow-2xl"
@@ -101,7 +94,7 @@ export default function ForgotPasswordPage() {
               className="absolute"
               style={{
                 width: "420px",
-                top: "320px", 
+                top: "320px",
                 ...(isRTL ? { right: "86px" } : { left: "86px" }),
               }}
             >
@@ -132,18 +125,22 @@ export default function ForgotPasswordPage() {
                   />
                 </Link>
 
-                {/* Next as submit*/}
+                {/* Next as submit */}
                 <form onSubmit={handleNext}>
-                    <Link href="/auth/forgot-password/verify-code">
-                        <Button
-                            state="filled"
-                            size="M"
-                            icon_position="right"
-                            icon={<ChevronRight className="w-4 h-4" />}
-                            text={isLoading ? (t("common.nexting") || "Next") : (t("common.next") || "Next")}
-                            disabled={isLoading}
-                        />
-                    </Link>
+                  <Link href="/auth/forgot-password/verify-code">
+                    <Button
+                      state="filled"
+                      size="M"
+                      icon_position="right"
+                      icon={<ChevronRight className="w-4 h-4" />}
+                      text={
+                        isLoading
+                          ? (t("common.nexting") || "Next")
+                          : (t("common.next") || "Next")
+                      }
+                      disabled={isLoading}
+                    />
+                  </Link>
                 </form>
               </div>
             </div>
@@ -151,19 +148,19 @@ export default function ForgotPasswordPage() {
 
           {/* Branding Panel */}
           <div
-          className={`flex flex-col justify-center items-center text-white relative overflow-hidden ${isRTL ? "order-1" : "order-2"}`}
-          style={{
-            width: "572px",
-            height: "660px",
-            backgroundImage: "url('/login_frame.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            ...(isRTL
-              ? { borderTopLeftRadius: "64px", borderBottomLeftRadius: "64px" }
-              : { borderTopRightRadius: "64px", borderBottomRightRadius: "64px" }),
-          }}
-        >
+            className={`flex flex-col justify-center items-center text-white relative overflow-hidden ${isRTL ? "order-1" : "order-2"}`}
+            style={{
+              width: "572px",
+              height: "660px",
+              backgroundImage: "url('/login_frame.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              ...(isRTL
+                ? { borderTopLeftRadius: "64px", borderBottomLeftRadius: "64px" }
+                : { borderTopRightRadius: "64px", borderBottomRightRadius: "64px" }),
+            }}
+          >
             {/* Language Switcher */}
             <div
               className="absolute z-20"
@@ -233,8 +230,7 @@ export default function ForgotPasswordPage() {
               <LanguageSwitcher className="flex items-center gap-2 scale-90 sm:scale-100" />
             </div>
 
-
-            <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? 'text-right' : 'text-left'}`}>
+            <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? "text-right" : "text-left"}`}>
               <h1 className="text-3xl font-bold text-gray-900 mb-3">
                 {t("auth.forgot.title") || "Forgot Your Password?"}
               </h1>
@@ -263,17 +259,20 @@ export default function ForgotPasswordPage() {
                     text={t("common.back") || "Back"}
                   />
                 </Link>
-
                 <form onSubmit={handleNext}>
-                    <Link href="/auth/forgot-password/verify-code">
-                        <Button
-                            state="filled"
-                            size="M"
-                            icon_position="right"
-                            icon={<ChevronRight className="w-4 h-4" />}
-                            text={isLoading ? (t("common.nexting") || "Next") : (t("common.next") || "Next")}
-                            disabled={isLoading}
-                        />
+                  <Link href="/auth/forgot-password/verify-code">
+                    <Button
+                      state="filled"
+                      size="M"
+                      icon_position="right"
+                      icon={<ChevronRight className="w-4 h-4" />}
+                      text={
+                        isLoading
+                          ? (t("common.nexting") || "Next")
+                          : (t("common.next") || "Next")
+                      }
+                      disabled={isLoading}
+                    />
                   </Link>
                 </form>
               </div>
@@ -281,6 +280,6 @@ export default function ForgotPasswordPage() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
