@@ -1,3 +1,5 @@
+"use client";
+
 import { AuthRoleCardProps } from "@/types/auth-role-card";
 import RadioButton from "../ui/radio-button";
 import { Check } from "lucide-react";
@@ -11,7 +13,7 @@ export default function AuthRoleCard({
   const [selected, setSelected] = useState(false);
   return (
     <div
-      className={`max-w-72 w-full min-w-44 h-52 rounded-3xl flex flex-col  cursor-pointer transition-all duration-200
+      className={`max-w-72 w-full min-w-48 h-52 rounded-3xl flex flex-col  cursor-pointer transition-all duration-200
         hover:shadow-[0px_4px_9px_0px_rgba(0,0,0,0.1)]
         active:bg-second01-100 active:border-primary-300 
         ${
@@ -19,12 +21,17 @@ export default function AuthRoleCard({
             ? "border-2 border-primary-300 bg-neutral-200 hover:bg-neutral-300"
             : "bg-neutral-100 border border-neutral-300 hover:bg-white"
         }`}
-      onClick={() => setSelected(!selected)}
+      onClick={() => {
+        setSelected(!selected);
+      }}
     >
-      <RadioButton state={selected ? "clicked" : "default"} onClick={undefined}/>
+      <RadioButton
+        state={selected ? "clicked" : "default"}
+        onClick={undefined}
+      />
       <div className="flex flex-col gap-4 justify-center items-start ml-6 ">
         <div className="flex justify-center items-center gap-2">
-          <span className="w-10 h-10 rounded-[50%] bg-second01-100 flex justify-center items-center text-second01-200">
+          <span className="w-10 h-10 rounded-[50%] flex justify-center items-center">
             {icon}
           </span>
           <span className="font-work-sans font-medium md:text-2xl text-xl text-primary-500">
