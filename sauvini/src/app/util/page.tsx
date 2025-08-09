@@ -38,7 +38,7 @@ export default function Home() {
         <div className="flex flex-col flex-flex-wrap gap-10 justify-center items-center mb-10">
           <div className="flex flex-row  gap-10">
             <Button
-              state="tonal"
+              state="outlined"
               size="M"
               icon_position="left"
               text="Log in"
@@ -65,7 +65,7 @@ export default function Home() {
           <Alert
             title={"This is a message"}
             description={"This is a supporting message "}
-            type={"success"}
+            type={"warning"}
           />
         </div>
       </div>

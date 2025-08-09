@@ -30,7 +30,7 @@ export default function Button({
       case "outlined":
         setClassName(
           (prev) =>
-            `${prev} border-2 border-primary-500 text-primary-500 hover:bg-[#49454F14] ${
+            `${prev} border-2 border-primary-400 text-primary-400 hover:bg-[#49454F14] ${
               disabled
                 ? "text-neutral-600 bg-neutral-200 cursor-not-allowed "
                 : "text-primary-500 cursor-pointer"
@@ -163,7 +163,7 @@ export default function Button({
 
   return (
     <button
-      className={`rounded-full flex justify-center items-center w-full relative overflow-hidden group ${className}`}
+      className={`rounded-full flex justify-center  items-center w-full relative overflow-hidden group ${className}`}
     >
       <span>{icon}</span>
       <span>{text}</span>
