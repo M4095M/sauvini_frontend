@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Eye, EyeOff, Check } from 'lucide-react'
 import Button from "@/components/ui/button"
-import InputButton from "@/components/input/InputButton"
+import SimpleInput from "@/components/input/simpleInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
@@ -35,12 +35,12 @@ export default function ResetPasswordPage() {
       <div
         aria-hidden="true"
         className="flex items-center justify-center rounded-full"
-        style={{ width: "120px", height: "120px", background: "#06A64C" }}
+        style={{ width: "120px", height: "120px", background: "var(--primary-300)" }}
       >
         <Check className="w-14 h-14 text-white" />
       </div>
 
-      <h2 className="mt-8 text-2xl sm:text-3xl font-extrabold" style={{ color: "#06A64C" }}>
+      <h2 className="mt-8 text-2xl sm:text-3xl font-extrabold" style={{ color: "var(--primary-300)" }}>
         {t("auth.reset.successTitle") || "Password Changed Successfully!"}
       </h2>
 
@@ -74,7 +74,7 @@ export default function ResetPasswordPage() {
           height: "700px",
           borderRadius: "80px",
           border: "4px solid var(--Component-Primary, #06A64C)",
-          background: "#F8F8F8",
+          background: "var(--neutral-100)",
           position: "relative",
         }}
       >
@@ -164,37 +164,17 @@ export default function ResetPasswordPage() {
                     right: isRTL ? "86px" : undefined,
                   }}
                 >
-                  <form onSubmit={handleReset} className="flex flex-col gap-12">
+                  <form onSubmit={handleReset} className="flex flex-col gap-6">
                     {/* New password */}
-                    <InputButton
+                    <SimpleInput
                       label={t("auth.reset.newPassword") || "New password"}
-                      type="icon"
-                      icon={
-                        <button
-                          type="button"
-                          aria-label={showNewPw ? "Hide password" : "Show password"}
-                          onClick={() => setShowNewPw((s) => !s)}
-                          className="p-1 rounded-md hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-                        >
-                          {showNewPw ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                        </button>
-                      }
+                      value="newPassword"
                     />
 
                     {/* Confirm password */}
-                    <InputButton
+                    <SimpleInput
                       label={t("auth.reset.confirmPassword") || "Confirm new password"}
-                      type="icon"
-                      icon={
-                        <button
-                          type="button"
-                          aria-label={showConfirmPw ? "Hide password" : "Show password"}
-                          onClick={() => setShowConfirmPw((s) => !s)}
-                          className="p-1 rounded-md hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-                        >
-                          {showConfirmPw ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                        </button>
-                      }
+                      value="confirmPassword"
                     />
 
                     {/* Submit */}
@@ -283,7 +263,7 @@ export default function ResetPasswordPage() {
           style={{
             height: "calc(100dvh - 54px)",
             borderRadius: "52px 52px 0 0",
-            background: "#F8F8F8",
+            background: "var(--neutral-100)",
           }}
         >
           <div
@@ -319,35 +299,15 @@ export default function ResetPasswordPage() {
 
                 {/* Form */}
                 <div className="px-5 sm:px-6 mt-10">
-                  <form onSubmit={handleReset} className="space-y-12 sm:space-y-7">
-                    <InputButton
+                  <form onSubmit={handleReset} className="space-y-6 sm:space-y-7">
+                    <SimpleInput
                       label={t("auth.reset.newPassword") || "Password"}
-                      type="icon"
-                      icon={
-                        <button
-                          type="button"
-                          aria-label={showNewPw ? "Hide password" : "Show password"}
-                          onClick={() => setShowNewPw((s) => !s)}
-                          className="p-1 rounded-md hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-                        >
-                          {showNewPw ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                        </button>
-                      }
+                      value="newPassword"
                     />
 
-                    <InputButton
+                    <SimpleInput
                       label={t("auth.reset.confirmPassword") || "Confirm password"}
-                      type="icon"
-                      icon={
-                        <button
-                          type="button"
-                          aria-label={showConfirmPw ? "Hide password" : "Show password"}
-                          onClick={() => setShowConfirmPw((s) => !s)}
-                          className="p-1 rounded-md hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-                        >
-                          {showConfirmPw ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                        </button>
-                      }
+                      value="confirmPassword"
                     />
 
                     <div className="pt-4 sm:pt-2">

@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Button from "@/components/ui/button"
-import InputButton from "@/components/input/InputButton"
+import SimpleInput from "@/components/input/simpleInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
@@ -42,7 +42,7 @@ export default function ForgotPasswordPage() {
           height: "700px",
           borderRadius: "80px",
           border: "4px solid var(--Component-Primary, #06A64C)",
-          background: "#F8F8F8",
+          background: "var(--neutral-100)",
           position: "relative",
         }}
       >
@@ -106,7 +106,7 @@ export default function ForgotPasswordPage() {
               }}
             >
               <div style={{ direction: isRTL ? "rtl" : "ltr" }}>
-                <InputButton label={t("auth.forgot.email") || "Email"} type="icon" icon={null} />
+                <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" />
               </div>
             </div>
 
@@ -215,7 +215,7 @@ export default function ForgotPasswordPage() {
           style={{
             height: "calc(100dvh - 54px)",
             borderRadius: "52px 52px 0 0",
-            background: "#F8F8F8",
+            background: "var(--neutral-100)",
           }}
         >
           <div
@@ -248,7 +248,7 @@ export default function ForgotPasswordPage() {
 
             {/* Email */}
             <div className="px-5 sm:px-6 mt-10 sm:mt-12" style={{ direction: isRTL ? "rtl" : "ltr" }}>
-              <InputButton label={t("auth.forgot.email") || "Email"} type="icon" icon={null} />
+              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" />
             </div>
 
             {/* Buttons */}

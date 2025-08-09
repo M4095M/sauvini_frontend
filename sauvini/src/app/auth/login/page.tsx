@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Eye, EyeOff } from 'lucide-react'
 import Button from "@/components/ui/button"
-import InputButton from "@/components/input/InputButton"
+import SimpleInput from "@/components/input/simpleInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
@@ -46,7 +46,7 @@ return (
         height: "700px",
         borderRadius: "80px",
         border: "4px solid var(--Component-Primary, #06A64C)",
-        background: "#F8F8F8",
+        background: "var(--neutral-100)",
         position: "relative",
       }}
     >
@@ -114,32 +114,20 @@ return (
           >
             <form onSubmit={handleLogin} className="flex flex-col" style={{ gap: "6px" }}>
               {/* Email */}
-              <div className="mb-6">
-                <InputButton label={t("auth.login.email")} type="icon" icon={null} />
+              <div className="mb-4">
+                <SimpleInput label={t("auth.login.email")} value="email" />
               </div>
 
               {/* Password */}
               <div className="mb-4">
-                <InputButton
-                  label={t("auth.login.password")}
-                  type="icon"
-                  icon={
-                    <button
-                      type="button"
-                      aria-label={showPassword ? "Hide password" : "Show password"}
-                      onClick={() => setShowPassword((s) => !s)}
-                    >
-                      {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                    </button>
-                  }
-                />
+                <SimpleInput label={t("auth.login.password")} value="password" />
               </div>
 
               {/* Forgot password link */}
-              <div className={`mb-6 mt-4 ${isRTL ? "text-left" : "text-right"}`}>
+              <div className={`mb-6 ${isRTL ? "text-left" : "text-right"}`}>
                 <Link
                   href="/auth/forgot-password"
-                  className="text-sm font-medium text-[#06A64C] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
+                  className="text-sm font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
                 >
                   {t("auth.login.forgotPassword")}
                 </Link>
@@ -161,7 +149,7 @@ return (
                 <span className="text-gray-600">{t("auth.login.noAccount")} </span>
                 <Link
                   href="/signup/choose-role"
-                  className="font-medium text-[#06A64C] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
+                  className="font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
                 >
                   {t("auth.login.signUp")}
                 </Link>
@@ -244,7 +232,7 @@ return (
         style={{
           height: "calc(100dvh - 54px)",
           borderRadius: "52px 52px 0 0",
-          background: "#F8F8F8",
+          background: "var(--neutral-100)",
         }}
       >
         <div
@@ -276,30 +264,17 @@ return (
           <div className="px-5 sm:px-6 mt-10 sm:mt-12">
             <form onSubmit={handleLogin} className="space-y-8 sm:space-y-9">
               <div>
-                <InputButton label={t("auth.login.email")} type="icon" icon={null} />
+                <SimpleInput label={t("auth.login.email")} value="email" />
               </div>
 
               <div>
-                <InputButton
-                  label={t("auth.login.password")}
-                  type="icon"
-                  icon={
-                    <button
-                      type="button"
-                      aria-label={showPassword ? "Hide password" : "Show password"}
-                      onClick={() => setShowPassword((s) => !s)}
-                      className="p-1 rounded-md hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-                    >
-                      {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                    </button>
-                  }
-                />
+                <SimpleInput label={t("auth.login.password")} value="password" />
               </div>
 
               <div style={{ textAlign: isRTL ? "right" : "left" }}>
                 <Link
                   href="/auth/forgot-password"
-                  className="text-sm font-medium text-[#06A64C] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
+                  className="text-sm font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
                 >
                   {t("auth.login.forgotPassword")}
                 </Link>
@@ -319,7 +294,7 @@ return (
                 <span className="text-gray-600">{t("auth.login.noAccount")} </span>
                 <Link
                   href="/signup/choose-role"
-                  className="font-medium text-[#06A64C] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
+                  className="font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
                 >
                   {t("auth.login.signUp")}
                 </Link>

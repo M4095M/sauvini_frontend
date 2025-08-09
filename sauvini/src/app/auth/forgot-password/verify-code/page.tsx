@@ -6,7 +6,7 @@ import Link from "next/link"
 import { ChevronLeft } from 'lucide-react'
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
 import Button from "@/components/ui/button"
-import InputButton from "@/components/input/InputButton"
+import SimpleInput from "@/components/input/simpleInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
@@ -49,7 +49,7 @@ export default function VerifyCodePage() {
           height: "700px",
           borderRadius: "80px",
           border: "4px solid var(--Component-Primary, #06A64C)",
-          background: "#F8F8F8",
+          background: "var(--neutral-100)",
           position: "relative",
         }}
       >
@@ -115,10 +115,9 @@ export default function VerifyCodePage() {
                 right: isRTL ? "86px" : undefined,
               }}
             >
-              <InputButton
+              <SimpleInput
                 label={t("auth.verify.email") || "Email"}
-                type="icon"
-                icon={null}
+                value="Example@gmail.com"
               />
             </div>
 
@@ -289,7 +288,7 @@ export default function VerifyCodePage() {
           style={{
             height: "calc(100dvh - 54px)",
             borderRadius: "52px 52px 0 0",
-            background: "#F8F8F8",
+            background: "var(--neutral-100)",
           }}
         >
           <div
@@ -323,10 +322,9 @@ export default function VerifyCodePage() {
 
             {/* Email InputButton */}
             <div className="px-5 sm:px-6 mt-6">
-              <InputButton
+              <SimpleInput
                 label={t("auth.verify.email") || "Email"}
-                type="icon"
-                icon={null}
+                value="Example@gmail.com"
               />
             </div>
 
