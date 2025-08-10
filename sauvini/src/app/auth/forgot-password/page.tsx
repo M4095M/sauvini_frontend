@@ -37,7 +37,7 @@ export default function ForgotPasswordPage() {
           width: "1200px",
           height: "700px",
           borderRadius: "80px",
-          border: "4px solid var(--Component-Primary, #06A64C)",
+          border: "4px solid var(--primary-300)",
           position: "relative",
         }}
       >
@@ -184,7 +184,7 @@ export default function ForgotPasswordPage() {
                   priority
                 />
               </div>
-              <p className="text-xl lg:text-2xl text-emerald-50 mb-12 font-light max-w-md mx-auto">
+              <p className="text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto">
                 {t("auth.forgot.tagline") || "Where learning meets purpose"}
               </p>
             </div>
@@ -214,6 +214,7 @@ export default function ForgotPasswordPage() {
           className={[
             "absolute bottom-0 left-0 right-0 overflow-hidden",
             "bg-[var(--neutral-100)] dark:bg-[var(--Surface-Level-2,_#1A1A1A)]",
+            "sm:border-l-4 sm:border-r-4 sm:border-t-4 sm:border-[var(--primary-500)]",
           ].join(" ")}
           style={{
             height: "calc(100dvh - 54px)",
@@ -236,7 +237,7 @@ export default function ForgotPasswordPage() {
               <LanguageSwitcher className="flex items-center gap-2 scale-90 sm:scale-100" />
             </div>
 
-            <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? "text-right" : "text-left"}`}>
+            <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? "text-right" : "text-left"} sm:text-center`}>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
                 {t("auth.forgot.title") || "Forgot Your Password?"}
               </h1>
@@ -249,12 +250,12 @@ export default function ForgotPasswordPage() {
             </div>
 
             {/* Email */}
-            <div className="px-5 sm:px-6 mt-10 sm:mt-12" style={{ direction: isRTL ? "rtl" : "ltr" }}>
+            <div className="px-5 sm:px-6 mt-10 sm:mt-12 sm:max-w-md sm:mx-auto" style={{ direction: isRTL ? "rtl" : "ltr" }}>
               <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" />
             </div>
 
             {/* Buttons */}
-            <div className="px-5 sm:px-6 mt-12 sm:mt-14">
+            <div className="px-5 sm:px-6 mt-12 sm:mt-14 sm:max-w-md sm:mx-auto">
               <div className="grid grid-cols-2 gap-4">
                 <Link href="/auth/login" className="block">
                   <Button

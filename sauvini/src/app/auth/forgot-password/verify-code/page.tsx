@@ -45,7 +45,7 @@ export default function VerifyCodePage() {
           width: "1200px",
           height: "700px",
           borderRadius: "80px",
-          border: "4px solid var(--Component-Primary, #06A64C)",
+          border: "4px solid var(--primary-300)",
           position: "relative",
         }}
       >
@@ -131,27 +131,27 @@ export default function VerifyCodePage() {
                   <InputOTPGroup className="gap-4">
                     <InputOTPSlot
                       index={0}
-                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={1}
-                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={2}
-                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={3}
-                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={4}
-                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={5}
-                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                   </InputOTPGroup>
                 </InputOTP>
@@ -161,7 +161,7 @@ export default function VerifyCodePage() {
               <div className={`${isRTL ? "text-left" : "text-right"}`}>
                 <button
                   onClick={handleResendCode}
-                  className="text-green-600 text-sm hover:text-green-700 underline font-medium"
+                  className="text-[var(--primary-500)] text-sm hover:text-[var(--primary-400)] underline font-medium"
                 >
                   {t("auth.verify.resend") || "Resend Code"}
                 </button>
@@ -242,7 +242,7 @@ export default function VerifyCodePage() {
                   priority
                 />
               </div>
-              <p className="text-xl lg:text-2xl text-emerald-50 mb-12 font-light max-w-md mx-auto">
+              <p className="text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto">
                 {t("auth.verify.tagline") || "Where learning meets purpose"}
               </p>
             </div>
@@ -267,6 +267,7 @@ export default function VerifyCodePage() {
           className={[
             "absolute bottom-0 left-0 right-0 overflow-hidden",
             "bg-[var(--neutral-100)] dark:bg-[var(--Surface-Level-2,_#1A1A1A)]",
+            "sm:border-l-4 sm:border-r-4 sm:border-t-4 sm:border-[var(--primary-500)]",
           ].join(" ")}
           style={{
             height: "calc(100dvh - 54px)",
@@ -290,7 +291,7 @@ export default function VerifyCodePage() {
             </div>
 
             {/* Text */}
-            <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? "text-right" : "text-left"}`}>
+            <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? "text-right" : "text-left"} sm:text-center`}>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
                 {t("auth.verify.title") || "Check Your Email"}
               </h1>
@@ -303,13 +304,13 @@ export default function VerifyCodePage() {
             </div>
 
             {/* Email InputButton */}
-            <div className="px-5 sm:px-6 mt-6">
+            <div className="px-5 sm:px-6 mt-6 sm:max-w-md sm:mx-auto">
               <SimpleInput label={t("auth.verify.email") || "Email"} value="Example@gmail.com" />
             </div>
 
             {/* OTP */}
-            <div className="px-5 sm:px-6 mt-18">
-              <div className={`mb-3 flex ${isRTL ? "justify-end" : "justify-start"}`}>
+            <div className="px-5 sm:px-6 mt-18 sm:max-w-md sm:mx-auto">
+              <div className={`mb-3 flex ${isRTL ? "justify-end" : "justify-start"} sm:justify-center`}>
                 <InputOTP
                   maxLength={6}
                   value={code}
@@ -319,35 +320,35 @@ export default function VerifyCodePage() {
                   <InputOTPGroup className="gap-3">
                     <InputOTPSlot
                       index={0}
-                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={1}
-                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={2}
-                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={3}
-                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={4}
-                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                     <InputOTPSlot
                       index={5}
-                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
                     />
                   </InputOTPGroup>
                 </InputOTP>
               </div>
-              <div className={`${isRTL ? "text-left" : "text-right"}`}>
+              <div className={`${isRTL ? "text-left" : "text-right"} sm:text-center`}>
                 <button
                   onClick={handleResendCode}
-                  className="text-green-600 text-sm hover:text-green-700 underline font-medium"
+                  className="text-[var(--primary-500)] text-sm hover:text-[var(--primary-400)] underline font-medium"
                 >
                   {t("auth.verify.resend") || "Resend Code"}
                 </button>
@@ -355,7 +356,7 @@ export default function VerifyCodePage() {
             </div>
 
             {/* Buttons */}
-            <div className="px-5 sm:px-6 mt-12 sm:mt-14">
+            <div className="px-5 sm:px-6 mt-12 sm:mt-14 sm:max-w-md sm:mx-auto">
               <div className="grid grid-cols-2 gap-4">
                 <Link href="/auth/forgot-password" className="block">
                   <Button

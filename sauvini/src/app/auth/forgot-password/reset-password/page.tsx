@@ -34,11 +34,11 @@ export default function ResetPasswordPage() {
       <div
         aria-hidden="true"
         className="flex items-center justify-center rounded-full"
-        style={{ width: "120px", height: "120px", background: "var(--primary-300)" }}
+        style={{ width: "120px", height: "120px", background: "var(--success-400)" }}
       >
         <Check className="w-14 h-14 text-white" />
       </div>
-      <h2 className="mt-8 text-2xl sm:text-3xl font-extrabold" style={{ color: "var(--primary-300)" }}>
+      <h2 className="mt-8 text-2xl sm:text-3xl font-extrabold" style={{ color: "var(--success-400)" }}>
         {t("auth.reset.successTitle") || "Password Changed Successfully!"}
       </h2>
       <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-md">
@@ -65,7 +65,7 @@ export default function ResetPasswordPage() {
           width: "1200px",
           height: "700px",
           borderRadius: "80px",
-          border: "4px solid var(--Component-Primary, #06A64C)",
+          border: "4px solid var(--primary-300)",
           position: "relative",
         }}
       >
@@ -221,7 +221,7 @@ export default function ResetPasswordPage() {
                       priority
                     />
                   </div>
-                  <p className="text-xl lg:text-2xl text-emerald-50 mb-12 font-light max-w-md mx-auto">
+                  <p className="text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto">
                     {t("auth.reset.tagline") || "Where learning meets purpose"}
                   </p>
                 </div>
@@ -253,6 +253,7 @@ export default function ResetPasswordPage() {
           className={[
             "absolute bottom-0 left-0 right-0 overflow-hidden",
             "bg-[var(--neutral-100)] dark:bg-[var(--Surface-Level-2,_#1A1A1A)]",
+            "sm:border-l-4 sm:border-r-4 sm:border-t-4 sm:border-[var(--primary-500)]",
           ].join(" ")}
           style={{
             height: "calc(100dvh - 54px)",
@@ -276,13 +277,13 @@ export default function ResetPasswordPage() {
             </div>
 
             {success ? (
-              <div className="px-5 sm:px-6 mt-10">
+              <div className="px-5 sm:px-6 mt-10 sm:max-w-md sm:mx-auto sm:text-center">
                 <SuccessContent />
               </div>
             ) : (
               <>
                 {/* Text */}
-                <div className="px-5 sm:px-6 mt-9 sm:mt-10">
+                <div className="px-5 sm:px-6 mt-9 sm:mt-10 text-left sm:text-center">
                   <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
                     {t("auth.reset.title") || "Reset Your Password"}
                   </h1>
@@ -292,7 +293,7 @@ export default function ResetPasswordPage() {
                 </div>
 
                 {/* Form */}
-                <div className="px-5 sm:px-6 mt-10">
+                <div className="px-5 sm:px-6 mt-10 sm:max-w-md sm:mx-auto">
                   <form onSubmit={handleReset} className="space-y-6 sm:space-y-7">
                     <SimpleInput
                       label={t("auth.reset.newPassword") || "Password"}

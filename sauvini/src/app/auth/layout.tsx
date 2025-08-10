@@ -12,10 +12,10 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
     <div
       className={[
         "min-h-screen flex items-center justify-center px-4 sm:px-0",
-        // Light gradient
-        "bg-[radial-gradient(221.6% 141.42% at 0% 0%, var(--Gradient-Main-Left-Blue, #CEDAE9) 0%, var(--Gradient-Main-Right-Blue, #DFD8FF) 100%)]",
-        // Dark gradient
-        "dark:bg-[radial-gradient(221.6%_141.42%_at_0%_0%,_var(--Gradient-Main-Left,_#0C362C)_0%,_var(--Gradient-Main-Right,_#123129)_100%)]",
+        // Light gradient - Blue
+        "bg-[radial-gradient(221.6%_141.42%_at_0%_0%,_var(--Gradient-Main-Left-Blue,_#CEDAE9)_0%,_var(--Gradient-Main-Right-Blue,_#DFD8FF)_100%)]",
+        // Dark gradient - Blue
+        "dark:bg-[radial-gradient(221.6%_141.42%_at_0%_0%,_var(--Gradient-Main-Left-Blue,_#1B2536)_0%,_var(--Gradient-Main-Right-Blue,_#1F1532)_100%)]",
       ].join(" ")}
       style={{ direction: isRTL ? "rtl" : "ltr" }}
     >
