@@ -31,13 +31,15 @@ export default function LoginPage() {
     <>
       {/* DESKTOP Layout */}
       <div
-        className="hidden lg:block overflow-hidden shadow-2xl"
+        className={[
+          "hidden lg:block overflow-hidden shadow-2xl",
+          "bg-[var(--neutral-100)] dark:bg-[var(--Surface-Level-2,_#1A1A1A)]",
+        ].join(" ")}
         style={{
           width: "1200px",
           height: "700px",
           borderRadius: "80px",
           border: "4px solid var(--Component-Primary, #06A64C)",
-          background: "var(--neutral-100)",
           position: "relative",
         }}
       >
@@ -71,7 +73,8 @@ export default function LoginPage() {
                 ...(isRTL ? { right: "48px" } : { left: "48px" }),
               }}
             >
-              <Image src="/S_logo.svg" alt="Logo" width={84} height={84} />
+              <Image src="/S_logo.svg" alt="Logo" width={84} height={84} className="block dark:hidden" />
+              <Image src="/S_logo_white.svg" alt="Logo" width={84} height={84} className="hidden dark:block" />
             </div>
 
             {/* Welcome Section */}
@@ -86,10 +89,8 @@ export default function LoginPage() {
                 gap: "8px",
               }}
             >
-              <h1 className="text-4xl font-bold text-gray-900">
-                {t("auth.login.title")}
-              </h1>
-              <p className="text-gray-600 text-lg">{t("auth.login.subtitle")}</p>
+              <h1 className="text-4xl font-bold text-gray-900 dark:text-white">{t("auth.login.title")}</h1>
+              <p className="text-gray-600 dark:text-gray-300 text-lg">{t("auth.login.subtitle")}</p>
             </div>
 
             {/* Form Container */}
@@ -137,7 +138,7 @@ export default function LoginPage() {
 
                 {/* Sign up */}
                 <div className="text-center">
-                  <span className="text-gray-600">{t("auth.login.noAccount")} </span>
+                  <span className="text-gray-600 dark:text-gray-300">{t("auth.login.noAccount")} </span>
                   <Link
                     href="/signup/choose-role"
                     className="font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
@@ -219,11 +220,13 @@ export default function LoginPage() {
       {/* MOBILE/Tablet Layout */}
       <div className="lg:hidden fixed inset-0">
         <div
-          className="absolute bottom-0 left-0 right-0 overflow-hidden"
+          className={[
+            "absolute bottom-0 left-0 right-0 overflow-hidden",
+            "bg-[var(--neutral-100)] dark:bg-[var(--Surface-Level-2,_#1A1A1A)]",
+          ].join(" ")}
           style={{
             height: "calc(100dvh - 54px)",
             borderRadius: "52px 52px 0 0",
-            background: "var(--neutral-100)",
           }}
         >
           <div
@@ -236,19 +239,16 @@ export default function LoginPage() {
             {/* Top bar */}
             <div className="px-5 sm:px-6 flex items-center justify-between">
               <div className="flex items-center">
-                <Image src="/S_logo.svg" alt="Logo" width={32} height={32} />
+                <Image src="/S_logo.svg" alt="Logo" width={32} height={32} className="block dark:hidden" />
+                <Image src="/S_logo_white.svg" alt="Logo" width={32} height={32} className="hidden dark:block" />
               </div>
               <LanguageSwitcher className="flex items-center gap-2 scale-90 sm:scale-100" />
             </div>
 
             {/* Welcome */}
             <div className="px-5 sm:px-6 mt-9 sm:mt-10">
-              <h1 className="text-3xl font-bold text-gray-900 mb-3">
-                {t("auth.login.title")}
-              </h1>
-              <p className="text-gray-600 text-base sm:text-lg">
-                {t("auth.login.subtitle")}
-              </p>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">{t("auth.login.title")}</h1>
+              <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">{t("auth.login.subtitle")}</p>
             </div>
 
             {/* Form */}
@@ -278,7 +278,7 @@ export default function LoginPage() {
                   />
                 </div>
                 <div className="text-center pt-1">
-                  <span className="text-gray-600">{t("auth.login.noAccount")} </span>
+                  <span className="text-gray-600 dark:text-gray-300">{t("auth.login.noAccount")} </span>
                   <Link
                     href="/signup/choose-role"
                     className="font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded"
