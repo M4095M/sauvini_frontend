@@ -4,6 +4,55 @@
     "description": "We are a team of passionate developers striving to deliver the best possible experience for our users. We believe in the power of technology to enhance everyday life."
   },
   "common": {
-    "language": "Language"
+    "language": "Language",
+    "back": "Back",
+    "next": "Next",
+    "nexting": "Next",
+    "verifying": "Verifying..."
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Log in to access your account.",
+      "email": "Email",
+      "password": "Password",
+      "emailPlaceholder": "Enter your email",
+      "passwordPlaceholder": "Enter your password",
+      "forgotPassword": "Forgot your password?",
+      "loginButton": "Login",
+      "loggingIn": "Logging in...",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign Up",
+      "tagline": "Where learning meets purpose"
+    },
+    "forgot": {
+      "title": "Forgot Your Password?",
+      "subtitle": "Enter the email linked to your account.",
+      "helper": "We'll send you a verification code by email.",
+      "email": "Email",
+      "tagline": "Where learning meets purpose"
+    },
+    "verify": {
+      "title": "Check Your Email",
+      "subtitle": "Enter the 6-digit code we sent you",
+      "helper": "Didn't receive it? Check your spam folder or request a new code",
+      "resend": "Resend Code",
+      "button": "Verify Code",
+      "tagline": "Where learning meets purpose",
+      "email": "Email",
+      "codeLabel": "Verification code"
+    },
+    "reset": {
+      "title": "Reset Your Password",
+      "subtitle": "Create a new password for your account.",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm new password",
+      "cta": "Reset Password",
+      "tagline":"Where learning meets purpose",
+      "submitting": "Submitting...",
+      "successTitle": "Password Changed Successfully!",
+      "successBody": "Your password has been reset successfully. You can now log in with your new password.",
+      "successCta": "Go to Login"
+    }
   }
 }

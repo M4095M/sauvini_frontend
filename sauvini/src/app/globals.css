@@ -24,11 +24,11 @@
   --neutral-100: #f8f8f8;
 
   /* Primary Colors */
-  --primary-500: rgba(1, 49, 37, 1);
-  --primary-400: rgba(4, 118, 54, 1);
-  --primary-300: rgba(6, 166, 76, 1);
-  --primary-200: rgba(204, 252, 154, 1);
-  --primary-100: rgba(223, 254, 201, 1);
+  --primary-500: #1B2536;
+  --primary-400: #27364D;
+  --primary-300: #324C72;
+  --primary-200: #4F77A8;
+  --primary-100: #A3BAD6;
 
   /* Second Color 01 */
   --second01-200: #ffd427;
@@ -55,6 +55,10 @@
   --success-300: #0aff6d;
   --success-200: #67ffa4;
   --success-100: #e9fff2;
+
+  /* Gradient Colors */
+  --Gradient-Main-Left-Blue: #CEDAE9;
+  --Gradient-Main-Right-Blue: #DFD8FF;
 
   /* Legacy compatibility */
 
@@ -181,6 +185,10 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Gradient Colors - Dark Mode */
+  --Gradient-Main-Left-Blue: #1B2536;
+  --Gradient-Main-Right-Blue: #1F1532;
 }
 
 /*  == Button shadow elevation */
