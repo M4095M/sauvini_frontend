@@ -3,8 +3,12 @@
     "title": "À Propos de Nous",
     "description": "Nous sommes une équipe de développeurs passionnés qui s'efforcent d'offrir la meilleure expérience possible à nos utilisateurs. Nous croyons au pouvoir de la technologie pour améliorer la vie quotidienne."
   },
-  "common": {
-    "language": "Langue"
+  "common" : {
+    "language": "Langue",
+    "back": "Retour",
+    "next": "Suivant",
+    "nexting": "Suivant",
+    "verifying": "Vérification..."
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -65,5 +69,51 @@
     { "id": 56, "wilaya_name": "56-Djanet" },
     { "id": 57, "wilaya_name": "57-In Salah" },
     { "id": 58, "wilaya_name": "58-In Guezzam" }
-  ]
+  ],
+  "auth": {
+    "login": {
+      "title": "Content de vous revoir",
+      "subtitle": "Connectez-vous pour accéder à votre compte.",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "emailPlaceholder": "Entrez votre e-mail",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "forgotPassword": "Mot de passe oublié ?",
+      "loginButton": "Se connecter",
+      "loggingIn": "Connexion en cours...",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "signUp": "S'inscrire",
+      "tagline": "Où l'apprentissage rencontre un but"
+    },
+    "forgot": {
+      "title": "Mot de passe oublié ?",
+      "subtitle": "Entrez l'e-mail lié à votre compte.",
+      "helper": "Nous vous enverrons un code de vérification par e-mail.",
+      "email": "E-mail",
+      "tagline": "Où l'apprentissage rencontre un but"
+    },
+    "verify": {
+      "title": "Vérifiez votre e-mail",
+      "subtitle": "Entrez le code à 6 chiffres que nous vous avons envoyé",
+      "helper": "Vous ne l'avez pas reçu ? Vérifiez votre dossier spam ou demandez un nouveau code",
+      "resend": "Renvoyer le code",
+      "button": "Vérifier le code",
+      "tagline": "Où l'apprentissage rencontre un but",
+      "email": "E-mail",
+      "codeLabel": "Code de vérification"
+    },
+    "reset": {
+      "title": "Réinitialiser votre mot de passe",
+      "subtitle": "Créez un nouveau mot de passe pour votre compte.",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le nouveau mot de passe",
+      "cta": "Réinitialiser le mot de passe",
+      "tagline": "Où l'apprentissage rencontre un but",
+      "submitting": "Envoi en cours...",
+      "successTitle": "Mot de passe changé avec succès !",
+      "successBody": "Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+      "successCta": "Aller à la connexion"
+    }
+  }
 }
+
