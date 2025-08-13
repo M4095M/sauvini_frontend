@@ -114,6 +114,39 @@
       "successBody": "Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
       "successCta": "Aller à la connexion"
     }
+  },
+  "footer": {
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions",
+    "help": "Aide"
+  },
+  "modules": {
+    "keepGoing": "Continuez",
+    "level": "Niveau",
+    "notifications": "Notifications",
+    "modulesTitle": "Modules",
+    "showPurchasedOnly": "Afficher uniquement les modules achetés",
+    "noPurchasedModules": "Aucun module acheté trouvé.",
+    "lessons": "Leçons",
+    "lesson": "Leçon",
+    "unlock": "Déverrouiller",
+    "viewChapters": "Voir les chapitres"
+  },
+  "chapters": {
+    "title": "Chapitres",
+    "backToModules": "Retour aux modules",
+    "complete": "Terminé",
+    "incomplete": "Incomplet",
+    "locked": "Verrouillé",
+    "progress": "Progression",
+    "of": "sur",
+    "noChapters": "Aucun chapitre disponible dans ce module",
+    "startLearning": "Commencer",
+    "continueChapter": "Continuer le chapitre",
+    "completionStatus": "État d'achèvement",
+    "chaptersTitle": "Chapitres",
+    "viewLessons": "Voir les leçons",
+    "showPurchasedOnly": "Afficher uniquement les modules achetés"
   }
 }
 

@@ -107,12 +107,12 @@ export default function LoginPage() {
               <form onSubmit={handleLogin} className="flex flex-col" style={{ gap: "6px" }}>
                 {/* Email */}
                 <div className="mb-4">
-                  <SimpleInput label={t("auth.login.email")} value="email" />
+                  <SimpleInput label={t("auth.login.email")} value="email" type="email" />
                 </div>
 
                 {/* Password */}
                 <div className="mb-4">
-                  <SimpleInput label={t("auth.login.password")} value="password" />
+                  <SimpleInput label={t("auth.login.password")} value="password" type="password" />
                 </div>
 
                 {/* Forgot password link */}
@@ -257,10 +257,10 @@ export default function LoginPage() {
             <div className="px-5 sm:px-6 mt-10 sm:mt-12 sm:max-w-md sm:mx-auto">
               <form onSubmit={handleLogin} className="space-y-8 sm:space-y-9">
                 <div>
-                  <SimpleInput label={t("auth.login.email")} value="email" />
+                  <SimpleInput label={t("auth.login.email")} value="email" type="email" />
                 </div>
                 <div>
-                  <SimpleInput label={t("auth.login.password")} value="password" />
+                  <SimpleInput label={t("auth.login.password")} value="password" type="password" />
                 </div>
                 <div style={{ textAlign: isRTL ? "right" : "left" }}>
                   <Link

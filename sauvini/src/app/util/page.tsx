@@ -7,7 +7,13 @@ import Button from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { ThemeSwitcher, ThemeToggle } from "@/components/ui/theme-switcher";
 import { useLanguage } from "@/context/LanguageContext";
+import ModuleCard from "@/components/modules/ModuleCard";
+import ChapterCard from "@/components/modules/ChapterCard";
+import ModuleHeader from "@/components/modules/ModuleHeader";
+import Footer from '@/components/ui/footer'
+import UserHeader from "@/components/modules/UserHeader";
 import { Check } from "lucide-react";
+import { MOCK_MODULES_DATA } from "../../data/mockModules";
 
 export default function Home() {
   const { t , isRTL, language} = useLanguage();
@@ -109,6 +115,15 @@ export default function Home() {
             description={"This is a supporting message "}
             type={"warning"}
           />
+          <ModuleCard
+            key={1}
+            module={MOCK_MODULES_DATA.modules[0]}
+            isMobile={false}
+          />
+          <ModuleHeader module={MOCK_MODULES_DATA.modules[0]} />
+          <ChapterCard chapter={MOCK_MODULES_DATA.modules[0].chapters[0]} />
+          <UserHeader userProfile={MOCK_MODULES_DATA.userProfile} />
+          <Footer />
         </div>
       </div>
     </div>

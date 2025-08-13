@@ -210,5 +210,38 @@
       "successBody": "Your password has been reset successfully. You can now log in with your new password.",
       "successCta": "Go to Login"
     }
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms",
+    "help": "Help"
+  },
+  "modules": {
+    "keepGoing": "Keep going",
+    "level": "Level",
+    "notifications": "Notifications",
+    "modulesTitle": "Modules",
+    "showPurchasedOnly": "Show purchased modules only",
+    "noPurchasedModules": "No purchased modules found.",
+    "lessons": "Lessons",
+    "lesson": "Lesson",
+    "unlock": "Unlock",
+    "viewChapters": "View Chapters"
+  },
+  "chapters": {
+    "title": "Chapters",
+    "backToModules": "Back to modules",
+    "complete": "Complete",
+    "incomplete": "Incomplete",
+    "locked": "Locked",
+    "progress": "Progress",
+    "of": "of",
+    "noChapters": "No chapters available in this module",
+    "startLearning": "Start Learning",
+    "continueChapter": "Continue Chapter",
+    "completionStatus": "Completion Status",
+    "chaptersTitle": "Chapters",
+    "viewLessons": "View Lessons",
+    "showPurchasedOnly": "Show purchased modules only"
   }
 }

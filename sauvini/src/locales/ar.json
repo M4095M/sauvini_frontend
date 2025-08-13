@@ -211,5 +211,38 @@
       "successBody": "تم إعادة تعيين كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة.",
       "successCta": "الذهاب إلى تسجيل الدخول"
     }
+  },
+  "footer": {
+    "privacy": "سياسة الخصوصية",
+    "terms": "الشروط",
+    "help": "مساعدة"
+  },
+  "modules": {
+    "keepGoing": "تابع التقدم",
+    "level": "المستوى",
+    "notifications": "الإشعارات",
+    "modulesTitle": "الوحدات",
+    "showPurchasedOnly": "عرض الوحدات المشتراة فقط",
+    "noPurchasedModules": "لم يتم العثور على وحدات مشتراة.",
+    "lessons": "الدروس",
+    "lesson": "الدرس",
+    "unlock": "إلغاء القفل",
+    "viewChapters": "عرض الفصول"
+  },
+  "chapters": {
+    "title": "الفصول",
+    "backToModules": "العودة إلى الوحدات",
+    "complete": "مكتمل",
+    "incomplete": "غير مكتمل",
+    "locked": "مقفل",
+    "progress": "التقدم",
+    "of": "من",
+    "noChapters": "لا توجد فصول متاحة في هذه الوحدة",
+    "startLearning": "ابدأ التعلم",
+    "continueChapter": "متابعة الفصل",
+    "completionStatus": "حالة الإكمال",
+    "chaptersTitle": "فصول",
+    "viewLessons": "عرض الدروس",
+    "showPurchasedOnly": "عرض الوحدات المشتراة فقط"
   }
 }
