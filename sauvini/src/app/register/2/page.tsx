@@ -1,3 +1,4 @@
+import PasswordInputField from "@/components/input/passwordInput";
 import SimpleInput from "@/components/input/simpleInput";
 import Button from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -19,8 +20,10 @@ export default function Register2() {
         <SimpleInput label={"Academic Stream"} value={""} type="text" />
         <SimpleInput label={"Email"} value={""} type="text" />
         <div className="flex flex-row flex-wrap gap-4">
-          <SimpleInput label={"Password"} value={""} type="password" />
-          <SimpleInput label={"Confirm password"} value={""} type="password" />
+          {/* <SimpleInput label={"Password"} value={""} type="password" /> */}
+          {/* <SimpleInput label={"Confirm password"} value={""} type="password" /> */}
+          <PasswordInputField label={"Password"} />
+          <PasswordInputField label={"Confirm Password"} />
         </div>
       </div>
       {/* buttons */}

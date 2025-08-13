@@ -16,7 +16,7 @@ export default function SimpleInput({ label, value, type }: SimpleInputProps) {
         ref={firstName}
         className="appearance-none outline-[var(--primary-200)] p-0 m-0 shadow-none 
         bg-white border border-neutral-200 px-5 py-3 rounded-full w-full focus:border-2
-        text-work-sans font-normal text-base"
+        text-work-sans font-normal text-base text-neutral-600"
       />
     </div>
   );

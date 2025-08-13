@@ -40,7 +40,7 @@ export default function Register4() {
           secondOption={"No"}
         />
         <div className="w-full flex flex-row justify-center items-center ">
-          <span className="font-work-sans font-normal text-base grow">
+          <span className="font-work-sans font-normal text-base text-neutral-600 grow">
             Upload your CV document
           </span>
           <div className="grow-0">

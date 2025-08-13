@@ -1,8 +1,14 @@
+"use client";
+
+import DropDown from "@/components/input/dropDown";
+import InputButton from "@/components/input/InputButton";
 import SimpleInput from "@/components/input/simpleInput";
 import Button from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
 
 export default function registerPart1() {
+  const { t, isRTL } = useLanguage();
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-10 mt-15">
       {/* Header */}
@@ -20,13 +26,26 @@ export default function registerPart1() {
           <SimpleInput label={"Firstname"} value={"firstname"} type="text" />
           <SimpleInput label={"Lastname"} value={"lastname"} type="text" />
         </div>
-        <SimpleInput label={"Wilaya"} value={"Wilaya"} type="text" />
-        <SimpleInput label={"Phone number"} value={"phonenumber"} type="text" />
+        <DropDown label="Wilaya" t={t} isRTL={isRTL} />
+        {/* <SimpleInput label={"Phone number"} value={"phonenumber"} type="text" /> */}
+        <InputButton label={"Phone number"} type="icon" icon={<Phone />} icon_position="left"  />
       </div>
       {/* buttons */}
       <div className="flex flex-row gap-4 ">
-        <Button state={"outlined"} size={"M"} icon_position={"left"} text="Previous" icon={<ArrowLeft />} />
-        <Button state={"filled"} size={"M"} icon_position={"right"} text="Next" icon={<ArrowRight />} />
+        <Button
+          state={"outlined"}
+          size={"M"}
+          icon_position={"left"}
+          text="Previous"
+          icon={<ArrowLeft />}
+        />
+        <Button
+          state={"filled"}
+          size={"M"}
+          icon_position={"right"}
+          text="Next"
+          icon={<ArrowRight />}
+        />
       </div>
     </div>
   );

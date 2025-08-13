@@ -16,7 +16,7 @@ export default function TwoOptionRadio({
 
   return (
     <div className="flex flex-col gap-2 justify-start items-start">
-      <div className="font-work-sans text-base font-normal">
+      <div className="font-work-sans text-base font-normal text-neutral-600">
         {label}
         <span className="text-red-500">{required ? "*" : ""}</span>
       </div>
@@ -27,7 +27,7 @@ export default function TwoOptionRadio({
             state={selectedOption === "first" ? "clicked" : "default"}
             onClick={() => setSelectedOption("first")}
           />
-          <span className="font-work-sans font-normal text-base">
+          <span className="font-work-sans font-normal text-base text-neutral-600">
             {firstOption}
           </span>
         </div>
@@ -36,7 +36,7 @@ export default function TwoOptionRadio({
             state={selectedOption === "second" ? "clicked" : "default"}
             onClick={() => setSelectedOption("second")}
           />
-          <span className="font-work-sans font-normal text-base">
+          <span className="font-work-sans font-normal text-base text-neutral-600">
             {secondOption}
           </span>
         </div>

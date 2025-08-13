@@ -5,5 +5,157 @@
   },
   "common": {
     "language": "Language"
+  },
+  "authe_page": {},
+  "wilayas": [
+    { "id": 1, "wilaya_name": "01-Adrar" },
+    { "id": 2, "wilaya_name": "02-Chlef" },
+    { "id": 3, "wilaya_name": "03-Laghouat" },
+    { "id": 4, "wilaya_name": "04-Oum El Bouaghi" },
+    { "id": 5, "wilaya_name": "05-Batna" },
+    { "id": 6, "wilaya_name": "06-Béjaïa" },
+    { "id": 7, "wilaya_name": "07-Biskra" },
+    { "id": 8, "wilaya_name": "08-Béchar" },
+    { "id": 9, "wilaya_name": "09-Blida" },
+    { "id": 10, "wilaya_name": "10-Bouira" },
+    { "id": 11, "wilaya_name": "11-Tamanrasset" },
+    { "id": 12, "wilaya_name": "12-Tébessa" },
+    { "id": 13, "wilaya_name": "13-Tlemcen" },
+    { "id": 14, "wilaya_name": "14-Tiaret" },
+    { "id": 15, "wilaya_name": "15-Tizi Ouzou" },
+    { "id": 16, "wilaya_name": "16-Alger" },
+    { "id": 17, "wilaya_name": "17-Djelfa" },
+    { "id": 18, "wilaya_name": "18-Jijel" },
+    { "id": 19, "wilaya_name": "19-Sétif" },
+    { "id": 20, "wilaya_name": "20-Saïda" },
+    { "id": 21, "wilaya_name": "21-Skikda" },
+    { "id": 22, "wilaya_name": "22-Sidi Bel Abbès" },
+    { "id": 23, "wilaya_name": "23-Annaba" },
+    { "id": 24, "wilaya_name": "24-Guelma" },
+    { "id": 25, "wilaya_name": "25-Constantine" },
+    { "id": 26, "wilaya_name": "26-Médéa" },
+    { "id": 27, "wilaya_name": "27-Mostaganem" },
+    { "id": 28, "wilaya_name": "28-M'Sila" },
+    { "id": 29, "wilaya_name": "29-Mascara" },
+    { "id": 30, "wilaya_name": "30-Ouargla" },
+    { "id": 31, "wilaya_name": "31-Oran" },
+    { "id": 32, "wilaya_name": "32-El Bayadh" },
+    { "id": 33, "wilaya_name": "33-Illizi" },
+    { "id": 34, "wilaya_name": "34-Bordj Bou Arreridj" },
+    { "id": 35, "wilaya_name": "35-Boumerdès" },
+    { "id": 36, "wilaya_name": "36-El Tarf" },
+    { "id": 37, "wilaya_name": "37-Tindouf" },
+    { "id": 38, "wilaya_name": "38-Tissemsilt" },
+    { "id": 39, "wilaya_name": "39-El Oued" },
+    { "id": 40, "wilaya_name": "40-Khenchela" },
+    { "id": 41, "wilaya_name": "41-Souk Ahras" },
+    { "id": 42, "wilaya_name": "42-Tipaza" },
+    { "id": 43, "wilaya_name": "43-Mila" },
+    { "id": 44, "wilaya_name": "44-Aïn Defla" },
+    { "id": 45, "wilaya_name": "45-Naâma" },
+    { "id": 46, "wilaya_name": "46-Aïn Témouchent" },
+    { "id": 47, "wilaya_name": "47-Ghardaïa" },
+    { "id": 48, "wilaya_name": "48-Relizane" },
+    { "id": 49, "wilaya_name": "49-El M'Ghair" },
+    { "id": 50, "wilaya_name": "50-El Menia" },
+    { "id": 51, "wilaya_name": "51-Ouled Djellal" },
+    { "id": 52, "wilaya_name": "52-Bordj Badji Mokhtar" },
+    { "id": 53, "wilaya_name": "53-Béni Abbès" },
+    { "id": 54, "wilaya_name": "54-Timimoun" },
+    { "id": 55, "wilaya_name": "55-Touggourt" },
+    { "id": 56, "wilaya_name": "56-Djanet" },
+    { "id": 57, "wilaya_name": "57-In Salah" },
+    { "id": 58, "wilaya_name": "58-In Guezzam" }
+  ],
+  "register": {
+    "common": {
+      "login_desc": "Already have an account?",
+      "login": "login",
+      "next": "Next",
+      "previous": "Previous",
+      "name": "Name",
+      "Wilaya": "Wilaya",
+      "phone": "Phone Number",
+      "Academic_stream": "Academic Stream",
+      "email": "Email",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "gender": "Gender",
+      "date_of_birth": "Date of Birth",
+      "upload": "Upload",
+      "upload_desc": "Upload your CV document",
+      "yes": "Yes",
+      "no": "No",
+      "male": "Male",
+      "Female": "Female"
+    },
+    "cards": {
+      "role": {
+        "student": {
+          "title": "Student",
+          "benefit_1": "Learn with videos & notes",
+          "benefit_2": "Track your progress",
+          "benefit_3": "Ask professors directly"
+        },
+        "professor": {
+          "title": "Teacher",
+          "benefit_1": "Create lessons & quizzes",
+          "benefit_2": "Review student work",
+          "benefit_3": "Answer questions"
+        }
+      }
+    },
+    "intro": {
+      "title": "Start by Telling Us Who You Are",
+      "description": "Join as a student to start learning, or as a professor to share your expertise."
+    },
+    "student": {
+      "page_1": {
+        "title": "Tell Us a Bit About Yourself",
+        "description": "To begin, we’ll need a bit of info about you."
+      },
+      "page_2": {
+        "title": "Let’s Wrap Up Your Setup",
+        "description": "Just a couple more details before we get started."
+      }
+    },
+    "professor": {
+      "page_1": {
+        "title": "Let’s Get to Know You",
+        "description": "We’ll start with your basic information."
+      },
+      "page_3": {
+        "title": "Create Your Account",
+        "description": "Enter your email and password to complete your registration."
+      },
+      "page_2": {
+        "title": "Tell Us About Your Experience",
+        "description": "This will help us understand your teaching background.",
+        "questions": {
+          "q_1": "Do you have experience teaching in a high school?",
+          "q_2": "How many years of experience?",
+          "q_3": "Do you have experience with off-school courses?",
+          "q_4": "Do you have experience with online off-school courses?",
+          "q_5": "Upload your CV document"
+        }
+      }
+    },
+    "submission": {
+      "title": "Application Submitted!",
+      "description": "Thank you for registering! Your information has been sent for review. You will receive a confirmation email once your account is verified. This may take up to a few days.",
+      "next_steps": "Return to Home"
+    },
+    "verify-email": {
+      "title": "Verify Your Email",
+      "description": "Enter the code we sent to your email",
+      "not_received": "Didn’t receive it? Check your spam folder or request a new code",
+      "resend": "Resend Code",
+      "button": "Verify Code",
+      "verify": {
+        "title": "Your email has been verified!",
+        "description": "You're all set to continue.",
+        "button": "Start Learning"
+      }
+    }
   }
 }

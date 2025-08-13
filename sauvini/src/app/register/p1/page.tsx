@@ -1,9 +1,15 @@
+"use client";
+
+import DropDown from "@/components/input/dropDown";
+import InputButton from "@/components/input/InputButton";
 import SimpleInput from "@/components/input/simpleInput";
 import TwoOptionRadio from "@/components/input/twoOptionRadio";
 import Button from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { ArrowLeft, ArrowRight, Calendar, Calendar1, Phone } from "lucide-react";
 
 export default function Register3() {
+  const { t, isRTL } = useLanguage();
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-10 mt-15">
       {/* Header */}
@@ -27,9 +33,20 @@ export default function Register3() {
           firstOption={"Male"}
           secondOption={"Female"}
         />
-        <SimpleInput label={"Date of Birth"} value={""} type="text" />
-        <SimpleInput label={"Wilaya"} value={""} type="text" />
-        <SimpleInput label={"Phone number"} value={""} type="text" />
+        <InputButton
+          label={"Date of Birth"}
+          type="icon"
+          icon={<Calendar />}
+          icon_position="right"
+          icon_filled={true}
+        />
+        <DropDown label="Wilaya" t={t} isRTL={isRTL} />
+        <InputButton
+          label={"Phone number"}
+          type="icon"
+          icon={<Phone />}
+          icon_position="left"
+        />
       </div>
       {/* buttons */}
       <div className="flex flex-row gap-4 ">
