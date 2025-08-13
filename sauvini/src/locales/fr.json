@@ -71,5 +71,21 @@
     "lesson": "Leçon",
     "unlock": "Déverrouiller",
     "viewChapters": "Voir les chapitres"
+  },
+  "chapters": {
+    "title": "Chapitres",
+    "backToModules": "Retour aux modules",
+    "complete": "Terminé",
+    "incomplete": "Incomplet",
+    "locked": "Verrouillé",
+    "progress": "Progression",
+    "of": "sur",
+    "noChapters": "Aucun chapitre disponible dans ce module",
+    "startLearning": "Commencer",
+    "continueChapter": "Continuer le chapitre",
+    "completionStatus": "État d'achèvement",
+    "chaptersTitle": "Chapitres",
+    "viewLessons": "Voir les leçons",
+    "showPurchasedOnly": "Afficher uniquement les modules achetés"
   }
 }

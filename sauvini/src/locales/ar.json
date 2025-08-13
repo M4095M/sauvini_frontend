@@ -72,5 +72,21 @@
     "lesson": "الدرس",
     "unlock": "إلغاء القفل",
     "viewChapters": "عرض الفصول"
+  },
+  "chapters": {
+    "title": "الفصول",
+    "backToModules": "العودة إلى الوحدات",
+    "complete": "مكتمل",
+    "incomplete": "غير مكتمل",
+    "locked": "مقفل",
+    "progress": "التقدم",
+    "of": "من",
+    "noChapters": "لا توجد فصول متاحة في هذه الوحدة",
+    "startLearning": "ابدأ التعلم",
+    "continueChapter": "متابعة الفصل",
+    "completionStatus": "حالة الإكمال",
+    "chaptersTitle": "فصول",
+    "viewLessons": "عرض الدروس",
+    "showPurchasedOnly": "عرض الوحدات المشتراة فقط"
   }
 }

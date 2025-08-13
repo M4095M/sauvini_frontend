@@ -71,5 +71,21 @@
     "lesson": "Lesson",
     "unlock": "Unlock",
     "viewChapters": "View Chapters"
+  },
+  "chapters": {
+    "title": "Chapters",
+    "backToModules": "Back to modules",
+    "complete": "Complete",
+    "incomplete": "Incomplete",
+    "locked": "Locked",
+    "progress": "Progress",
+    "of": "of",
+    "noChapters": "No chapters available in this module",
+    "startLearning": "Start Learning",
+    "continueChapter": "Continue Chapter",
+    "completionStatus": "Completion Status",
+    "chaptersTitle": "Chapters",
+    "viewLessons": "View Lessons",
+    "showPurchasedOnly": "Show purchased modules only"
   }
 }

@@ -74,8 +74,8 @@ export default function UserHeader({
           }}
         >
           <Image
-            src={userProfile.avatar}
-            alt={`${userProfile.name} profile picture`}
+            src={userProfile.avatar || "/placeholder.svg"}
+            alt={`${userProfile.name} ${userProfile.lastname} profile picture`}
             fill
             className="object-cover"
             sizes="81px"
@@ -111,7 +111,7 @@ export default function UserHeader({
               margin: 0,
             }}
           >
-            {userProfile.name}
+            {userProfile.name} {userProfile.lastname}
           </h1>
         </div>
       </div>

@@ -1,24 +1,143 @@
+export interface UserProfile {
+  id: string
+  name: string
+  lastname: string
+  email: string
+  wilaya: string
+  phoneNumber: string
+  academicStream: AcademicStream
+  avatar: string
+  level: number
+  notificationCount: number
+  xp: number
+  createdAt: Date
+}
+
+export interface Lesson {
+  id: string
+  title: string
+  description: string
+  image: string // lesson illustration/thumbnail
+  duration: number // in minutes
+  isCompleted: boolean
+  isUnlocked: boolean
+  order: number
+  academicStreams: AcademicStream[] // lessons can target specific streams
+}
+
+export interface Chapter {
+  id: string
+  title: string
+  description: string
+  image: string // chapter illustration
+  moduleId: string
+  lessons: Lesson[]
+  prerequisites: string[] // chapter IDs that must be completed first
+  price: number // in DA
+  isPurchased: boolean
+  isCompleted: boolean
+  isUnlocked: boolean
+  order: number
+  academicStreams: AcademicStream[] // chapters can target specific streams
+  // Progress tracking
+  totalLessons: number
+  completedLessons: number
+}
+
 export interface Module {
   id: string
   name: string
   description: string
-  illustration: string // URL to module illustration
+  illustration: string
+  chapters: Chapter[]
   totalLessons: number
   completedLessons: number
   isUnlocked: boolean
   hasPurchasedChapters: boolean
-  color: 'yellow' | 'blue' | 'purple' 
-  academicStreams: string[]
-}
-
-export interface UserProfile {
-  name: string
-  avatar: string
-  level: number
-  notificationCount: number
+  color: "yellow" | "blue" | "purple" | "green" | "red"
+  academicStreams: AcademicStream[]
 }
 
 export interface ModulesPageData {
-  userProfile: UserProfile
+  userProfile: UserProfile | null // null for non-authenticated users
   modules: Module[]
 }
+
+export interface ChaptersPageData {
+  userProfile: UserProfile | null
+  module: Module
+  chapters: Chapter[]
+  selectedAcademicStream: AcademicStream
+  showMyChaptersOnly: boolean
+}
+
+export interface LessonsPageData {
+  userProfile: UserProfile | null
+  chapter: Chapter
+  lessons: Lesson[]
+  selectedAcademicStream?: AcademicStream // only for non-auth users
+}
+
+export const ACADEMIC_STREAMS = [
+  "Mathematics",
+  "Experimental Sciences",
+  "Math-Technique",
+  "Literature",
+  "Philosophy",
+  "Languages",
+] as const
+
+export type AcademicStream = (typeof ACADEMIC_STREAMS)[number]
+
+export const ALGERIAN_WILAYAS = [
+  "Adrar",
+  "Chlef",
+  "Laghouat",
+  "Oum El Bouaghi",
+  "Batna",
+  "Béjaïa",
+  "Biskra",
+  "Béchar",
+  "Blida",
+  "Bouira",
+  "Tamanrasset",
+  "Tébessa",
+  "Tlemcen",
+  "Tiaret",
+  "Tizi Ouzou",
+  "Alger",
+  "Djelfa",
+  "Jijel",
+  "Sétif",
+  "Saïda",
+  "Skikda",
+  "Sidi Bel Abbès",
+  "Annaba",
+  "Guelma",
+  "Constantine",
+  "Médéa",
+  "Mostaganem",
+  "MSila",
+  "Mascara",
+  "Ouargla",
+  "Oran",
+  "El Bayadh",
+  "Illizi",
+  "Bordj Bou Arréridj",
+  "Boumerdès",
+  "El Tarf",
+  "Tindouf",
+  "Tissemsilt",
+  "El Oued",
+  "Khenchela",
+  "Souk Ahras",
+  "Tipaza",
+  "Mila",
+  "Aïn Defla",
+  "Naâma",
+  "Aïn Témouchent",
+  "Ghardaïa",
+  "Relizane",
+] as const
+
+export type Wilaya = (typeof ALGERIAN_WILAYAS)[number]
