@@ -1,54 +1,58 @@
+"use client";
+
 import InputButton from "@/components/input/InputButton";
 import TwoOptionRadio from "@/components/input/twoOptionRadio";
 import Button from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function Register4() {
+  const { t, isRTL } = useLanguage();
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-10 mt-15">
       {/* Header */}
       <div className="flex flex-col justify-center items-center gap-2">
         <span className="font-work-sans font-semibold lg:text-4xl text-neutral-600 text-center text-2xl">
-          Tell Us About Your Experience
+          {t("register.professor.page_2.title")}
         </span>
         <span className="font-work-sans font-medium lg:text-xl text-neutral-400 text-center text-base">
-          This will help us understand your teaching background.
+          {t("register.professor.page_2.description")}
         </span>
       </div>
       {/* input fileds */}
-      <div className="flex flex-col gap-6 w-full justify-start items-start">
+      <div className="flex flex-col gap-6 w-full justify-start items-start" dir={isRTL ? "rtl" : "ltr"}>
         <TwoOptionRadio
-          label={"Do you have experience teaching in a high school?"}
+          label={t("register.professor.page_2.questions.q_1")}
           required={false}
           firstOption={"Yes"}
           secondOption={"No"}
         />
         <TwoOptionRadio
-          label={"Do you have experience with off-school courses?"}
+          label={t("register.professor.page_2.questions.q_2")}
           required={false}
           firstOption={"Yes"}
           secondOption={"No"}
         />
         <InputButton
-          label={"How many years of experience?"}
+          label={t("register.professor.page_2.questions.q_3")}
           type={"plus-minus"}
         />
         <TwoOptionRadio
-          label={"Do you have experience with online off-school courses?"}
+          label={t("register.professor.page_2.questions.q_4")}
           required={false}
           firstOption={"Yes"}
           secondOption={"No"}
         />
         <div className="w-full flex flex-row justify-center items-center ">
           <span className="font-work-sans font-normal text-base text-neutral-600 grow">
-            Upload your CV document
+            {t("register.professor.page_2.questions.q_5")}
           </span>
           <div className="grow-0">
             <Button
               state={"outlined"}
               size={"M"}
               icon_position={"none"}
-              text="Upload"
+              text={t("register.common.upload")}
             />
           </div>
         </div>

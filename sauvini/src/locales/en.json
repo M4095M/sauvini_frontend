@@ -73,7 +73,8 @@
       "login": "login",
       "next": "Next",
       "previous": "Previous",
-      "name": "Name",
+      "firstname": "Firstname",
+      "lastname": "Lastname",
       "Wilaya": "Wilaya",
       "phone": "Phone Number",
       "Academic_stream": "Academic Stream",
@@ -156,6 +157,10 @@
         "description": "You're all set to continue.",
         "button": "Start Learning"
       }
+    },
+    "verify-email-done": {
+      "title": "Your email has been verified!",
+      "description": "You're all set to continue."
     }
   }
 }

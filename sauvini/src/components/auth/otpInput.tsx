@@ -5,8 +5,9 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import Button from "../ui/button";
+import { OTPInputProps } from "@/types/otpInput";
 
-export default function OTPInput() {
+export default function OTPInput({t, isRTL} : OTPInputProps) {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-4">
@@ -21,7 +22,7 @@ export default function OTPInput() {
           </InputOTPGroup>
         </InputOTP>
         <div className="font-work-sans font-medium text-sm self-end cursor-pointer text-primary-300">
-          Resend code
+          {t("register.verify-email.resend")}
         </div>
       </div>
       <Button state={"filled"} size={"M"} icon_position={"none"} text="Verify code" />

@@ -14,21 +14,25 @@ export default function registerPart1() {
       {/* Header */}
       <div className="flex flex-col justify-center items-center gap-2">
         <span className="font-work-sans font-semibold lg:text-4xl text-neutral-600 text-center text-2xl">
-          Tell Us a Bit About Yourself
+          {t("register.student.page_1.title")}
         </span>
         <span className="font-work-sans font-medium lg:text-xl text-neutral-400 text-center text-base">
-          To begin, we’ll need a bit of info about you.
+          {t("register.student.page_1.description")}
         </span>
       </div>
       {/* input fields */}
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6" dir={isRTL ? "rtl" : "ltr"}>
         <div className="flex flex-row flex-wrap gap-4">
-          <SimpleInput label={"Firstname"} value={"firstname"} type="text" />
-          <SimpleInput label={"Lastname"} value={"lastname"} type="text" />
+          <SimpleInput label={t("register.common.firstname")} value={"firstname"} type="text" />
+          <SimpleInput label={t("register.common.lastname")} value={"lastname"} type="text" />
         </div>
-        <DropDown label="Wilaya" t={t} isRTL={isRTL} />
-        {/* <SimpleInput label={"Phone number"} value={"phonenumber"} type="text" /> */}
-        <InputButton label={"Phone number"} type="icon" icon={<Phone />} icon_position="left"  />
+        <DropDown label={t("register.common.Wilaya")} t={t}  />
+        <InputButton
+          label={t("register.common.phone")}
+          type="icon"
+          icon={<Phone />}
+          icon_position="left"
+        />
       </div>
       {/* buttons */}
       <div className="flex flex-row gap-4 ">

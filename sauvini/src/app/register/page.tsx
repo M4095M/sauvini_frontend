@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
 
 export default function RegisterPage() {
-  const {t, isRTL} = useLanguage()
+  const { t, isRTL, language } = useLanguage();
   return (
     <div className="w-full h-full p-10 flex flex-col justify-center items-center gap-10 mt-14">
       {/* header */}
@@ -16,19 +16,13 @@ export default function RegisterPage() {
           {t("register.intro.title")}
         </span>
         <span className="font-work-sans font-medium lg:text-xl text-neutral-400 text-center text-base">
-          Join as a student to start learning, or as a professor to share your
-          expertise.
+          {t("register.intro.description")}
         </span>
       </div>
       {/* cards */}
       <div className="flex flex-row justify-center w-full gap-3">
         <AuthRoleCard
-          user={"Student"}
-          benefits={[
-            "Learn with videos & notes",
-            "Track your progress",
-            "Ask professors directly",
-          ]}
+          user={"student"}
           icon={
             <svg
               width="40"
@@ -74,14 +68,12 @@ export default function RegisterPage() {
               </defs>
             </svg>
           }
+          t={t}
+          isRTL={isRTL}
+          language={language}
         />
         <AuthRoleCard
-          user="Teacher"
-          benefits={[
-            "Create lessons & quizzes",
-            "Review student work",
-            "Answer questions",
-          ]}
+          user="teacher"
           icon={
             <svg
               width="40"
@@ -140,15 +132,18 @@ export default function RegisterPage() {
               </defs>
             </svg>
           }
+          t={t}
+          isRTL={isRTL}
+          language={language}
         />
       </div>
       {/* links */}
-      <div className="flex justify-center items-center gap-1">
+      <div className="flex justify-center items-center gap-1" dir={isRTL ? "rtl" : "ltr"}>
         <span className="font-work-sans font-normal text-primary-300 text-base">
-          Already have an account?
+          {t("register.common.login_desc")}
         </span>
         <span className="font-work-sans font-semibold text-primary-300 text-sm cursor-pointer">
-          Log in
+          {t("register.common.login")}
         </span>
       </div>
     </div>

@@ -15,34 +15,34 @@ export default function Register3() {
       {/* Header */}
       <div className="flex flex-col justify-center items-center gap-2">
         <span className="font-work-sans font-semibold lg:text-4xl text-neutral-600 text-center text-2xl">
-          Let’s Get to Know You
+          {t("register.professor.page_1.title")}
         </span>
         <span className="font-work-sans font-medium lg:text-xl text-neutral-400 text-center text-base">
-          We’ll start with your basic information.
+          {t("register.professor.page_1.description")}
         </span>
       </div>
       {/* input fields */}
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6" dir={isRTL ? "rtl" : "ltr"}>
         <div className="flex flex-row flex-wrap gap-4">
-          <SimpleInput label={"Firstname"} value={""} type="text" />
-          <SimpleInput label={"Lastname"} value={""} type="text" />
+          <SimpleInput label={t("register.common.firstname")} value={""} type="text" />
+          <SimpleInput label={t("register.common.lastname")} value={""} type="text" />
         </div>
         <TwoOptionRadio
-          label={"Gender"}
+          label={t("register.common.gender")}
           required={true}
-          firstOption={"Male"}
-          secondOption={"Female"}
+          firstOption={t("register.common.male")}
+          secondOption={t("register.common.Female")}
         />
         <InputButton
-          label={"Date of Birth"}
+          label={t("register.common.date_of_birth")}
           type="icon"
           icon={<Calendar />}
           icon_position="right"
           icon_filled={true}
         />
-        <DropDown label="Wilaya" t={t} isRTL={isRTL} />
+        <DropDown label={t("register.common.Wilaya")} t={t} isRTL={isRTL} />
         <InputButton
-          label={"Phone number"}
+          label={t("register.common.phone")}
           type="icon"
           icon={<Phone />}
           icon_position="left"
