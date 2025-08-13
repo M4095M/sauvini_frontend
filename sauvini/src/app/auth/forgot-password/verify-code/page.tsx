@@ -101,14 +101,9 @@ export default function VerifyCodePage() {
             {/* Email InputButton */}
             <div
               className="absolute"
-              style={{
-                width: "420px",
-                top: "265px",
-                left: isRTL ? undefined : "86px",
-                right: isRTL ? "86px" : undefined,
-              }}
+              style={{ width: "420px", top: "270px", left: isRTL ? undefined : "86px", right: isRTL ? "86px" : undefined }}
             >
-              <SimpleInput label={t("auth.verify.email") || "Email"} value="Example@gmail.com" />
+              <SimpleInput label={t("auth.verify.email") || "Email"} value="Example@gmail.com" type="email" />
             </div>
 
             {/* OTP Input */}
@@ -305,7 +300,7 @@ export default function VerifyCodePage() {
 
             {/* Email InputButton */}
             <div className="px-5 sm:px-6 mt-6 sm:max-w-md sm:mx-auto">
-              <SimpleInput label={t("auth.verify.email") || "Email"} value="Example@gmail.com" />
+              <SimpleInput label={t("auth.verify.email") || "Email"} value="Example@gmail.com" type="email" />
             </div>
 
             {/* OTP */}

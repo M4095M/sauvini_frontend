@@ -16,7 +16,7 @@
   --white: #ffffff;
 
   /* Neutral Colors */
-  --neutral-600: #1f1f1f;
+  --neutral-600: #1A1A1A;
   --neutral-500: #464646;
   --neutral-400: #7c7c7c;
   --neutral-300: #bdbdbd;
@@ -29,6 +29,7 @@
   --primary-300: #324C72;
   --primary-200: #4F77A8;
   --primary-100: #A3BAD6;
+  --primary-50: #CEDAE9;
 
   /* Second Color 01 */
   --second01-200: #ffd427;

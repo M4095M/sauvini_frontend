@@ -162,11 +162,13 @@ export default function ResetPasswordPage() {
                     <SimpleInput
                       label={t("auth.reset.newPassword") || "New password"}
                       value="newPassword"
+                      type="password"
                     />
                     {/* Confirm password */}
                     <SimpleInput
                       label={t("auth.reset.confirmPassword") || "Confirm new password"}
                       value="confirmPassword"
+                      type="password"
                     />
                     {/* Submit */}
                     <div className="pt-3">
@@ -298,10 +300,12 @@ export default function ResetPasswordPage() {
                     <SimpleInput
                       label={t("auth.reset.newPassword") || "Password"}
                       value="newPassword"
+                      type="password"
                     />
                     <SimpleInput
                       label={t("auth.reset.confirmPassword") || "Confirm password"}
                       value="confirmPassword"
+                      type="password"
                     />
                     <div className="pt-4 sm:pt-2">
                       <Button

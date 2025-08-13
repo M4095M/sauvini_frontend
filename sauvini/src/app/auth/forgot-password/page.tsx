@@ -98,12 +98,11 @@ export default function ForgotPasswordPage() {
               style={{
                 width: "420px",
                 top: "320px",
-                ...(isRTL ? { right: "86px" } : { left: "86px" }),
+                left: isRTL ? undefined : "86px",
+                right: isRTL ? "86px" : undefined,
               }}
             >
-              <div style={{ direction: isRTL ? "rtl" : "ltr" }}>
-                <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" />
-              </div>
+              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" type="email" />
             </div>
 
             {/* Actions */}
@@ -251,7 +250,7 @@ export default function ForgotPasswordPage() {
 
             {/* Email */}
             <div className="px-5 sm:px-6 mt-10 sm:mt-12 sm:max-w-md sm:mx-auto" style={{ direction: isRTL ? "rtl" : "ltr" }}>
-              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" />
+              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" type="email" />
             </div>
 
             {/* Buttons */}
