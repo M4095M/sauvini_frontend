@@ -3,15 +3,17 @@
 import AuthRoleCard from "@/components/auth/role_card";
 import Logo from "@/components/logo/logo";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
 
 export default function RegisterPage() {
+  const {t, isRTL} = useLanguage()
   return (
     <div className="w-full h-full p-10 flex flex-col justify-center items-center gap-10 mt-14">
       {/* header */}
       <div className="flex flex-col justify-center items-center gap-6">
         <span className="font-work-sans font-semibold lg:text-4xl text-neutral-600 text-center text-2xl">
-          Start by Telling Us Who You Are
+          {t("register.intro.title")}
         </span>
         <span className="font-work-sans font-medium lg:text-xl text-neutral-400 text-center text-base">
           Join as a student to start learning, or as a professor to share your
