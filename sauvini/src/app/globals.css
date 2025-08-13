@@ -57,6 +57,10 @@
   --success-200: #67ffa4;
   --success-100: #e9fff2;
 
+  /* gradient */
+  --Gradient-Main-Left-Blue: var(--primary-50);
+  --Gradient-Main-Right-Blue: #dfd8ff;
+
   /* Legacy compatibility */
 
   /* =============================================================================
@@ -183,37 +187,41 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Dark mode colors */
+  --primary-50: #1b2536;
+  --primary-100: #27364d;
+  --primary-200: #324c72;
+  --primary-300: #4f77a8;
+  --primary-400: #a3bad6;
+  --primary-500: #cedae9;
+
+  --neutral-100: #1a1a1a;
+  --neutral-200: #464646;
+  --neutral-300: #7c7c7c;
+  --neutral-400: #bdbdbd;
+  --neutral-500: #eaeaea;
+  --neutral-600: #f8f8f8;
+  --white: #000000;
+  --black: #ffffff;
+
+  --success-400: #00c851;
+  --success-300: #26ff7e;
+  --success-200: #7affb0;
+  --success-100: #e9fff2;
+
+  --error-400: #dd3030;
+  --error-300: #ff4444;
+  --error-200: #ff6e6e;
+  --error-100: #ffecec;
+
+  --warning-400: #ffbb33;
+  --warning-300: #ffca61;
+  --warning-200: #ffd98f;
+  --warning-100: #fff8ea;
+
+  /* gradient */
+  --Gradient-Main-Left-Blue: var(--primary-50);
+  --Gradient-Main-Right-Blue: #1f1532;
 }
 
 /*  == Button shadow elevation */
@@ -894,8 +902,8 @@
 .auth-background-gradient {
   background: radial-gradient(
     221.6% 141.42% at 0% 0%,
-    var(--Gradient-Main-Left-Blue, #cedae9) 0%,
-    var(--Gradient-Main-Right-Blue, #dfd8ff) 100%
+    var(--Gradient-Main-Left-Blue) 0%,
+    var(--Gradient-Main-Right-Blue) 100%
   );
 }
 
