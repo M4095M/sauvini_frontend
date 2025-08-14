@@ -178,7 +178,7 @@
       "loginButton": "Login",
       "loggingIn": "Logging in...",
       "noAccount": "Don't have an account?",
-      "signUp": "Sign Up",
+      "signUp": " Sign Up",
       "tagline": "Where learning meets purpose"
     },
     "forgot": {
@@ -242,6 +242,13 @@
     "completionStatus": "Completion Status",
     "chaptersTitle": "Chapters",
     "viewLessons": "View Lessons",
-    "showPurchasedOnly": "Show purchased modules only"
+    "showPurchasedOnly": "Show purchased modules only",
+    "lesson": "Lessons"
+  },
+  "lesson": {
+    "startLearning": "Start Learning",
+    "lessonLocked": "Lesson locked, Finish the previous to unlock it",
+    "lessonsTitle": "Lessons",
+    "minutes": "minutes"
   }
 }

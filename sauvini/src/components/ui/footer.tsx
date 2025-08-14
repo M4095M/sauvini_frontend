@@ -9,24 +9,12 @@ import { RTL_LANGUAGES } from '@/lib/language'
 
 interface FooterProps {
   isRTL?: boolean
+  isMobile?: boolean
   className?: string
 }
 
-const FOOTER_STYLES = {
-  desktop: {
-    padding: '24px 52px',
-    gap: 4,
-    background: 'var(--Surface-Level-2, #F8F8F8)',
-  },
-  mobile: {
-    padding: '40px 40px 20px 40px',
-    gap: 108,
-    background: 'var(--Card-Bg-Default, #FFF)',
-  }
-} as const
-
-export default function Footer({ isRTL: propIsRTL, className = '' }: FooterProps) {
-  const [isMobile, setIsMobile] = useState(false)
+export default function Footer({ isRTL: propIsRTL, isMobile: propIsMobile, className = '' }: FooterProps) {
+  const [isMobile, setIsMobile] = useState(propIsMobile !== undefined ? propIsMobile : false)
   const { t, language } = useLanguage()
   const isRTL = propIsRTL !== undefined ? propIsRTL : RTL_LANGUAGES.includes(language)
 
@@ -37,6 +25,8 @@ export default function Footer({ isRTL: propIsRTL, className = '' }: FooterProps
   ] as const
 
   useEffect(() => {
+    if (propIsMobile !== undefined) return
+
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 768)
     }
@@ -45,21 +35,21 @@ export default function Footer({ isRTL: propIsRTL, className = '' }: FooterProps
     window.addEventListener('resize', checkScreenSize)
     
     return () => window.removeEventListener('resize', checkScreenSize)
-  }, [])
-
-  const footerStyles = isMobile ? FOOTER_STYLES.mobile : FOOTER_STYLES.desktop
+  }, [propIsMobile])
 
   return (
     <footer
       className={`
         flex flex-col self-stretch
         rounded-t-[52px]
+        ${isMobile ? 'bg-white dark:bg-[#1A1A1A]' : 'bg-[#F8F8F8] dark:bg-[#1A1A1A]'}
         ${className}
       `}
       style={{
+        padding: isMobile ? '40px 40px 20px 40px' : '24px 52px',
+        gap: isMobile ? 108 : 4,
         alignItems: isMobile ? (isRTL ? 'flex-end' : 'flex-start') : 'center',
         direction: isRTL ? 'rtl' : 'ltr',
-        ...footerStyles,
       }}
     >
       {/* Logo and Links Section */}
@@ -82,6 +72,7 @@ export default function Footer({ isRTL: propIsRTL, className = '' }: FooterProps
             width={230}
             height={67}
             priority={false}
+            className="dark:brightness-150" // slightly brighten logo in dark mode for better visibility
           />
         </div>
 
@@ -118,15 +109,11 @@ export default function Footer({ isRTL: propIsRTL, className = '' }: FooterProps
       {/* Copyright */}
       <div className="self-stretch">
         <p
-          className="text-center m-0"
-          style={{
-            color: 'var(--Content-Secondary, #7C7C7C)',
-            fontFamily: '"Work Sans", sans-serif',
-            fontSize: 16,
-            fontWeight: 400,
-            lineHeight: 'normal',
-            letterSpacing: '-0.32px',
-          }}
+          className={`
+            text-center m-0 font-sans
+            text-[#7C7C7C] dark:text-[#A0A0A0]
+            text-base font-normal leading-normal tracking-[-0.32px]
+          `}
         >
           &copy; 2025 Sauvini
         </p>

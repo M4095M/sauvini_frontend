@@ -179,7 +179,7 @@
       "loginButton": "تسجيل الدخول",
       "loggingIn": "جاري تسجيل الدخول...",
       "noAccount": "ليس لديك حساب؟",
-      "signUp": "سجل الآن",
+      "signUp": " سجل الآن",
       "tagline": "حيث يلتقي التعلم بالهدف"
     },
     "forgot": {
@@ -243,6 +243,13 @@
     "completionStatus": "حالة الإكمال",
     "chaptersTitle": "فصول",
     "viewLessons": "عرض الدروس",
-    "showPurchasedOnly": "عرض الوحدات المشتراة فقط"
+    "showPurchasedOnly": "عرض الوحدات المشتراة فقط",
+    "lesson": "درس"
+  },
+  "lesson": {
+    "startLearning": "ابدأ التعلم",
+    "lessonLocked": "الدرس مقفل، أكمل الدروس السابقة لفتحه",
+    "lessonsTitle": "الدروس",
+    "minutes": "دقائق"
   }
 }

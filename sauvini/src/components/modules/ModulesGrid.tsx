@@ -22,7 +22,7 @@ export default function ModulesGrid({ modules, showPurchasedOnly, onToggleChange
 
   return (
     <div
-      className="flex flex-col items-start rounded-[52px] bg-[#F8F8F8] w-full"
+      className="flex flex-col items-start rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A] w-full"
       style={{
         padding: isMobile ? '24px 0px' : '24px',
         direction: isRTL ? 'rtl' : 'ltr',
@@ -38,19 +38,22 @@ export default function ModulesGrid({ modules, showPurchasedOnly, onToggleChange
               alt="Sauvini S Logo"
               width={40}
               height={40}
+              className="dark:brightness-150" // Slightly brighten logo in dark mode
             />
           </div>
           
           {/* Right Section: Level + Notifications */}
           <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
             {/* Level Badge */}
-            <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-full">
-              <Heart className="w-4 h-4 text-[#324C72] fill-current" />
-              <span className="text-sm font-medium text-gray-700">{t("modules.level")} {userLevel}</span>
+            <div className="flex items-center gap-2 bg-white dark:bg-[#2A2A2A] px-3 py-2 rounded-full">
+              <Heart className="w-4 h-4 text-[#324C72] dark:text-[#90B0E0] fill-current" />
+              <span className={`text-sm font-medium text-gray-700 dark:text-gray-300 ${isRTL ? "font-arabic" : "font-sans"}`}>
+                {t("modules.level")} {userLevel}
+              </span>
             </div>
 
             {/* Notifications Icon Only */}
-            <button className="flex items-center justify-center w-10 h-10 bg-[#324C72] rounded-full">
+            <button className="flex items-center justify-center w-10 h-10 bg-[#324C72] dark:bg-[#213757] rounded-full">
               <Bell className="w-5 h-5 text-white" />
             </button>
           </div>
@@ -59,14 +62,18 @@ export default function ModulesGrid({ modules, showPurchasedOnly, onToggleChange
 
       {/* Modules Title and Toggle */}
       <div className={`w-full mb-6 ${isMobile ? 'px-4' : ''} ${isRTL ? 'text-right' : 'text-left'}`}>
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">{t("modules.modulesTitle")}</h2>
+        <h2 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4 ${isRTL ? "font-arabic" : "font-sans"}`}>
+          {t("modules.modulesTitle")}
+        </h2>
         
         <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-          <span className="text-sm text-gray-600">{t("modules.showPurchasedOnly")}</span>
+          <span className={`text-sm text-gray-600 dark:text-gray-300 ${isRTL ? "font-arabic" : "font-sans"}`}>
+            {t("modules.showPurchasedOnly")}
+          </span>
           <button
             onClick={() => onToggleChange(!showPurchasedOnly)}
             className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-              showPurchasedOnly ? 'bg-[#324C72]' : 'bg-gray-200'
+              showPurchasedOnly ? 'bg-[#324C72]' : 'bg-gray-200 dark:bg-gray-700'
             }`}
           >
             <span
@@ -84,7 +91,7 @@ export default function ModulesGrid({ modules, showPurchasedOnly, onToggleChange
       <div className={`w-full ${isMobile ? 'px-4' : ''}`}>
         {noModules ? (
           <div className="flex flex-col items-center justify-center w-full py-16">
-            <p className="text-lg text-gray-500 text-center">
+            <p className={`text-lg text-gray-500 dark:text-gray-400 text-center ${isRTL ? "font-arabic" : "font-sans"}`}>
               {t("modules.noPurchasedModules")}
             </p>
           </div>

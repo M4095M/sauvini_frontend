@@ -31,7 +31,7 @@ const getProgressColorClasses = (color: Module["color"]) => {
 }
 
 export default function ModuleHeader({ module }: ModuleHeaderProps) {
-  const { language, t } = useLanguage()
+  const { t, language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
 
   const progressPercentage = module.totalLessons > 0 ? (module.completedLessons / module.totalLessons) * 100 : 0
@@ -39,21 +39,21 @@ export default function ModuleHeader({ module }: ModuleHeaderProps) {
   return (
     <div
       className={`
-      flex h-[332px] w-full rounded-[56px] border-[5px] bg-[#F8F8F8] p-6
+      relative flex h-[332px] w-full rounded-[56px] border-[5px] mb-16
+      bg-[#F8F8F8] dark:bg-[#1A1A1A]
       ${getColorClasses(module.color)}
-      ${isRTL ? "flex-row-reverse" : "flex-row"}
     `}
     >
       {/* Title and Description Section */}
       <div
         className={`
-        flex w-[469px] flex-col gap-3
-        ${isRTL ? "items-end text-right" : "items-start text-left"}
+        flex w-[469px] flex-col gap-3 p-8 pt-12
+        ${isRTL ? "items-end text-right pr-8" : "items-start text-left pl-8"}
       `}
       >
         <h1
           className={`
-          text-4xl font-bold text-gray-900
+          text-5xl font-bold text-gray-900 dark:text-white leading-tight
           ${isRTL ? "font-arabic" : "font-sans"}
         `}
         >
@@ -62,46 +62,57 @@ export default function ModuleHeader({ module }: ModuleHeaderProps) {
 
         <p
           className={`
-          text-lg text-gray-600 leading-relaxed
+          text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-md
           ${isRTL ? "font-arabic" : "font-sans"}
         `}
         >
           {module.description}
         </p>
+      </div>
 
-        {/* Progress Section */}
-        <div
+      {/* Progress Section  */}
+      <div
+        className={`
+        absolute bottom-6 left-8 right-8 flex flex-col gap-2
+        ${isRTL ? "items-end" : "items-start"}
+      `}
+      >
+        {/* Progress Bar */}
+        <div className="w-80 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+          <div
+            className={`h-full transition-all duration-300 ${getProgressColorClasses(module.color)}`}
+            style={{
+              width: `${progressPercentage}%`,
+              [isRTL ? "right" : "left"]: 0,
+            }}
+          />
+        </div>
+
+        {/* Progress Text */}
+        <span
           className={`
-          mt-auto flex flex-col gap-2
-          ${isRTL ? "items-end" : "items-start"}
+          text-base text-gray-500 dark:text-gray-400 font-medium
+          ${isRTL ? "font-arabic" : "font-sans"}
         `}
         >
-          {/* Progress Bar */}
-          <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className={`h-full transition-all duration-300 ${getProgressColorClasses(module.color)}`}
-              style={{ width: `${progressPercentage}%` }}
-            />
-          </div>
-
-          {/* Progress Text */}
-          <span
-            className={`
-            text-sm text-gray-500
-            ${isRTL ? "font-arabic" : "font-sans"}
-          `}
-          >
-            {module.completedLessons}/{module.totalLessons} {t("lesson")}
-          </span>
-        </div>
+          {module.completedLessons}/{module.totalLessons} {t("chapters.lesson")}
+        </span>
       </div>
 
       {/* Illustration Section */}
-      <div className="flex w-[373px] h-[393px] flex-col justify-center items-center flex-shrink-0 px-0 py-[11px]">
+      <div
+        className={`
+        absolute top-0 z-10 flex w-[373px] h-[393px] flex-col justify-start items-center flex-shrink-0
+        ${isRTL ? "left-1/4" : "right-1/4"}
+      `}
+        style={{
+          transform: isRTL ? "translateX(-50%)" : "translateX(50%)",
+        }}
+      >
         <img
           src={module.illustration || "/placeholder.svg"}
           alt={module.name}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain object-top dark:brightness-110 dark:contrast-125"
         />
       </div>
     </div>

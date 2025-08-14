@@ -18,7 +18,6 @@ const USER_HEADER_STYLES = {
   container: {
     padding: 12,
     borderRadius: 56,
-    background: 'var(--Surface-Level-2, #F8F8F8)',
   },
   profileCard: {
     width: 373,
@@ -52,9 +51,13 @@ export default function UserHeader({
     <header
       className={`
         flex justify-between items-center self-stretch
+        bg-[#F8F8F8] dark:bg-[#1A1A1A]
         ${className}
       `}
-      style={USER_HEADER_STYLES.container}
+      style={{
+        padding: USER_HEADER_STYLES.container.padding,
+        borderRadius: USER_HEADER_STYLES.container.borderRadius,
+      }}
     >
       {/* Student Profile Card */}
       <div 
@@ -86,30 +89,16 @@ export default function UserHeader({
         {/* Text Frame */}
         <div className={`flex flex-col items-start flex-1 ${isRTL ? 'items-end' : 'items-start'}`}>
           <p
-            className={isRTL ? 'text-right' : 'text-left'}
-            style={{
-              color: 'var(--Content-Secondary, #7C7C7C)',
-              fontSize: 20,
-              fontStyle: 'normal',
-              fontWeight: 500,
-              lineHeight: '30px',
-              letterSpacing: -0.4
-            }}
+            className={`text-[#7C7C7C] dark:text-[#A0A0A0] text-[20px] font-medium leading-[30px] -tracking-[0.4px]
+              ${isRTL ? 'text-right font-arabic' : 'text-left font-sans'}`}
           >
             {t("modules.keepGoing")}
           </p>
 
           {/* User Name */}
           <h1
-            className={`text-gray-900 ${isRTL ? 'text-right' : 'text-left'}`}
-            style={{
-              fontSize: 36,
-              fontStyle: 'normal',
-              fontWeight: 600,
-              lineHeight: 'normal',
-              letterSpacing: -0.72,
-              margin: 0,
-            }}
+            className={`text-gray-900 dark:text-white text-[36px] font-semibold -tracking-[0.72px] m-0
+              ${isRTL ? 'text-right font-arabic' : 'text-left font-sans'}`}
           >
             {userProfile.name} {userProfile.lastname}
           </h1>
@@ -122,14 +111,14 @@ export default function UserHeader({
         style={{ gap: USER_HEADER_STYLES.actionsContainer.gap }}
       >
         {/* Level Badge */}
-        <div className="flex items-center gap-2 px-6 py-4 rounded-full shadow-sm"
-          style={{ background: '#CEDAE9' }}
-        >
+        <div className="flex items-center gap-2 px-6 py-4 rounded-full shadow-sm bg-[#CEDAE9] dark:bg-[#324C72]">
           <Heart 
-            className="w-5 h-5 text-[#324C72] fill-current" 
+            className="w-5 h-5 text-[#324C72] dark:text-[#90B0E0] fill-current" 
             aria-hidden="true"
           />
-          <span className="text-sm font-medium" style={{ color: '#324C72' }}>
+          <span 
+            className={`text-sm font-medium text-[#324C72] dark:text-[#CEDAE9] ${isRTL ? 'font-arabic' : 'font-sans'}`}
+          >
             {t("modules.level")} {userProfile.level}
           </span>
         </div>

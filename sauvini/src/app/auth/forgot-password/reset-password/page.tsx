@@ -38,10 +38,13 @@ export default function ResetPasswordPage() {
       >
         <Check className="w-14 h-14 text-white" />
       </div>
-      <h2 className="mt-8 text-2xl sm:text-3xl font-extrabold" style={{ color: "var(--success-400)" }}>
+      <h2 
+        className={`mt-8 text-2xl sm:text-3xl font-extrabold ${isRTL ? "font-arabic" : "font-sans"}`} 
+        style={{ color: "var(--success-400)" }}
+      >
         {t("auth.reset.successTitle") || "Password Changed Successfully!"}
       </h2>
-      <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-md">
+      <p className={`mt-4 text-gray-600 dark:text-gray-300 max-w-md ${isRTL ? "font-arabic" : "font-sans"}`}>
         {t("auth.reset.successBody") ||
           "Your password has been reset successfully. You can now log in with your new password."}
       </p>
@@ -139,10 +142,10 @@ export default function ResetPasswordPage() {
                     right: isRTL ? "86px" : undefined,
                   }}
                 >
-                  <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
+                  <h1 className={`text-4xl font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? "font-arabic" : "font-sans"}`}>
                     {t("auth.reset.title") || "Reset Your Password"}
                   </h1>
-                  <p className="text-gray-600 dark:text-gray-300 text-lg">
+                  <p className={`text-gray-600 dark:text-gray-300 text-lg ${isRTL ? "font-arabic" : "font-sans"}`}>
                     {t("auth.reset.subtitle") || "Create a new password for your account."}
                   </p>
                 </div>
@@ -223,7 +226,7 @@ export default function ResetPasswordPage() {
                       priority
                     />
                   </div>
-                  <p className="text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto">
+                  <p className={`text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto ${isRTL ? "font-arabic" : "font-sans"}`}>
                     {t("auth.reset.tagline") || "Where learning meets purpose"}
                   </p>
                 </div>
@@ -285,11 +288,11 @@ export default function ResetPasswordPage() {
             ) : (
               <>
                 {/* Text */}
-                <div className="px-5 sm:px-6 mt-9 sm:mt-10 text-left sm:text-center">
-                  <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? "text-right" : "text-left"} sm:text-center`}>
+                  <h1 className={`text-3xl font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? "font-arabic" : "font-sans"}`}>
                     {t("auth.reset.title") || "Reset Your Password"}
                   </h1>
-                  <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+                  <p className={`text-gray-600 dark:text-gray-300 text-base sm:text-lg ${isRTL ? "font-arabic" : "font-sans"}`}>
                     {t("auth.reset.subtitle") || "Create a new password for your account."}
                   </p>
                 </div>

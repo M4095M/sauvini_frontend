@@ -87,13 +87,13 @@ export default function VerifyCodePage() {
                 right: isRTL ? "86px" : undefined,
               }}
             >
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
+              <h1 className={`text-4xl font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.verify.title") || "Check Your Email"}
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-lg mb-1">
+              <p className={`text-gray-600 dark:text-gray-300 text-lg mb-1 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.verify.subtitle") || "Enter the 6-digit code we sent you"}
               </p>
-              <p className="text-gray-500 dark:text-gray-400 text-sm">
+              <p className={`text-gray-500 dark:text-gray-400 text-sm ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.verify.helper") || "Didn't receive it? Check your spam folder or request a new code"}
               </p>
             </div>
@@ -103,7 +103,11 @@ export default function VerifyCodePage() {
               className="absolute"
               style={{ width: "420px", top: "270px", left: isRTL ? undefined : "86px", right: isRTL ? "86px" : undefined }}
             >
-              <SimpleInput label={t("auth.verify.email") || "Email"} value="Example@gmail.com" type="email" />
+              <SimpleInput 
+                label={t("auth.verify.email") || "Email"} 
+                value="Example@gmail.com" 
+                type="email" 
+              />
             </div>
 
             {/* OTP Input */}
@@ -123,7 +127,7 @@ export default function VerifyCodePage() {
                   onChange={(value) => setCode(value)}
                   aria-label={t("auth.verify.codeLabel") || "Verification code"}
                 >
-                  <InputOTPGroup className="gap-4">
+                  <InputOTPGroup className={`gap-4 ${isRTL ? "font-arabic" : "font-sans"}`}>
                     <InputOTPSlot
                       index={0}
                       className="w-14 h-14 rounded-xl border-2 text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
@@ -156,7 +160,7 @@ export default function VerifyCodePage() {
               <div className={`${isRTL ? "text-left" : "text-right"}`}>
                 <button
                   onClick={handleResendCode}
-                  className="text-[var(--primary-500)] text-sm hover:text-[var(--primary-400)] underline font-medium"
+                  className={`text-[var(--primary-500)] text-sm hover:text-[var(--primary-400)] underline font-medium ${isRTL ? "font-arabic" : "font-sans"}`}
                 >
                   {t("auth.verify.resend") || "Resend Code"}
                 </button>
@@ -179,7 +183,7 @@ export default function VerifyCodePage() {
                   <Button
                     state="outlined"
                     size="M"
-                    icon_position="left"
+                    icon_position={isRTL ? "right" : "left"}
                     icon={<ChevronLeft className="w-4 h-4" />}
                     text={t("common.back") || "Back"}
                   />
@@ -237,7 +241,7 @@ export default function VerifyCodePage() {
                   priority
                 />
               </div>
-              <p className="text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto">
+              <p className={`text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.verify.tagline") || "Where learning meets purpose"}
               </p>
             </div>
@@ -287,20 +291,24 @@ export default function VerifyCodePage() {
 
             {/* Text */}
             <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? "text-right" : "text-left"} sm:text-center`}>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h1 className={`text-3xl font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.verify.title") || "Check Your Email"}
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+              <p className={`text-gray-600 dark:text-gray-300 text-base sm:text-lg ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.verify.subtitle") || "Enter the 6-digit code we sent you"}
               </p>
-              <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
+              <p className={`text-gray-500 dark:text-gray-400 text-sm mt-2 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.verify.helper") || "Didn't receive it? Check your spam folder or request a new code"}
               </p>
             </div>
 
             {/* Email InputButton */}
             <div className="px-5 sm:px-6 mt-6 sm:max-w-md sm:mx-auto">
-              <SimpleInput label={t("auth.verify.email") || "Email"} value="Example@gmail.com" type="email" />
+              <SimpleInput 
+                label={t("auth.verify.email") || "Email"} 
+                value="Example@gmail.com" 
+                type="email"
+              />
             </div>
 
             {/* OTP */}
@@ -312,7 +320,7 @@ export default function VerifyCodePage() {
                   onChange={(value) => setCode(value)}
                   aria-label={t("auth.verify.codeLabel") || "Verification code"}
                 >
-                  <InputOTPGroup className="gap-3">
+                  <InputOTPGroup className={`gap-3 ${isRTL ? "font-arabic" : "font-sans"}`}>
                     <InputOTPSlot
                       index={0}
                       className="w-12 h-12 rounded-xl border-2 text-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)]"
@@ -343,7 +351,7 @@ export default function VerifyCodePage() {
               <div className={`${isRTL ? "text-left" : "text-right"} sm:text-center`}>
                 <button
                   onClick={handleResendCode}
-                  className="text-[var(--primary-500)] text-sm hover:text-[var(--primary-400)] underline font-medium"
+                  className={`text-[var(--primary-500)] text-sm hover:text-[var(--primary-400)] underline font-medium ${isRTL ? "font-arabic" : "font-sans"}`}
                 >
                   {t("auth.verify.resend") || "Resend Code"}
                 </button>
@@ -357,7 +365,7 @@ export default function VerifyCodePage() {
                   <Button
                     state="outlined"
                     size="M"
-                    icon_position="left"
+                    icon_position={isRTL ? "right" : "left"}
                     icon={<ChevronLeft className="w-4 h-4" />}
                     text={t("common.back") || "Back"}
                   />

@@ -82,7 +82,7 @@
       "loginButton": "Se connecter",
       "loggingIn": "Connexion en cours...",
       "noAccount": "Vous n'avez pas de compte ?",
-      "signUp": "S'inscrire",
+      "signUp": " S'inscrire",
       "tagline": "Où l'apprentissage rencontre un but"
     },
     "forgot": {
@@ -146,7 +146,14 @@
     "completionStatus": "État d'achèvement",
     "chaptersTitle": "Chapitres",
     "viewLessons": "Voir les leçons",
-    "showPurchasedOnly": "Afficher uniquement les modules achetés"
+    "showPurchasedOnly": "Afficher uniquement les modules achetés",
+    "lesson": "Leçons"
+  },
+  "lesson": {
+    "startLearning": "Commencer l'apprentissage",
+    "lessonLocked": "Leçon verrouillée, Terminez la précédente pour la déverrouiller",
+    "lessonsTitle": "Leçons",
+    "minutes": "minutes"
   }
 }
 

@@ -74,20 +74,19 @@ export default function ForgotPasswordPage() {
 
             {/* Title + Subtitle + Helper */}
             <div
-              className="absolute text-center"
+              className={`absolute text-center ${isRTL ? "right-[86px]" : "left-[86px]"}`}
               style={{
                 width: "420px",
                 top: "140px",
-                left: "86px",
               }}
             >
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
+              <h1 className={`text-4xl font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.forgot.title") || "Forgot Your Password?"}
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-lg mb-1">
+              <p className={`text-gray-600 dark:text-gray-300 text-lg mb-1 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.forgot.subtitle") || "Enter the email linked to your account."}
               </p>
-              <p className="text-gray-500 dark:text-gray-400 text-sm">
+              <p className={`text-gray-500 dark:text-gray-400 text-sm ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.forgot.helper") || "We'll send you a verification code by email."}
               </p>
             </div>
@@ -121,7 +120,7 @@ export default function ForgotPasswordPage() {
                   <Button
                     state="outlined"
                     size="M"
-                    icon_position="left"
+                    icon_position={isRTL ? "right" : "left"}
                     icon={<ChevronLeft className="w-4 h-4" />}
                     text={t("common.back") || "Back"}
                   />
@@ -133,7 +132,7 @@ export default function ForgotPasswordPage() {
                     <Button
                       state="filled"
                       size="M"
-                      icon_position="right"
+                      icon_position={isRTL ? "left" : "right"}
                       icon={<ChevronRight className="w-4 h-4" />}
                       text={
                         isLoading
@@ -183,7 +182,7 @@ export default function ForgotPasswordPage() {
                   priority
                 />
               </div>
-              <p className="text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto">
+              <p className={`text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.forgot.tagline") || "Where learning meets purpose"}
               </p>
             </div>
@@ -237,13 +236,13 @@ export default function ForgotPasswordPage() {
             </div>
 
             <div className={`px-5 sm:px-6 mt-9 sm:mt-10 ${isRTL ? "text-right" : "text-left"} sm:text-center`}>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h1 className={`text-3xl font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.forgot.title") || "Forgot Your Password?"}
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+              <p className={`text-gray-600 dark:text-gray-300 text-base sm:text-lg ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.forgot.subtitle") || "Enter the email linked to your account."}
               </p>
-              <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
+              <p className={`text-gray-500 dark:text-gray-400 text-sm mt-2 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.forgot.helper") || "We'll send you a verification code by email."}
               </p>
             </div>
@@ -260,7 +259,7 @@ export default function ForgotPasswordPage() {
                   <Button
                     state="outlined"
                     size="M"
-                    icon_position="left"
+                    icon_position={isRTL ? "right" : "left"}
                     icon={<ChevronLeft className="w-4 h-4" />}
                     text={t("common.back") || "Back"}
                   />
@@ -270,7 +269,7 @@ export default function ForgotPasswordPage() {
                     <Button
                       state="filled"
                       size="M"
-                      icon_position="right"
+                      icon_position={isRTL ? "left" : "right"}
                       icon={<ChevronRight className="w-4 h-4" />}
                       text={
                         isLoading

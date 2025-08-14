@@ -14,6 +14,7 @@ import Footer from '@/components/ui/footer'
 import UserHeader from "@/components/modules/UserHeader";
 import { Check } from "lucide-react";
 import { MOCK_MODULES_DATA } from "../../data/mockModules";
+import LessonCard from "@/components/modules/LessonCard";
 
 export default function Home() {
   const { t , isRTL, language} = useLanguage();
@@ -123,6 +124,7 @@ export default function Home() {
           <ModuleHeader module={MOCK_MODULES_DATA.modules[0]} />
           <ChapterCard chapter={MOCK_MODULES_DATA.modules[0].chapters[0]} />
           <UserHeader userProfile={MOCK_MODULES_DATA.userProfile} />
+          <LessonCard lesson={MOCK_MODULES_DATA.modules[0].chapters[0].lessons[0]} />
           <Footer />
         </div>
       </div>

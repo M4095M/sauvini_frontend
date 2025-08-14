@@ -58,6 +58,7 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
       className={`
         relative flex items-center justify-center
         rounded-[28px] border border-gray-300 bg-white
+        dark:border-[#7C7C7C] dark:bg-[#1A1A1A]
         ${isMobile ? "self-stretch" : ""}
         ${className}
       `}
@@ -92,8 +93,8 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
                 {/* Module title */}
                 <h3
                   className={`
-                  text-xl font-semibold text-gray-900 leading-tight
-                  ${isRTL ? "text-right" : "text-left"}
+                  text-xl font-semibold text-gray-900 dark:text-white leading-tight
+                  ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
                 `}
                 >
                   {module.name}
@@ -102,12 +103,12 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
                 <div className="flex-shrink-0 mt-1">
                   {module.isUnlocked ? (
                     <ChevronIcon
-                      className="w-5 h-5 text-gray-400 transition-colors hover:text-gray-600"
+                      className="w-5 h-5 text-gray-400 dark:text-gray-500 transition-colors hover:text-gray-600 dark:hover:text-gray-300"
                       aria-hidden="true"
                     />
                   ) : (
                     <div
-                      className="flex items-center justify-center rounded-full bg-gray-100"
+                      className="flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800"
                       style={{ width: 30, height: 30 }}
                       aria-label="Module locked"
                     >
@@ -119,8 +120,8 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
               {/* Description */}
               <p
                 className={`
-                text-sm text-gray-600 mt-1 leading-relaxed
-                ${isRTL ? "text-right" : "text-left"}
+                text-sm text-gray-600 dark:text-gray-300 mt-1 leading-relaxed
+                ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
               `}
               >
                 {truncateDescription(module.description)}
@@ -136,7 +137,7 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
           <div className="w-full mt-2">
             <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
               <div
-                className="flex-1 bg-gray-200 rounded-full h-2 relative overflow-hidden"
+                className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2 relative overflow-hidden"
                 role="progressbar"
                 aria-valuenow={progressPercentage}
                 aria-valuemin={0}
@@ -152,7 +153,7 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
                   }}
                 />
               </div>
-              <span className="text-xs text-gray-500 whitespace-nowrap font-medium">
+              <span className={`text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap font-medium ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {module.completedLessons}/{module.totalLessons}{" "}
                 {module.totalLessons !== 1 ? t("modules.lessons") : t("modules.lesson")}
               </span>

@@ -34,7 +34,7 @@ const SAMPLE_LESSONS: Lesson[] = [
     image: "/placeholder.svg?height=200&width=300",
     duration: 35,
     isCompleted: false,
-    isUnlocked: true,
+    isUnlocked: false,
     order: 2,
     academicStreams: ["Mathematics", "Experimental Sciences"],
   },
@@ -51,6 +51,78 @@ const SAMPLE_LESSONS: Lesson[] = [
   },
 ]
 
+const ADVANCED_FUNCTIONS_LESSONS: Lesson[] = [
+  {
+    id: "lesson_004",
+    title: "Logarithmic Functions",
+    description: "Understanding logarithmic functions and their properties",
+    image: "/placeholder.svg?height=200&width=300",
+    duration: 40,
+    isCompleted: false,
+    isUnlocked: false,
+    order: 1,
+    academicStreams: ["Mathematics"],
+  },
+  {
+    id: "lesson_005",
+    title: "Exponential Functions",
+    description: "Master exponential functions and their applications",
+    image: "/placeholder.svg?height=200&width=300",
+    duration: 45,
+    isCompleted: false,
+    isUnlocked: false,
+    order: 2,
+    academicStreams: ["Mathematics"],
+  },
+  {
+    id: "lesson_006",
+    title: "Trigonometric Functions",
+    description: "Learn trigonometric functions and their graphs",
+    image: "/placeholder.svg?height=200&width=300",
+    duration: 50,
+    isCompleted: false,
+    isUnlocked: false,
+    order: 3,
+    academicStreams: ["Mathematics"],
+  },
+  {
+    id: "lesson_007",
+    title: "Function Transformations",
+    description: "Understanding how to transform and manipulate functions",
+    image: "/placeholder.svg?height=200&width=300",
+    duration: 35,
+    isCompleted: false,
+    isUnlocked: false,
+    order: 4,
+    academicStreams: ["Mathematics"],
+  },
+]
+
+const GEOMETRY_LESSONS: Lesson[] = [
+  {
+    id: "lesson_008",
+    title: "Coordinate Geometry",
+    description: "Master coordinate geometry and analytical methods",
+    image: "/placeholder.svg?height=200&width=300",
+    duration: 45,
+    isCompleted: false,
+    isUnlocked: true,
+    order: 1,
+    academicStreams: ["Mathematics", "Experimental Sciences"],
+  },
+  {
+    id: "lesson_009",
+    title: "Vector Geometry",
+    description: "Learn vector operations and geometric applications",
+    image: "/placeholder.svg?height=200&width=300",
+    duration: 40,
+    isCompleted: false,
+    isUnlocked: false,
+    order: 2,
+    academicStreams: ["Mathematics"],
+  },
+]
+
 const SAMPLE_CHAPTERS: Chapter[] = [
   {
     id: "chapter_001",
@@ -63,7 +135,7 @@ const SAMPLE_CHAPTERS: Chapter[] = [
     price: 2500,
     isPurchased: true,
     isCompleted: false,
-    isUnlocked: false,
+    isUnlocked: true,
     order: 1,
     academicStreams: ["Mathematics", "Experimental Sciences"],
     totalLessons: 3,
@@ -75,7 +147,7 @@ const SAMPLE_CHAPTERS: Chapter[] = [
     description: "Explore logarithmic, exponential and trigonometric functions",
     image: "/placeholder.svg?height=200&width=300",
     moduleId: "mathematics",
-    lessons: [],
+    lessons: ADVANCED_FUNCTIONS_LESSONS,
     prerequisites: ["chapter_001"],
     price: 3000,
     isPurchased: false,
@@ -84,6 +156,23 @@ const SAMPLE_CHAPTERS: Chapter[] = [
     order: 2,
     academicStreams: ["Mathematics"],
     totalLessons: 4,
+    completedLessons: 0,
+  },
+  {
+    id: "chapter_003",
+    title: "Geometry & Vectors",
+    description: "Master coordinate geometry and vector operations",
+    image: "/placeholder.svg?height=200&width=300",
+    moduleId: "mathematics",
+    lessons: GEOMETRY_LESSONS,
+    prerequisites: [],
+    price: 2000,
+    isPurchased: true,
+    isCompleted: false,
+    isUnlocked: true,
+    order: 3,
+    academicStreams: ["Mathematics", "Experimental Sciences"],
+    totalLessons: 2,
     completedLessons: 0,
   },
 ]
@@ -160,6 +249,8 @@ export const MOCK_MODULES_DATA: ModulesPageData = {
   userProfile: MOCK_USER_PROFILE,
   modules: MOCK_MODULES,
 }
+
+export const mockModulesPageData = MOCK_MODULES_DATA
 
 export function filterModulesByStream(modules: Module[], stream: AcademicStream): Module[] {
   return modules.filter((module) => module.academicStreams.includes(stream))

@@ -20,7 +20,9 @@ export default function ChapterCard({ chapter, onClick }: ChapterCardProps) {
 
   return (
     <div
-      className="flex w-[373px] h-[176px] flex-col items-start gap-[10px] rounded-[28px] border border-[#BDBDBD] bg-white cursor-pointer hover:shadow-md transition-shadow"
+      className="flex w-[373px] h-[176px] flex-col items-start gap-[10px] rounded-[28px] cursor-pointer hover:shadow-md transition-shadow
+                 border border-[#BDBDBD] bg-white
+                 dark:border-[#7C7C7C] dark:bg-[#1A1A1A]"
       style={{ padding: "16px 24px 8px 24px" }}
       onClick={onClick}
     >
@@ -41,10 +43,14 @@ export default function ChapterCard({ chapter, onClick }: ChapterCardProps) {
 
             {/* Title and description */}
             <div className={`flex flex-col gap-1 flex-1 ${isRTL ? "items-end" : "items-start"}`}>
-              <h3 className={`font-semibold text-lg text-gray-900 leading-tight ${isRTL ? "text-right" : "text-left"}`}>
+              <h3 className={`font-semibold text-lg leading-tight 
+                             text-gray-900 dark:text-white 
+                             ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}>
                 {chapter.title}
               </h3>
-              <p className={`text-sm text-gray-600 leading-relaxed line-clamp-2 ${isRTL ? "text-right" : "text-left"}`}>
+              <p className={`text-sm leading-relaxed line-clamp-2 
+                           text-gray-600 dark:text-gray-300
+                           ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}>
                 {chapter.description}
               </p>
             </div>
@@ -52,10 +58,10 @@ export default function ChapterCard({ chapter, onClick }: ChapterCardProps) {
 
           {/* Arrow or Lock */}
           {chapter.isUnlocked ? (
-            <ChevronIcon className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
+            <ChevronIcon className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 mt-1" />
           ) : (
             <div
-              className="flex items-center justify-center rounded-full bg-gray-100 flex-shrink-0 mt-1"
+              className="flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 flex-shrink-0 mt-1"
               style={{ width: 30, height: 30 }}
               aria-label="Chapter locked"
             >
@@ -68,7 +74,7 @@ export default function ChapterCard({ chapter, onClick }: ChapterCardProps) {
           // Progress section for unlocked chapters
           <div className={`flex w-[284px] flex-col gap-2 ${isRTL ? "items-start" : "items-end"}`}>
             <div className={`flex ${isRTL ? "flex-row-reverse" : ""} items-center gap-2 w-full`}>
-              <div className="flex-1 bg-gray-200 rounded-full h-1.5 relative overflow-hidden">
+              <div className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 relative overflow-hidden">
                 <div
                   className="absolute top-0 h-full rounded-full transition-all duration-300 bg-yellow-400"
                   style={{
@@ -77,8 +83,8 @@ export default function ChapterCard({ chapter, onClick }: ChapterCardProps) {
                   }}
                 />
               </div>
-              <span className="text-xs text-gray-500 whitespace-nowrap">
-                {chapter.completedLessons}/{chapter.totalLessons} Lesson{chapter.totalLessons !== 1 ? "s" : ""}
+              <span className={`text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap ${isRTL ? "font-arabic" : "font-sans"}`}>
+                {chapter.completedLessons}/{chapter.totalLessons} {t(chapter.totalLessons !== 1 ? "modules.lessons" : "modules.lesson")}
               </span>
             </div>
           </div>

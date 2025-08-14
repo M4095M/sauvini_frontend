@@ -89,8 +89,12 @@ export default function LoginPage() {
                 gap: "8px",
               }}
             >
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-white">{t("auth.login.title")}</h1>
-              <p className="text-gray-600 dark:text-gray-300 text-lg">{t("auth.login.subtitle")}</p>
+              <h1 className={`text-4xl font-bold text-gray-900 dark:text-white ${isRTL ? "font-arabic" : "font-sans"}`}>
+                {t("auth.login.title")}
+              </h1>
+              <p className={`text-gray-600 dark:text-gray-300 text-lg ${isRTL ? "font-arabic" : "font-sans"}`}>
+                {t("auth.login.subtitle")}
+              </p>
             </div>
 
             {/* Form Container */}
@@ -119,7 +123,7 @@ export default function LoginPage() {
                 <div className={`mb-6 ${isRTL ? "text-left" : "text-right"}`}>
                   <Link
                     href="/auth/forgot-password"
-                    className="text-sm font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded"
+                    className={`text-sm font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded ${isRTL ? "font-arabic" : "font-sans"}`}
                   >
                     {t("auth.login.forgotPassword")}
                   </Link>
@@ -138,10 +142,12 @@ export default function LoginPage() {
 
                 {/* Sign up */}
                 <div className="text-center">
-                  <span className="text-gray-600 dark:text-gray-300">{t("auth.login.noAccount")} </span>
+                  <span className={`text-gray-600 dark:text-gray-300 ${isRTL ? "font-arabic" : "font-sans"}`}>
+                    {t("auth.login.noAccount")} 
+                  </span>
                   <Link
-                    href="/signup/choose-role"
-                    className="font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded"
+                    href="/register"
+                    className={`font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded ${isRTL ? "font-arabic" : "font-sans"}`}
                   >
                     {t("auth.login.signUp")}
                   </Link>
@@ -193,7 +199,7 @@ export default function LoginPage() {
                   priority
                 />
               </div>
-              <p className="text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto">
+              <p className={`text-xl lg:text-2xl text-blue-100 mb-12 font-light max-w-md mx-auto ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.login.tagline")}
               </p>
             </div>
@@ -249,8 +255,12 @@ export default function LoginPage() {
 
             {/* Welcome */}
             <div className="px-5 sm:px-6 mt-9 sm:mt-10 text-left sm:text-center">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">{t("auth.login.title")}</h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">{t("auth.login.subtitle")}</p>
+              <h1 className={`text-3xl font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? "font-arabic" : "font-sans"}`}>
+                {t("auth.login.title")}
+              </h1>
+              <p className={`text-gray-600 dark:text-gray-300 text-base sm:text-lg ${isRTL ? "font-arabic" : "font-sans"}`}>
+                {t("auth.login.subtitle")}
+              </p>
             </div>
 
             {/* Form */}
@@ -265,7 +275,7 @@ export default function LoginPage() {
                 <div style={{ textAlign: isRTL ? "right" : "left" }}>
                   <Link
                     href="/auth/forgot-password"
-                    className="text-sm font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded"
+                    className={`text-sm font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded ${isRTL ? "font-arabic" : "font-sans"}`}
                   >
                     {t("auth.login.forgotPassword")}
                   </Link>
@@ -280,10 +290,12 @@ export default function LoginPage() {
                   />
                 </div>
                 <div className="text-center pt-1">
-                  <span className="text-gray-600 dark:text-gray-300">{t("auth.login.noAccount")} </span>
+                  <span className={`text-gray-600 dark:text-gray-300 ${isRTL ? "font-arabic" : "font-sans"}`}>
+                    {t("auth.login.noAccount")} 
+                  </span>
                   <Link
-                    href="/signup/choose-role"
-                    className="font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded"
+                    href="/register"
+                    className={`font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded ${isRTL ? "font-arabic" : "font-sans"}`}
                   >
                     {t("auth.login.signUp")}
                   </Link>
