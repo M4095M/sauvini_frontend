@@ -23,7 +23,6 @@ export default function registerPart1() {
       {/* input fields */}
       <div className="flex flex-col gap-6" dir={isRTL ? "rtl" : "ltr"}>
         <div className="flex flex-row flex-wrap gap-4">
-<<<<<<< HEAD
           <SimpleInput label={t("register.common.firstname")} value={"firstname"} type="text" />
           <SimpleInput label={t("register.common.lastname")} value={"lastname"} type="text" />
         </div>
@@ -34,13 +33,6 @@ export default function registerPart1() {
           icon={<Phone />}
           icon_position="left"
         />
-=======
-          <SimpleInput label={"Firstname"} value={"firstname"} type="text" />
-          <SimpleInput label={"Lastname"} value={"lastname"} type="text" />
-        </div>
-        <SimpleInput label={"Wilaya"} value={"Wilaya"} type="text" />
-        <SimpleInput label={"Phone number"} value={"phonenumber"} type="text" />
->>>>>>> origin/courses
       </div>
       {/* buttons */}
       <div className="flex flex-row gap-4 ">
