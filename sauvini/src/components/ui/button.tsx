@@ -169,11 +169,11 @@ export default function Button({
       <span>{text}</span>
 
       {/* animate when button is pressed */}
-      <div className={`${activeButtonAnimationColor(state)}text-neutral-100 opacity-10`}>
+      <div className={`${activeButtonAnimationColor(state)}text-neutral-100 opacity-10 `}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="248"
-          height="82"
+          width="2000"
+          height="2000"
           viewBox="0 0 248 82"
           fill="currentColor"
           className="absolute left-1/2 top-full -translate-x-1/2 translate-y-0 group-active:top-1/2 group-active:-translate-y-1/2 transition-all duration-300 ease-in-out"

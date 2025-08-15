@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import type { Module } from "@/types/modules"
-import { useLanguage } from "@/hooks/useLanguage"
-import { RTL_LANGUAGES } from "@/lib/language"
+import type { Module } from "@/types/modules";
+import { useLanguage } from "@/hooks/useLanguage";
+import { RTL_LANGUAGES } from "@/lib/language";
 
 interface ModuleHeaderProps {
-  module: Module
+  module: Module;
 }
 
 const getColorClasses = (color: Module["color"]) => {
@@ -15,9 +15,9 @@ const getColorClasses = (color: Module["color"]) => {
     purple: "border-purple-400",
     green: "border-green-400",
     red: "border-red-400",
-  }
-  return colorMap[color]
-}
+  };
+  return colorMap[color];
+};
 
 const getProgressColorClasses = (color: Module["color"]) => {
   const colorMap = {
@@ -26,15 +26,17 @@ const getProgressColorClasses = (color: Module["color"]) => {
     purple: "bg-purple-400",
     green: "bg-green-400",
     red: "bg-red-400",
-  }
-  return colorMap[color]
-}
+  };
+  return colorMap[color];
+};
 
 export default function ModuleHeader({ module }: ModuleHeaderProps) {
-  const { t, language } = useLanguage()
-  const isRTL = RTL_LANGUAGES.includes(language)
+  const { t, language, isRTL } = useLanguage();
 
-  const progressPercentage = module.totalLessons > 0 ? (module.completedLessons / module.totalLessons) * 100 : 0
+  const progressPercentage =
+    module.totalLessons > 0
+      ? (module.completedLessons / module.totalLessons) * 100
+      : 0;
 
   return (
     <div
@@ -43,12 +45,13 @@ export default function ModuleHeader({ module }: ModuleHeaderProps) {
       bg-[#F8F8F8] dark:bg-[#1A1A1A]
       ${getColorClasses(module.color)}
     `}
+      dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Title and Description Section */}
       <div
         className={`
-        flex w-[469px] flex-col gap-3 p-8 pt-12
-        ${isRTL ? "items-end text-right pr-8" : "items-start text-left pl-8"}
+        flex w-[469px] flex-col gap-3 p-8 pt-12 items-start
+        ${!isRTL ? "pr-8" : " pl-8"}
       `}
       >
         <h1
@@ -58,6 +61,7 @@ export default function ModuleHeader({ module }: ModuleHeaderProps) {
         `}
         >
           {module.name}
+          {/* {"الأعداد المركبة"} */}
         </h1>
 
         <p
@@ -67,20 +71,22 @@ export default function ModuleHeader({ module }: ModuleHeaderProps) {
         `}
         >
           {module.description}
+          {/* {"نص تجريبي لتوضيح المحتوى النصي لهذه البطاقة. قد يتغير حسب الحاجة."} */}
         </p>
       </div>
 
       {/* Progress Section  */}
       <div
         className={`
-        absolute bottom-6 left-8 right-8 flex flex-col gap-2
-        ${isRTL ? "items-end" : "items-start"}
+        absolute bottom-6 left-8 right-8 flex flex-col gap-2 w-fit
       `}
       >
         {/* Progress Bar */}
         <div className="w-80 h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
           <div
-            className={`h-full transition-all duration-300 ${getProgressColorClasses(module.color)}`}
+            className={`h-full transition-all duration-300 ${getProgressColorClasses(
+              module.color
+            )}`}
             style={{
               width: `${progressPercentage}%`,
               [isRTL ? "right" : "left"]: 0,
@@ -91,8 +97,7 @@ export default function ModuleHeader({ module }: ModuleHeaderProps) {
         {/* Progress Text */}
         <span
           className={`
-          text-base text-gray-500 dark:text-gray-400 font-medium
-          ${isRTL ? "font-arabic" : "font-sans"}
+          text-base text-gray-500 dark:text-gray-400 font-medium self-end
         `}
         >
           {module.completedLessons}/{module.totalLessons} {t("chapters.lesson")}
@@ -116,5 +121,5 @@ export default function ModuleHeader({ module }: ModuleHeaderProps) {
         />
       </div>
     </div>
-  )
+  );
 }

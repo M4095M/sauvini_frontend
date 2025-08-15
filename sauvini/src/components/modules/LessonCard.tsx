@@ -13,15 +13,14 @@ interface LessonCardProps {
 }
 
 export default function LessonCard({ lesson, onStartLearning }: LessonCardProps) {
-  const { language, t } = useLanguage()
-  const isRTL = RTL_LANGUAGES.includes(language)
+  const { language, t, isRTL } = useLanguage()
 
   return (
     <div className="flex w-full max-w-[1152px] p-6 md:p-6 flex-col md:flex-row md:items-center gap-3 md:gap-0 rounded-[28px] 
                    border border-[#BDBDBD] bg-white
                    dark:border-[#7C7C7C] dark:bg-[#1A1A1A]">
       {/* Desktop Layout */}
-      <div className="hidden md:flex justify-between items-center w-full">
+      <div className={`hidden md:flex flex-row${isRTL ? "-reverse" : ""} justify-between items-center w-full`} >
         {/* Left Content */}
         <div className={`flex items-start gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
           {/* Number Icon */}
@@ -37,9 +36,11 @@ export default function LessonCard({ lesson, onStartLearning }: LessonCardProps)
           >
             <h3 className={`text-lg font-semibold text-gray-900 dark:text-white ${isRTL ? "font-arabic" : "font-sans"}`}>
               {lesson.title}
+              {/* {"الأعداد المركبة"} */}
             </h3>
             <p className={`text-sm text-gray-600 dark:text-gray-300 ${isRTL ? "font-arabic" : "font-sans"}`}>
               {lesson.description}
+              {/* {"نص تجريبي لتوضيح المحتوى النصي لهذه البطاقة. قد يتغير حسب الحاجة."} */}
             </p>
             {!lesson.isUnlocked && (
               <p className={`text-xs text-gray-400 dark:text-gray-500 mt-1 ${isRTL ? "font-arabic" : "font-sans"}`}>
