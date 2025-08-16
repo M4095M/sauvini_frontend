@@ -42,7 +42,7 @@ export default function Footer({ isRTL: propIsRTL, isMobile: propIsMobile, class
       className={`
         flex flex-col self-stretch
         rounded-t-[52px]
-        ${isMobile ? 'bg-white dark:bg-[#1A1A1A]' : 'bg-[#F8F8F8] dark:bg-[#1A1A1A]'}
+        ${isMobile ? 'bg-[#F8F8F8] dark:bg-[#1A1A1A]' : 'bg-[#F8F8F8] dark:bg-[#1A1A1A]'}
         ${className}
       `}
       style={{

@@ -249,6 +249,7 @@
     "startLearning": "Start Learning",
     "lessonLocked": "Lesson locked, Finish the previous to unlock it",
     "lessonsTitle": "Lessons",
-    "minutes": "minutes"
+    "minutes": "minutes",
+    "noLessons": "No lessons available"
   }
 }

@@ -250,6 +250,7 @@
     "startLearning": "ابدأ التعلم",
     "lessonLocked": "الدرس مقفل، أكمل الدروس السابقة لفتحه",
     "lessonsTitle": "الدروس",
-    "minutes": "دقائق"
+    "minutes": "دقائق",
+    "noLessons": "لا توجد دروس متاحة"
   }
 }

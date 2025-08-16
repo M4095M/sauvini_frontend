@@ -153,7 +153,8 @@
     "startLearning": "Commencer l'apprentissage",
     "lessonLocked": "Leçon verrouillée, Terminez la précédente pour la déverrouiller",
     "lessonsTitle": "Leçons",
-    "minutes": "minutes"
+    "minutes": "minutes",
+    "noLessons": "Aucune leçon disponible"
   }
 }
 

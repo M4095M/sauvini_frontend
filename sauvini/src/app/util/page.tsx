@@ -9,7 +9,7 @@ import { ThemeSwitcher, ThemeToggle } from "@/components/ui/theme-switcher";
 import { useLanguage } from "@/context/LanguageContext";
 import ModuleCard from "@/components/modules/ModuleCard";
 import ChapterCard from "@/components/modules/ChapterCard";
-import ModuleHeader from "@/components/modules/ModuleHeader";
+import ContentHeader from "@/components/modules/ContentHeader";
 import Footer from '@/components/ui/footer'
 import UserHeader from "@/components/modules/UserHeader";
 import { Check } from "lucide-react";
@@ -121,7 +121,6 @@ export default function Home() {
             module={MOCK_MODULES_DATA.modules[0]}
             isMobile={false}
           />
-          <ModuleHeader module={MOCK_MODULES_DATA.modules[0]} />
           <ChapterCard chapter={MOCK_MODULES_DATA.modules[0].chapters[0]} />
           <UserHeader userProfile={MOCK_MODULES_DATA.userProfile} />
           <LessonCard lesson={MOCK_MODULES_DATA.modules[0].chapters[0].lessons[0]} />
