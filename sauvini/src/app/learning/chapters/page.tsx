@@ -1,36 +1,26 @@
 "use client"
 
-import { useState, useEffect } from 'react'
-import ChaptersSection from '@/components/modules/ChaptersSection'
-import ContentHeader from '@/components/modules/ContentHeader'
-import { useLanguage } from '@/hooks/useLanguage'
-import { RTL_LANGUAGES } from '@/lib/language'
-import { MOCK_MODULES_DATA } from '@/data/mockModules'
+import { useEffect, useState } from "react"
+import ContentHeader from "@/components/modules/ContentHeader"
+import ChaptersSection from "@/components/modules/ChaptersSection"
+import { MOCK_MODULES_DATA } from "@/data/mockModules"
 
 export default function ChaptersPage() {
-  const { language } = useLanguage()
-  const isRTL = RTL_LANGUAGES.includes(language)
-  const [isMobile, setIsMobile] = useState(false)
-  
-  // Get the first module as example (in real app, this would come from route params)
-  const currentModule = MOCK_MODULES_DATA.modules[0];
+  const [isMobile, setIsMobile] = useState(true)
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  const currentModule = MOCK_MODULES_DATA.modules?.[0]
+  const chapters = currentModule?.chapters || []
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const onResize = () => setIsMobile(window.innerWidth < 768)
+    onResize()
+    setIsLoaded(true)
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
+  }, [])
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  if (!currentModule) {
-    return <div>Module not found</div>;
-  }
+  if (!isLoaded || !currentModule) return null
 
   return (
     <>
@@ -40,12 +30,12 @@ export default function ChaptersPage() {
           contentType="module" 
         />
       )}
-      
-      {/* Chapters Section */}
+
       <ChaptersSection
-        chapters={currentModule.chapters}
+        chapters={chapters}
         isMobile={isMobile}
         userLevel={MOCK_MODULES_DATA.userProfile?.level || 1}
+        moduleData={currentModule}  // pass for mobile summary
       />
     </>
   )

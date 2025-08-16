@@ -1,23 +1,36 @@
 "use client"
 
-import type { Lesson } from "@/types/modules"
+import type { Lesson, Chapter, Module } from "@/types/modules"
 import LessonsGrid from "./LessonsGrid"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
 
 interface LessonsSectionProps {
-  lessons: Lesson[]
+  lessons: any[]
   isMobile?: boolean
   userLevel?: number
+  chapterData?: Chapter
+  moduleData?: Module
 }
 
-export default function LessonsSection({ lessons, isMobile = false, userLevel }: LessonsSectionProps) {
-  const { language } = useLanguage()
-  const isRTL = RTL_LANGUAGES.includes(language)
+export default function LessonsSection({
+  lessons,
+  isMobile = false,
+  userLevel,
+  chapterData,
+  moduleData,
+}: LessonsSectionProps) {
+  const { isRTL } = useLanguage()
 
   return (
     <section style={{ direction: isRTL ? "rtl" : "ltr" }}>
-      <LessonsGrid lessons={lessons} isMobile={isMobile} userLevel={userLevel} />
+      <LessonsGrid
+        lessons={lessons}
+        isMobile={isMobile}
+        userLevel={userLevel}
+        chapterData={chapterData}
+        moduleData={moduleData}
+      />
     </section>
   )
 }

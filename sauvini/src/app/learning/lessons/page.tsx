@@ -38,6 +38,8 @@ export default function LessonsPage() {
           lessons={currentChapter.lessons || []}
           isMobile={isMobile}
           userLevel={MOCK_MODULES_DATA.userProfile?.level || 1}
+          chapterData={currentChapter}
+          moduleData={currentModule}
         />
       </div>
     </>

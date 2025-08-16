@@ -2,33 +2,38 @@
 
 import Image from "next/image"
 import { Heart, Bell } from "lucide-react"
-import type { Lesson } from "@/types/modules"
-import LessonCard from "./LessonCard"
 import { useLanguage } from "@/hooks/useLanguage"
-import { RTL_LANGUAGES } from "@/lib/language"
+import LessonCard from "./LessonCard"
+import MobileContentSummary from "./MobileContentSummary"
+import type { Chapter, Module, Lesson } from "@/types/modules"
 
 interface LessonsGridProps {
   lessons: Lesson[]
   isMobile?: boolean
   userLevel?: number
+  chapterData?: Chapter
+  moduleData?: Module
 }
 
-export default function LessonsGrid({ lessons, isMobile = false, userLevel = 6 }: LessonsGridProps) {
-  const { t, language } = useLanguage()
-  const isRTL = RTL_LANGUAGES.includes(language)
+export default function LessonsGrid({
+  lessons,
+  isMobile = false,
+  userLevel = 6,
+  chapterData,
+  moduleData,
+}: LessonsGridProps) {
+  const { t, isRTL } = useLanguage()
 
   if (isMobile) {
     return (
       <div
         className="flex flex-col items-start self-stretch rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A] w-full"
         style={{ padding: "24px 12px", gap: "12px", direction: isRTL ? "rtl" : "ltr" }}
+        dir={isRTL ? "rtl" : "ltr"}
       >
         {/* Mobile Top Bar */}
         <div className={`flex justify-between items-end w-full px-4 mb-4 ${isRTL ? "flex-row-reverse" : ""}`}>
-          <div>
-            <Image src="/S_logo.svg" alt="Sauvini S Logo" width={40} height={40} className="dark:brightness-150" />
-          </div>
-
+          <Image src="/S_logo.svg" alt="Sauvini S Logo" width={40} height={40} className="dark:brightness-150" />
           <div className={`flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
             <div className="flex items-center gap-2 bg-[#E6EBF4] dark:bg-[#324C72] px-3 py-2 rounded-full">
               <Heart className="w-4 h-4 text-[#324C72] dark:text-[#90B0E0] fill-current" />
@@ -43,9 +48,19 @@ export default function LessonsGrid({ lessons, isMobile = false, userLevel = 6 }
           </div>
         </div>
 
-        {/* Lessons Content */}
-        <div className="flex flex-col items-start w-full px-4 gap-6">
-          {/* Title */}
+        {/* Mobile content summary between top bar and list */}
+        {chapterData && moduleData && (
+          <MobileContentSummary
+            title={chapterData.title}
+            description={chapterData.description}
+            completed={chapterData.completedLessons || 0}
+            total={chapterData.totalLessons || 0}
+            color={moduleData.color}
+          />
+        )}
+
+        {/* List title and cards */}
+        <div className="flex flex-col w-full px-4 gap-6 mt-4">
           <h2 className={`text-xl font-bold text-gray-900 dark:text-white ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}>
             {t("lesson.lessonsTitle")}
           </h2>
@@ -73,6 +88,7 @@ export default function LessonsGrid({ lessons, isMobile = false, userLevel = 6 }
     <div
       className="flex flex-col items-start self-stretch rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A] w-full"
       style={{ padding: "24px 12px", gap: "12px", direction: isRTL ? "rtl" : "ltr" }}
+      dir={isRTL ? "rtl" : "ltr"}
     >
       <div className={`flex items-center self-stretch ${isRTL ? "justify-end" : "justify-start"}`} style={{ padding: "0 16px" }}>
         <h2 className={`text-2xl font-bold text-gray-900 dark:text-white ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}>
