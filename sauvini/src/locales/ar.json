@@ -252,5 +252,15 @@
     "lessonsTitle": "الدروس",
     "minutes": "دقائق",
     "noLessons": "لا توجد دروس متاحة"
+  },
+  "navigation": {
+    "modules": "الوحدات",
+    "exams": "الامتحانات",
+    "exercises": "التمارين",
+    "questions": "الأسئلة",
+    "badges": "الشارات",
+    "notifications": "الإشعارات",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج"
   }
 }

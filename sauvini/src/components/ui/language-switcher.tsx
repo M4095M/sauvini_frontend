@@ -4,7 +4,7 @@ import { useLanguage } from "../../hooks/useLanguage";
 import { Language, SUPPORTED_LANGUAGES } from "@/lib/language";
 import Button from "./button";
 import { Flag } from "lucide-react";
-import { AR, EN } from "./icons/languages";
+import { AR, EN, FR } from "./icons/languages";
 import { useState } from "react";
 
 interface LanguageSwitcherProps {
@@ -44,6 +44,7 @@ export function LanguageSwitcher({ className = "" }: LanguageSwitcherProps) {
   const availableLanguages: Av_languages[] = [
     { code: "en", display: "EN", icon: <EN /> },
     { code: "ar", display: "عـ", icon: <AR /> },
+    { code: "fr", display: "FR", icon: <FR /> },
   ];
 
   const currentLanguage = availableLanguages.find(

@@ -1,11 +1,12 @@
 "use client"
 
 import Image from 'next/image'
-import { Heart, Bell } from 'lucide-react'
+import { Heart, Bell, Menu } from "lucide-react"
 import { Module } from '@/types/modules'
 import ModuleCard from './ModuleCard'
 import { useLanguage } from '@/hooks/useLanguage'
 import { RTL_LANGUAGES } from '@/lib/language'
+import { useSidebar } from "@/context/SidebarContext"
 
 interface ModulesGridProps {
   modules: Module[]
@@ -16,8 +17,8 @@ interface ModulesGridProps {
 }
 
 export default function ModulesGrid({ modules, showPurchasedOnly, onToggleChange, isMobile = false, userLevel = 6 }: ModulesGridProps) {
-  const { t, language } = useLanguage()
-  const isRTL = RTL_LANGUAGES.includes(language)
+  const { t, language, isRTL } = useLanguage()
+  const { toggle } = useSidebar()
   const noModules = modules.length === 0
 
   return (
@@ -30,7 +31,7 @@ export default function ModulesGrid({ modules, showPurchasedOnly, onToggleChange
     >
       {/* Mobile Header with Logo, Level, Notifications */}
       {isMobile && (
-        <div className={`flex justify-between items-end w-full mb-6 px-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <div className={`flex justify-between items-end w-full px-4 mb-4 ${isRTL ? "flex-row-reverse" : ""}`}>
           {/* S Logo */}
           <div>
             <Image
@@ -43,9 +44,9 @@ export default function ModulesGrid({ modules, showPurchasedOnly, onToggleChange
           </div>
           
           {/* Right Section: Level + Notifications */}
-          <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <div className={`flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
             {/* Level Badge */}
-            <div className="flex items-center gap-2 bg-white dark:bg-[#2A2A2A] px-3 py-2 rounded-full">
+            <div className="flex items-center gap-2 bg-[#DCE6F5] dark:bg-[#2B3E5A] px-3 py-2 rounded-full">
               <Heart className="w-4 h-4 text-[#324C72] dark:text-[#90B0E0] fill-current" />
               <span className={`text-sm font-medium text-gray-700 dark:text-gray-300 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("modules.level")} {userLevel}
@@ -53,8 +54,20 @@ export default function ModulesGrid({ modules, showPurchasedOnly, onToggleChange
             </div>
 
             {/* Notifications Icon Only */}
-            <button className="flex items-center justify-center w-10 h-10 bg-[#324C72] dark:bg-[#213757] rounded-full">
-              <Bell className="w-5 h-5 text-white" />
+            <button 
+              className="flex items-center justify-center w-10 h-10 bg-[#DCE6F5] dark:bg-[#2B3E5A] rounded-full"
+              aria-label="Notifications"
+            >
+              <Bell className="w-5 h-5 text-[#324C72] dark:text-[#90B0E0]" />
+            </button>
+
+            {/* Menu Button */}
+            <button 
+              className="flex items-center justify-center w-10 h-10 bg-[#DCE6F5] dark:bg-[#2B3E5A] rounded-full"
+              onClick={toggle}
+              aria-label="Open menu"
+            >
+              <Menu className="w-5 h-5 text-[#324C72] dark:text-[#90B0E0]" />
             </button>
           </div>
         </div>

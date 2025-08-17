@@ -251,5 +251,15 @@
     "lessonsTitle": "Lessons",
     "minutes": "minutes",
     "noLessons": "No lessons available"
+  },
+  "navigation": {
+    "modules": "Modules",
+    "exams": "Exams",
+    "exercises": "Exercises",
+    "questions": "Questions",
+    "badges": "Badges",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "logout": "Logout"
   }
 }

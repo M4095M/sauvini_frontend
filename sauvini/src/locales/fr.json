@@ -155,6 +155,16 @@
     "lessonsTitle": "Leçons",
     "minutes": "minutes",
     "noLessons": "Aucune leçon disponible"
+  },
+  "navigation": {
+    "modules": "Modules",
+    "exams": "Examens",
+    "exercises": "Exercices",
+    "questions": "Questions",
+    "badges": "Badges",
+    "notifications": "Notifications",
+    "profile": "Profil",
+    "logout": "Se déconnecter"
   }
 }
 

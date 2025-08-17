@@ -10,6 +10,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
 import { ThemeSwitcher } from '@/components/ui/theme-switcher'
+import Sidebar from '@/components/modules/Sidebar'
+import { SidebarProvider } from '@/context/SidebarContext'
 
 export default function LearningLayout({
   children,
@@ -33,71 +35,14 @@ export default function LearningLayout({
   }, [])
 
   return (
-    <>
+    <SidebarProvider>
       {/* Desktop */}
 
       <div className="hidden md:flex min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 justify-center">
-        {/* Sidebar EXAMPLE */}
-        <aside
-          className="fixed left-0 top-0 z-10 h-screen bg-white dark:bg-[#1A1A1A]"
-          style={{
-            width: 241,
-          }}
-        >
-          <div className="flex flex-col h-full p-4">
-            {/* Logo */}
-            <div className="mb-8 p-4">
-              <Image
-                src="/sauvini_logo.svg"
-                alt="Sauvini"
-                width={150}
-                height={43}
-                className="dark:brightness-150"
-              />
-            </div>
-            
-            {/* Navigation */}
-            <nav className="flex-1">
-              <Link 
-                href="/learning/modules" 
-                className={`flex items-center p-3 mb-2 rounded-lg ${isRTL ? 'flex-row-reverse text-right' : ''} 
-                  hover:bg-gray-100 dark:hover:bg-gray-800
-                  bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300`}
-              >
-                <span className={isRTL ? 'font-arabic' : 'font-sans'}>
-                  Modules
-                </span>
-              </Link>
-              
-              <Link 
-                href="/learning/chapters" 
-                className={`flex items-center p-3 mb-2 rounded-lg ${isRTL ? 'flex-row-reverse text-right' : ''} 
-                  hover:bg-gray-100 dark:hover:bg-gray-800`}
-              >
-                <span className={isRTL ? 'font-arabic' : 'font-sans'}>
-                  Chapters
-                </span>
-              </Link>
-              
-              <Link 
-                href="/learning/lessons" 
-                className={`flex items-center p-3 mb-2 rounded-lg ${isRTL ? 'flex-row-reverse text-right' : ''} 
-                  hover:bg-gray-100 dark:hover:bg-gray-800`}
-              >
-                <span className={isRTL ? 'font-arabic' : 'font-sans'}>
-                  Lessons
-                </span>
-              </Link>
-            </nav>
-            
-            {/* Theme switcher */}
-            <div className="mt-auto p-4">
-              <ThemeSwitcher />
-            </div>
-          </div>
-        </aside>
+        {/* Sidebar */}
+        <Sidebar />
 
-        {/* Main */}
+        {/* Main Content */}
         <div
           style={{
             display: 'flex',
@@ -107,11 +52,11 @@ export default function LearningLayout({
             alignItems: 'flex-start',
             gap: 10,
             flexShrink: 0,
-            marginLeft: 241,
+            marginLeft: isRTL ? 0 : 240,
+            marginRight: isRTL ? 240 : 0,
             direction: isRTL ? 'rtl' : 'ltr',
           }}
         >
-          {/* Internal */}
           <div
             style={{
               display: 'flex',
@@ -123,10 +68,7 @@ export default function LearningLayout({
             }}
           >
             <UserHeader userProfile={userProfile} />
-            
-            {/* Page Content */}
             {children}
-
             <Footer isRTL={isRTL} />
           </div>
         </div>
@@ -141,14 +83,15 @@ export default function LearningLayout({
           direction: isRTL ? 'rtl' : 'ltr',
         }}
       >
-        {/* Page Content */}
+        {/* Mobile Sidebar Drawer */}
+        <Sidebar />
+        
         {children}
 
-        {/* Footer */}
         <div className="mt-auto w-full">
           <Footer isMobile isRTL={isRTL} />
         </div>
       </div>
-    </>
+    </SidebarProvider>
   )
 }

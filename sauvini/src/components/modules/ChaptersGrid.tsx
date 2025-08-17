@@ -1,11 +1,12 @@
 "use client"
 
 import Image from "next/image"
-import { Heart, Bell } from "lucide-react"
+import { Heart, Bell, Menu } from "lucide-react"
 import type { Chapter, Module } from "@/types/modules"
 import ChapterCard from "./ChapterCard"
 import { useLanguage } from "@/hooks/useLanguage"
 import MobileContentSummary from "./MobileContentSummary" 
+import { useSidebar } from "@/context/SidebarContext"
 
 interface ChaptersGridProps {
   chapters: Chapter[]
@@ -25,6 +26,7 @@ export default function ChaptersGrid({
   moduleData,                   
 }: ChaptersGridProps) {
   const { t, isRTL } = useLanguage()
+  const { toggle } = useSidebar()
   const noChapters = chapters.length === 0
 
   if (isMobile) {
@@ -38,14 +40,24 @@ export default function ChaptersGrid({
         <div className={`flex justify-between items-end w-full px-4 mb-4 ${isRTL ? "flex-row-reverse" : ""}`}>
           <Image src="/S_logo.svg" alt="Sauvini S Logo" width={40} height={40} className="dark:brightness-150" />
           <div className={`flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
-            <div className="flex items-center gap-2 bg-white dark:bg-[#2A2A2A] px-3 py-2 rounded-full">
+            <div className="flex items-center gap-2 bg-[#DCE6F5] dark:bg-[#2B3E5A] px-3 py-2 rounded-full">
               <Heart className="w-4 h-4 text-[#324C72] dark:text-[#90B0E0] fill-current" />
               <span className={`text-sm font-medium text-gray-700 dark:text-gray-300 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("modules.level")} {userLevel}
               </span>
             </div>
-            <button className="flex items-center justify-center w-10 h-10 bg-[#324C72] dark:bg-[#213757] rounded-full">
-              <Bell className="w-5 h-5 text-white" />
+            <button 
+              className="flex items-center justify-center w-10 h-10 bg-[#DCE6F5] dark:bg-[#2B3E5A] rounded-full"
+              aria-label="Notifications"
+            >
+              <Bell className="w-5 h-5 text-[#324C72] dark:text-[#90B0E0]" />
+            </button>
+            <button 
+              className="flex items-center justify-center w-10 h-10 bg-[#DCE6F5] dark:bg-[#2B3E5A] rounded-full"
+              onClick={toggle}
+              aria-label="Open menu"
+            >
+              <Menu className="w-5 h-5 text-[#324C72] dark:text-[#90B0E0]" />
             </button>
           </div>
         </div>
