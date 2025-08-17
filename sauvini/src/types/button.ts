@@ -6,5 +6,7 @@ export type ButtonProps = {
   icon_position: "icon-only" | "left" | "right" | "none";
   text?: string;
   icon?: React.ReactNode;
-  disabled?: boolean
+  disabled?: boolean,
+  optionalStyles?: string;
+  onclick?: () => void;
 };
