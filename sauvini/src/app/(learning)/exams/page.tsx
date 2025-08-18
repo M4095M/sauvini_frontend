@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import ExamsGrid from "@/components/modules/ExamsGrid"
 import { MOCK_EXAMS_DATA } from "@/data/mockModules"
+import Loader from '@/components/ui/Loader'
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState<boolean>(() => {
@@ -24,6 +25,19 @@ function useIsMobile() {
 
 export default function ExamsPage() {
   const isMobile = useIsMobile()
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
+  if (!isLoaded) {
+    return (
+      <div className="self-stretch w-full">
+        <Loader label="Loading exams..." />
+      </div>
+    )
+  }
 
   return (
     <ExamsGrid

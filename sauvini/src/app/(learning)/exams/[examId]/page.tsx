@@ -1,8 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useParams } from "next/navigation"
+import { useParams, notFound } from "next/navigation"
 import ExamDetailsGrid from "@/components/modules/ExamDetailsGrid"
+import Loader from '@/components/ui/Loader'
 import { MOCK_EXAMS_DATA, MOCK_EXAM_SUBMISSIONS } from "@/data/mockModules"
 
 function useIsMobile() {
@@ -28,19 +29,31 @@ export default function ExamDetailsPage() {
   const examId = params.examId as string
   const isMobile = useIsMobile()
 
-  // Find the exam
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
   const exam = MOCK_EXAMS_DATA.exams.find(e => e.id === examId)
-  
-  if (!exam) {
-    return <div>Exam not found</div>
+
+  if (!isLoaded) {
+    return (
+      <div className="self-stretch w-full">
+        <Loader label="Loading exam..." />
+      </div>
+    )
   }
 
-  // Get submissions for this exam
+  if (!exam) {
+    notFound()
+  }
+
   const submissions = MOCK_EXAM_SUBMISSIONS.filter(s => s.examId === examId)
 
   return (
     <ExamDetailsGrid
-      exam={exam}
+      exam={exam!}
       submissions={submissions}
       userProfile={MOCK_EXAMS_DATA.userProfile}
       isMobile={isMobile}

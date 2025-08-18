@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { ChevronRight, ChevronLeft, Lock } from "lucide-react"
 import type { Module } from "@/types/modules"
 import Button from "@/components/ui/button"
@@ -41,11 +42,29 @@ const ILLUSTRATION_SIZE = {
 
 export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false, className = "" }: ModuleCardProps) {
   const { t, language } = useLanguage()
+  const router = useRouter()
   const isRTL = propIsRTL !== undefined ? propIsRTL : RTL_LANGUAGES.includes(language)
 
   const progressColor = COLOR_MAP[module.color] || "#BDBDBD"
   const ChevronIcon = isRTL ? ChevronLeft : ChevronRight
   const progressPercentage = Math.round((module.completedLessons / module.totalLessons) * 100)
+
+  const handleModuleClick = () => {
+    if (module.isUnlocked) {
+      router.push(`/modules/${module.id}`)
+    }
+  }
+
+  const handleUnlockClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    // TODO: Implement unlock logic
+    console.log(`Unlock module: ${module.id}`)
+  }
+
+  const handleViewChaptersClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    router.push(`/modules/${module.id}`)
+  }
 
   const truncateDescription = (text: string, maxLength = 90): string => {
     return text.length > maxLength ? `${text.slice(0, maxLength - 3)}...` : text
@@ -59,10 +78,13 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
         relative flex items-center justify-center
         rounded-[28px] border border-gray-300 bg-white
         dark:border-[#7C7C7C] dark:bg-[#1A1A1A]
+        transition-all duration-200 hover:shadow-lg
+        ${module.isUnlocked ? 'cursor-pointer hover:shadow-md' : 'cursor-default'}
         ${isMobile ? "self-stretch" : ""}
         ${className}
       `}
       style={cardStyles}
+      onClick={module.isUnlocked ? handleModuleClick : undefined}
     >
       {/* Internal frame */}
       <div className="flex flex-col items-start gap-2" style={{ width: 325, flexShrink: 0, height: "100%" }}>
@@ -170,6 +192,7 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
               icon_position={isRTL ? "right" : "left"}
               icon={<Lock className="w-4 h-4" aria-hidden="true" />}
               text={t("modules.unlock")}
+              onClick={handleUnlockClick}
             />
             <Button
               state="text"
@@ -177,6 +200,7 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
               icon_position={isRTL ? "left" : "right"}
               icon={<ChevronIcon className="w-4 h-4" style={{ color: "var(--primary-300)" }} aria-hidden="true" />}
               text={t("modules.viewChapters")}
+              onClick={handleViewChaptersClick}
             />
           </div>
         )}

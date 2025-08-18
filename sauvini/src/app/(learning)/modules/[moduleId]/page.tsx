@@ -1,16 +1,23 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useParams, notFound } from "next/navigation"
 import ContentHeader from "@/components/modules/ContentHeader"
 import ChaptersSection from "@/components/modules/ChaptersSection"
 import { MOCK_MODULES_DATA } from "@/data/mockModules"
+import type { Module } from "@/types/modules"
+import Loader from '@/components/ui/Loader'
 
-export default function ChaptersPage() {
+export default function ModuleChaptersPage() {
+  const params = useParams()
+  const moduleId = params.moduleId as string
   const [isMobile, setIsMobile] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
 
-  const currentModule = MOCK_MODULES_DATA.modules?.[0]
-  const chapters = currentModule?.chapters || []
+  // Find the module by ID
+  const currentModule = MOCK_MODULES_DATA.modules.find(
+    (module) => module.id === moduleId
+  )
 
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < 768)
@@ -20,22 +27,35 @@ export default function ChaptersPage() {
     return () => window.removeEventListener("resize", onResize)
   }, [])
 
-  if (!isLoaded || !currentModule) return null
+  // Handle not found module
+  if (isLoaded && !currentModule) {
+    notFound()
+  }
+
+  if (!isLoaded || !currentModule) {
+    return (
+      <div className="self-stretch w-full">
+        <Loader label="Loading module..." />
+      </div>
+    )
+  }
 
   return (
     <>
+      {/* Desktop header */}
       {!isMobile && (
         <ContentHeader 
           content={currentModule} 
           contentType="module" 
+          pageType="chapters"
         />
       )}
 
       <ChaptersSection
-        chapters={chapters}
+        chapters={currentModule.chapters}
         isMobile={isMobile}
         userLevel={MOCK_MODULES_DATA.userProfile?.level || 1}
-        moduleData={currentModule}  // pass for mobile summary
+        moduleData={currentModule} // for mobile summary
       />
     </>
   )

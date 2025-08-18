@@ -147,7 +147,8 @@
     "chaptersTitle": "Chapitres",
     "viewLessons": "Voir les leçons",
     "showPurchasedOnly": "Afficher uniquement les modules achetés",
-    "lesson": "Leçons"
+    "lesson": "Leçons",
+    "noPurchasedChapters": "Aucun chapitre acheté trouvé."
   },
   "lesson": {
     "startLearning": "Commencer l'apprentissage",
@@ -189,6 +190,13 @@
     "selectPdf": "Sélectionner le PDF",
     "pdfOnly": "PDF uniquement",
     "submit": "Soumettre"
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "description": "Désolé, nous n'avons pas pu trouver la page que vous recherchez.",
+    "backToHome": "Retour à l'accueil",
+    "backToModules": "Retour aux modules",
+    "goHome": "Aller à l'accueil"
   }
 }
 

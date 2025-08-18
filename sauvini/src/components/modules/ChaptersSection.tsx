@@ -21,7 +21,10 @@ export default function ChaptersSection({
   const { isRTL } = useLanguage()
 
   return (
-    <section style={{ direction: isRTL ? "rtl" : "ltr" }}>
+    <section
+      className="w-full flex-1 min-w-0 self-stretch"
+      style={{ direction: isRTL ? "rtl" : "ltr" }}
+    >
       <ChaptersGrid
         chapters={chapters}
         isMobile={isMobile}

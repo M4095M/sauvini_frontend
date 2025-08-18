@@ -244,7 +244,8 @@
     "chaptersTitle": "فصول",
     "viewLessons": "عرض الدروس",
     "showPurchasedOnly": "عرض الوحدات المشتراة فقط",
-    "lesson": "درس"
+    "lesson": "درس",
+    "noPurchasedChapters": "لا توجد فصول مشتراة"
   },
   "lesson": {
     "startLearning": "ابدأ التعلم",
@@ -286,5 +287,12 @@
     "selectPdf": "حدد PDF",
     "pdfOnly": "PDF فقط",
     "submit": "إرسال"
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "description": "عذرًا، لم نتمكن من العثور على الصفحة التي تبحث عنها.",
+    "backToHome": "العودة إلى الصفحة الرئيسية",
+    "backToModules": "العودة إلى الوحدات",
+    "goHome": "الذهاب إلى الصفحة الرئيسية"
   }
 }

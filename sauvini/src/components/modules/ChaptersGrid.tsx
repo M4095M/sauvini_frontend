@@ -32,7 +32,7 @@ export default function ChaptersGrid({
   if (isMobile) {
     return (
       <div
-        className="flex flex-col items-start self-stretch rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A] w-full"
+        className="flex flex-col items-stretch self-stretch w-full flex-1 min-w-0 rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A]"
         style={{ padding: "24px 12px", gap: "12px", direction: isRTL ? "rtl" : "ltr" }}
         dir={isRTL ? "rtl" : "ltr"}
       >
@@ -99,7 +99,7 @@ export default function ChaptersGrid({
 
   return (
     <div
-      className="flex flex-col items-start self-stretch rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A] w-full"
+      className="flex flex-col items-stretch self-stretch w-full flex-1 min-w-0 rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A]"
       style={{ padding: "24px 12px", gap: "12px", direction: isRTL ? "rtl" : "ltr" }}
       dir={isRTL ? "rtl" : "ltr"}
     >
@@ -117,7 +117,7 @@ export default function ChaptersGrid({
       </div>
 
       {/* Chapters Grid */}
-      <div className="w-full px-4">
+      <div className="w-full max-w-full px-4">
         {noChapters ? (
           <div className="flex flex-col items-center justify-center w-full py-16">
             <p className={`text-lg text-gray-500 dark:text-gray-400 text-center ${isRTL ? "font-arabic" : "font-sans"}`}>

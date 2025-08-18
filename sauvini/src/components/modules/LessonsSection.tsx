@@ -23,7 +23,7 @@ export default function LessonsSection({
   const { isRTL } = useLanguage()
 
   return (
-    <section style={{ direction: isRTL ? "rtl" : "ltr" }}>
+    <section className="w-full flex-1 min-w-0" style={{ direction: isRTL ? "rtl" : "ltr" }}>
       <LessonsGrid
         lessons={lessons}
         isMobile={isMobile}

@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter, useParams } from "next/navigation"
 import type { Chapter } from "@/types/modules"
 import { ChevronRight, ChevronLeft, Lock } from "lucide-react"
 import Button from "@/components/ui/button"
@@ -13,18 +14,43 @@ interface ChapterCardProps {
 
 export default function ChapterCard({ chapter, onClick }: ChapterCardProps) {
   const { t, language } = useLanguage()
+  const router = useRouter()
+  const params = useParams()
+  const moduleId = params.moduleId as string
   const isRTL = RTL_LANGUAGES.includes(language)
   const progressPercentage = chapter.totalLessons > 0 ? (chapter.completedLessons / chapter.totalLessons) * 100 : 0
 
   const ChevronIcon = isRTL ? ChevronLeft : ChevronRight
 
+  const handleChapterClick = () => {
+    if (chapter.isUnlocked) {
+      if (onClick) {
+        onClick()
+      } else {
+        router.push(`/modules/${moduleId}/chapters/${chapter.id}`)
+      }
+    }
+  }
+
+  const handleUnlockClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    // TODO: Implement unlock logic
+    console.log(`Unlock chapter: ${chapter.id}`)
+  }
+
+  const handleViewChaptersClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    router.push(`/modules/${moduleId}/chapters/${chapter.id}`)
+  }
+
   return (
     <div
-      className="flex w-[373px] h-[176px] flex-col items-start gap-[10px] rounded-[28px] cursor-pointer hover:shadow-md transition-shadow
+      className={`flex w-[373px] h-[176px] flex-col items-start gap-[10px] rounded-[28px] transition-all duration-200 hover:shadow-md
                  border border-[#BDBDBD] bg-white
-                 dark:border-[#7C7C7C] dark:bg-[#1A1A1A]"
+                 dark:border-[#7C7C7C] dark:bg-[#1A1A1A]
+                 ${chapter.isUnlocked ? 'cursor-pointer' : 'cursor-default'}`}
       style={{ padding: "16px 24px 8px 24px" }}
-      onClick={onClick}
+      onClick={handleChapterClick}
     >
       <div className="flex flex-col items-start gap-2 self-stretch">
         <div className={`flex justify-between items-start self-stretch ${isRTL ? "flex-row-reverse" : ""}`}>
@@ -97,6 +123,7 @@ export default function ChapterCard({ chapter, onClick }: ChapterCardProps) {
               icon_position={isRTL ? "right" : "left"}
               icon={<Lock className="w-4 h-4" aria-hidden="true" />}
               text={t("modules.unlock")}
+              onClick={handleUnlockClick}
             />
             <Button
               state="text"
@@ -104,6 +131,7 @@ export default function ChapterCard({ chapter, onClick }: ChapterCardProps) {
               icon_position={isRTL ? "left" : "right"}
               icon={<ChevronIcon className="w-4 h-4 text-blue-500" aria-hidden="true" />}
               text={t("modules.viewChapters")}
+              onClick={handleViewChaptersClick}
             />
           </div>
         )}
