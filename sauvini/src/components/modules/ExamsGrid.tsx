@@ -179,12 +179,9 @@ export default function ExamsGrid({
         
         {/* Filters */}
         <div 
-          className={`${isRTL ? "flex-row-reverse" : ""}`}
+          className={`flex items-center gap-6 w-full ${isRTL ? "justify-end flex-row-reverse" : "justify-start"}`}
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 24,
-            alignSelf: 'stretch',
+            direction: isRTL ? 'rtl' : 'ltr'
           }}
         >
           {/* Status Filter */}
@@ -192,7 +189,8 @@ export default function ExamsGrid({
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className={`p-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg appearance-none min-w-[150px] ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}
+              className={`p-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg appearance-none min-w-[150px] ${isRTL ? "text-right font-arabic pr-8 pl-2" : "text-left font-sans pr-8 pl-2"}`}
+              dir={isRTL ? "rtl" : "ltr"}
             >
               <option value="All">Exam Status : All</option>
               <option value="new">New</option>
@@ -208,7 +206,8 @@ export default function ExamsGrid({
             <select
               value={moduleFilter}
               onChange={(e) => setModuleFilter(e.target.value)}
-              className={`p-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg appearance-none min-w-[200px] ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}
+              className={`p-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg appearance-none min-w-[200px] ${isRTL ? "text-right font-arabic pr-8 pl-2" : "text-left font-sans pr-8 pl-2"}`}
+              dir={isRTL ? "rtl" : "ltr"}
             >
               <option value="All">Modules : All</option>
               {modules.map(module => (

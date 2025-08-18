@@ -147,9 +147,11 @@ export interface ExamSubmission {
   examId: string
   studentId: string
   submittedAt: Date
-  grade?: number // Professor's assigned grade
-  status: "pending" | "graded"
-  answers: Record<string, any> // Store student's answers
+  grade?: number // Professor's assigned grade (0-20)
+  status: "submitted" | "passed" | "failed"
+  solutionPdfUrl: string // Student's uploaded solution
+  professorNotes?: string // Professor's review notes
+  professorReviewPdfUrl?: string // Optional professor review file
 }
 
 export interface Exam {
@@ -178,4 +180,10 @@ export interface ExamsPageData {
   userProfile: UserProfile | null
   exams: Exam[]
   modules: Module[] // For filtering
+}
+
+export interface ExamDetailsPageData {
+  userProfile: UserProfile | null
+  exam: Exam
+  submissions: ExamSubmission[]
 }

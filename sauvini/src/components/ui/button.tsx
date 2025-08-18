@@ -10,6 +10,7 @@ export default function Button({
   text,
   icon,
   disabled,
+  onClick, 
 }: ButtonProps) {
   const [className, setClassName] = useState("");
   const [loading, setLoading] = useState(true);
@@ -164,6 +165,8 @@ export default function Button({
   return (
     <button
       className={`rounded-full flex justify-center  items-center w-full relative overflow-hidden group ${className}`}
+      onClick={onClick} 
+      disabled={disabled} 
     >
       <span>{icon}</span>
       <span>{text}</span>

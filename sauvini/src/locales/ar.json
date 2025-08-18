@@ -273,6 +273,18 @@
     "passed": "ناجح",
     "failed": "راسب",
     "modulesAll": "الوحدات: الكل",
-    "details": "التفاصيل"
+    "details": "التفاصيل",
+    "examPDF": "exam.pdf",
+    "submitSolution": "إرسال الحل",
+    "submissions": "التقديمات",
+    "noSubmissions": "لا توجد تقديمات بعد",
+    "downloadSubmissionFile": "تحميل ملف التقديم",
+    "downloadReviewFile": "تحميل ملف المراجعة",
+    "grade": "الدرجة",
+    "submissionInstructions": "اتبع التعليمات لتقديم امتحانك.",
+    "solutionFile": "solution.pdf",
+    "selectPdf": "حدد PDF",
+    "pdfOnly": "PDF فقط",
+    "submit": "إرسال"
   }
 }

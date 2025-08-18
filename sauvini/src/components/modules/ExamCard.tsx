@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { useLanguage } from "@/hooks/useLanguage"
 import Button from "@/components/ui/button"
 import type { Exam } from "@/types/modules"
@@ -46,6 +47,11 @@ const getStatusText = (status: Exam["status"]) => {
 
 export default function ExamCard({ exam, isMobile = false }: ExamCardProps) {
   const { t, language, isRTL } = useLanguage()
+  const router = useRouter()
+
+  const handleDetailsClick = () => {
+    router.push(`/exams/${exam.id}`)
+  }
 
   // Prefer Arabic fields if available, else EN
   const pick = (en?: string, ar?: string) => {
@@ -124,7 +130,13 @@ export default function ExamCard({ exam, isMobile = false }: ExamCardProps) {
           </div>
         </div>
 
-        <Button state="outlined" size="M" icon_position="none" text={t("exams.details") || "Details"} />
+        <Button 
+          state="outlined" 
+          size="M" 
+          icon_position="none" 
+          text={t("exams.details") || "Details"} 
+          onClick={handleDetailsClick}
+        />
       </div>
     )
   }
@@ -188,6 +200,7 @@ export default function ExamCard({ exam, isMobile = false }: ExamCardProps) {
         size="M"
         icon_position="none"
         text={t("exams.details") || "Details"}
+        onClick={handleDetailsClick}
       />
     </div>
   )

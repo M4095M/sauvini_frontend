@@ -1,4 +1,4 @@
-import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream, Exam, ExamsPageData } from "@/types/modules"
+import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream, Exam, ExamsPageData, ExamSubmission } from "@/types/modules"
 
 export const MOCK_USER_PROFILE: UserProfile = {
   id: "user_001",
@@ -372,3 +372,35 @@ export const MOCK_EXAMS_DATA: ExamsPageData = {
   exams: MOCK_EXAMS,
   modules: MOCK_MODULES,
 }
+
+export const MOCK_EXAM_SUBMISSIONS: ExamSubmission[] = [
+  {
+    id: "submission_001",
+    examId: "exam_001",
+    studentId: "user_001",
+    submittedAt: new Date("2024-01-20T10:30:00"),
+    grade: 12,
+    status: "failed",
+    solutionPdfUrl: "/sample-solution.pdf",
+    professorNotes: "Good understanding of basic concepts but needs improvement in integration techniques. Review chapter 3 examples.",
+    professorReviewPdfUrl: "/professor-review-001.pdf"
+  },
+  {
+    id: "submission_002",
+    examId: "exam_001",
+    studentId: "user_001",
+    submittedAt: new Date("2024-01-25T14:15:00"),
+    status: "submitted",
+    solutionPdfUrl: "/sample-solution-2.pdf",
+  },
+  {
+    id: "submission_003",
+    examId: "exam_003",
+    studentId: "user_001",
+    submittedAt: new Date("2024-01-28T09:45:00"),
+    grade: 16,
+    status: "passed",
+    solutionPdfUrl: "/sample-solution-3.pdf",
+    professorNotes: "Excellent work! Clear understanding of geometric principles and vector calculations.",
+  }
+]

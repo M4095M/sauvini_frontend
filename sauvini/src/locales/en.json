@@ -8,7 +8,8 @@
     "back": "Back",
     "next": "Next",
     "nexting": "Next",
-    "verifying": "Verifying..."
+    "verifying": "Verifying...",
+    "cancel": "Cancel"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -272,6 +273,18 @@
     "submitted": "Submitted",
     "passed": "Passed",
     "failed": "Failed",
-    "modulesAll": "Modules : All"
+    "modulesAll": "Modules : All",
+    "examPdf": "exam.pdf",
+    "submitSolution": "Submit Your Solution",
+    "submissions": "Submissions",
+    "noSubmissions": "No submissions yet",
+    "downloadSubmissionFile": "Download submission file",
+    "downloadReviewFile": "Download review file",
+    "grade": "Grade",
+    "submissionInstructions": "Follow the instructions to submit your exam.",
+    "solutionFile": "solution.pdf",
+    "selectPdf": "Select PDF",
+    "pdfOnly": "PDF only",
+    "submit": "Submit"
   }
 }
