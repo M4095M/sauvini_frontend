@@ -1,4 +1,4 @@
-import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream } from "@/types/modules"
+import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream, Exam, ExamsPageData } from "@/types/modules"
 
 export const MOCK_USER_PROFILE: UserProfile = {
   id: "user_001",
@@ -262,4 +262,113 @@ export function filterChaptersByStream(chapters: Chapter[], stream: AcademicStre
 
 export function filterLessonsByStream(lessons: Lesson[], stream: AcademicStream): Lesson[] {
   return lessons.filter((lesson) => lesson.academicStreams.includes(stream))
+}
+
+export const MOCK_EXAMS: Exam[] = [
+  {
+    id: "exam_001",
+    title: "Calculus Fundamentals Final Exam",
+    description: "Test your understanding of derivatives and basic integration",
+    chapterId: "chapter_001",
+    moduleId: "mathematics",
+    status: "failed",
+    totalQuestions: 20,
+    duration: 60,
+    passingScore: 70,
+    attempts: 2,
+    maxAttempts: 3,
+    submissions: [],
+    isUnlocked: true,
+    createdAt: new Date("2024-01-15"),
+    moduleColor: "yellow",
+    moduleName: "Mathematics",
+    chapterName: "Calculus Fundamentals",
+    chapterImage: "/geo.svg"
+  },
+  {
+    id: "exam_002",
+    title: "Advanced Functions Assessment",
+    description: "Comprehensive test on logarithmic, exponential and trigonometric functions",
+    chapterId: "chapter_002",
+    moduleId: "mathematics",
+    status: "new",
+    totalQuestions: 25,
+    duration: 75,
+    passingScore: 75,
+    attempts: 0,
+    maxAttempts: 3,
+    submissions: [],
+    isUnlocked: true,
+    createdAt: new Date("2024-01-20"),
+    moduleColor: "yellow",
+    moduleName: "Mathematics",
+    chapterName: "Advanced Functions",
+    chapterImage: "/placeholder.svg"
+  },
+  {
+    id: "exam_003",
+    title: "Geometry & Vectors Exam",
+    description: "Test your knowledge of coordinate geometry and vector operations",
+    chapterId: "chapter_003",
+    moduleId: "mathematics",
+    status: "passed",
+    totalQuestions: 18,
+    duration: 50,
+    passingScore: 70,
+    attempts: 1,
+    maxAttempts: 3,
+    submissions: [],
+    isUnlocked: true,
+    createdAt: new Date("2024-01-25"),
+    moduleColor: "yellow",
+    moduleName: "Mathematics",
+    chapterName: "Geometry & Vectors",
+    chapterImage: "/placeholder.svg"
+  },
+  {
+    id: "exam_004",
+    title: "Physics Mechanics Exam",
+    description: "Comprehensive assessment of mechanics principles",
+    chapterId: "chapter_004",
+    moduleId: "physics",
+    status: "new",
+    totalQuestions: 22,
+    duration: 65,
+    passingScore: 75,
+    attempts: 0,
+    maxAttempts: 3,
+    submissions: [],
+    isUnlocked: true,
+    createdAt: new Date("2024-02-01"),
+    moduleColor: "purple",
+    moduleName: "Physics",
+    chapterName: "Mechanics",
+    chapterImage: "/placeholder.svg"
+  },
+  {
+    id: "exam_005",
+    title: "Biology Cell Structure",
+    description: "Test on cellular biology and organelle functions",
+    chapterId: "chapter_005",
+    moduleId: "natural-sciences",
+    status: "submitted",
+    totalQuestions: 15,
+    duration: 45,
+    passingScore: 70,
+    attempts: 1,
+    maxAttempts: 3,
+    submissions: [],
+    isUnlocked: true,
+    createdAt: new Date("2024-02-05"),
+    moduleColor: "blue",
+    moduleName: "Natural Sciences",
+    chapterName: "Cell Biology",
+    chapterImage: "/placeholder.svg"
+  }
+]
+
+export const MOCK_EXAMS_DATA: ExamsPageData = {
+  userProfile: MOCK_USER_PROFILE,
+  exams: MOCK_EXAMS,
+  modules: MOCK_MODULES,
 }

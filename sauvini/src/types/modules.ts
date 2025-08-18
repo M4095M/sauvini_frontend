@@ -141,3 +141,41 @@ export const ALGERIAN_WILAYAS = [
 ] as const
 
 export type Wilaya = (typeof ALGERIAN_WILAYAS)[number]
+
+export interface ExamSubmission {
+  id: string
+  examId: string
+  studentId: string
+  submittedAt: Date
+  grade?: number // Professor's assigned grade
+  status: "pending" | "graded"
+  answers: Record<string, any> // Store student's answers
+}
+
+export interface Exam {
+  id: string
+  title: string
+  description: string
+  chapterId: string
+  moduleId: string
+  status: "new" | "submitted" | "failed" | "passed" | "archived"
+  totalQuestions: number
+  duration: number // in minutes
+  passingScore: number // percentage
+  attempts: number // number of attempts made
+  maxAttempts: number
+  submissions: ExamSubmission[]
+  isUnlocked: boolean
+  createdAt: Date
+  // For UI
+  moduleColor: Module["color"]
+  moduleName: string
+  chapterName: string
+  chapterImage: string
+}
+
+export interface ExamsPageData {
+  userProfile: UserProfile | null
+  exams: Exam[]
+  modules: Module[] // For filtering
+}

@@ -261,5 +261,17 @@
     "notifications": "Notifications",
     "profile": "Profile",
     "logout": "Logout"
+  },
+  "exams": {
+    "title": "My Exams",
+    "description": "View all your exams from chapters you own. Filter by status to find new, submitted, passed, or failed exams. Click a card for details or to submit.",
+    "details": "Details",
+    "noExams": "No exams found",
+    "statusAll": "Exam Status : All",
+    "new": "New",
+    "submitted": "Submitted",
+    "passed": "Passed",
+    "failed": "Failed",
+    "modulesAll": "Modules : All"
   }
 }

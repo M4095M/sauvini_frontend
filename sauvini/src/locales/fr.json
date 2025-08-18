@@ -165,6 +165,18 @@
     "notifications": "Notifications",
     "profile": "Profil",
     "logout": "Se déconnecter"
+  },
+  "exams": {
+    "title": "Mes Examens",
+    "description": "Voir tous vos examens des chapitres que vous possédez. Filtrer par statut pour trouver les nouveaux, soumis, réussis ou échoués. Cliquez sur une carte pour plus de détails ou pour soumettre.",
+    "noExams": "Aucun examen trouvé.",
+    "statusAll": "Statut de l'examen : Tous",
+    "new": "Nouveau",
+    "submitted": "Soumis",
+    "passed": "Réussi",
+    "failed": "Échoué",
+    "modulesAll": "Modules : Tous",
+    "details": "Détails"
   }
 }
 
