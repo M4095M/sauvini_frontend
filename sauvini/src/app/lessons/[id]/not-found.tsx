@@ -5,20 +5,13 @@ import { ChevronLeft, Home, Search } from 'lucide-react'
 import Button from '@/components/ui/button'
 import { useLanguage } from '@/hooks/useLanguage'
 
-export default function NotFound() {
+export default function LessonNotFound() {
   const { t, isRTL } = useLanguage()
 
   return (
-    <div
-      className="self-stretch flex items-center justify-center"
-      style={{ direction: isRTL ? 'rtl' : 'ltr' }}
-      dir={isRTL ? 'rtl' : 'ltr'}
-    >
-      <div
-        className="flex items-center justify-center w-full rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A]"
-        style={{ minHeight: '60vh', padding: '32px 24px' }}
-      >
-        <div className="w-full max-w-xl text-center">
+    <div className="min-h-screen gradient-background-gradient px-14 py-10 flex justify-center items-center">
+      <div className="bg-neutral-200 w-full max-w-2xl px-6 py-8 flex flex-col gap-6 rounded-[42px]">
+        <div className="w-full text-center py-16">
           {/* Icon */}
           <div
             className="mx-auto mb-6 flex items-center justify-center rounded-full bg-primary-50 dark:bg-primary-100/10"
@@ -29,17 +22,17 @@ export default function NotFound() {
 
           {/* Title */}
           <h1
-            className={`${isRTL ? 'font-arabic' : 'font-sans'} text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-3 tracking-tight`}
+            className={`${isRTL ? 'font-arabic' : 'font-sans'} text-4xl font-semibold text-gray-900 dark:text-white mb-3 tracking-tight`}
           >
-            {t?.('notFound.title') || 'Content Not Found'}
+            {t?.('notFound.lessonTitle') || 'Lesson Not Found'}
           </h1>
 
           {/* Description */}
           <p
-            className={`${isRTL ? 'font-arabic' : 'font-sans'} text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-prose mx-auto mb-8`}
+            className={`${isRTL ? 'font-arabic' : 'font-sans'} text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-prose mx-auto mb-8`}
           >
-            {t?.('notFound.description') ||
-              "The module, chapter, or lesson you're looking for doesn't exist or has been moved."}
+            {t?.('notFound.lessonDescription') ||
+              "The lesson you're looking for doesn't exist or has been moved."}
           </p>
 
           {/* Actions */}

@@ -200,7 +200,9 @@
     "description": "Désolé, nous n'avons pas pu trouver la page que vous recherchez.",
     "backToHome": "Retour à l'accueil",
     "backToModules": "Retour aux modules",
-    "goHome": "Aller à l'accueil"
+    "goHome": "Aller à l'accueil",
+    "lessonTitle": "Leçon non trouvée",
+    "lessonDescription": "La leçon que vous recherchez n'existe pas ou a été déplacée."
   }
 }
 

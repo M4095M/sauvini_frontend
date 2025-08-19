@@ -297,6 +297,8 @@
     "description": "Sorry, we couldn't find the page you're looking for.",
     "backToHome": "Back to Home",
     "backToModules": "Back to Modules",
-    "goHome": "Go Home"
+    "goHome": "Go Home",
+    "lessonTitle": "Lesson Not Found",
+    "lessonDescription": "The lesson you're looking for doesn't exist or has been moved."
   }
 }

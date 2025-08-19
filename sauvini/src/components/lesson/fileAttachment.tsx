@@ -1,7 +1,13 @@
+"use client";
+
 import { Download } from "lucide-react";
 import Button from "../ui/button";
 
-export default function FileAttachement() {
+interface FileAttachmentProps {
+  lessonId?: string;
+}
+
+export default function FileAttachement({ lessonId }: FileAttachmentProps) {
   return (
     <div
       className="rounded-[12px] border border-neutral-200 p-2

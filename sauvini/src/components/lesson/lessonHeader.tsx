@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Logo from "../logo/logo";
 import Button from "../ui/button";
@@ -6,7 +8,10 @@ import { LessonHeaderProps } from "@/types/lessonHeader";
 export default function LessonHeader({
   chapter_name,
   lesson_name,
-  callback= () => {}
+  callback = () => {},
+  lessonData,
+  chapterData,
+  moduleData,
 }: LessonHeaderProps) {
   return (
     <div
@@ -42,7 +47,14 @@ export default function LessonHeader({
       </div>
       {/* right */}
       <div className="w-72">
-        <Button state={"filled"} size={"M"} text={"Take Quiz"} icon={<ChevronRight />} icon_position={"right"} onClick={callback} />
+        <Button
+          state={"filled"}
+          size={"M"}
+          text={"Take Quiz"}
+          icon={<ChevronRight />}
+          icon_position={"right"}
+          onClick={callback}
+        />
       </div>
     </div>
   );

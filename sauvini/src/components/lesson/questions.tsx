@@ -28,7 +28,11 @@ const questionSections: QuestionSection = [
   },
 ];
 
-export default function QuestionsSection() {
+interface QuestionsSectionProps {
+  lessonId?: string;
+}
+
+export default function QuestionsSection({ lessonId }: QuestionsSectionProps) {
   const [selectedSection, setSeletedSection] = useState(1);
 
   return (

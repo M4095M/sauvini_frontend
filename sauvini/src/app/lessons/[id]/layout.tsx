@@ -12,5 +12,9 @@
 export default function LessonLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return <div className="min-h-screen gradient-background-gradient px-14 py-10 flex justify-center items-center">{children}</div>;
+  return (
+    <div className="min-h-screen gradient-background-gradient px-14 py-10 flex justify-center items-center">
+      {children}
+    </div>
+  );
 }
