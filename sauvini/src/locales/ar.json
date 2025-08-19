@@ -286,7 +286,11 @@
     "solutionFile": "solution.pdf",
     "selectPdf": "حدد PDF",
     "pdfOnly": "PDF فقط",
-    "submit": "إرسال"
+    "submit": "إرسال",
+    "submissionSubtitle": "قم بتحميل الحل الخاص بك بتنسيق PDF. إذا كان الحل الخاص بك يحتوي على صور، يرجى تحويلها إلى PDF واحد باستخدام أدوات عبر الإنترنت قبل التحميل.",
+    "dragOrBrowse": "اسحب ملفك أو ",
+    "browse": "استعراض",
+    "maxFilesHint": "الحد الأقصى لحجم الملفات المسموح به هو 10 ميغابايت"
   },
   "notFound": {
     "title": "الصفحة غير موجودة",

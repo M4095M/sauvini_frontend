@@ -189,7 +189,11 @@
     "solutionFile": "solution.pdf",
     "selectPdf": "Sélectionner le PDF",
     "pdfOnly": "PDF uniquement",
-    "submit": "Soumettre"
+    "submit": "Soumettre",
+    "submissionSubtitle": "Téléchargez votre solution au format PDF. Si votre solution contient des images, veuillez les convertir en un seul PDF à l'aide d'outils en ligne avant de les télécharger.",
+    "dragOrBrowse": "Faites glisser votre fichier ou ",
+    "browse": "Parcourir",
+    "maxFilesHint": "Max 10 Mo de fichiers sont autorisés"
   },
   "notFound": {
     "title": "Page non trouvée",

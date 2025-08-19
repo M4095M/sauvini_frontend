@@ -20,8 +20,8 @@ export default function QuizPopup({ onClose, onAccept }: QuizPopupProps) {
       </div>
       {/* buttons */}
       <div className="flex gap-3.5">
-        <Button state={"tonal"} size={"M"} icon_position={"none"} text="Continue course" onclick={onClose} />
-        <Button state={"filled"} size={"M"} icon_position={"none"} text="Take Quiz" onclick={onAccept} />
+        <Button state={"tonal"} size={"M"} icon_position={"none"} text="Continue course" onClick={onClose} />
+        <Button state={"filled"} size={"M"} icon_position={"none"} text="Take Quiz" onClick={onAccept} />
       </div>
     </div>
   )

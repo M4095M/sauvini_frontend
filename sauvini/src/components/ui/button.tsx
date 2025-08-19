@@ -21,9 +21,9 @@ export default function Button({
       case "filled":
         setClassName(
           (prev) =>
-            `${prev}hover:bg-[#FFFFFF14] disabled: disabled: ${
+            `${prev} hover:bg-[#FFFFFF14] ${
               disabled
-                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed "
+                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed"
                 : "bg-primary-300 text-neutral-100 cursor-pointer"
             }`
         );
@@ -34,7 +34,7 @@ export default function Button({
           (prev) =>
             `${prev} border-2 border-primary-400 text-primary-400 hover:bg-[#49454F14] ${
               disabled
-                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed "
+                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed"
                 : "text-primary-500 cursor-pointer"
             }`
         );
@@ -45,7 +45,7 @@ export default function Button({
           (prev) =>
             `${prev} hover:bg-[#70B7FF14] ${
               disabled
-                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed "
+                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed"
                 : "text-primary-300 cursor-pointer"
             }`
         );
@@ -54,22 +54,24 @@ export default function Button({
       case "elevated":
         setClassName(
           (prev) =>
-            `${prev}  hover:bg-[#70B7FF14] ${
+            `${prev} hover:bg-[#70B7FF14] ${
               disabled
-                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed "
+                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed"
                 : "text-primary-300 bg-primary-100 cursor-pointer"
             } ${returnElevationForSize(size)}`
         );
+        break;
 
       case "tonal":
         setClassName(
           (prev) =>
-            `${prev}  hover:bg-[#70B7FF14] ${
+            `${prev} hover:bg-[#70B7FF14] ${
               disabled
-                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed "
+                ? "text-neutral-600 bg-neutral-200 cursor-not-allowed"
                 : "text-primary-300 bg-primary-100 cursor-pointer"
-            } `
+            }`
         );
+        break;
 
       default:
         break;
@@ -81,13 +83,11 @@ export default function Button({
       case "XL":
         setClassName(
           (prev) =>
-            `${prev}  h-[136px] text-3xl
-               
-           ${
-             icon_position === "icon-only"
-               ? "aspect-square p-12"
-               : "py-12 px-16 gap-4"
-           } `
+            `${prev} h-[136px] text-3xl ${
+              icon_position === "icon-only"
+                ? "aspect-square p-12"
+                : "py-12 px-16 gap-4"
+            }`
         );
         break;
 
@@ -97,8 +97,8 @@ export default function Button({
             `${prev} text-2xl ${
               icon_position === "icon-only"
                 ? "aspect-square p-8"
-                : "py-8 px-12 gap-3 "
-            } `
+                : "py-8 px-12 gap-3"
+            }`
         );
         break;
 
@@ -108,30 +108,30 @@ export default function Button({
             `${prev} text-base ${
               icon_position === "icon-only"
                 ? "aspect-square rounded-[50%] p-4"
-                : "py-4 px-6 gap-2 "
-            } `
+                : "py-4 px-6 gap-2"
+            }`
         );
         break;
 
       case "S":
         setClassName(
           (prev) =>
-            `${prev}  text-sm ${
+            `${prev} text-sm ${
               icon_position === "icon-only"
                 ? "aspect-square p-2.5"
                 : "py-2.5 px-4 gap-2"
-            } `
+            }`
         );
         break;
 
       case "XS":
         setClassName(
           (prev) =>
-            `${prev}  text-sm ${
+            `${prev} text-sm ${
               icon_position === "icon-only"
                 ? "aspect-square p-1.5"
                 : "py-1.5 px-3 gap-1"
-            } `
+            }`
         );
         break;
 
@@ -159,7 +159,7 @@ export default function Button({
     setSize(size, icon_position);
     setIconPosition(icon_position);
     setLoading(false);
-  }, []);
+  }, [state, size, icon_position]);
 
   if (loading) {
     return <div className=""></div>;
@@ -167,8 +167,9 @@ export default function Button({
 
   return (
     <button
-      className={`rounded-full flex justify-center items-center w-full relative overflow-hidden group  ${className} `}
+      className={`rounded-full flex justify-center items-center w-full relative overflow-hidden group ${className} ${optionalStyles}`}
       onClick={onClick}
+      disabled={disabled}
     >
       <span>{icon}</span>
       {icon_position !== "icon-only" && <span>{text}</span>}
@@ -177,7 +178,7 @@ export default function Button({
       <div
         className={`${activeButtonAnimationColor(
           state
-        )}text-neutral-100 opacity-10`}
+        )} text-neutral-100 opacity-10`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -216,7 +217,7 @@ function returnElevationForSize(size: string): string {
   }
 }
 
-function activeButtonAnimationColor(style: string) {
+function activeButtonAnimationColor(style: string): string {
   switch (style) {
     case "filled":
       return "text-neutral-100";
@@ -234,6 +235,6 @@ function activeButtonAnimationColor(style: string) {
       return "text-neutral-300";
 
     default:
-      break;
+      return "text-neutral-300";
   }
 }

@@ -42,7 +42,7 @@ export default function LessonHeader({
       </div>
       {/* right */}
       <div className="w-72">
-        <Button state={"filled"} size={"M"} text={"Take Quiz"} icon={<ChevronRight />} icon_position={"right"} onclick={callback} />
+        <Button state={"filled"} size={"M"} text={"Take Quiz"} icon={<ChevronRight />} icon_position={"right"} onClick={callback} />
       </div>
     </div>
   );

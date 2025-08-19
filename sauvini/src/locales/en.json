@@ -286,7 +286,11 @@
     "solutionFile": "solution.pdf",
     "selectPdf": "Select PDF",
     "pdfOnly": "PDF only",
-    "submit": "Submit"
+    "submit": "Submit",
+    "submissionSubtitle": "Upload your solution in PDF format. If your solution contains images, please convert them into a single PDF using online tools before uploading.",
+    "dragOrBrowse": "Drag your file or ",
+    "browse": "Browse",
+    "maxFilesHint": "Max 10 MB files are allowed"
   },
   "notFound": {
     "title": "Page Not Found",
