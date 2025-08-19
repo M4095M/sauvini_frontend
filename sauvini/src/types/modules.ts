@@ -187,3 +187,48 @@ export interface ExamDetailsPageData {
   exam: Exam
   submissions: ExamSubmission[]
 }
+
+export interface ExerciseSubmission {
+  id: string
+  exerciseId: string
+  studentId: string
+  submittedAt: Date
+  grade?: number // Professor's assigned grade (0-total marks)
+  status: "submitted" | "graded"
+  solutionPdfUrl: string // Student's uploaded solution
+  studentNotes?: string // Student's additional notes
+  professorNotes?: string // Professor's review notes
+  professorReviewPdfUrl?: string // Optional professor review file
+}
+
+export interface Exercise {
+  id: string
+  title: string // Same as lesson name
+  description: string
+  lessonId: string
+  chapterId: string
+  moduleId: string
+  status: "new" | "submitted" | "graded"
+  totalMarks: number
+  exercisePdfUrl: string // The exercise PDF file
+  submission?: ExerciseSubmission // Single submission only
+  isUnlocked: boolean
+  createdAt: Date
+  // For UI
+  moduleColor: Module["color"]
+  moduleName: string
+  chapterName: string
+  lessonName: string
+}
+
+export interface ExercisesPageData {
+  userProfile: UserProfile | null
+  exercises: Exercise[]
+  modules: Module[] // For filtering
+}
+
+export interface ExerciseDetailsPageData {
+  userProfile: UserProfile | null
+  exercise: Exercise
+  submission?: ExerciseSubmission
+}

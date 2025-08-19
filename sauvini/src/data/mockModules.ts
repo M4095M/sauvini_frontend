@@ -1,4 +1,4 @@
-import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream, Exam, ExamsPageData, ExamSubmission } from "@/types/modules"
+import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream, Exam, ExamsPageData, ExamSubmission, Exercise, ExercisesPageData } from "@/types/modules"
 
 export const MOCK_USER_PROFILE: UserProfile = {
   id: "user_001",
@@ -404,3 +404,101 @@ export const MOCK_EXAM_SUBMISSIONS: ExamSubmission[] = [
     professorNotes: "Excellent work! Clear understanding of geometric principles and vector calculations.",
   }
 ]
+
+export const MOCK_EXERCISES: Exercise[] = [
+  {
+    id: "exercise_001",
+    title: "Introduction to Derivatives",
+    description: "Practice problems on basic derivative calculations",
+    lessonId: "lesson_001",
+    chapterId: "chapter_001",
+    moduleId: "mathematics",
+    status: "graded",
+    totalMarks: 20,
+    exercisePdfUrl: "/exercise-derivatives.pdf",
+    submission: {
+      id: "exercise_submission_001",
+      exerciseId: "exercise_001",
+      studentId: "user_001",
+      submittedAt: new Date("2024-01-22T15:30:00"),
+      grade: 18,
+      status: "graded",
+      solutionPdfUrl: "/student-solution-001.pdf",
+      studentNotes: "I found question 3 challenging but managed to solve it using the chain rule.",
+      professorNotes: "Excellent work! Very clear presentation of solutions. Only minor calculation error in question 2.",
+      professorReviewPdfUrl: "/professor-exercise-review-001.pdf"
+    },
+    isUnlocked: true,
+    createdAt: new Date("2024-01-15"),
+    moduleColor: "yellow",
+    moduleName: "Mathematics",
+    chapterName: "Calculus Fundamentals",
+    lessonName: "Introduction to Derivatives"
+  },
+  {
+    id: "exercise_002",
+    title: "Chain Rule Applications",
+    description: "Advanced practice on chain rule for composite functions",
+    lessonId: "lesson_002",
+    chapterId: "chapter_001", 
+    moduleId: "mathematics",
+    status: "submitted",
+    totalMarks: 25,
+    exercisePdfUrl: "/exercise-chain-rule.pdf",
+    submission: {
+      id: "exercise_submission_002",
+      exerciseId: "exercise_002",
+      studentId: "user_001",
+      submittedAt: new Date("2024-01-25T10:15:00"),
+      status: "submitted",
+      solutionPdfUrl: "/student-solution-002.pdf",
+      studentNotes: "I struggled with the last two problems, but I think I got the method right."
+    },
+    isUnlocked: true,
+    createdAt: new Date("2024-01-20"),
+    moduleColor: "yellow",
+    moduleName: "Mathematics",
+    chapterName: "Calculus Fundamentals",
+    lessonName: "Chain Rule Applications"
+  },
+  {
+    id: "exercise_003",
+    title: "Coordinate Geometry",
+    description: "Practice problems on coordinate geometry methods",
+    lessonId: "lesson_008",
+    chapterId: "chapter_003",
+    moduleId: "mathematics",
+    status: "new",
+    totalMarks: 15,
+    exercisePdfUrl: "/exercise-coordinate-geometry.pdf",
+    isUnlocked: true,
+    createdAt: new Date("2024-01-28"),
+    moduleColor: "yellow",
+    moduleName: "Mathematics",
+    chapterName: "Geometry & Vectors",
+    lessonName: "Coordinate Geometry"
+  },
+  {
+    id: "exercise_004",
+    title: "Integration Techniques",
+    description: "Advanced integration practice problems",
+    lessonId: "lesson_003",
+    chapterId: "chapter_001",
+    moduleId: "mathematics",
+    status: "new",
+    totalMarks: 30,
+    exercisePdfUrl: "/exercise-integration.pdf",
+    isUnlocked: true,
+    createdAt: new Date("2024-02-01"),
+    moduleColor: "yellow",
+    moduleName: "Mathematics",
+    chapterName: "Calculus Fundamentals",
+    lessonName: "Integration Techniques"
+  }
+]
+
+export const MOCK_EXERCISES_DATA: ExercisesPageData = {
+  userProfile: MOCK_USER_PROFILE,
+  exercises: MOCK_EXERCISES,
+  modules: MOCK_MODULES,
+}
