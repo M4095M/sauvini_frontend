@@ -10,8 +10,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
 import { ThemeSwitcher } from '@/components/ui/theme-switcher'
-import Sidebar from '@/components/modules/Sidebar'
-import { SidebarProvider } from '@/context/SidebarContext'
+import Sidebar from '@/components/modules/SideBar'
+import { SidebarProvider } from '@/context/SideBarContext'
 
 export default function LearningLayout({
   children,

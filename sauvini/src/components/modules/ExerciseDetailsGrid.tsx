@@ -8,7 +8,7 @@ import ExerciseSubmissionCard from "@/components/modules/ExerciseSubmissionCard"
 import ExerciseSubmissionDialog from "@/components/modules/ExerciseSubmissionDialog"
 import { Heart, Bell, Menu, Download, FileText } from "lucide-react"
 import type { Exercise, ExerciseSubmission, UserProfile } from "@/types/modules"
-import { useSidebar } from "@/context/SidebarContext"
+import { useSidebar } from "@/context/SideBarContext"
 
 interface ExerciseDetailsGridProps {
   exercise: Exercise

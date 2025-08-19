@@ -9,11 +9,18 @@ export default function QACard({
   icon_type,
   icon,
   attachment,
+  onClick = () => {},
 }: QACardProps) {
+  const handleCardClick = () => {
+    // expand to see the answer
+    // ...
+    onClick();
+  }
   return (
     <div
       className="border-2 border-neutral-200 px-3 py-4 bg-white rounded-xl
     flex flex-col gap-1"
+    onClick={handleCardClick}
     >
       {/* header */}
       <div className="flex justify-start gap-2">
@@ -25,6 +32,7 @@ export default function QACard({
               size={"XS"}
               icon_position={"icon-only"}
               icon={icon}
+              onClick={handleCardClick}
             />
           </div>
         ) : (
@@ -44,6 +52,8 @@ export default function QACard({
           <FileAttachement />
         </div>
       )}
+
+      {/* anwser part */}
     </div>
   );
 }

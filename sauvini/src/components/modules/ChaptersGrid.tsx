@@ -6,7 +6,7 @@ import type { Chapter, Module } from "@/types/modules"
 import ChapterCard from "./ChapterCard"
 import { useLanguage } from "@/hooks/useLanguage"
 import MobileContentSummary from "./MobileContentSummary" 
-import { useSidebar } from "@/context/SidebarContext"
+import { useSidebar } from "@/context/SideBarContext"
 
 interface ChaptersGridProps {
   chapters: Chapter[]

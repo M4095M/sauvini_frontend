@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { useLanguage } from '@/hooks/useLanguage'
 import { Heart, Bell, Menu, Download, Upload, FileText } from "lucide-react"
-import { useSidebar } from "@/context/SidebarContext"
+import { useSidebar } from "@/context/SideBarContext"
 import ContentHeader from '@/components/modules/ContentHeader'
 import SubmissionCard from '@/components/modules/SubmissionCard'
 import SolutionSubmissionDialog from '@/components/modules/SolutionSubmissionDialog'

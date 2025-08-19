@@ -6,7 +6,7 @@ import { useLanguage } from "@/hooks/useLanguage"
 import LessonCard from "./LessonCard"
 import MobileContentSummary from "./MobileContentSummary"
 import type { Chapter, Module, Lesson } from "@/types/modules"
-import { useSidebar } from "@/context/SidebarContext"
+import { useSidebar } from "@/context/SideBarContext"
 
 interface LessonsGridProps {
   lessons: Lesson[]

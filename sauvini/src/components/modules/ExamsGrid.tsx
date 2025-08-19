@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useLanguage } from '@/hooks/useLanguage'
 import { Heart, Bell, Menu, ChevronDown } from "lucide-react"
-import { useSidebar } from "@/context/SidebarContext"
+import { useSidebar } from "@/context/SideBarContext"
 import ContentHeader from '@/components/modules/ContentHeader'
 import ExamCard from '@/components/modules/ExamCard'
 import Button from '@/components/ui/button'

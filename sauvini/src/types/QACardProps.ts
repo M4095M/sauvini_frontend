@@ -4,4 +4,5 @@ export type QACardProps = {
   icon_type: "icon" | "button"
   icon: any;
   attachment?: any;
+  onClick: () => void;
 }

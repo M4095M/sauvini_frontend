@@ -6,7 +6,7 @@ import { Module } from '@/types/modules'
 import ModuleCard from './ModuleCard'
 import { useLanguage } from '@/hooks/useLanguage'
 import { RTL_LANGUAGES } from '@/lib/language'
-import { useSidebar } from "@/context/SidebarContext"
+import { useSidebar } from "@/context/SideBarContext"
 
 interface ModulesGridProps {
   modules: Module[]

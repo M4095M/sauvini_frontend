@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Heart, Bell, Menu, ChevronDown } from "lucide-react"
-import { useSidebar } from "@/context/SidebarContext"
+import { useSidebar } from "@/context/SideBarContext"
 import { useLanguage } from "@/hooks/useLanguage"
 import ContentHeader from "@/components/modules/ContentHeader"
 import ExerciseCard from "@/components/modules/ExerciseCard"
