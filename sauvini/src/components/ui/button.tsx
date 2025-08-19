@@ -10,7 +10,8 @@ export default function Button({
   text,
   icon,
   disabled,
-  onClick, 
+  optionalStyles = "",
+  onClick = () => {},
 }: ButtonProps) {
   const [className, setClassName] = useState("");
   const [loading, setLoading] = useState(true);
@@ -80,12 +81,12 @@ export default function Button({
       case "XL":
         setClassName(
           (prev) =>
-            `${prev} gap-4 h-[136px] text-3xl
+            `${prev}  h-[136px] text-3xl
                
            ${
              icon_position === "icon-only"
                ? "aspect-square p-12"
-               : "py-12 px-16"
+               : "py-12 px-16 gap-4"
            } `
         );
         break;
@@ -93,8 +94,10 @@ export default function Button({
       case "L":
         setClassName(
           (prev) =>
-            `${prev} gap-3 text-2xl ${
-              icon_position === "icon-only" ? "aspect-square p-8" : "py-8 px-12"
+            `${prev} text-2xl ${
+              icon_position === "icon-only"
+                ? "aspect-square p-8"
+                : "py-8 px-12 gap-3 "
             } `
         );
         break;
@@ -102,10 +105,10 @@ export default function Button({
       case "M":
         setClassName(
           (prev) =>
-            `${prev} gap-2 text-base ${
+            `${prev} text-base ${
               icon_position === "icon-only"
                 ? "aspect-square rounded-[50%] p-4"
-                : "py-4 px-6"
+                : "py-4 px-6 gap-2 "
             } `
         );
         break;
@@ -113,10 +116,10 @@ export default function Button({
       case "S":
         setClassName(
           (prev) =>
-            `${prev} gap-2 text-sm ${
+            `${prev}  text-sm ${
               icon_position === "icon-only"
                 ? "aspect-square p-2.5"
-                : "py-2.5 px-4"
+                : "py-2.5 px-4 gap-2"
             } `
         );
         break;
@@ -124,10 +127,10 @@ export default function Button({
       case "XS":
         setClassName(
           (prev) =>
-            `${prev} gap-1 text-sm ${
+            `${prev}  text-sm ${
               icon_position === "icon-only"
                 ? "aspect-square p-1.5"
-                : "py-1.5 px-3"
+                : "py-1.5 px-3 gap-1"
             } `
         );
         break;
@@ -164,15 +167,18 @@ export default function Button({
 
   return (
     <button
-      className={`rounded-full flex justify-center  items-center w-full relative overflow-hidden group ${className}`}
-      onClick={onClick} 
-      disabled={disabled} 
+      className={`rounded-full flex justify-center items-center w-full relative overflow-hidden group  ${className} `}
+      onClick={onClick}
     >
       <span>{icon}</span>
-      <span>{text}</span>
+      {icon_position !== "icon-only" && <span>{text}</span>}
 
       {/* animate when button is pressed */}
-      <div className={`${activeButtonAnimationColor(state)}text-neutral-100 opacity-10 `}>
+      <div
+        className={`${activeButtonAnimationColor(
+          state
+        )}text-neutral-100 opacity-10`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="2000"
@@ -210,12 +216,11 @@ function returnElevationForSize(size: string): string {
   }
 }
 
-
 function activeButtonAnimationColor(style: string) {
   switch (style) {
     case "filled":
       return "text-neutral-100";
-  
+
     case "outlined":
       return "text-neutral-600";
 
@@ -224,7 +229,7 @@ function activeButtonAnimationColor(style: string) {
 
     case "elevated":
       return "text-neutral-300";
-    
+
     case "tonal":
       return "text-neutral-300";
 

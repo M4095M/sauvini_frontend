@@ -7,5 +7,6 @@ export type ButtonProps = {
   text?: string;
   icon?: React.ReactNode;
   disabled?: boolean;
+  optionalStyles?: string;
   onClick?: () => void | Promise<void>;
 };
