@@ -290,7 +290,11 @@
     "submissionSubtitle": "Upload your solution in PDF format. If your solution contains images, please convert them into a single PDF using online tools before uploading.",
     "dragOrBrowse": "Drag your file or ",
     "browse": "Browse",
-    "maxFilesHint": "Max 10 MB files are allowed"
+    "maxFilesHint": "Max 10 MB files are allowed",
+    "studentNotes": "Student's Notes",
+    "professorNotes": "Professor's Notes",
+    "additionalNotes": "Additional Notes",
+    "notesPlaceholder": "Enter any additional notes here..."
   },
   "notFound": {
     "title": "Page Not Found",
@@ -321,7 +325,7 @@
     "exercisePdf": "exercise.pdf",
     "professorNotes": "Professor's Notes",
     "totalMarks": "Total Marks",
-    "studentNotes": "Studnets Notes",
+    "studentNotes": "Student's Notes",
     "failed": "Failed",
     "passed": "Passed",
     "submitSolution": "Submit Your Solution",

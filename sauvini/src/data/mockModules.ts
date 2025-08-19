@@ -382,8 +382,10 @@ export const MOCK_EXAM_SUBMISSIONS: ExamSubmission[] = [
     grade: 12,
     status: "failed",
     solutionPdfUrl: "/sample-solution.pdf",
-    professorNotes: "Good understanding of basic concepts but needs improvement in integration techniques. Review chapter 3 examples.",
-    professorReviewPdfUrl: "/professor-review-001.pdf"
+    studentNotes: "I had trouble with the integration by parts question. I explained my reasoning in the steps.",
+    professorNotes:
+      "Good understanding of basic concepts but needs improvement in integration techniques. Review chapter 3 examples.",
+    professorReviewPdfUrl: "/professor-review-001.pdf",
   },
   {
     id: "submission_002",
@@ -392,6 +394,7 @@ export const MOCK_EXAM_SUBMISSIONS: ExamSubmission[] = [
     submittedAt: new Date("2024-01-25T14:15:00"),
     status: "submitted",
     solutionPdfUrl: "/sample-solution-2.pdf",
+    studentNotes: "Resubmitting after practicing more on derivatives.",
   },
   {
     id: "submission_003",
@@ -401,8 +404,9 @@ export const MOCK_EXAM_SUBMISSIONS: ExamSubmission[] = [
     grade: 16,
     status: "passed",
     solutionPdfUrl: "/sample-solution-3.pdf",
+    studentNotes: "Feeling confident about vectors; Q4 might have an arithmetic slip.",
     professorNotes: "Excellent work! Clear understanding of geometric principles and vector calculations.",
-  }
+  },
 ]
 
 export const MOCK_EXERCISES: Exercise[] = [

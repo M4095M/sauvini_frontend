@@ -119,50 +119,47 @@ export default function SubmissionCard({ submission, isMobile = false }: Submiss
           </div>
         </div>
 
-        {/* Grade and Professor Notes - Only for graded submissions */}
-        {submission.status !== "submitted" && (submission.grade !== undefined || submission.professorNotes) && (
-          <div
-            className={`w-full ${isRTL ? "text-right" : "text-left"}`}
-            style={{
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              gap: "24px",
-              alignSelf: "stretch",
-            }}
-          >
-            <div className="flex-1">
-              {/* Grade */}
-              {submission.grade !== undefined && (
-                <div className="mb-4">
-                  <h3
-                    className={`text-2xl font-bold ${isRTL ? "font-arabic" : "font-sans"} ${
-                      submission.status === "passed" ? "text-green-600" : "text-error-400"
-                    }`}
-                  >
-                    {t("exams.grade") || "Grade"}: {submission.grade}/20
-                  </h3>
-                </div>
-              )}
+        {/* Grade, Student Notes and Professor Notes */}
+        {submission.status !== "submitted" || submission.studentNotes || submission.professorNotes ? (
+          <div className={`w-full ${isRTL ? "text-right" : "text-left"}`}>
+            {/* Grade */}
+            {submission.status !== "submitted" && submission.grade !== undefined && (
+              <div className="mb-4">
+                <h3
+                  className={`text-2xl font-bold ${isRTL ? "font-arabic" : "font-sans"} ${
+                    submission.status === "passed" ? "text-green-600" : "text-error-400"
+                  }`}
+                >
+                  {t("exams.grade") || "Grade"}: {submission.grade}/20
+                </h3>
+              </div>
+            )}
 
-              {/* Professor Notes */}
-              {submission.professorNotes && (
-                <div>
-                  <h4
-                    className={`text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${isRTL ? "font-arabic" : "font-sans"}`}
-                  >
-                    Professor notes:
-                  </h4>
-                  <p
-                    className={`text-sm text-gray-600 dark:text-gray-400 leading-relaxed ${isRTL ? "font-arabic" : "font-sans"}`}
-                  >
-                    {submission.professorNotes}
-                  </p>
-                </div>
-              )}
-            </div>
+            {/* Student Notes */}
+            {submission.studentNotes && (
+              <div className="mb-3">
+                <h4 className={`text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${isRTL ? "font-arabic" : "font-sans"}`}>
+                  {t("exams.studentNotes") || "Student notes:"}
+                </h4>
+                <p className={`text-sm text-gray-600 dark:text-gray-400 leading-relaxed ${isRTL ? "font-arabic" : "font-sans"}`}>
+                  {submission.studentNotes}
+                </p>
+              </div>
+            )}
+
+            {/* Professor Notes */}
+            {submission.professorNotes && (
+              <div>
+                <h4 className={`text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${isRTL ? "font-arabic" : "font-sans"}`}>
+                  {t("exams.professorNotes") || "Professor notes:"}
+                </h4>
+                <p className={`text-sm text-gray-600 dark:text-gray-400 leading-relaxed ${isRTL ? "font-arabic" : "font-sans"}`}>
+                  {submission.professorNotes}
+                </p>
+              </div>
+            )}
           </div>
-        )}
+        ) : null}
 
         {/* Buttons Frame - Vertical layout */}
         <div
@@ -269,20 +266,10 @@ export default function SubmissionCard({ submission, isMobile = false }: Submiss
         )}
       </div>
 
-      {/* Second Frame - Only for graded submissions (passed/failed) */}
-      {submission.status !== "submitted" && (submission.grade !== undefined || submission.professorNotes) && (
-        <div
-          className="mt-6 flex items-start gap-6"
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            gap: "24px",
-            alignSelf: "stretch",
-            flexDirection: isRTL ? "row" : "row",
-          }}
-        >
-          {/* Download Review Button - Always leftmost in RTL */}
+      {/* Second Frame - Grade + Notes + Review */}
+      {(submission.status !== "submitted" || submission.studentNotes || submission.professorNotes) && (
+        <div className="mt-6 flex items-start gap-6">
+          {/* Review button in RTL */}
           {isRTL && submission.professorReviewPdfUrl && (
             <div className="flex-shrink-0">
               <Button
@@ -296,9 +283,9 @@ export default function SubmissionCard({ submission, isMobile = false }: Submiss
             </div>
           )}
 
-          {/* Grade and Professor Notes */}
           <div className={`flex-1 ${isRTL ? "text-right" : "text-left"}`}>
-            {submission.grade !== undefined && (
+            {/* Grade */}
+            {submission.status !== "submitted" && submission.grade !== undefined && (
               <div className="mb-4">
                 <h3
                   className={`text-2xl font-bold ${isRTL ? "font-arabic" : "font-sans"} ${
@@ -309,23 +296,33 @@ export default function SubmissionCard({ submission, isMobile = false }: Submiss
                 </h3>
               </div>
             )}
+
+            {/* Student Notes */}
+            {submission.studentNotes && (
+              <div className="mb-3">
+                <h4 className={`text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${isRTL ? "font-arabic" : "font-sans"}`}>
+                  {t("exams.studentNotes") || "Student notes:"}
+                </h4>
+                <p className={`text-sm text-gray-600 dark:text-gray-400 leading-relaxed ${isRTL ? "font-arabic" : "font-sans"}`}>
+                  {submission.studentNotes}
+                </p>
+              </div>
+            )}
+
+            {/* Professor Notes */}
             {submission.professorNotes && (
               <div>
-                <h4
-                  className={`text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${isRTL ? "font-arabic" : "font-sans"}`}
-                >
-                  Professor notes:
+                <h4 className={`text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${isRTL ? "font-arabic" : "font-sans"}`}>
+                  {t("exams.professorNotes") || "Professor notes:"}
                 </h4>
-                <p
-                  className={`text-sm text-gray-600 dark:text-gray-400 leading-relaxed ${isRTL ? "font-arabic" : "font-sans"}`}
-                >
+                <p className={`text-sm text-gray-600 dark:text-gray-400 leading-relaxed ${isRTL ? "font-arabic" : "font-sans"}`}>
                   {submission.professorNotes}
                 </p>
               </div>
             )}
           </div>
 
-          {/* Download Review Button - Rightmost in LTR */}
+          {/* Review button in LTR */}
           {!isRTL && submission.professorReviewPdfUrl && (
             <div className="flex-shrink-0">
               <Button

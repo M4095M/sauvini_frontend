@@ -8,7 +8,7 @@ import Button from "@/components/ui/button"
 interface SolutionSubmissionDialogProps {
   examId: string
   onClose: () => void
-  onSubmit: (data: { file: File }) => void | Promise<void>
+  onSubmit: (data: { file: File; notes?: string }) => void | Promise<void>
 }
 
 export default function SolutionSubmissionDialog({
@@ -20,6 +20,7 @@ export default function SolutionSubmissionDialog({
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
+  const [notes, setNotes] = useState("")
 
   const inputId = `solution-file-${examId}`
   const maxBytes = 10 * 1024 * 1024 // 10 MB
@@ -58,7 +59,7 @@ export default function SolutionSubmissionDialog({
 
     setIsSubmitting(true)
     try {
-      await onSubmit({ file: selectedFile })
+      await onSubmit({ file: selectedFile, notes }) 
     } finally {
       setIsSubmitting(false)
     }
@@ -147,6 +148,31 @@ export default function SolutionSubmissionDialog({
               )}
             </div>
           </label>
+        </div>
+
+        {/* Additional Notes */}
+        <div className="mt-6">
+          <label
+            htmlFor={`exam-notes-${examId}`}
+            className={`block mb-2 text-sm font-medium text-gray-800 dark:text-gray-200 ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}
+          >
+            {t("exams.additionalNotes") || "Additional Notes"}
+          </label>
+          <textarea
+            id={`exam-notes-${examId}`}
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            rows={6}
+            placeholder={t("exams.notesPlaceholder") || "Optional: Add any details for the reviewer..."}
+            className={[
+              "w-full min-h-[160px] rounded-2xl",
+              "bg-white dark:bg-transparent",
+              "border border-gray-200 dark:border-white/20",
+              "px-4 py-3 text-sm sm:text-base text-gray-800 dark:text-gray-100",
+              "outline-none focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-500/30",
+              isRTL ? "text-right" : "text-left",
+            ].join(" ")}
+          />
         </div>
 
         {/* Actions */}

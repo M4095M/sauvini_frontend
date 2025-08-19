@@ -150,6 +150,7 @@ export interface ExamSubmission {
   grade?: number // Professor's assigned grade (0-20)
   status: "submitted" | "passed" | "failed"
   solutionPdfUrl: string // Student's uploaded solution
+  studentNotes?: string // Student's additional notes
   professorNotes?: string // Professor's review notes
   professorReviewPdfUrl?: string // Optional professor review file
 }

@@ -193,7 +193,11 @@
     "submissionSubtitle": "Téléchargez votre solution au format PDF. Si votre solution contient des images, veuillez les convertir en un seul PDF à l'aide d'outils en ligne avant de les télécharger.",
     "dragOrBrowse": "Faites glisser votre fichier ou ",
     "browse": "Parcourir",
-    "maxFilesHint": "Max 10 Mo de fichiers sont autorisés"
+    "maxFilesHint": "Max 10 Mo de fichiers sont autorisés",
+    "studentNotes": "Notes de l'étudiant",
+    "professorNotes": "Notes du professeur",
+    "additionalNotes": "Notes supplémentaires",
+    "notesPlaceholder": "Entrez des notes supplémentaires ici..."
   },
   "notFound": {
     "title": "Page non trouvée",
@@ -235,7 +239,11 @@
     "browse": "Parcourir",
     "maxFilesHint": "Max 10 Mo de fichiers sont autorisés",
     "graded": "Noté",
-    "pointsTotal": "points au total"
+    "pointsTotal": "points au total",
+    "studentNotes": "Notes de l'étudiant",
+    "professorNotes": "Notes du professeur",
+    "additionalNotes": "Notes supplémentaires",
+    "notesPlaceholder": "Entrez des notes supplémentaires ici..."
   }
 }
 
