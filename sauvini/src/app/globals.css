@@ -16,7 +16,7 @@
   --white: #ffffff;
 
   /* Neutral Colors */
-  --neutral-600: #1A1A1A;
+  --neutral-600: #1a1a1a;
   --neutral-500: #464646;
   --neutral-400: #7c7c7c;
   --neutral-300: #bdbdbd;
@@ -256,8 +256,8 @@
   --sidebar-ring: oklch(0.556 0 0);
 
   /* Gradient Colors - Dark Mode */
-  --Gradient-Main-Left-Blue: #1B2536;
-  --Gradient-Main-Right-Blue: #1F1532;
+  --Gradient-Main-Left-Blue: #1b2536;
+  --Gradient-Main-Right-Blue: #1f1532;
 }
 
 /*  == Button shadow elevation */
@@ -936,6 +936,14 @@
 
 /* =============== Gradient ============ */
 .auth-background-gradient {
+  background: radial-gradient(
+    221.6% 141.42% at 0% 0%,
+    var(--Gradient-Main-Left-Blue) 0%,
+    var(--Gradient-Main-Right-Blue) 100%
+  );
+}
+
+.general-background-gradient {
   background: radial-gradient(
     221.6% 141.42% at 0% 0%,
     var(--Gradient-Main-Left-Blue) 0%,
