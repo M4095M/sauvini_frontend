@@ -1,7 +1,7 @@
 "use client";
 
 import CheckBoxQuestion from "@/components/quizes/checkBoxQuestion";
-import Question from "@/components/quizes/queston";
+import Question from "@/components/quizes/question";
 import Button from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
