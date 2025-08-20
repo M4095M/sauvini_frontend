@@ -5,4 +5,5 @@ export type QACardProps = {
   icon: any;
   attachment?: any;
   onClick: () => void;
+  isRTL: boolean
 }

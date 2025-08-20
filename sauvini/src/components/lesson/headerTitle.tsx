@@ -1,16 +1,19 @@
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Button from "../ui/button";
+import { isRTL } from "@/lib/language";
 
 type HeaderTitleProps = {
   chapter_name: string;
   lesson_name: string;
   goBackCallback?: () => void;
+  isRTL: boolean
 };
 
 export default function HeaderTitle({
   chapter_name,
   lesson_name,
   goBackCallback,
+  isRTL,
 }: HeaderTitleProps) {
   return (
     <div className="flex gap-4 w-fit h-fit ">
@@ -20,7 +23,7 @@ export default function HeaderTitle({
           state={"tonal"}
           size={"XS"}
           icon_position={"icon-only"}
-          icon={<ChevronLeft />}
+          icon={isRTL ? <ChevronRight /> : <ChevronLeft />}
           optionalStyles="text-neutral-400 bg-neutral-200"
           onClick={goBackCallback}
         />

@@ -7,4 +7,5 @@ export type LessonHeaderProps = {
   lessonData?: Lesson;
   chapterData?: Chapter;
   moduleData?: Module;
+  isRTL: boolean
 };

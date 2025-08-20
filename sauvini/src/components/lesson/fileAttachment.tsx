@@ -5,16 +5,21 @@ import Button from "../ui/button";
 
 interface FileAttachmentProps {
   lessonId?: string;
+  isRTL: boolean;
 }
 
-export default function FileAttachement({ lessonId }: FileAttachmentProps) {
+export default function FileAttachement({
+  lessonId,
+  isRTL,
+}: FileAttachmentProps) {
   return (
     <div
       className="rounded-[12px] border border-neutral-200 p-2
     flex justify-between items-center"
+      dir={isRTL ? "rtl" : "ltr"}
     >
       {/* file name and icon*/}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3" dir={isRTL ? "rtl" : "ltr"}>
         {/* icon */}
         <div className="p-2 aspect-square rounded-full bg-primary-100 text-primary-300">
           <svg
@@ -36,7 +41,10 @@ export default function FileAttachement({ lessonId }: FileAttachmentProps) {
       </div>
 
       {/* action button */}
-      <div className="flex justify-center items-center">
+      <div
+        className="flex justify-center items-center"
+        dir={isRTL ? "rtl" : "ltr"}
+      >
         <Button
           state={"tonal"}
           size={"XS"}

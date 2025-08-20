@@ -10,6 +10,7 @@ export default function QACard({
   icon,
   attachment,
   onClick = () => {},
+  isRTL
 }: QACardProps) {
   const handleCardClick = () => {
     // expand to see the answer
@@ -21,9 +22,10 @@ export default function QACard({
       className="min-w-64 border-2 border-neutral-200 px-3 py-4 bg-white rounded-xl
     flex flex-col gap-1"
     onClick={handleCardClick}
+    dir={isRTL ? "rtl" : "ltr"}
     >
       {/* header */}
-      <div className="flex justify-start gap-2">
+      <div className="flex justify-start gap-2" dir={isRTL ? "rtl" : "ltr"}>
         {/* icon */}
         {icon_type === "button" ? (
           <div className="flex justify-center items-center">
@@ -49,7 +51,7 @@ export default function QACard({
       {/* attachement */}
       {attachment && (
         <div className="pt-6">
-          <FileAttachement />
+          <FileAttachement isRTL={isRTL} />
         </div>
       )}
 

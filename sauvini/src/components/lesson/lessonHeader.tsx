@@ -13,11 +13,13 @@ export default function LessonHeader({
   lessonData,
   chapterData,
   moduleData,
+  isRTL
 }: LessonHeaderProps) {
   return (
     <div
       className="w-full px-3 rounded-full border-0 md:border-[3px] border-primary-300 bg-neutral-100 
     flex justify-between items-center lg:gap-0 gap-3"
+    dir={isRTL ? "rtl" : "ltr"}
     >
       {/* left */}
       <div className="flex items-center gap-4">
@@ -28,6 +30,7 @@ export default function LessonHeader({
           <HeaderTitle
             chapter_name={"Chapter name"}
             lesson_name={"Lesson name"}
+            isRTL={isRTL}
           />
         </div>
       </div>

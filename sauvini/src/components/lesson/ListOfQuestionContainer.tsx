@@ -1,8 +1,10 @@
 "use state";
+"use client"
 
 import { Check, ChevronLeft, CircleQuestionMark } from "lucide-react";
 import QACard from "./QACard";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 // list of question fetched from the db
 
@@ -49,9 +51,12 @@ const questions = [
   },
 ];
 
+
+
 export default function ListOfQuestionContainer() {
   const [showQuestionAsnwer, setShowQuestionAsnwer] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState(0);
+  const {isRTL} = useLanguage()
 
   const handleSelectQuestion = (index: number) => {
     if (!showQuestionAsnwer) {
@@ -80,6 +85,7 @@ export default function ListOfQuestionContainer() {
               handleCancelSelectQuestion();
             }}
             attachment={questions[selectedQuestion].question_attachement}
+            isRTL={isRTL}
           />
           <QACard
             title={"Anwser Title"}
@@ -88,6 +94,7 @@ export default function ListOfQuestionContainer() {
             icon={<Check width={15} height={15} />}
             onClick={() => {}}
             attachment={questions[selectedQuestion].anwser_attachement}
+            isRTL={isRTL}
           />
         </div>
       ) : (
@@ -104,6 +111,7 @@ export default function ListOfQuestionContainer() {
                 onClick={() => {
                   handleSelectQuestion(index);
                 }}
+                isRTL={isRTL}
               />
             );
           })}

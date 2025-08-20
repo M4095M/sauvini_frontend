@@ -13,6 +13,7 @@ import { useTypography } from "@/hooks/useTypography";
 import Button from "@/components/ui/button";
 import HeaderTitle from "@/components/lesson/headerTitle";
 import { ChevronLeft } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function LessonPage() {
   const params = useParams();
@@ -20,6 +21,7 @@ export default function LessonPage() {
   const { getFontClass } = useTypography();
   const [isLoaded, setIsLoaded] = useState(false);
   const [showQuizPopup, setShowQuizPopup] = useState(false);
+  const {isRTL} = useLanguage()
 
   const findLessonData = () => {
     for (const module of MOCK_MODULES_DATA.modules) {
@@ -87,6 +89,7 @@ export default function LessonPage() {
         lessonData={lesson}
         chapterData={chapter}
         moduleData={module}
+        isRTL={isRTL}
       />
 
       {/* video and questions FOR DESKTOP VIEW */}
@@ -104,7 +107,7 @@ export default function LessonPage() {
 
       {/* lesson and chapter: VISIBLE FOR MOBILE ONLY */}
       <div className="flex flex-col gap-3 md:hidden">
-        <HeaderTitle chapter_name={chapter.title} lesson_name={lesson.title} />
+        <HeaderTitle chapter_name={chapter.title} lesson_name={lesson.title} isRTL={isRTL} />
         <div className="flex flex-col gap-3">
           {/* video */}
           <div className="bg-neutral-100 w-full h-72 rounded-[52px] p-4">
@@ -123,8 +126,8 @@ export default function LessonPage() {
       </div>
 
       <div className="px-6 py-5 flex flex-col gap-2 rounded-4xl bg-neutral-100">
-        <FileAttachement lessonId={lessonId} />
-        <FileAttachement lessonId={lessonId} />
+        <FileAttachement lessonId={lessonId} isRTL={isRTL} />
+        <FileAttachement lessonId={lessonId} isRTL={isRTL} />
       </div>
 
       {/* questions section FOR MOBILE VIEW */}
