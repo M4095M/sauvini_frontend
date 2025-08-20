@@ -952,6 +952,14 @@
   );
 }
 
+.general-background-gradient {
+  background: radial-gradient(
+    221.6% 141.42% at 0% 0%,
+    var(--Gradient-Main-Left-Blue) 0%,
+    var(--Gradient-Main-Right-Blue) 100%
+  );
+}
+
 /* ---break---*/
 @layer base {
   * {
