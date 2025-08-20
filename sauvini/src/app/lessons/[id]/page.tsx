@@ -1,44 +1,46 @@
 "use client";
 
-import { useEffect, useState } from "react"
-import { useParams, notFound } from "next/navigation"
-import { MOCK_MODULES_DATA } from "@/data/mockModules"
-import type { Lesson, Chapter, Module } from "@/types/modules"
-import Loader from "@/components/ui/Loader"
+import { useEffect, useState } from "react";
+import { useParams, notFound } from "next/navigation";
+import { MOCK_MODULES_DATA } from "@/data/mockModules";
+import type { Lesson, Chapter, Module } from "@/types/modules";
+import Loader from "@/components/ui/Loader";
 import FileAttachement from "@/components/lesson/fileAttachment";
 import LessonHeader from "@/components/lesson/lessonHeader";
 import QuestionsSection from "@/components/lesson/questions";
 import QuizPopup from "@/components/lesson/quizPopup";
 import { useTypography } from "@/hooks/useTypography";
+import Button from "@/components/ui/button";
+import HeaderTitle from "@/components/lesson/headerTitle";
+import { ChevronLeft } from "lucide-react";
 
 export default function LessonPage() {
-  const params = useParams()
-  const lessonId = params.id as string
+  const params = useParams();
+  const lessonId = params.id as string;
   const { getFontClass } = useTypography();
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
   const [showQuizPopup, setShowQuizPopup] = useState(false);
-
 
   const findLessonData = () => {
     for (const module of MOCK_MODULES_DATA.modules) {
       for (const chapter of module.chapters) {
-        const lesson = chapter.lessons.find(l => l.id === lessonId)
+        const lesson = chapter.lessons.find((l) => l.id === lessonId);
         if (lesson) {
-          return { lesson, chapter, module }
+          return { lesson, chapter, module };
         }
       }
     }
-    return null
-  }
+    return null;
+  };
 
-  const lessonData = findLessonData()
+  const lessonData = findLessonData();
 
   useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+    setIsLoaded(true);
+  }, []);
 
   if (isLoaded && !lessonData) {
-    notFound()
+    notFound();
   }
 
   if (!isLoaded) {
@@ -50,18 +52,18 @@ export default function LessonPage() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   if (!lessonData) {
-    return null // notFound() will handle this
+    return null; // notFound() will handle this
   }
 
-  const { lesson, chapter, module } = lessonData
+  const { lesson, chapter, module } = lessonData;
 
   const showQuizPopupCallback = () => {
-    setShowQuizPopup(true)
-  }
+    setShowQuizPopup(true);
+  };
 
   return (
     <div
@@ -70,9 +72,9 @@ export default function LessonPage() {
       {/* Alert Dialog for Quiz Popup */}
       {showQuizPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
-          <QuizPopup 
-            onAccept={() => setShowQuizPopup(false)} 
-            onClose={() => setShowQuizPopup(false)} 
+          <QuizPopup
+            onAccept={() => setShowQuizPopup(false)}
+            onClose={() => setShowQuizPopup(false)}
           />
         </div>
       )}
@@ -87,8 +89,8 @@ export default function LessonPage() {
         moduleData={module}
       />
 
-      {/* video and questions */}
-      <div className="flex gap-2 h-[638px] w-full">
+      {/* video and questions FOR DESKTOP VIEW */}
+      <div className="hidden md:flex lg:flex-row flex-col lg:gap-2 gap-4 h-[638px] w-full">
         {/* video */}
         <div className="bg-neutral-100 w-full h-full rounded-[52px] p-4">
           <div className="bg-neutral-200 w-full h-full rounded-[52px]"></div>
@@ -98,10 +100,36 @@ export default function LessonPage() {
         <QuestionsSection lessonId={lessonId} />
       </div>
 
-      {/* file attachement */}
+      {/* file attachement FOR DESKTOP VIEW */}
+
+      {/* lesson and chapter: VISIBLE FOR MOBILE ONLY */}
+      <div className="flex flex-col gap-3 md:hidden">
+        <HeaderTitle chapter_name={chapter.title} lesson_name={lesson.title} />
+        <div className="flex flex-col gap-3">
+          {/* video */}
+          <div className="bg-neutral-100 w-full h-72 rounded-[52px] p-4">
+            <div className="bg-neutral-200 w-full h-full rounded-[52px]"></div>
+          </div>
+
+          {/* quize button */}
+          <Button
+            state={"filled"}
+            size={"M"}
+            text={"Take Quiz"}
+            icon_position={"none"}
+            onClick={showQuizPopupCallback}
+          />
+        </div>
+      </div>
+
       <div className="px-6 py-5 flex flex-col gap-2 rounded-4xl bg-neutral-100">
         <FileAttachement lessonId={lessonId} />
         <FileAttachement lessonId={lessonId} />
+      </div>
+
+      {/* questions section FOR MOBILE VIEW */}
+      <div className="flex md:hidden">
+        <QuestionsSection lessonId={lessonId} />
       </div>
     </div>
   );

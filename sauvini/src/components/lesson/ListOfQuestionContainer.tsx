@@ -17,6 +17,36 @@ const questions = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Lorem ipsum ...",
     anwser_attachement: "url goes here",
   },
+  {
+    id: 2,
+    question_tite: "Question Title",
+    question_description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Lorem ipsum ...",
+    question_attachement: "url goes here",
+    answer_details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Lorem ipsum ...",
+    anwser_attachement: "url goes here",
+  },
+  {
+    id: 3,
+    question_tite: "Question Title",
+    question_description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Lorem ipsum ...",
+    question_attachement: "url goes here",
+    answer_details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Lorem ipsum ...",
+    anwser_attachement: "url goes here",
+  },
+  {
+    id: 4,
+    question_tite: "Question Title",
+    question_description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Lorem ipsum ...",
+    question_attachement: "url goes here",
+    answer_details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Lorem ipsum ...",
+    anwser_attachement: "url goes here",
+  },
 ];
 
 export default function ListOfQuestionContainer() {
@@ -36,7 +66,7 @@ export default function ListOfQuestionContainer() {
   };
 
   return (
-    <div className="flex flex-col overflow-y-auto gap-2">
+    <div className="flex flex-col gap-2">
       {showQuestionAsnwer ? (
         <div className="flex flex-col gap-2">
           <QACard
@@ -61,7 +91,7 @@ export default function ListOfQuestionContainer() {
           />
         </div>
       ) : (
-        <div className="">
+        <div className="flex lg:flex-col md:flex-row flex-col gap-2">
           {questions.map((question, index) => {
             return (
               <QACard

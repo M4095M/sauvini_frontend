@@ -4,7 +4,7 @@ import Button from "../ui/button";
 export default function QuizPopup({ onClose, onAccept }: QuizPopupProps) {
   return (
     <div className="max-w-[670px] min-w-96 w-full bg-neutral-100 rounded-3xl py-11 px-11 
-    flex flex-col gap-14">
+    flex flex-col gap-14 m-3">
       {/* info */}
       <div className="flex flex-col gap-4">
         {/* header */}

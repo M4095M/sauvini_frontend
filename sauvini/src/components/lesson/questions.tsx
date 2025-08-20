@@ -37,7 +37,7 @@ export default function QuestionsSection({ lessonId }: QuestionsSectionProps) {
 
   return (
     <div
-      className="h-full max-w-80 w-full rounded-[36px] bg-neutral-100 p-3
+      className="h-full lg:max-w-80 w-full rounded-[36px] bg-neutral-100 p-3
     flex flex-col gap-5"
     >
       {/* navigation buttons */}
@@ -65,20 +65,15 @@ export default function QuestionsSection({ lessonId }: QuestionsSectionProps) {
       </div>
 
       {/* questions */}
-      <div className="w-full h-full flex relative">
+      <div className="w-full h-full flex justify-center lg:items-start items-center  lg:overflow-y-auto overflow-x-auto lg:overflow-x-hidden">
         {questionSections.map((section) => {
           if (section.id === selectedSection) {
             return (
-              <div key={section.id} className="z-1 absolute">
+              <div key={section.id} className="">
                 {section.element}
               </div>
             );
-          }
-          return (
-            <div key={section.id} className="-z-1 absolute">
-              {section.element}
-            </div>
-          );
+          } 
         })}
       </div>
     </div>

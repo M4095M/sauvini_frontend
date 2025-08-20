@@ -18,7 +18,7 @@ export default function QACard({
   }
   return (
     <div
-      className="border-2 border-neutral-200 px-3 py-4 bg-white rounded-xl
+      className="min-w-64 border-2 border-neutral-200 px-3 py-4 bg-white rounded-xl
     flex flex-col gap-1"
     onClick={handleCardClick}
     >
