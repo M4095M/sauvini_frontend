@@ -344,7 +344,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="hidden md:block">
+      <div className="hidden md:block ">
         <DesktopSidebar />
       </div>
 
