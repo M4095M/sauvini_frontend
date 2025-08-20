@@ -1,4 +1,4 @@
-import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream, Exam, ExamsPageData, ExamSubmission, Exercise, ExercisesPageData } from "@/types/modules"
+import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream, Exam, ExamsPageData, ExamSubmission, Exercise, ExercisesPageData, Notification } from "@/types/modules"
 
 export const MOCK_USER_PROFILE: UserProfile = {
   id: "user_001",
@@ -506,3 +506,69 @@ export const MOCK_EXERCISES_DATA: ExercisesPageData = {
   exercises: MOCK_EXERCISES,
   modules: MOCK_MODULES,
 }
+
+export const MOCK_NOTIFICATIONS: Notification[] = [
+  {
+    id: "notif_001",
+    title: "Payment for Chapter X rejected",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.",
+    importance: "most-important",
+    type: "payment",
+    isRead: false,
+    createdAt: new Date("2024-01-20T10:30:00"),
+  },
+  {
+    id: "notif_002", 
+    title: "Chapter X unlocked",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.",
+    importance: "important",
+    type: "unlock",
+    isRead: false,
+    createdAt: new Date("2024-01-19T14:15:00"),
+  },
+  {
+    id: "notif_003",
+    title: "You failed a quiz",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.",
+    importance: "most-important",
+    type: "quiz",
+    isRead: true,
+    createdAt: new Date("2024-01-18T09:45:00"),
+  },
+  {
+    id: "notif_004",
+    title: "New content added",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.",
+    importance: "normal",
+    type: "content",
+    isRead: false,
+    createdAt: new Date("2024-01-17T16:20:00"),
+  },
+  {
+    id: "notif_005",
+    title: "Exam / exercise graded",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.",
+    importance: "important",
+    type: "exercise",
+    isRead: false,
+    createdAt: new Date("2024-01-16T11:00:00"),
+  },
+  {
+    id: "notif_006",
+    title: "New content added",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.",
+    importance: "normal",
+    type: "content",
+    isRead: true,
+    createdAt: new Date("2024-01-15T13:30:00"),
+  },
+  {
+    id: "notif_007",
+    title: "Payment for Chapter X rejected", 
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.",
+    importance: "most-important",
+    type: "payment",
+    isRead: false,
+    createdAt: new Date("2024-01-14T08:45:00"),
+  },
+]

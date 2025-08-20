@@ -107,7 +107,11 @@ export default function LessonPage() {
 
       {/* lesson and chapter: VISIBLE FOR MOBILE ONLY */}
       <div className="flex flex-col gap-3 md:hidden">
-        <HeaderTitle chapter_name={chapter.title} lesson_name={lesson.title} isRTL={isRTL} />
+        <HeaderTitle
+          chapter_name={chapter.title}
+          lesson_name={lesson.title}
+          isRTL={isRTL}
+        />
         <div className="flex flex-col gap-3">
           {/* video */}
           <div className="bg-neutral-100 w-full h-72 rounded-[52px] p-4">

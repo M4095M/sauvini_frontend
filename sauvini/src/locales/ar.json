@@ -337,5 +337,20 @@
     "submit": "إرسال",
     "studentNotes": "ملاحظات الطالب",
     "professorNotes": "ملاحظات الأستاذ"
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "description": "ابق على اطلاع على تقدمك في التعلم والإعلانات المهمة.",
+    "sortByImportance": "ترتيب حسب: الأهمية",
+    "sortByTime": "ترتيب حسب الوقت",
+    "importanceAll": "الأهمية: الكل",
+    "importanceImportant": "مهم",
+    "importanceUrgent": "عاجل",
+    "markAllAsSeen": "تحديد الكل كمقروء",
+    "markAsSeen": "تحديد كمقروء",
+    "noNotifications": "لا توجد إشعارات",
+    "normal": "عادي",
+    "important": "مهم",
+    "urgent": "عاجل"
   }
 }
