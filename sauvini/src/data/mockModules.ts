@@ -506,3 +506,85 @@ export const MOCK_EXERCISES_DATA: ExercisesPageData = {
   exercises: MOCK_EXERCISES,
   modules: MOCK_MODULES,
 }
+
+// Quiz mocks 
+export type QuizQuestion = {
+  id: string
+  leadIn: string
+  options: string[]
+  type: "single" | "multiple"
+  correct: number[] // indices of correct options
+  image?: string
+}
+
+export const MOCK_QUIZZES: Record<string, { threshold: number; questions: QuizQuestion[] }> = {
+  lesson_001: {
+    threshold: 70,
+    questions: [
+      {
+        id: "q1",
+        leadIn: "Which of the following are basic derivative rules?",
+        options: ["Product rule", "Quotient rule", "Loop rule", "Chain rule"],
+        type: "multiple",
+        correct: [0, 1, 3],
+      },
+      {
+        id: "q2",
+        leadIn: "The derivative of sin(x) is:",
+        options: ["cos(x)", "-sin(x)", "sin(x) + cos(x)", "tan(x)"],
+        type: "single",
+        correct: [0],
+      },
+    ],
+  },
+  lesson_002: {
+    threshold: 75,
+    questions: [
+      {
+        id: "q1",
+        leadIn: "Chain rule is used when:",
+        options: [
+          "A function is a composition of two functions",
+          "A function is linear",
+          "You add two functions",
+          "You multiply two functions",
+        ],
+        type: "single",
+        correct: [0],
+      },
+    ],
+  },
+  lesson_008: {
+    threshold: 70,
+    questions: [
+      {
+        id: "q1",
+        leadIn: "Which of the following lie on the line y = 2x + 1?",
+        options: ["(0, 1)", "(1, 2)", "(2, 5)", "(-1, -1)"],
+        type: "multiple",
+        correct: [0, 2],
+      },
+    ],
+  },
+}
+
+// Find lesson + parents by lessonId
+export function findLessonContext(lessonId: string) {
+  for (const module of MOCK_MODULES) {
+    for (const chapter of module.chapters) {
+      const lesson = chapter.lessons.find((l) => l.id === lessonId)
+      if (lesson) return { module, chapter, lesson }
+    }
+  }
+  return { module: undefined, chapter: undefined, lesson: undefined }
+}
+
+// Next lesson inside the same chapter (if any)
+export function getNextLessonId(lessonId: string): string | null {
+  const ctx = findLessonContext(lessonId)
+  if (!ctx.chapter || !ctx.lesson) return null
+  const idx = ctx.chapter.lessons.findIndex((l) => l.id === lessonId)
+  if (idx < 0) return null
+  const next = ctx.chapter.lessons[idx + 1]
+  return next ? next.id : null
+}

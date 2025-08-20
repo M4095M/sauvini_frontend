@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams, notFound } from "next/navigation";
+import { useParams, notFound, useRouter } from "next/navigation";
 import { MOCK_MODULES_DATA } from "@/data/mockModules";
 import type { Lesson, Chapter, Module } from "@/types/modules";
 import Loader from "@/components/ui/Loader";
@@ -19,6 +19,7 @@ export default function LessonPage() {
   const params = useParams();
   const lessonId = params.id as string;
   const { getFontClass } = useTypography();
+  const router = useRouter();
   const [isLoaded, setIsLoaded] = useState(false);
   const [showQuizPopup, setShowQuizPopup] = useState(false);
   const {isRTL} = useLanguage()
@@ -44,6 +45,12 @@ export default function LessonPage() {
   if (isLoaded && !lessonData) {
     notFound();
   }
+
+  const startQuiz = () => {
+    // if you open a popup before navigating, keep that flow;
+    // otherwise navigate directly:
+    router.push(`/quizes/${lessonId}`);
+  };
 
   if (!isLoaded) {
     return (
@@ -85,7 +92,7 @@ export default function LessonPage() {
       <LessonHeader
         chapter_name={chapter.title}
         lesson_name={lesson.title}
-        callback={showQuizPopupCallback}
+        callback={startQuiz}
         lessonData={lesson}
         chapterData={chapter}
         moduleData={module}
@@ -107,7 +114,11 @@ export default function LessonPage() {
 
       {/* lesson and chapter: VISIBLE FOR MOBILE ONLY */}
       <div className="flex flex-col gap-3 md:hidden">
-        <HeaderTitle chapter_name={chapter.title} lesson_name={lesson.title} isRTL={isRTL} />
+        <HeaderTitle
+          chapter_name={chapter.title}
+          lesson_name={lesson.title}
+          isRTL={isRTL}
+        />
         <div className="flex flex-col gap-3">
           {/* video */}
           <div className="bg-neutral-100 w-full h-72 rounded-[52px] p-4">

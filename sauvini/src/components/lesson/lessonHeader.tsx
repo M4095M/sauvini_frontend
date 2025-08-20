@@ -28,8 +28,8 @@ export default function LessonHeader({
         {/* title and button */}
         <div className="hidden md:flex">
           <HeaderTitle
-            chapter_name={"Chapter name"}
-            lesson_name={"Lesson name"}
+            chapter_name={chapter_name}
+            lesson_name={lesson_name}
             isRTL={isRTL}
           />
         </div>
