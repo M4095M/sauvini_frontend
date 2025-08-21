@@ -246,7 +246,7 @@
     "notesPlaceholder": "Entrez des notes supplémentaires ici..."
   },
   "questions": {
-    "title": "Mes Questions",
+    "title": "Questions",
     "description": "Voir toutes vos questions des chapitres que vous possédez. Filtrer par statut pour trouver les nouvelles, répondues ou en attente. Cliquez sur une carte pour plus de détails ou pour soumettre.",
     "noQuestions": "Aucune question trouvée",
     "filters": {

@@ -340,7 +340,7 @@
     "submit": "Submit"
   },
   "questions": {
-    "title": "My Questions",
+    "title": "Questions",
     "description": "View all your questions from chapters you own. Filter by status to find new, answered, or pending questions. Click a card for details or to submit.",
     "noQuestions": "No questions found",
     "filters": {

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
-import QuestionsGrid from "@/components/modules/QuestionsGrid";
+import QuestionsGrid from "@/components/questions/QuestionsGrid";
 import { MOCK_USER_PROFILE, MOCK_QUESTIONS } from "@/data/mockModules";
 
 function useIsMobile() {

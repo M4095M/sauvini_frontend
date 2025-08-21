@@ -56,12 +56,20 @@ export default function QuestionCard({
 
   return (
     <div
-      className="bg-white w-full max-w-[1153px] mx-auto rounded-[28px] p-6 flex flex-col items-center gap-5 border border-[#BDBDBD]"
+      className="bg-white w-full max-w-[1153px] mx-auto rounded-[28px] border border-[#BDBDBD]"
+      style={{
+        padding: "24px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "20px",
+        alignSelf: "stretch",
+      }}
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Header */}
-      <div className="w-full flex items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
+      <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
           {/* Picture */}
           <div
             className="shrink-0 w-[93px] h-[90px] flex justify-center items-center overflow-hidden rounded-full bg-neutral-100"
@@ -70,18 +78,23 @@ export default function QuestionCard({
             {icon}
           </div>
 
-          {/* Info */}
-          <div className="flex flex-col justify-between h-[90px]">
-            <span className="text-sm font-normal text-neutral-400">
+          <div className="flex flex-col justify-start gap-2 md:gap-1 flex-1 text-left md:text-left min-h-0">
+            {/* Path */}
+            <span
+              className={`text-sm font-normal text-neutral-400 leading-tight ${isRTL ? "font-arabic" : "font-sans"}`}
+            >
               {path || t("questions.card.pathPlaceholder")}
             </span>
 
-            <span className="text-[28px] leading-[34px] font-semibold text-primary-600">
+            {/* Title */}
+            <span
+              className={`text-lg md:text-[28px] leading-tight md:leading-[34px] font-semibold text-primary-600 break-words ${isRTL ? "font-arabic" : "font-sans"}`}
+            >
               {title}
             </span>
 
             {/* Status tags */}
-            <div className="flex gap-2">
+            <div className="flex gap-2 justify-start flex-wrap mt-1">
               <Tag
                 icon={<IconAnswered className={statusTag.iconClass} width={"12"} height={"12"} />}
                 text={statusTag.text}
@@ -96,15 +109,20 @@ export default function QuestionCard({
           </div>
         </div>
 
-        {/* button */}
-        <div className="shrink-0">
+        {/* Download button */}
+        <div className="hidden md:flex shrink-0 w-auto justify-center">
           <Button state={"outlined"} size={"M"} icon_position={"none"} text={t("questions.card.downloadStudent")} />
         </div>
       </div>
 
-      {/* Question frame */}
-      <div className="w-full max-w-[1105px] text-[#7C7C7C] font-medium text-[20px] leading-[30px] tracking-[-0.4px]">
+      <div
+        className={`w-full max-w-[1105px] text-[#7C7C7C] font-medium text-base md:text-[20px] leading-relaxed md:leading-[30px] tracking-[-0.2px] md:tracking-[-0.4px] text-left break-words ${isRTL ? "font-arabic" : "font-sans"}`}
+      >
         {question}
+      </div>
+
+      <div className="md:hidden w-full flex justify-center">
+        <Button state={"outlined"} size={"M"} icon_position={"none"} text={t("questions.card.downloadStudent")} />
       </div>
 
       {/* Show answer button */}
@@ -122,13 +140,20 @@ export default function QuestionCard({
       )}
 
       {/* Answer */}
-      {isAnwsered && anwsere === "expaneded" && (
+      {isAnwsered && (
+        <div
+          className={`w-full overflow-hidden transition-all duration-300 ease-in-out ${
+            anwsere === "expaneded" ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
         <div className="w-full flex flex-col gap-4">
-          <div className="w-full flex items-start justify-between gap-4">
-            <div className="flex-1 max-w-[1105px] text-[#7C7C7C] font-medium text-[20px] leading-[30px] tracking-[-0.4px]">
+          <div className="w-full flex flex-col md:flex-row items-start justify-between gap-4">
+            <div
+              className={`flex-1 max-w-[1105px] text-[#7C7C7C] font-medium text-base md:text-[20px] leading-relaxed md:leading-[30px] tracking-[-0.2px] md:tracking-[-0.4px] text-center md:text-left break-words ${isRTL ? "font-arabic" : "font-sans"}`}
+            >
               {detailed_anwser || t("questions.card.noAnswerYet")}
             </div>
-            <div className="shrink-0">
+            <div className="shrink-0 w-full md:w-auto flex justify-center">
               <Button
                 state={"outlined"}
                 size={"M"}
@@ -147,6 +172,7 @@ export default function QuestionCard({
               text={t("questions.card.hideAnswer")}
               onClick={handleExpand}
             />
+            </div>
           </div>
         </div>
       )}
