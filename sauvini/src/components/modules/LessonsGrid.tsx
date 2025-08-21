@@ -100,7 +100,7 @@ export default function LessonsGrid({
       style={{ padding: "24px 12px", gap: "12px", direction: isRTL ? "rtl" : "ltr" }}
       dir={isRTL ? "rtl" : "ltr"}
     >
-      <div className={`flex items-center self-stretch w-full ${isRTL ? "justify-end" : "justify-start"}`} style={{ padding: "0 16px" }}>
+      <div className="w-full px-4" style={{ padding: "0 16px" }}>
         <h2 className={`text-2xl font-bold text-gray-900 dark:text-white ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}>
           {t("lesson.lessonsTitle")}
         </h2>

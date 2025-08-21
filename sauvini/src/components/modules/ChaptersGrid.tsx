@@ -105,11 +105,8 @@ export default function ChaptersGrid({
     >
       {/* Desktop: Chapters Title */}
       <div
-        className={`flex items-center self-stretch ${isRTL ? "justify-end" : "justify-start"}`}
-        style={{
-          padding: "0 16px",
-          gap: "10px",
-        }}
+        className="w-full px-4"
+        style={{ padding: "0 16px" }}
       >
         <h2 className={`text-2xl font-bold text-gray-900 dark:text-white ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}>
           {t("chapters.chaptersTitle")}
