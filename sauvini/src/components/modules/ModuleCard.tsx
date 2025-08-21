@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import { ChevronRight, ChevronLeft, Lock } from "lucide-react"
-import type { Module } from "@/types/modules"
-import Button from "@/components/ui/button"
-import { useLanguage } from "@/hooks/useLanguage"
-import { RTL_LANGUAGES } from "@/lib/language"
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { ChevronRight, ChevronLeft, Lock } from "lucide-react";
+import type { Module } from "@/types/modules";
+import Button from "@/components/ui/button";
+import { useLanguage } from "@/hooks/useLanguage";
+import { RTL_LANGUAGES } from "@/lib/language";
 
 interface ModuleCardProps {
-  module: Module
-  isRTL?: boolean
-  isMobile?: boolean
-  className?: string
+  module: Module;
+  isRTL?: boolean;
+  isMobile?: boolean;
+  className?: string;
 }
 
 const COLOR_MAP: Record<string, string> = {
@@ -21,7 +21,7 @@ const COLOR_MAP: Record<string, string> = {
   purple: "#9663FE",
   green: "#22C55E",
   red: "#EF4444",
-} as const
+} as const;
 
 const CARD_STYLES = {
   desktop: {
@@ -33,44 +33,54 @@ const CARD_STYLES = {
     height: 220,
     padding: "20px 20px 44px 24px",
   },
-} as const
+} as const;
 
 const ILLUSTRATION_SIZE = {
   width: 114,
   height: 120,
-} as const
+} as const;
 
-export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false, className = "" }: ModuleCardProps) {
-  const { t, language } = useLanguage()
-  const router = useRouter()
-  const isRTL = propIsRTL !== undefined ? propIsRTL : RTL_LANGUAGES.includes(language)
+export default function ModuleCard({
+  module,
+  isRTL: propIsRTL,
+  isMobile = false,
+  className = "",
+}: ModuleCardProps) {
+  const { t, language } = useLanguage();
+  const router = useRouter();
+  const isRTL =
+    propIsRTL !== undefined ? propIsRTL : RTL_LANGUAGES.includes(language);
 
-  const progressColor = COLOR_MAP[module.color] || "#BDBDBD"
-  const ChevronIcon = isRTL ? ChevronLeft : ChevronRight
-  const progressPercentage = Math.round((module.completedLessons / module.totalLessons) * 100)
+  const progressColor = COLOR_MAP[module.color] || "#BDBDBD";
+  const ChevronIcon = isRTL ? ChevronLeft : ChevronRight;
+  const progressPercentage = Math.round(
+    (module.completedLessons / module.totalLessons) * 100
+  );
 
   const handleModuleClick = () => {
     if (module.isUnlocked) {
-      router.push(`/modules/${module.id}`)
+      router.push(`/modules/${module.id}`);
     }
-  }
+  };
 
   const handleUnlockClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
+    e.stopPropagation();
     // TODO: Implement unlock logic
-    console.log(`Unlock module: ${module.id}`)
-  }
+    console.log(`Unlock module: ${module.id}`);
+  };
 
   const handleViewChaptersClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    router.push(`/modules/${module.id}`)
-  }
+    e.stopPropagation();
+    router.push(`/modules/${module.id}`);
+  };
 
   const truncateDescription = (text: string, maxLength = 90): string => {
-    return text.length > maxLength ? `${text.slice(0, maxLength - 3)}...` : text
-  }
+    return text.length > maxLength
+      ? `${text.slice(0, maxLength - 3)}...`
+      : text;
+  };
 
-  const cardStyles = isMobile ? CARD_STYLES.mobile : CARD_STYLES.desktop
+  const cardStyles = isMobile ? CARD_STYLES.mobile : CARD_STYLES.desktop;
 
   return (
     <div
@@ -79,7 +89,11 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
         rounded-[28px] border border-gray-300 bg-white
         dark:border-[#7C7C7C] dark:bg-[#1A1A1A]
         transition-all duration-200 hover:shadow-lg
-        ${module.isUnlocked ? 'cursor-pointer hover:shadow-md' : 'cursor-default'}
+        ${
+          module.isUnlocked
+            ? "cursor-pointer hover:shadow-md"
+            : "cursor-default"
+        }
         ${isMobile ? "self-stretch" : ""}
         ${className}
       `}
@@ -87,9 +101,15 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
       onClick={module.isUnlocked ? handleModuleClick : undefined}
     >
       {/* Internal frame */}
-      <div className="flex flex-col items-start gap-2" style={{ width: 325, flexShrink: 0, height: "100%" }}>
+      <div
+        className="flex flex-col items-start gap-2"
+        style={{ width: 325, flexShrink: 0, height: "100%" }}
+      >
         {/* Top Row: illustration + info */}
-        <div className={`flex w-full items-start gap-4 ${isRTL ? "flex-row-reverse" : ""}`}>
+        <div
+          className={`flex w-full items-start gap-4 `}
+          dir={isRTL ? "rtl" : "ltr"}
+        >
           {/* Illustration */}
           <div
             className="relative flex-shrink-0 flex items-center justify-center"
@@ -109,9 +129,15 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
           </div>
 
           {/* Module info */}
-          <div className="flex-1 min-w-0 flex flex-col justify-between" style={{ height: ILLUSTRATION_SIZE.height }}>
+          <div
+            className="flex-1 min-w-0 flex flex-col justify-between"
+            style={{ height: ILLUSTRATION_SIZE.height }}
+          >
             <div>
-              <div className={`flex items-start justify-between gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
+              <div
+                className={`flex items-start justify-between gap-2 `}
+                dir={isRTL ? "rtl" : "ltr"}
+              >
                 {/* Module title */}
                 <h3
                   className={`
@@ -134,7 +160,11 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
                       style={{ width: 30, height: 30 }}
                       aria-label="Module locked"
                     >
-                      <Lock className="w-4 h-4" style={{ color: progressColor }} aria-hidden="true" />
+                      <Lock
+                        className="w-4 h-4"
+                        style={{ color: progressColor }}
+                        aria-hidden="true"
+                      />
                     </div>
                   )}
                 </div>
@@ -157,7 +187,10 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
         {/* Progress Bar (only if unlocked) */}
         {module.isUnlocked && (
           <div className="w-full mt-2">
-            <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
+            <div
+              className={`flex items-center gap-2`}
+              dir={isRTL ? "rtl" : "ltr"}
+            >
               <div
                 className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2 relative overflow-hidden"
                 role="progressbar"
@@ -175,9 +208,15 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
                   }}
                 />
               </div>
-              <span className={`text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap font-medium ${isRTL ? "font-arabic" : "font-sans"}`}>
+              <span
+                className={`text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap font-medium ${
+                  isRTL ? "font-arabic" : "font-sans"
+                }`}
+              >
                 {module.completedLessons}/{module.totalLessons}{" "}
-                {module.totalLessons !== 1 ? t("modules.lessons") : t("modules.lesson")}
+                {module.totalLessons !== 1
+                  ? t("modules.lessons")
+                  : t("modules.lesson")}
               </span>
             </div>
           </div>
@@ -185,7 +224,11 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
 
         {/* Locked actions */}
         {!module.isUnlocked && (
-          <div className={`flex w-full gap-2 mt-4 ${isRTL ? "flex-row-reverse" : ""}`}>
+          <div
+            className={`flex w-full gap-2 mt-4 ${
+              isRTL ? "flex-row-reverse" : ""
+            }`}
+          >
             <Button
               state="filled"
               size="XS"
@@ -198,7 +241,13 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
               state="text"
               size="XS"
               icon_position={isRTL ? "left" : "right"}
-              icon={<ChevronIcon className="w-4 h-4" style={{ color: "var(--primary-300)" }} aria-hidden="true" />}
+              icon={
+                <ChevronIcon
+                  className="w-4 h-4"
+                  style={{ color: "var(--primary-300)" }}
+                  aria-hidden="true"
+                />
+              }
               text={t("modules.viewChapters")}
               onClick={handleViewChaptersClick}
             />
@@ -206,5 +255,5 @@ export default function ModuleCard({ module, isRTL: propIsRTL, isMobile = false,
         )}
       </div>
     </div>
-  )
+  );
 }
