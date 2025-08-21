@@ -233,3 +233,61 @@ export interface ExerciseDetailsPageData {
   exercise: Exercise
   submission?: ExerciseSubmission
 }
+
+// Question types
+export interface QuestionTag {
+  id: string
+  name: string
+  color: "blue" | "green" | "yellow" | "red" | "purple" | "gray"
+  icon?: string
+}
+
+export interface QuestionReply {
+  id: string
+  questionId: string
+  authorId: string
+  authorName: string
+  authorType: "student" | "professor" | "admin"
+  content: string
+  createdAt: Date
+  isAnswer?: boolean // true if this is the accepted answer
+  likes: number
+  attachments?: string[] // file URLs
+}
+
+export interface Question {
+  id: string
+  title: string
+  content: string
+  studentId: string
+  studentName: string
+  chapterId?: string
+  moduleId?: string
+  subject?: string
+  tags: QuestionTag[]
+  status: "pending" | "answered" | "closed"
+  importance: "normal" | "important" | "most-important"
+  createdAt: Date
+  updatedAt: Date
+  views: number
+  likes: number
+  replies: QuestionReply[]
+  attachments?: string[] // file URLs
+  // For UI
+  moduleColor?: Module["color"]
+  moduleName?: string
+  chapterName?: string
+}
+
+export interface QuestionsPageData {
+  userProfile: UserProfile | null
+  questions: Question[]
+  modules: Module[] // For filtering
+  tags: QuestionTag[] // Available tags
+}
+
+export interface QuestionDetailsPageData {
+  userProfile: UserProfile | null
+  question: Question
+  replies: QuestionReply[]
+}

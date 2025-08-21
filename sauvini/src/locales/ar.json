@@ -337,5 +337,33 @@
     "submit": "إرسال",
     "studentNotes": "ملاحظات الطالب",
     "professorNotes": "ملاحظات الأستاذ"
+  },
+  "questions": {
+    "title": "أسئلتي",
+    "description": "اعرض جميع أسئلتك من الفصول التي تمتلكها. صفِّ بالحالة للعثور على الأسئلة الجديدة أو المُجابة أو المُعلقة.",
+    "noQuestions": "لا توجد أسئلة",
+    "filters": {
+      "visibility": "رؤية السؤال",
+      "teacherResponse": "رد المعلم",
+      "module": "المقرر",
+      "all": "الكل",
+      "public": "عام",
+      "private": "خاص",
+      "answered": "مُجاب",
+      "pending": "قيد الانتظار",
+      "closed": "مغلق"
+    },
+    "card": {
+      "answered": "مُجاب",
+      "waiting": "بانتظار الإجابة",
+      "public": "عام",
+      "private": "خاص",
+      "downloadStudent": "تحميل ملفات الطالب المرفقة",
+      "downloadProfessor": "تحميل ملفات الأستاذ المرفقة",
+      "showAnswer": "عرض الإجابة",
+      "hideAnswer": "إخفاء الإجابة",
+      "noAnswerYet": "لا توجد إجابة تفصيلية بعد.",
+      "pathPlaceholder": "المقرر / الفصل / الدرس"
+    }
   }
 }

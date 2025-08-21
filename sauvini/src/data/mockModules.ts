@@ -1,4 +1,4 @@
-import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream, Exam, ExamsPageData, ExamSubmission, Exercise, ExercisesPageData } from "@/types/modules"
+import type { Module, UserProfile, ModulesPageData, Chapter, Lesson, AcademicStream, Exam, ExamsPageData, ExamSubmission, Exercise, ExercisesPageData, Question, QuestionDetailsPageData, QuestionReply, QuestionTag, QuestionsPageData } from "@/types/modules"
 
 export const MOCK_USER_PROFILE: UserProfile = {
   id: "user_001",
@@ -587,4 +587,186 @@ export function getNextLessonId(lessonId: string): string | null {
   if (idx < 0) return null
   const next = ctx.chapter.lessons[idx + 1]
   return next ? next.id : null
+}
+
+// Question Tags
+export const MOCK_QUESTION_TAGS: QuestionTag[] = [
+  { id: "math", name: "Mathematics", color: "yellow", icon: "Calculator" },
+  { id: "physics", name: "Physics", color: "purple", icon: "Atom" },
+  { id: "biology", name: "Biology", color: "green", icon: "Leaf" },
+  { id: "chemistry", name: "Chemistry", color: "blue", icon: "TestTube" },
+  { id: "urgent", name: "Urgent", color: "red", icon: "AlertTriangle" },
+  { id: "homework", name: "Homework", color: "gray", icon: "BookOpen" },
+  { id: "exam-prep", name: "Exam Prep", color: "purple", icon: "GraduationCap" },
+  { id: "concept", name: "Concept", color: "blue", icon: "Lightbulb" }
+]
+
+// Question Replies
+export const MOCK_QUESTION_REPLIES: QuestionReply[] = [
+  {
+    id: "reply_001",
+    questionId: "question_001",
+    authorId: "prof_001",
+    authorName: "Dr. Ahmed Benali",
+    authorType: "professor",
+    content: "For integration by parts, remember the LIATE rule: Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential. This helps you choose which function to differentiate (u) and which to integrate (dv).",
+    createdAt: new Date("2024-02-10T14:30:00"),
+    isAnswer: true,
+    likes: 12,
+    attachments: ["/integration-by-parts-guide.pdf"]
+  },
+  {
+    id: "reply_002",
+    questionId: "question_001",
+    authorId: "user_002",
+    authorName: "Sarah Amara",
+    authorType: "student",
+    content: "I had the same issue! What helped me was practicing with simple examples first, like ∫x*e^x dx, before moving to more complex ones.",
+    createdAt: new Date("2024-02-10T16:45:00"),
+    likes: 5
+  },
+  {
+    id: "reply_003",
+    questionId: "question_002",
+    authorId: "prof_002",
+    authorName: "Prof. Amina Kaddour",
+    authorType: "professor",
+    content: "The derivative of ln(x) is 1/x because it's the inverse function of e^x. You can prove this using implicit differentiation or the definition of inverse functions.",
+    createdAt: new Date("2024-02-12T10:20:00"),
+    isAnswer: true,
+    likes: 8
+  }
+]
+
+// Questions
+export const MOCK_QUESTIONS: Question[] = [
+  {
+    id: "question_001",
+    title: "How to solve integration by parts problems?",
+    content: "I'm having trouble with integration by parts, especially choosing which function to set as u and which as dv. Can someone explain the strategy and provide some examples?",
+    studentId: "user_001",
+    studentName: "Lina Bensalah",
+    chapterId: "chapter_001",
+    moduleId: "mathematics",
+    subject: "Calculus",
+    tags: [MOCK_QUESTION_TAGS[0], MOCK_QUESTION_TAGS[7]], // Math, Concept
+    status: "answered",
+    importance: "important",
+    createdAt: new Date("2024-02-10T09:15:00"),
+    updatedAt: new Date("2024-02-10T16:45:00"),
+    views: 45,
+    likes: 12,
+    replies: MOCK_QUESTION_REPLIES.filter(r => r.questionId === "question_001"),
+    attachments: ["/my-integration-attempt.jpg"],
+    moduleColor: "yellow",
+    moduleName: "Mathematics",
+    chapterName: "Calculus Fundamentals"
+  },
+  {
+    id: "question_002",
+    title: "Why is the derivative of ln(x) equal to 1/x?",
+    content: "I understand that d/dx[ln(x)] = 1/x, but I don't understand why. Can someone provide an intuitive explanation or a mathematical proof?",
+    studentId: "user_003",
+    studentName: "Omar Meziani",
+    chapterId: "chapter_002",
+    moduleId: "mathematics", 
+    subject: "Advanced Functions",
+    tags: [MOCK_QUESTION_TAGS[0], MOCK_QUESTION_TAGS[7]], // Math, Concept
+    status: "answered",
+    importance: "normal",
+    createdAt: new Date("2024-02-12T08:30:00"),
+    updatedAt: new Date("2024-02-12T10:20:00"),
+    views: 32,
+    likes: 8,
+    replies: MOCK_QUESTION_REPLIES.filter(r => r.questionId === "question_002"),
+    moduleColor: "yellow",
+    moduleName: "Mathematics",
+    chapterName: "Advanced Functions"
+  },
+  {
+    id: "question_003",
+    title: "Urgent: Vector cross product confusion",
+    content: "I have an exam tomorrow and I'm confused about when to use dot product vs cross product. The cross product gives a vector, but when do I actually need this? Please help!",
+    studentId: "user_004",
+    studentName: "Yasmina Khelifi",
+    chapterId: "chapter_003",
+    moduleId: "mathematics",
+    subject: "Geometry",
+    tags: [MOCK_QUESTION_TAGS[0], MOCK_QUESTION_TAGS[4], MOCK_QUESTION_TAGS[6]], // Math, Urgent, Exam Prep
+    status: "pending",
+    importance: "most-important",
+    createdAt: new Date("2024-02-15T19:45:00"),
+    updatedAt: new Date("2024-02-15T19:45:00"),
+    views: 23,
+    likes: 3,
+    replies: [],
+    moduleColor: "yellow",
+    moduleName: "Mathematics", 
+    chapterName: "Geometry & Vectors"
+  },
+  {
+    id: "question_004",
+    title: "Physics: Understanding Newton's Second Law applications",
+    content: "I understand F = ma conceptually, but I'm struggling with applying it to inclined plane problems. How do I break down the forces correctly?",
+    studentId: "user_005",
+    studentName: "Karim Boudiaf",
+    chapterId: "chapter_004",
+    moduleId: "physics",
+    subject: "Mechanics",
+    tags: [MOCK_QUESTION_TAGS[1], MOCK_QUESTION_TAGS[5]], // Physics, Homework
+    status: "pending",
+    importance: "normal",
+    createdAt: new Date("2024-02-16T14:20:00"),
+    updatedAt: new Date("2024-02-16T14:20:00"),
+    views: 18,
+    likes: 2,
+    replies: [],
+    moduleColor: "purple",
+    moduleName: "Physics",
+    chapterName: "Mechanics"
+  },
+  {
+    id: "question_005",
+    title: "Cell membrane transport mechanisms",
+    content: "Can someone explain the difference between active and passive transport? I'm particularly confused about facilitated diffusion vs active transport.",
+    studentId: "user_006",
+    studentName: "Asma Benarbia",
+    chapterId: "chapter_005",
+    moduleId: "natural-sciences",
+    subject: "Biology",
+    tags: [MOCK_QUESTION_TAGS[2], MOCK_QUESTION_TAGS[7]], // Biology, Concept
+    status: "pending",
+    importance: "normal",
+    createdAt: new Date("2024-02-17T11:10:00"),
+    updatedAt: new Date("2024-02-17T11:10:00"),
+    views: 15,
+    likes: 1,
+    replies: [],
+    moduleColor: "blue",
+    moduleName: "Natural Sciences",
+    chapterName: "Cell Biology"
+  },
+  {
+    id: "question_006",
+    title: "Balancing chemical equations help needed",
+    content: "I keep making mistakes when balancing chemical equations. Is there a systematic approach I should follow? Any tips for complex reactions?",
+    studentId: "user_001",
+    studentName: "Lina Bensalah",
+    subject: "Chemistry",
+    tags: [MOCK_QUESTION_TAGS[3], MOCK_QUESTION_TAGS[5]], // Chemistry, Homework
+    status: "pending",
+    importance: "normal",
+    createdAt: new Date("2024-02-18T16:30:00"),
+    updatedAt: new Date("2024-02-18T16:30:00"),
+    views: 12,
+    likes: 0,
+    replies: []
+  }
+]
+
+export const MOCK_QUESTIONS_DATA: QuestionsPageData = {
+  userProfile: MOCK_USER_PROFILE,
+  questions: MOCK_QUESTIONS,
+  modules: MOCK_MODULES,
+  tags: MOCK_QUESTION_TAGS
 }

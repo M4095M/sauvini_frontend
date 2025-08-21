@@ -338,5 +338,33 @@
     "additionalNotes": "Additional Notes",
     "notesPlaceholder": "Enter any additional notes here...",
     "submit": "Submit"
+  },
+  "questions": {
+    "title": "My Questions",
+    "description": "View all your questions from chapters you own. Filter by status to find new, answered, or pending questions. Click a card for details or to submit.",
+    "noQuestions": "No questions found",
+    "filters": {
+      "visibility": "Question Visibility",
+      "teacherResponse": "Teacher Response",
+      "module": "Module",
+      "all": "All",
+      "public": "Public",
+      "private": "Private",
+      "answered": "Answered",
+      "pending": "Pending",
+      "closed": "Closed"
+    },
+    "card": {
+      "answered": "Answered",
+      "waiting": "Waiting for answer",
+      "public": "Public",
+      "private": "Private",
+      "downloadStudent": "Download Student Attached files",
+      "downloadProfessor": "Download Professor Attached files",
+      "showAnswer": "Show Answer",
+      "hideAnswer": "Hide Answer",
+      "noAnswerYet": "No detailed answer available yet.",
+      "pathPlaceholder": "Module / Chapter / Lesson"
+    }
   }
 }

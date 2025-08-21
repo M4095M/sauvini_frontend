@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useLanguage } from "@/hooks/useLanguage"
 import type { Module, Chapter } from "@/types/modules"
 
-// Mobile summary used for exams/exercises headers
+// Mobile summary used for exams/exercises/questions headers
 function MobileContentSummary({
   title,
   description,
@@ -13,11 +13,11 @@ function MobileContentSummary({
 }: {
   title: string
   description?: string
-  pageType?: "exams" | "exercises"
+  pageType?: "exams" | "exercises" | "questions"
   isRTL: boolean
 }) {
   const borderClass =
-    pageType === "exams" || pageType === "exercises"
+    pageType === "exams" || pageType === "exercises" || pageType === "questions"
       ? "border-[5px] border-[#A3BAD6]"
       : "border-[3px] border-[#90B0E0]"
 
@@ -68,12 +68,12 @@ const getProgressColorClasses = (color: Module["color"]) => {
   return colorMap[color] || "bg-blue-400"
 }
 
-type PageType = "exams" | "exercises" | "modules" | "chapters"
+type PageType = "exams" | "exercises" | "questions" | "modules" | "chapters"
 
 type ContentHeaderProps =
   | {
-      // Page header (exams/exercises)
-      pageType: "exams" | "exercises"
+      // Page header (exams/exercises/questions)
+      pageType: "exams" | "exercises" | "questions"
       title: string
       description?: string
       isMobile?: boolean
@@ -97,10 +97,24 @@ export default function ContentHeader(props: ContentHeaderProps) {
   const { t, language } = useLanguage()
   const isRTL = language === "ar"
 
-  // PAGE MODE (exams/exercises)
-  if (props.pageType === "exams" || props.pageType === "exercises") {
+  // PAGE MODE (exams/exercises/questions)
+  if (props.pageType === "exams" || props.pageType === "exercises" || props.pageType === "questions") {
     const { title, description, isMobile = false, pageType } = props
-    const illustrationSrc = pageType === "exercises" ? "/pana.svg" : "/amico.svg"
+    
+    const getIllustrationSrc = () => {
+      switch (pageType) {
+        case "exercises":
+          return "/pana.svg"
+        case "exams":
+          return "/amico.svg"
+        case "questions":
+          return "/qst.svg"
+        default:
+          return "/amico.svg"
+      }
+    }
+
+    const illustrationSrc = getIllustrationSrc()
 
     if (isMobile) {
       return (
