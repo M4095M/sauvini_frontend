@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useLanguage } from "@/hooks/useLanguage"
-import NotificationsGrid from "@/components/modules/NotificationsGrid"
+import NotificationsGrid from "@/components/notifs/NotificationsGrid"
 import { MOCK_USER_PROFILE, MOCK_NOTIFICATIONS } from "@/data/mockModules"
 
 function useIsMobile() {

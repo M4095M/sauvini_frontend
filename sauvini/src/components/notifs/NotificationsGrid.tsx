@@ -6,7 +6,7 @@ import { Heart, Bell, Menu, ChevronDown } from "lucide-react"
 import { useSidebar } from "@/context/SideBarContext"
 import { useLanguage } from "@/hooks/useLanguage"
 import ContentHeader from "@/components/modules/ContentHeader"
-import NotificationCard from "@/components/modules/NotificationCard"
+import NotificationCard from "@/components/notifs/NotificationCard"
 import Button from "@/components/ui/button"
 import type { Notification } from "@/types/modules"
 
@@ -89,14 +89,14 @@ export default function NotificationsGrid({ notifications, isMobile = false, use
           </div>
         </div>
 
-        {/* Title positioned like ModulesGrid */}
-        <div className={`w-full mb-6 px-4 ${isRTL ? 'text-right' : 'text-left'}`}>
+        {/* Title */}
+        <div className={`w-full px-4 ${isRTL ? 'text-right' : 'text-left'}`}>
           <h2 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4 ${isRTL ? "font-arabic" : "font-sans"}`}>
             {content.title}
           </h2>
         </div>
 
-        {/* Filters and Mark All (mobile) */}
+        {/* Filters and Mark All */}
         <div className="flex flex-col w-full px-4 gap-4">
           <div className="flex flex-col gap-4">
             <div className="relative">
@@ -136,7 +136,7 @@ export default function NotificationsGrid({ notifications, isMobile = false, use
           </div>
         </div>
 
-        {/* Notifications (mobile) */}
+        {/* Notifications */}
         <div className="flex flex-col w-full px-4 gap-6 mt-4">
           <div className="w-full flex flex-col gap-3">
             {filteredAndSorted.length === 0 ? (
@@ -165,7 +165,6 @@ export default function NotificationsGrid({ notifications, isMobile = false, use
   // Desktop
   return (
     <div className="w-full" style={{ direction: isRTL ? "rtl" : "ltr" }}>
-      <ContentHeader title={content.title} description={content.description} pageType="notifications" isMobile={false} />
 
       <div
         className="bg-[#F8F8F8] dark:bg-[#1A1A1A]"
@@ -173,7 +172,7 @@ export default function NotificationsGrid({ notifications, isMobile = false, use
       >
         {/* Title */}
         <div className={`w-full ${isRTL ? 'text-right' : 'text-left'}`}>
-          <h2 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4 ${isRTL ? "font-arabic" : "font-sans"}`}>
+          <h2 className={`text-2xl font-bold text-gray-900 dark:text-white ${isRTL ? "font-arabic" : "font-sans"}`}>
             {t("notifications.title") || "Notifications"}
           </h2>
         </div>
