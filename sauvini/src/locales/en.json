@@ -366,5 +366,20 @@
       "noAnswerYet": "No detailed answer available yet.",
       "pathPlaceholder": "Module / Chapter / Lesson"
     }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "description": "Stay updated with your learning progress and important announcements.",
+    "sortByImportance": "Sort by: Importance",
+    "sortByTime": "Order by time",
+    "importanceAll": "Importance: All",
+    "importanceImportant": "Important",
+    "importanceUrgent": "Urgent",
+    "markAllAsSeen": "Mark all as seen",
+    "markAsSeen": "Mark as seen",
+    "noNotifications": "No notifications found",
+    "normal": "Normal",
+    "important": "Important",
+    "urgent": "Urgent"
   }
 }

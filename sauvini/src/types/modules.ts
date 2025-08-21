@@ -291,3 +291,14 @@ export interface QuestionDetailsPageData {
   question: Question
   replies: QuestionReply[]
 }
+
+export interface Notification {
+  id: string
+  title: string
+  content: string
+  importance: "normal" | "important" | "most-important"
+  type: "payment" | "unlock" | "quiz" | "content" | "exercise" | "general"
+  isRead: boolean
+  createdAt: Date
+  icon?: string
+}
