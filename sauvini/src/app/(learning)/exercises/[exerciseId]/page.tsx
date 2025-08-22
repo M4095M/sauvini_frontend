@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useParams, notFound } from "next/navigation"
 import { MOCK_EXERCISES_DATA } from "@/data/mockModules"
-import ExerciseDetailsGrid from "@/components/modules/ExerciseDetailsGrid"
+import ExerciseDetailsGrid from "@/components/exercises/ExerciseDetailsGrid"
 import Loader from '@/components/ui/Loader'
 
 function useIsMobile() {

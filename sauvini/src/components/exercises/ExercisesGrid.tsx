@@ -6,7 +6,7 @@ import { Heart, Bell, Menu, ChevronDown } from "lucide-react"
 import { useSidebar } from "@/context/SideBarContext"
 import { useLanguage } from "@/hooks/useLanguage"
 import ContentHeader from "@/components/modules/ContentHeader"
-import ExerciseCard from "@/components/modules/ExerciseCard"
+import ExerciseCard from "@/components/exercises/ExerciseCard"
 import type { Exercise } from "@/types/modules"
 
 interface ExercisesGridProps {

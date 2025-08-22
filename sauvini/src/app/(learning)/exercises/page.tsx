@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { MOCK_EXERCISES_DATA } from "@/data/mockModules"
-import ExercisesGrid from "@/components/modules/ExercisesGrid"
+import ExercisesGrid from "@/components/exercises/ExercisesGrid"
 import Loader from "@/components/ui/Loader"
 
 function useIsMobile() {

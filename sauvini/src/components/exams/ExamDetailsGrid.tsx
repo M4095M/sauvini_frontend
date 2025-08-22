@@ -6,8 +6,8 @@ import { useLanguage } from '@/hooks/useLanguage'
 import { Heart, Bell, Menu, Download, Upload, FileText } from "lucide-react"
 import { useSidebar } from "@/context/SideBarContext"
 import ContentHeader from '@/components/modules/ContentHeader'
-import SubmissionCard from '@/components/modules/SubmissionCard'
-import SolutionSubmissionDialog from '@/components/modules/SolutionSubmissionDialog'
+import SubmissionCard from '@/components/exams/SubmissionCard'
+import SolutionSubmissionDialog from '@/components/exams/SolutionSubmissionDialog'
 import Button from '@/components/ui/button'
 import type { Exam, ExamSubmission, UserProfile } from '@/types/modules'
 

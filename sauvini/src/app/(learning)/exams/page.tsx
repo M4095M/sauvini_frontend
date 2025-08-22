@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import ExamsGrid from "@/components/modules/ExamsGrid"
+import ExamsGrid from "@/components/exams/ExamsGrid"
 import { MOCK_EXAMS_DATA } from "@/data/mockModules"
 import Loader from '@/components/ui/Loader'
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useParams, notFound } from "next/navigation"
-import ExamDetailsGrid from "@/components/modules/ExamDetailsGrid"
+import ExamDetailsGrid from "@/components/exams/ExamDetailsGrid"
 import Loader from '@/components/ui/Loader'
 import { MOCK_EXAMS_DATA, MOCK_EXAM_SUBMISSIONS } from "@/data/mockModules"
 
