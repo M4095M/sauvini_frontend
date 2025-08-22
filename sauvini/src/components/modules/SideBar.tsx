@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { usePathname } from "next/navigation"
-import { useLanguage } from "@/hooks/useLanguage"
-import { useSidebar } from "@/context/SideBarContext"
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useLanguage } from "@/hooks/useLanguage";
+import { useSidebar } from "@/context/SideBarContext";
 import {
   BookOpen,
   FileQuestion,
@@ -15,12 +15,12 @@ import {
   User,
   LogOut,
   X,
-} from "lucide-react"
+} from "lucide-react";
 
 interface NavItem {
-  href: string
-  label: string
-  icon: React.ElementType
+  href: string;
+  label: string;
+  icon: React.ElementType;
 }
 
 const navigationItems: NavItem[] = [
@@ -30,16 +30,17 @@ const navigationItems: NavItem[] = [
   { href: "/questions", label: "questions", icon: HelpCircle },
   { href: "/badges", label: "badges", icon: Award },
   { href: "/notifications", label: "notifications", icon: Bell },
-]
+];
 
 function DesktopSidebar() {
-  const pathname = usePathname()
-  const { isRTL, t } = useLanguage()
+  const pathname = usePathname();
+  const { isRTL, t } = useLanguage();
 
   // Check if user is on any learning page (modules, chapters, lessons)
-  const isOnLearningPages = pathname.startsWith("/modules") || 
-                           pathname.startsWith("/chapters") || 
-                           pathname.startsWith("/lessons")
+  const isOnLearningPages =
+    pathname.startsWith("/modules") ||
+    pathname.startsWith("/chapters") ||
+    pathname.startsWith("/lessons");
 
   return (
     <aside
@@ -84,21 +85,21 @@ function DesktopSidebar() {
           >
             {navigationItems.map(({ href, label, icon: Icon }) => {
               // For modules link, check if on any learning page
-              const isActive = href === "/modules" 
-                ? isOnLearningPages 
-                : pathname === href || pathname.startsWith(`${href}/`)
-              
+              const isActive =
+                href === "/modules"
+                  ? isOnLearningPages
+                  : pathname === href || pathname.startsWith(`${href}/`);
+
               return (
                 <Link
                   key={href}
                   href={href}
-                  className={`flex items-center transition-all duration-200 ${
-                    isRTL ? "flex-row-reverse text-right" : "text-left"
-                  } ${
+                  className={`flex items-center transition-all duration-200  ${
                     isActive
                       ? "bg-[#324C72] text-white"
                       : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                   }`}
+                  dir={isRTL ? "rtl" : "ltr"}
                   style={{
                     display: "flex",
                     padding: "12px 20px",
@@ -110,11 +111,15 @@ function DesktopSidebar() {
                   }}
                 >
                   <Icon className="w-5 h-5 flex-shrink-0" />
-                  <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                  <span
+                    className={`text-sm font-medium ${
+                      isRTL ? "font-arabic text-right" : "font-sans text-left"
+                    }`}
+                  >
                     {t(`navigation.${label}`) || label}
                   </span>
                 </Link>
-              )
+              );
             })}
           </nav>
         </div>
@@ -131,9 +136,7 @@ function DesktopSidebar() {
         >
           <Link
             href="/profile"
-            className={`flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 ${
-              isRTL ? "flex-row-reverse text-right" : "text-left"
-            }`}
+            className={`flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 `}
             style={{
               display: "flex",
               padding: "12px 20px",
@@ -145,16 +148,18 @@ function DesktopSidebar() {
             }}
           >
             <User className="w-5 h-5 flex-shrink-0" />
-            <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+            <span
+              className={`text-sm font-medium ${
+                isRTL ? "font-arabic text-right" : "font-sans text-left"
+              }`}
+            >
               {t("navigation.profile") || "Profile"}
             </span>
           </Link>
 
           <button
             type="button"
-            className={`flex items-center text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200 ${
-              isRTL ? "flex-row-reverse text-right" : "text-left"
-            }`}
+            className={`flex items-center text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200 `}
             style={{
               display: "flex",
               padding: "12px 20px",
@@ -166,29 +171,34 @@ function DesktopSidebar() {
             }}
             onClick={() => {
               // Handle logout logic here
-              console.log("Logout clicked")
+              console.log("Logout clicked");
             }}
           >
             <LogOut className="w-5 h-5 flex-shrink-0" />
-            <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+            <span
+              className={`text-sm font-medium ${
+                isRTL ? "font-arabic text-right" : "font-sans text-left"
+              }`}
+            >
               {t("navigation.logout") || "Log out"}
             </span>
           </button>
         </div>
       </div>
     </aside>
-  )
+  );
 }
 
 function MobileDrawer() {
-  const { isOpen, close } = useSidebar()
-  const pathname = usePathname()
-  const { isRTL, t } = useLanguage()
+  const { isOpen, close } = useSidebar();
+  const pathname = usePathname();
+  const { isRTL, t } = useLanguage();
 
   // Check if user is on any learning page (modules, chapters, lessons)
-  const isOnLearningPages = pathname.startsWith("/modules") || 
-                           pathname.startsWith("/chapters") || 
-                           pathname.startsWith("/lessons")
+  const isOnLearningPages =
+    pathname.startsWith("/modules") ||
+    pathname.startsWith("/chapters") ||
+    pathname.startsWith("/lessons");
 
   return (
     <>
@@ -206,19 +216,19 @@ function MobileDrawer() {
         className={`fixed top-0 z-50 h-full w-80 max-w-[85vw] bg-[#F8F8F8] dark:bg-[#1A1A1A] shadow-2xl transform transition-all duration-300 ease-out ${
           isRTL ? "right-0" : "left-0"
         } ${
-          isOpen 
-            ? "translate-x-0 scale-100" 
-            : isRTL 
-              ? "translate-x-full scale-95" 
-              : "-translate-x-full scale-95"
+          isOpen
+            ? "translate-x-0 scale-100"
+            : isRTL
+            ? "translate-x-full scale-95"
+            : "-translate-x-full scale-95"
         }`}
         style={{
-          borderRadius: isRTL ? "24px 0 0 24px" : "0 24px 24px 0"
+          borderRadius: isRTL ? "24px 0 0 24px" : "0 24px 24px 0",
         }}
       >
         <div className="flex flex-col h-full p-6">
           {/* Header */}
-          <div 
+          <div
             className={`flex items-center justify-between mb-8 transform transition-all duration-500 ease-out ${
               isRTL ? "flex-row-reverse" : ""
             } ${
@@ -247,10 +257,11 @@ function MobileDrawer() {
             <div className="flex flex-col" style={{ gap: 16 }}>
               {navigationItems.map(({ href, label, icon: Icon }, index) => {
                 // For modules link, check if on any learning page
-                const isActive = href === "/modules" 
-                  ? isOnLearningPages 
-                  : pathname === href || pathname.startsWith(`${href}/`)
-                
+                const isActive =
+                  href === "/modules"
+                    ? isOnLearningPages
+                    : pathname === href || pathname.startsWith(`${href}/`);
+
                 return (
                   <Link
                     key={href}
@@ -263,7 +274,11 @@ function MobileDrawer() {
                         ? "bg-[#324C72] text-white"
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                     } ${
-                      isOpen ? "translate-x-0 opacity-100" : isRTL ? "translate-x-8 opacity-0" : "-translate-x-8 opacity-0"
+                      isOpen
+                        ? "translate-x-0 opacity-100"
+                        : isRTL
+                        ? "translate-x-8 opacity-0"
+                        : "-translate-x-8 opacity-0"
                     }`}
                     style={{
                       padding: "12px 20px",
@@ -274,20 +289,24 @@ function MobileDrawer() {
                     }}
                   >
                     <Icon className="w-5 h-5 flex-shrink-0" />
-                    <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                    <span
+                      className={`text-sm font-medium ${
+                        isRTL ? "font-arabic text-right" : "font-sans text-left"
+                      }`}
+                    >
                       {t(`navigation.${label}`) || label}
                     </span>
                   </Link>
-                )
+                );
               })}
             </div>
           </nav>
 
           {/* Bottom Section */}
-          <div 
+          <div
             className={`border-t border-gray-200 dark:border-gray-700 pt-6 transform transition-all duration-500 ease-out ${
               isOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-            }`} 
+            }`}
             dir={isRTL ? "rtl" : "ltr"}
             style={{ transitionDelay: isOpen ? "400ms" : "0ms" }}
           >
@@ -306,7 +325,11 @@ function MobileDrawer() {
                 }}
               >
                 <User className="w-5 h-5 flex-shrink-0" />
-                <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                <span
+                  className={`text-sm font-medium ${
+                    isRTL ? "font-arabic text-right" : "font-sans text-left"
+                  }`}
+                >
                   {t("navigation.profile") || "Profile"}
                 </span>
               </Link>
@@ -314,8 +337,8 @@ function MobileDrawer() {
               <button
                 type="button"
                 onClick={() => {
-                  console.log("Logout clicked")
-                  close()
+                  console.log("Logout clicked");
+                  close();
                 }}
                 className={`flex items-center text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200 ${
                   isRTL ? "flex-row-reverse text-right" : "text-left"
@@ -328,7 +351,11 @@ function MobileDrawer() {
                 }}
               >
                 <LogOut className="w-5 h-5 flex-shrink-0" />
-                <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                <span
+                  className={`text-sm font-medium ${
+                    isRTL ? "font-arabic text-right" : "font-sans text-left"
+                  }`}
+                >
                   {t("navigation.logout") || "Log out"}
                 </span>
               </button>
@@ -337,7 +364,7 @@ function MobileDrawer() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default function Sidebar() {
@@ -353,5 +380,5 @@ export default function Sidebar() {
         <MobileDrawer />
       </div>
     </>
-  )
+  );
 }

@@ -184,14 +184,15 @@ export default function QuestionsGrid({ questions, isMobile = false, userLevel =
 
   // Desktop
   return (
-    <div className="w-full" style={{ direction: isRTL ? "rtl" : "ltr" }}>
-      <div className={`mb-6 ${isRTL ? "text-right" : "text-left"}`}>
-        <h1 className={`text-3xl font-bold text-gray-900 dark:text-white mb-2 ${isRTL ? "font-arabic" : "font-sans"}`}>
-          {content.title}
-        </h1>
-        <p className={`text-gray-600 dark:text-gray-300 ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
-          {content.description}
-        </p>
+    <div
+      className="flex flex-col items-stretch self-stretch w-full flex-1 min-w-0 rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A]"
+      style={{ padding: "24px 12px", gap: "12px", direction: isRTL ? "rtl" : "ltr" }}
+      dir={isRTL ? "rtl" : "ltr"}
+    >
+      <div className="w-full px-4" style={{ padding: "0 16px" }}>
+        <h2 className={`text-2xl font-bold text-gray-900 dark:text-white ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}>
+          {t("lesson.lessonsTitle")}
+        </h2>
       </div>
 
       <div
