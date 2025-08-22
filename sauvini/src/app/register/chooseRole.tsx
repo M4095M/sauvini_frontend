@@ -1,6 +1,6 @@
 "use client";
 
-import AuthRoleCard from "@/components/auth/role_card";
+import AuthRoleCard from  "@/components/auth/role_card";
 import { RegisterCommonProps } from "@/types/registerCommonProps";
 import { useRouter } from "next/navigation";
 

@@ -10,7 +10,8 @@ export default function AuthRoleCard({
   icon,
   t,
   isRTL,
-  language
+  language,
+  onClick = () => {},
 }: AuthRoleCardProps) {
   const [selected, setSelected] = useState(false);
   const [benefits, setBenefits] = useState<string[] | undefined>(undefined);
@@ -43,15 +44,24 @@ export default function AuthRoleCard({
         }`}
       onClick={() => {
         setSelected(!selected);
+        onClick(user)
       }}
     >
       <RadioButton
         state={selected ? "clicked" : "default"}
         onClick={undefined}
       />
-      <div className={`flex flex-col gap-4 justify-center items-start ${isRTL ? "mr-6" : "ml-6"}`} dir={isRTL ? "rtl" : "ltr"}>
+      <div
+        className={`flex flex-col gap-4 justify-center items-start ${
+          isRTL ? "mr-6" : "ml-6"
+        }`}
+        dir={isRTL ? "rtl" : "ltr"}
+      >
         {/* user text */}
-        <div className="flex justify-center items-center gap-2" dir={isRTL ? "rtl" : "ltr"}>
+        <div
+          className="flex justify-center items-center gap-2"
+          dir={isRTL ? "rtl" : "ltr"}
+        >
           <span className="w-10 h-10 rounded-[50%] flex justify-center items-center">
             {icon}
           </span>
@@ -63,21 +73,22 @@ export default function AuthRoleCard({
         </div>
         {/* benefits */}
         <div className="flex flex-col justify-center items-start gap-3">
-          {benefits &&  benefits.map((benefit) => {
-            return (
-              <div
-                className="flex justify-center items-center gap-2"
-                key={benefit}
-              >
-                <span className="text-green-600 w-4 h-4">
-                  <Check className="w-4 h-4" />
-                </span>
-                <span className="font-work-sans md:text-xs text-xs text-neutral-600">
-                  {benefit}
-                </span>
-              </div>
-            );
-          })}
+          {benefits &&
+            benefits.map((benefit) => {
+              return (
+                <div
+                  className="flex justify-center items-center gap-2"
+                  key={benefit}
+                >
+                  <span className="text-green-600 w-4 h-4">
+                    <Check className="w-4 h-4" />
+                  </span>
+                  <span className="font-work-sans md:text-xs text-xs text-neutral-600">
+                    {benefit}
+                  </span>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import AuthRoleCard from "@/components/auth/role_card";
 import Logo from "@/components/logo/logo";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useLanguage } from "@/context/LanguageContext";

@@ -71,7 +71,7 @@ export default function TeacherPart2({
           icon_position={"left"}
           text="Previous"
           icon={<ArrowLeft />}
-          OnClick={PreviousStep}
+          onClick={PreviousStep}
         />
         <Button
           state={"filled"}
@@ -79,7 +79,7 @@ export default function TeacherPart2({
           icon_position={"right"}
           text="Next"
           icon={<ArrowRight />}
-          OnClick={NextStep}
+          onClick={NextStep}
         />
       </div>
     </div>
