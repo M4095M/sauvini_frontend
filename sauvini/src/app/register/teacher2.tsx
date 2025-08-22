@@ -4,18 +4,24 @@ import InputButton from "@/components/input/InputButton";
 import TwoOptionRadio from "@/components/input/twoOptionRadio";
 import Button from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
+import { RegisterCommonProps } from "@/types/registerCommonProps";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-export default function Register4() {
-  const { t, isRTL } = useLanguage();
+export default function TeacherPart2({
+  t,
+  isRTL,
+  language,
+  NextStep,
+  PreviousStep,
+}: RegisterCommonProps) {
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-10 mt-15">
       {/* Header */}
       <div className="flex flex-col justify-center items-center gap-2">
-        <span className="font-work-sans font-semibold lg:text-4xl text-neutral-600 text-center text-2xl">
+        <span className="font-semibold lg:text-4xl text-neutral-600 text-center text-2xl">
           {t("register.professor.page_2.title")}
         </span>
-        <span className="font-work-sans font-medium lg:text-xl text-neutral-400 text-center text-base">
+        <span className="font-medium lg:text-xl text-neutral-400 text-center text-base">
           {t("register.professor.page_2.description")}
         </span>
       </div>
@@ -44,7 +50,7 @@ export default function Register4() {
           secondOption={"No"}
         />
         <div className="w-full flex flex-row justify-center items-center ">
-          <span className="font-work-sans font-normal text-base text-neutral-600 grow">
+          <span className="font-normal text-base text-neutral-600 grow">
             {t("register.professor.page_2.questions.q_5")}
           </span>
           <div className="grow-0">
@@ -65,6 +71,7 @@ export default function Register4() {
           icon_position={"left"}
           text="Previous"
           icon={<ArrowLeft />}
+          OnClick={PreviousStep}
         />
         <Button
           state={"filled"}
@@ -72,6 +79,7 @@ export default function Register4() {
           icon_position={"right"}
           text="Next"
           icon={<ArrowRight />}
+          OnClick={NextStep}
         />
       </div>
     </div>
