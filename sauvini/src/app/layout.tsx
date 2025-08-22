@@ -5,6 +5,19 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { getServerLanguage } from "@/lib/server-cookies";
 
+import { Work_Sans, Tajawal } from "next/font/google";
+
+const work_sans = Work_Sans({
+  subsets: ["latin"],
+  variable: "--font-work-sans",
+});
+
+const tajawal = Tajawal({
+  subsets: ["latin"],
+  variable: "--font-tajawal",
+  weight: ["200", "300", "400", "500", "700", "800", "900"],
+});
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,7 +43,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${work_sans.variable} ${tajawal.variable} antialiased`}
       >
         <LanguageProvider initialLanguage={initialLanguage}>
           <ThemeProvider defaultTheme="light">{children}</ThemeProvider>

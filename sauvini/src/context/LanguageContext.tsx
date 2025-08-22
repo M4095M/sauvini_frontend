@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { Language, SUPPORTED_LANGUAGES, isRTL, getTextDirection } from '@/lib/language';
 import { setLanguageCookie } from '@/lib/cookies';
 import { translate, getTranslations, hasTranslation, getAllTranslationKeys } from '@/lib/translations';
@@ -32,6 +32,12 @@ export function LanguageProvider({ children, initialLanguage }: LanguageProvider
       setLanguageCookie(newLanguage);
     }
   };
+
+  // set the language theme:
+  useEffect(() => {
+    document.body.classList.remove("font-work-sans", "font-tajawal")
+    document.body.classList.add(language === "en" || language === "fr" ? "font-work-sans" : "font-tajawal")
+  }, [language])
 
   const t = (key: string) => translate(language, key);
   const translations = getTranslations(language);

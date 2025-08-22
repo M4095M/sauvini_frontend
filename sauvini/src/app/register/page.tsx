@@ -12,10 +12,10 @@ export default function RegisterPage() {
     <div className="w-full h-full p-10 flex flex-col justify-center items-center gap-10 mt-14">
       {/* header */}
       <div className="flex flex-col justify-center items-center gap-6">
-        <span className="font-work-sans font-semibold lg:text-4xl text-neutral-600 text-center text-2xl">
+        <span className="font-semibold lg:text-4xl text-neutral-600 text-center text-2xl">
           {t("register.intro.title")}
         </span>
-        <span className="font-work-sans font-medium lg:text-xl text-neutral-400 text-center text-base">
+        <span className="font-medium lg:text-xl text-neutral-400 text-center text-base">
           {t("register.intro.description")}
         </span>
       </div>
@@ -139,10 +139,10 @@ export default function RegisterPage() {
       </div>
       {/* links */}
       <div className="flex justify-center items-center gap-1" dir={isRTL ? "rtl" : "ltr"}>
-        <span className="font-work-sans font-normal text-primary-300 text-base">
+        <span className="font-normal text-primary-300 text-base">
           {t("register.common.login_desc")}
         </span>
-        <span className="font-work-sans font-semibold text-primary-300 text-sm cursor-pointer">
+        <span className="font-semibold text-primary-300 text-sm cursor-pointer">
           {t("register.common.login")}
         </span>
       </div>
