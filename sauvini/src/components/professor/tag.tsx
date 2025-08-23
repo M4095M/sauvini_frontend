@@ -1,7 +1,7 @@
-type Tag = {
+export type Tag = {
   icon: any;
   text: string;
-  className: string;
+  className?: string;
 };
 
 export default function Tag({ icon, text, className }: Tag) {

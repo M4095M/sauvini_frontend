@@ -10,6 +10,7 @@ export default function InputButton({
   icon,
   icon_position,
   icon_filled = false,
+  max_width = "max-w-xl"
 }: InputButtonProps) {
   const [counter, setCounter] = useState(0);
   const inputRef = useRef(null);
@@ -57,7 +58,7 @@ export default function InputButton({
   };
 
   return (
-    <div className="max-w-xl w-full min-w-2xs shrink grow flex flex-col gap-2">
+    <div className={`${max_width} w-full min-w-2xs shrink grow flex flex-col gap-2`}>
       <div className="font-work-sans text-neutral-600 font-normal px-4">
         {label}
       </div>

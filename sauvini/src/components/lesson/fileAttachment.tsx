@@ -6,11 +6,13 @@ import Button from "../ui/button";
 interface FileAttachmentProps {
   lessonId?: string;
   isRTL: boolean;
+  downloadable?: boolean;
 }
 
 export default function FileAttachement({
   lessonId,
   isRTL,
+  downloadable = true,
 }: FileAttachmentProps) {
   return (
     <div
@@ -41,33 +43,35 @@ export default function FileAttachement({
       </div>
 
       {/* action button */}
-      <div
-        className="flex justify-center items-center"
-        dir={isRTL ? "rtl" : "ltr"}
-      >
-        <Button
-          state={"tonal"}
-          size={"XS"}
-          icon={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-            >
-              <path
-                d="M3 13.5L3 14.375C3 15.8247 4.17525 17 5.625 17L14.375 17C15.8247 17 17 15.8247 17 14.375L17 13.5M13.5 10L10 13.5M10 13.5L6.5 10M10 13.5L10 3"
-                stroke="#7C7C7C"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          }
-          icon_position={"icon-only"}
-        />
-      </div>
+      {downloadable && (
+        <div
+          className="flex justify-center items-center"
+          dir={isRTL ? "rtl" : "ltr"}
+        >
+          <Button
+            state={"tonal"}
+            size={"XS"}
+            icon={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+              >
+                <path
+                  d="M3 13.5L3 14.375C3 15.8247 4.17525 17 5.625 17L14.375 17C15.8247 17 17 15.8247 17 14.375L17 13.5M13.5 10L10 13.5M10 13.5L6.5 10M10 13.5L10 3"
+                  stroke="#7C7C7C"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            }
+            icon_position={"icon-only"}
+          />
+        </div>
+      )}
     </div>
   );
 }

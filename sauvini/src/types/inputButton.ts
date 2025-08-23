@@ -4,4 +4,5 @@ export type InputButtonProps = {
   icon?: React.ReactNode;
   icon_position?: "left" | "right"
   icon_filled?: boolean
+  max_width?: string;
 }
