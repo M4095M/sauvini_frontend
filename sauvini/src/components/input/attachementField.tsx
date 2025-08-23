@@ -26,6 +26,7 @@ const FileIcon = ({ width, height, className }: IconProps) => {
 };
 
 type AttachementFieldProps = {
+  label: string;
   max_size: number;
   name: string;
   acceptedTypes: "image/*,.pdf,.doc,.docx"; // commas seperated accepted type
@@ -34,6 +35,7 @@ type AttachementFieldProps = {
 };
 
 export default function AttachementField({
+  label,
   max_size,
   name,
   acceptedTypes,
@@ -92,45 +94,48 @@ export default function AttachementField({
   };
 
   return (
-    <div
-      className={`flex flex-col justify-center items-center gap-4 py-10 px-6 w-full rounded-[20px]  border-primary-300 bg-white 
+    <div className="flex flex-col gap-2">
+      <div className="px-4 text-neutral-600 font-normal text-base">{label}</div>
+      <div
+        className={`flex flex-col justify-center items-center gap-4 py-10 px-6 w-full rounded-[20px]  border-primary-300 bg-white 
         ${dragActive ? " border-2" : "border border-dashed"}
         
     `}
-      onDrop={handleDrop}
-      onDragEnter={handleDrag}
-      onDragLeave={handleDrag}
-      onDragOver={handleDrag}
-    >
-      {/* icon */}
-      <FileIcon className={"text-primary-300"} width={"48"} height={"48"} />
-      {/* info section */}
-      <div className="flex flex-col justify-center items-center gap-1">
-        <div className="flex gap-1">
-          <span className="font-normal text-neutral-600">
-            Drag your video or
-          </span>
-          <span
-            className="font-medium text-primary-300 cursor-pointer"
-            onClick={handleClick}
-          >
-            Browse
-          </span>
+        onDrop={handleDrop}
+        onDragEnter={handleDrag}
+        onDragLeave={handleDrag}
+        onDragOver={handleDrag}
+      >
+        {/* icon */}
+        <FileIcon className={"text-primary-300"} width={"48"} height={"48"} />
+        {/* info section */}
+        <div className="flex flex-col justify-center items-center gap-1">
+          <div className="flex gap-1">
+            <span className="font-normal text-neutral-600">
+              Drag your video or
+            </span>
+            <span
+              className="font-medium text-primary-300 cursor-pointer"
+              onClick={handleClick}
+            >
+              Browse
+            </span>
+          </div>
+          <div className="font-normal text-neutral-400 text-sm">
+            Max {max_size} MB files are allowed
+          </div>
         </div>
-        <div className="font-normal text-neutral-400 text-sm">
-          Max {max_size} MB files are allowed
-        </div>
-      </div>
 
-      <input
-        ref={fileInputRef}
-        type="file"
-        name={name}
-        accept={acceptedTypes}
-        onChange={handleFileChange}
-        className="hidden"
-        required={mandatory}
-      />
+        <input
+          ref={fileInputRef}
+          type="file"
+          name={name}
+          accept={acceptedTypes}
+          onChange={handleFileChange}
+          className="hidden"
+          required={mandatory}
+        />
+      </div>
     </div>
   );
 }

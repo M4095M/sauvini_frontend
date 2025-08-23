@@ -56,6 +56,7 @@ export default function ProfessorChapterPage() {
           long={true}
         />
         <AttachementField
+          label={"Lesson video"}
           max_size={50}
           name={""}
           acceptedTypes={"image/*,.pdf,.doc,.docx"}
