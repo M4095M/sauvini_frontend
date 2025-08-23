@@ -380,5 +380,27 @@
     "normal": "عادي",
     "important": "مهم",
     "urgent": "عاجل"
+  },
+  "professor": {
+    "professor": "أستاذ",
+    "dr": "د.",
+    "notifications": "الإشعارات",
+    "navigation": {
+      "manageContent": "إدارة المحتوى",
+      "correctExams": "تصحيح الامتحانات",
+      "correctExercises": "تصحيح التمارين",
+      "answerQuestions": "الإجابة على الأسئلة",
+      "notifications": "الإشعارات",
+      "accountDetails": "تفاصيل الحساب",
+      "logout": "تسجيل الخروج"
+    },
+    "numberOfChapters": "عدد الفصول: {{count}}",
+    "academicStreams": {
+      "all": "الكل",
+      "mathematics": "الرياضيات",
+      "experimentalsciences": "العلوم التجريبية",
+      "literature": "الآداب",
+      "mathtechnique": "رياضيات تقني"
+    }
   }
 }

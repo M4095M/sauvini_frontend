@@ -1,15 +1,17 @@
 "use client"
 
-import { useState, useEffect } from 'react'
-import UserHeader from '@/components/modules/UserHeader'
-import Footer from '@/components/ui/footer'
-import { useLanguage } from '@/hooks/useLanguage'
-import { RTL_LANGUAGES } from '@/lib/language'
-import { MOCK_USER_PROFILE } from '@/data/mockModules'
-import Sidebar from '@/components/modules/SideBar'
-import { SidebarProvider } from '@/context/SideBarContext'
+import type React from "react"
 
-export default function LearningLayout({
+import { useState, useEffect } from "react"
+import ProfessorHeader from "@/components/professor/ProfessorHeader"
+import Footer from "@/components/ui/footer"
+import { useLanguage } from "@/hooks/useLanguage"
+import { RTL_LANGUAGES } from "@/lib/language"
+import { MOCK_PROFESSOR } from "@/data/mockProfessor"
+import ProfessorSidebar from "@/components/professor/SideBar"
+import { SidebarProvider } from "@/context/SideBarContext"
+
+export default function ProfessorLayout({
   children,
 }: {
   children: React.ReactNode
@@ -17,53 +19,52 @@ export default function LearningLayout({
   const { language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
   const [isMobile, setIsMobile] = useState(false)
-  const userProfile = MOCK_USER_PROFILE
+  const professorProfile = MOCK_PROFESSOR
 
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768)
     }
-    
+
     checkScreenSize()
-    window.addEventListener('resize', checkScreenSize)
-    
-    return () => window.removeEventListener('resize', checkScreenSize)
+    window.addEventListener("resize", checkScreenSize)
+
+    return () => window.removeEventListener("resize", checkScreenSize)
   }, [])
 
   return (
     <SidebarProvider>
       {/* Desktop */}
-
       <div className="hidden md:flex min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 justify-center">
-        {/* Sidebar */}
-        <Sidebar />
+        {/* Professor Sidebar */}
+        <ProfessorSidebar />
 
         {/* Main Content */}
         <div
           style={{
-            display: 'flex',
+            display: "flex",
             width: 1200,
-            padding: '20px 12px 0 12px',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
+            padding: "20px 12px 0 12px",
+            flexDirection: "column",
+            alignItems: "flex-start",
             gap: 10,
             flexShrink: 0,
             marginLeft: isRTL ? 0 : 240,
             marginRight: isRTL ? 240 : 0,
-            direction: isRTL ? 'rtl' : 'ltr',
+            direction: isRTL ? "rtl" : "ltr",
           }}
         >
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-end',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
               gap: 24,
-              alignSelf: 'stretch',
-              width: '100%',
+              alignSelf: "stretch",
+              width: "100%",
             }}
           >
-            <UserHeader userProfile={userProfile} />
+            <ProfessorHeader professorProfile={professorProfile} />
             {children}
             <Footer isRTL={isRTL} />
           </div>
@@ -76,12 +77,12 @@ export default function LearningLayout({
         style={{
           paddingTop: 60,
           gap: 24,
-          direction: isRTL ? 'rtl' : 'ltr',
+          direction: isRTL ? "rtl" : "ltr",
         }}
       >
-        {/* Mobile Sidebar Drawer */}
-        <Sidebar />
-        
+        {/* Mobile Professor Sidebar Drawer */}
+        <ProfessorSidebar />
+
         {children}
 
         <div className="mt-auto w-full">
