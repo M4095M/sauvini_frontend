@@ -123,17 +123,49 @@ export default function ProfessorManageChapter() {
                 <FileAttachement isRTL={false} downloadable={false} />
               </div>
               {/* total score */}
-              <InputButton label={"Exam Total Mark"} type={"plus-minus"} max_width="" />
+              <InputButton
+                label={"Exam Total Mark"}
+                type={"plus-minus"}
+                max_width=""
+              />
               {/* min score */}
-              <InputButton label={"Exam Minimum Score"} type={"plus-minus"} max_width="" />
+              <InputButton
+                label={"Exam Minimum Score"}
+                type={"plus-minus"}
+                max_width=""
+              />
               {/* total xp */}
-              <InputButton label={"Exam Total XP"} type={"plus-minus"} max_width="" />
+              <InputButton
+                label={"Exam Total XP"}
+                type={"plus-minus"}
+                max_width=""
+              />
             </div>
           </div>
         </div>
       </div>
       {/* lessons section */}
-      <div className="w-full py-6 px-4 rounded-[52px] bg-neutral-100"></div>
+      <div className="w-full py-6 px-4 flex flex-col gap-4 rounded-[52px] bg-neutral-100">
+        {/* header */}
+        <div className="px-4 flex justify-between items-center">
+          {/* title */}
+          <div className="text-2xl font-medium grow">Lessons</div>
+          {/* action button */}
+          <div className="">
+            <Button
+              state={"outlined"}
+              size={"M"}
+              icon_position={"left"}
+              text="Add a lesson"
+              icon={<Plus />}
+            />
+          </div>
+        </div>
+        {/* content */}
+        <div className="w-full flex justify-center items-center text-5xl text-neutral-200 font-medium my-12">
+          No Lessons yet
+        </div>
+      </div>
     </div>
   );
 }
