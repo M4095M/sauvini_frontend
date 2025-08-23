@@ -395,14 +395,41 @@
       "accountDetails": "Account Details",
       "logout": "Log out"
     },
-    "numberOfChapters": "Number of Chapters: {{count}}",
+    "numberOfChapters": "Number of Chapters: ",
     "academicStreams": {
       "all": "All",
       "mathematics": "Mathematics",
       "experimentalsciences": "Experimental Sciences",
       "literature": "Literature",
-      "philosophy": "Philosophy",
       "mathtechnique": "Math-Technique"
+    },
+    "modules": {
+      "title": "Modules",
+      "academicStream": "Academic Stream",
+      "noModulesFound": "No modules found for the selected academic stream."
+    },
+    "chapters": {
+      "title": "Chapters",
+      "academicStream": "Academic Stream",
+      "addChapter": "Add a chapter",
+      "createNewChapter": "Create New Chapter",
+      "createNewChapterSubtitle": "Add the basic details to get your chapter started",
+      "chapterName": "Chapter name",
+      "chapterNamePlaceholder": "Enter chapter name",
+      "chapterDescription": "Chapter Description",
+      "chapterDescriptionPlaceholder": "Enter chapter description",
+      "createChapter": "Create Chapter",
+      "editLaterNote": "You can edit more details later on the chapter page",
+      "lessonsCount": "Lessons Count",
+      "noChaptersFound": "No chapters found for the selected academic stream.",
+      "complete": "Complete",
+      "incomplete": "Incomplete",
+      "lastVersion": "Last version",
+      "status": {
+        "waiting": "Waiting",
+        "validated": "Validated",
+        "published": "Published"
+      }
     }
   }
 }

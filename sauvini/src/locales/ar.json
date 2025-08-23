@@ -394,13 +394,41 @@
       "accountDetails": "تفاصيل الحساب",
       "logout": "تسجيل الخروج"
     },
-    "numberOfChapters": "عدد الفصول: {{count}}",
+    "numberOfChapters": "عدد الفصول: ",
     "academicStreams": {
       "all": "الكل",
       "mathematics": "الرياضيات",
       "experimentalsciences": "العلوم التجريبية",
       "literature": "الآداب",
       "mathtechnique": "رياضيات تقني"
+    },
+    "modules": {
+      "title": "الوحدات",
+      "academicStream": "التخصص الأكاديمي",
+      "noModulesFound": "لم يتم العثور على وحدات للتخصص الأكاديمي المحدد."
+    },
+    "chapters": {
+      "title": "الفصول",
+      "academicStream": "التخصص الأكاديمي",
+      "addChapter": "إضافة فصل",
+      "createNewChapter": "إنشاء فصل جديد",
+      "createNewChapterSubtitle": "أضف التفاصيل الأساسية لبدء فصلك",
+      "chapterName": "اسم الفصل",
+      "chapterNamePlaceholder": "أدخل اسم الفصل",
+      "chapterDescription": "وصف الفصل",
+      "chapterDescriptionPlaceholder": "أدخل وصف الفصل",
+      "createChapter": "إنشاء فصل",
+      "editLaterNote": "يمكنك تعديل المزيد من التفاصيل لاحقاً في صفحة الفصل",
+      "lessonsCount": "عدد الدروس",
+      "noChaptersFound": "لم يتم العثور على فصول للتخصص الأكاديمي المحدد.",
+      "complete": "مكتمل",
+      "incomplete": "غير مكتمل",
+      "lastVersion": "آخر نسخة",
+      "status": {
+        "waiting": "في الانتظار",
+        "validated": "مصادق عليه",
+        "published": "منشور"
+      }
     }
   }
 }

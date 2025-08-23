@@ -1,3 +1,8 @@
+"use client";
+
+import { useMemo } from "react";
+import { useSearchParams } from "next/navigation";
+import { MOCK_PROFESSOR_MODULES } from "@/data/mockProfessor";
 import DropDown from "@/components/input/dropDown";
 import InputButton from "@/components/input/InputButton";
 import FileAttachement from "@/components/lesson/fileAttachment";
@@ -6,6 +11,34 @@ import Button from "@/components/ui/button";
 import { Plus } from "lucide-react";
 
 export default function ProfessorManageChapter() {
+  const searchParams = useSearchParams();
+  const chapterId = searchParams?.get("chapterId") || null;
+  const moduleId = searchParams?.get("moduleId") || null;
+
+  const { module, chapter } = useMemo(() => {
+    const module = MOCK_PROFESSOR_MODULES.find((m) => m.id === moduleId) || null;
+    const chapter =
+      module?.chapters?.find((c: any) => c.id === chapterId) ||
+      // fallback: search across all modules
+      MOCK_PROFESSOR_MODULES.flatMap((m) => m.chapters).find((c: any) => c.id === chapterId) ||
+      null;
+    return { module, chapter };
+  }, [chapterId, moduleId]);
+
+  const resolveChapterTitle = (id?: string) => {
+    if (!id) return id;
+    const found = MOCK_PROFESSOR_MODULES.flatMap((m) => m.chapters).find((c) => c.id === id);
+    return found ? found.title : id;
+  };
+
+  const displayedStreams = chapter?.academicStreams?.length
+    ? chapter.academicStreams
+    : module?.academicStreams ?? [];
+
+  const dependencies = chapter?.prerequisites ?? [];
+
+  const lessons = chapter?.lessons ?? [];
+
   return (
     <div className="flex flex-col gap-6 w-full">
       {/* manage chapter */}
@@ -15,10 +48,10 @@ export default function ProfessorManageChapter() {
           {/* info */}
           <div className="flex flex-col px-6 gap-1">
             <span className="font-semibold text-5xl text-neutral-600">
-              Chapter title
+              {chapter?.title ?? "Chapter title"}
             </span>
             <span className="font-medium text-2xl text-neutral-400">
-              Module name
+              {module?.name ?? "Module name"}
             </span>
           </div>
           {/* action button */}
@@ -67,10 +100,13 @@ export default function ProfessorManageChapter() {
                 ]}
                 max_width=""
               />
-              {/* selected steams */}
-              <div className="flex flex-row gap-3">
-                <BigTag icon={undefined} text={"Mathematics"} />
-                <BigTag icon={undefined} text={"Experimental Sciences"} />
+              {/* selected streams */}
+              <div className="flex flex-row gap-3 flex-wrap">
+                {displayedStreams.length > 0 ? (
+                  displayedStreams.map((s) => <BigTag key={s} icon={undefined} text={s} />)
+                ) : (
+                  <div className="text-sm text-neutral-400 px-4">No streams configured</div>
+                )}
               </div>
             </div>
           </div>
@@ -81,9 +117,14 @@ export default function ProfessorManageChapter() {
               <div className="text-2xl font-medium text-neutral-600">
                 Chapter dependencies
               </div>
-              <div className="flex flex-row gap-3">
-                <BigTag icon={undefined} text={"Functions"} />
-                <BigTag icon={undefined} text={"Arithmetic Sequences"} />
+              <div className="flex flex-row gap-3 flex-wrap">
+                {dependencies.length > 0 ? (
+                  dependencies.map((depId) => (
+                    <BigTag key={depId} icon={undefined} text={resolveChapterTitle(depId)} />
+                  ))
+                ) : (
+                  <div className="text-sm text-neutral-400 px-4">No dependencies</div>
+                )}
               </div>
             </div>
             {/* action buttons */}

@@ -42,6 +42,14 @@ export interface Chapter {
   // Progress tracking
   totalLessons: number
   completedLessons: number
+  // For professor
+  status?: {
+    hasWaitingVersion: boolean
+    hasValidatedVersion: boolean
+    hasPublishedVersion: boolean
+    lastPublishedDate: string | null
+    lastModifiedDate: string
+  }
 }
 
 export interface Module {
@@ -82,9 +90,7 @@ export const ACADEMIC_STREAMS = [
   "Mathematics",
   "Experimental Sciences",
   "Math-Technique",
-  "Literature",
-  "Philosophy",
-  "Languages",
+  "Literature"
 ] as const
 
 export type AcademicStream = (typeof ACADEMIC_STREAMS)[number]

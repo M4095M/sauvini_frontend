@@ -14,13 +14,26 @@ interface ProfessorModuleCardProps {
   className?: string
 }
 
-const ACADEMIC_STREAM_COLORS = {
-  Mathematics: "#3B82F6",
-  "Experimental Sciences": "#10B981",
-  Literature: "#8B5CF6",
-  Philosophy: "#F59E0B",
-  "Math-Technique": "#EF4444",
-  All: "#6B7280",
+// Module color mapping
+const COLOR_MAP: Record<string, string> = {
+  yellow: "#FFD427",
+  blue: "#27364D",
+  purple: "#9663FE",
+  green: "#22C55E",
+  red: "#EF4444",
+} as const
+
+// Card styling constants
+const CARD_STYLES = {
+  desktop: {
+    width: 373,
+    height: 220,
+    padding: "20px 24px 30px 24px",
+  },
+  mobile: {
+    height: 220,
+    padding: "20px 20px 30px 24px",
+  },
 } as const
 
 const ILLUSTRATION_SIZE = {
@@ -28,7 +41,8 @@ const ILLUSTRATION_SIZE = {
   height: 120,
 } as const
 
-const MAIN_ACADEMIC_STREAMS = ["Mathematics", "Experimental Sciences", "Literature", "Philosophy"]
+// Configuration
+const MAIN_ACADEMIC_STREAMS = ["Mathematics", "Experimental Sciences", "Literature", "Math-Technique"]
 
 export default function ProfessorModuleCard({
   module,
@@ -40,16 +54,19 @@ export default function ProfessorModuleCard({
   const router = useRouter()
   const isRTL = propIsRTL !== undefined ? propIsRTL : RTL_LANGUAGES.includes(language)
 
+  // Computed values
   const ChevronIcon = isRTL ? ChevronLeft : ChevronRight
   const numberOfChapters = module.chapters?.length || 0
-
-  // Check if module covers all main academic streams
   const coversAllStreams = MAIN_ACADEMIC_STREAMS.every((stream) => module.academicStreams.includes(stream))
+  const cardStyles = isMobile ? CARD_STYLES.mobile : CARD_STYLES.desktop
+  const moduleColor = COLOR_MAP[module.color] || "#6B7280" 
 
+  // Event handlers
   const handleModuleClick = () => {
-    router.push(`/professor/modules/${module.id}`)
+    router.push(`/professor/manage-content/${module.id}`)
   }
 
+  // Utility functions
   const truncateDescription = (text: string, maxLength = 90): string => {
     return text.length > maxLength ? `${text.slice(0, maxLength - 3)}...` : text
   }
@@ -57,27 +74,30 @@ export default function ProfessorModuleCard({
   return (
     <div
       className={`
-        relative cursor-pointer transition-all duration-200 hover:shadow-lg
+        relative flex items-center justify-center
+        rounded-[28px] border border-gray-300 bg-white
+        dark:border-[#7C7C7C] dark:bg-[#1A1A1A]
+        transition-all duration-200 hover:shadow-lg cursor-pointer hover:shadow-md
+        ${isMobile ? "self-stretch" : ""}
         ${className}
       `}
-      style={{
-        display: "flex",
-        width: isMobile ? "100%" : 373,
-        height: 220,
-        padding: "20px 24px 30px 24px",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 28,
-        border: "1px solid var(--Card-Outline-Default, #BDBDBD)",
-        background: "var(--Card-Bg-Default, #FFF)",
-      }}
+      style={cardStyles}
       onClick={handleModuleClick}
     >
-      {/* Internal frame */}
-      <div className="flex flex-col items-start gap-2" style={{ width: 325, flexShrink: 0, height: "100%" }}>
-        {/* Top Row: illustration + info */}
+      
+      <div
+        className="flex flex-col items-start gap-2"
+        style={{
+          width: 325,
+          flexShrink: 0,
+          height: "100%",
+          paddingTop: 2,
+          paddingBottom: 6,
+        }}
+      >
+        {/* Illustration + Module Info */}
         <div className={`flex w-full items-start gap-4`} dir={isRTL ? "rtl" : "ltr"}>
-          {/* Illustration */}
+          {/* Module Illustration */}
           <div
             className="relative flex-shrink-0 flex items-center justify-center"
             style={{
@@ -95,20 +115,19 @@ export default function ProfessorModuleCard({
             />
           </div>
 
-          {/* Module info */}
+          {/* Module Content */}
           <div className="flex-1 min-w-0 flex flex-col justify-between" style={{ height: ILLUSTRATION_SIZE.height }}>
             <div>
+              {/* Title + Action Icon */}
               <div className={`flex items-start justify-between gap-2`} dir={isRTL ? "rtl" : "ltr"}>
-                {/* Module title */}
                 <h3
                   className={`
-                  text-xl font-semibold text-gray-900 dark:text-white leading-tight
-                  ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
-                `}
+                    text-xl font-semibold text-gray-900 dark:text-white leading-tight
+                    ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
+                  `}
                 >
                   {module.name}
                 </h3>
-                {/* Action icon */}
                 <div className="flex-shrink-0 mt-1">
                   <ChevronIcon
                     className="w-5 h-5 text-gray-400 dark:text-gray-500 transition-colors hover:text-gray-600 dark:hover:text-gray-300"
@@ -116,12 +135,13 @@ export default function ProfessorModuleCard({
                   />
                 </div>
               </div>
+
               {/* Description */}
               <p
                 className={`
-                text-sm text-gray-600 dark:text-gray-300 mt-1 leading-relaxed
-                ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
-              `}
+                  text-sm text-gray-600 dark:text-gray-300 mt-1 leading-relaxed
+                  ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
+                `}
               >
                 {truncateDescription(module.description)}
               </p>
@@ -129,30 +149,37 @@ export default function ProfessorModuleCard({
           </div>
         </div>
 
-        {/* Number of Chapters */}
+        {/* Chapter Count */}
         <div className="w-full mt-2">
           <p
             className={`text-sm text-gray-500 dark:text-gray-400 font-medium ${
               isRTL ? "text-right font-arabic" : "text-left font-sans"
             }`}
           >
-            {language === "ar" ? `عدد الفصول: ${numberOfChapters}` : `Number of Chapters: ${numberOfChapters}`}
+            {t("professor.numberOfChapters")} {numberOfChapters}
           </p>
         </div>
 
-        {/* Academic Streams Tags */}
-        <div className="w-full mt-auto">
-          <div className={`flex flex-wrap gap-2 ${isRTL ? "justify-end" : "justify-start"}`}>
+        {/*Academic Stream */}
+        <div className="w-full mt-auto mb-4">
+          <div
+            className={`flex flex-wrap items-center gap-1.5 ${isRTL ? "justify-end" : "justify-start"}`}
+            style={{
+              maxWidth: "100%",
+              lineHeight: 1.2,
+            }}
+            dir={isRTL ? "rtl" : "ltr"}
+          >
             {coversAllStreams ? (
+              // Show "All" tag when module covers all streams
               <span
-                className="text-xs font-medium text-white"
+                className={`text-xs font-medium text-white px-2.5 py-1 rounded-full flex-shrink-0 ${
+                  isRTL ? "font-arabic" : "font-sans"
+                }`}
                 style={{
-                  display: "flex",
-                  padding: "6px 12px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: 20,
-                  backgroundColor: ACADEMIC_STREAM_COLORS["All"],
+                  backgroundColor: moduleColor,
+                  fontSize: "11px",
+                  lineHeight: "1.2",
                 }}
               >
                 {t("professor.academicStreams.all")}
@@ -161,14 +188,13 @@ export default function ProfessorModuleCard({
               module.academicStreams.map((stream) => (
                 <span
                   key={stream}
-                  className="text-xs font-medium text-white"
+                  className={`text-xs font-medium text-white px-2.5 py-1 rounded-full flex-shrink-0 ${
+                    isRTL ? "font-arabic" : "font-sans"
+                  }`}
                   style={{
-                    display: "flex",
-                    padding: "6px 12px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    borderRadius: 20,
-                    backgroundColor: ACADEMIC_STREAM_COLORS[stream] || "#6B7280",
+                    backgroundColor: moduleColor, // All tags use module color
+                    fontSize: "11px",
+                    lineHeight: "1.2",
                   }}
                 >
                   {t(`professor.academicStreams.${stream.toLowerCase().replace(/[^a-z0-9]/g, "")}`)}

@@ -1,6 +1,6 @@
 export type Tag = {
   icon: any;
-  text: string;
+  text: string | undefined;
   className?: string;
 };
 

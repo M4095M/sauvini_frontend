@@ -10,7 +10,7 @@ export const MOCK_PROFESSOR: ProfessorUser = {
   birthdate: "1980-03-12",
   gender: "female",
   wilaya: "Algiers",
-  avatar: "/images/profile.png",
+  avatar: "/profile.png",
   academicTitle: "English Professor",
   permissions: [
     "manage_modules",
@@ -57,6 +57,13 @@ export const MOCK_PROFESSOR_MODULES: Module[] = [
         academicStreams: ["Mathematics", "Experimental Sciences"],
         totalLessons: 3,
         completedLessons: 1,
+        status: {
+          hasWaitingVersion: false,
+          hasValidatedVersion: true,
+          hasPublishedVersion: true,
+          lastPublishedDate: "2024-01-15",
+          lastModifiedDate: "2024-01-10",
+        },
       },
       {
         id: "chapter_002",
@@ -74,6 +81,13 @@ export const MOCK_PROFESSOR_MODULES: Module[] = [
         academicStreams: ["Mathematics"],
         totalLessons: 4,
         completedLessons: 0,
+        status: {
+          hasWaitingVersion: true,
+          hasValidatedVersion: false,
+          hasPublishedVersion: false,
+          lastPublishedDate: null,
+          lastModifiedDate: "2024-01-20",
+        },
       },
       {
         id: "chapter_003",
@@ -91,6 +105,13 @@ export const MOCK_PROFESSOR_MODULES: Module[] = [
         academicStreams: ["Mathematics", "Experimental Sciences"],
         totalLessons: 2,
         completedLessons: 0,
+        status: {
+          hasWaitingVersion: true,
+          hasValidatedVersion: true,
+          hasPublishedVersion: false,
+          lastPublishedDate: null,
+          lastModifiedDate: "2024-01-18",
+        },
       },
     ],
     totalLessons: 75,
@@ -276,6 +297,6 @@ export const MOCK_PROFESSOR_MODULES: Module[] = [
     isUnlocked: true,
     hasPurchasedChapters: true,
     color: "green",
-    academicStreams: ["Mathematics", "Experimental Sciences", "Literature"],
+    academicStreams: ["Mathematics", "Experimental Sciences", "Literature", "Math-Technique"],
   },
 ]

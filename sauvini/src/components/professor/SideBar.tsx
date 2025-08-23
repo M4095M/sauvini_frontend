@@ -27,6 +27,12 @@ function DesktopSidebar() {
   const pathname = usePathname()
   const { isRTL, t } = useLanguage()
 
+  // check if user is on any content management page
+  const isOnContentManagementPages =
+    pathname.startsWith("/professor/manage-content") ||
+    pathname.startsWith("/professor/manage-chapter") ||
+    pathname.startsWith("/professor/create-lesson")
+
   return (
     <aside className={`fixed top-0 z-20 h-screen ${isRTL ? "right-0" : "left-0"}`} style={{ width: 240 }}>
       <div
@@ -66,7 +72,11 @@ function DesktopSidebar() {
             dir={isRTL ? "rtl" : "ltr"}
           >
             {navigationItems.map(({ href, label, icon: Icon }) => {
-              const isActive = pathname === href || pathname.startsWith(`${href}/`)
+              // for manage content link, check if on any content management page
+              const isActive =
+                href === "/professor/manage-content"
+                  ? isOnContentManagementPages
+                  : pathname === href || pathname.startsWith(`${href}/`)
 
               return (
                 <Link
@@ -160,6 +170,12 @@ function MobileDrawer() {
   const pathname = usePathname()
   const { isRTL, t } = useLanguage()
 
+  // check if user is on any content management page
+  const isOnContentManagementPages =
+    pathname.startsWith("/professor/manage-content") ||
+    pathname.startsWith("/professor/manage-chapter") ||
+    pathname.startsWith("/professor/create-lesson")
+
   return (
     <>
       {/* Backdrop */}
@@ -208,7 +224,11 @@ function MobileDrawer() {
           <nav className="flex-1 overflow-y-auto" dir={isRTL ? "rtl" : "ltr"}>
             <div className="flex flex-col" style={{ gap: 16 }}>
               {navigationItems.map(({ href, label, icon: Icon }, index) => {
-                const isActive = pathname === href || pathname.startsWith(`${href}/`)
+                // for manage content link, check if on any content management page
+                const isActive =
+                  href === "/professor/manage-content"
+                    ? isOnContentManagementPages
+                    : pathname === href || pathname.startsWith(`${href}/`)
 
                 return (
                   <Link

@@ -301,14 +301,41 @@
       "accountDetails": "Détails du compte",
       "logout": "Se déconnecter"
     },
-    "numberOfChapters": "Nombre de chapitres : {{count}}",
+    "numberOfChapters": "Nombre de chapitres : ",
     "academicStreams": {
       "all": "Tous",
       "mathematics": "Mathématiques",
       "experimentalsciences": "Sciences expérimentales",
       "literature": "Littérature",
-      "philosophy": "Philosophie",
       "mathtechnique": "Math-Technique"
+    },
+    "modules": {
+      "title": "Modules",
+      "academicStream": "Filière académique",
+      "noModulesFound": "Aucun module trouvé pour la filière académique sélectionnée."
+    },
+    "chapters": {
+      "title": "Chapitres",
+      "academicStream": "Filière académique",
+      "addChapter": "Ajouter un chapitre",
+      "createNewChapter": "Créer un nouveau chapitre",
+      "createNewChapterSubtitle": "Ajoutez les détails de base pour commencer votre chapitre",
+      "chapterName": "Nom du chapitre",
+      "chapterNamePlaceholder": "Entrez le nom du chapitre",
+      "chapterDescription": "Description du chapitre",
+      "chapterDescriptionPlaceholder": "Entrez la description du chapitre",
+      "createChapter": "Créer un chapitre",
+      "editLaterNote": "Vous pouvez modifier plus de détails plus tard sur la page du chapitre.",
+      "lessonsCount": "Nombre de leçons",
+      "noChaptersFound": "Aucun chapitre trouvé pour la filière académique sélectionnée.",
+      "complete": "Complet",
+      "incomplete": "Incomplet",
+      "lastVersion": "Dernière version",
+      "status": {
+        "waiting": "En attente",
+        "validated": "Validé",
+        "published": "Publié"
+      }
     }
   }
 }

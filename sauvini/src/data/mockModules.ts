@@ -241,7 +241,7 @@ export const MOCK_MODULES: Module[] = [
     isUnlocked: false,
     hasPurchasedChapters: false,
     color: "purple",
-    academicStreams: ["Literature", "Philosophy"],
+    academicStreams: ["Literature"],
   },
 ]
 
