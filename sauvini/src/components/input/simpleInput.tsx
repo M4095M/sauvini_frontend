@@ -19,7 +19,7 @@ export default function SimpleInput({
         <textarea
           className={`appearance-none outline-[var(--primary-200)] p-0 m-0 shadow-none 
         bg-white border border-neutral-200 px-5 py-3 rounded-3xl w-full max-h-64 focus:border-2
-        text-work-sans font-normal text-base text-neutral-600`}
+        text-work-sans font-normal text-base text-neutral-600 resize-none`}
         />
       ) : (
         <input
