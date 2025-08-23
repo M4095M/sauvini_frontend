@@ -287,6 +287,29 @@
     "normal": "Normal",
     "important": "Important",
     "urgent": "Urgent"
+  },
+  "professor": {
+    "professor": "Professeur",
+    "dr": "Dr.",
+    "Notifications": "Notifications",
+    "navigation": {
+      "manageContent": "Gérer le contenu",
+      "correctExams": "Corriger les examens",
+      "correctExercises": "Corriger les exercices",
+      "answerQuestions": "Répondre aux questions",
+      "notifications": "Notifications",
+      "accountDetails": "Détails du compte",
+      "logout": "Se déconnecter"
+    },
+    "numberOfChapters": "Nombre de chapitres : {{count}}",
+    "academicStreams": {
+      "all": "Tous",
+      "mathematics": "Mathématiques",
+      "experimentalsciences": "Sciences expérimentales",
+      "literature": "Littérature",
+      "philosophy": "Philosophie",
+      "mathtechnique": "Math-Technique"
+    }
   }
 }
 
