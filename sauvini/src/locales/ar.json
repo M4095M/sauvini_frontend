@@ -8,7 +8,9 @@
     "back": "رجوع",
     "next": "التالي",
     "nexting": "التالي",
-    "verifying": "جاري التحقق..."
+    "verifying": "جاري التحقق...",
+    "cancel": "إلغاء",
+    "downloadShort": "تنزيل"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-أدرار" },
@@ -429,6 +431,33 @@
         "validated": "مصادق عليه",
         "published": "منشور"
       }
+    },
+    "exams": {
+      "title": "تسليمات الامتحانات",
+      "noSubmissions": "لا توجد تسليمات",
+      "filter": {
+        "chapterPrefix": "الفصل: ",
+        "statusPrefix": "الحالة: "
+      },
+      "status": {
+        "waiting": "في الانتظار",
+        "all": "الكل",
+        "corrected": "مصحح"
+      },
+      "downloadSubmission": "تحميل تسليم الطالب",
+      "viewDetails": "عرض التفاصيل",
+      "correct": "تصحيح",
+      "professorNotesTitle": "ملاحظات الأستاذ",
+      "gradeTitle": ":درجة",
+      "correctionFileLabel": "ملف التصحيح",
+      "hideDetails": "إخفاء التفاصيل",
+      "hideCorrectionForm": "إخفاء نموذج التصحيح",
+      "saveCorrection": "حفظ التصحيح",
+      "uploadCorrectionLabel": "تحميل ملف التصحيح",
+      "studentTotalMarkLabel": "الدرجة الكلية",
+      "additionalNotesLabel": "ملاحظات إضافية",
+      "notesPlaceholder": "أدخل أي ملاحظات إضافية هنا..."
+
     }
   }
 }

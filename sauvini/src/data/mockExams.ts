@@ -1,0 +1,70 @@
+import type { ExamSubmission } from "@/types/exam"
+
+export const MOCK_EXAM_SUBMISSIONS: ExamSubmission[] = [
+  {
+    id: "1",
+    student: {
+      id: "s1",
+      name: "Flen fleni",
+      avatar: "/profile.png",
+      level: 2,
+    },
+    moduleName: "Module",
+    chapterName: "Chapter",
+    submittedAt: "2024-01-15T10:30:00Z",
+    status: "corrected",
+    grade: 15,
+    maxGrade: 20,
+    submissionFileUrl: "/submissions/student1.pdf",
+    correctionFileUrl: "/corrections/student1.pdf",
+    professorNotes:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    id: "2",
+    student: {
+      id: "s2",
+      name: "Student Name",
+      avatar: "/profile.png",
+      level: 2,
+    },
+    moduleName: "Module",
+    chapterName: "Chapter",
+    submittedAt: "2024-01-14T14:20:00Z",
+    status: "corrected",
+    grade: 15,
+    maxGrade: 20,
+    submissionFileUrl: "/submissions/student2.pdf",
+    correctionFileUrl: "/corrections/student2.pdf",
+  },
+  {
+    id: "3",
+    student: {
+      id: "s3",
+      name: "Student Name",
+      avatar: "/profile.png",
+      level: 2,
+    },
+    moduleName: "Module",
+    chapterName: "Chapter",
+    submittedAt: "2024-01-13T09:15:00Z",
+    status: "waiting",
+    maxGrade: 20,
+    submissionFileUrl: "/submissions/student3.pdf",
+  },
+  {
+    id: "4",
+    student: {
+      id: "s4",
+      name: "Student Name",
+      avatar: "/profile.png",
+      level: 2,
+    },
+    moduleName: "Module",
+    chapterName: "Chapter",
+    submittedAt: "2024-01-12T16:45:00Z",
+    status: "waiting",
+    maxGrade: 20,
+    submissionFileUrl: "/submissions/student4.pdf",
+  },
+]

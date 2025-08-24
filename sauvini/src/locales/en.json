@@ -9,7 +9,8 @@
     "next": "Next",
     "nexting": "Next",
     "verifying": "Verifying...",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "downloadShort": "Download"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -430,6 +431,34 @@
         "validated": "Validated",
         "published": "Published"
       }
+    },
+    "exams": {
+      "title": "Exam Submissions",
+      "noSubmissions": "No submissions found",
+      "filter": {
+        "chapter": "Chapter: ",
+        "status": "Status: ",
+        "selectChapter": "Select chapter",
+        "selectStatus": "Select status"
+      },
+      "status": {
+        "waiting": "Waiting",
+        "all": "All",
+        "corrected": "Corrected"
+      },
+      "downloadSubmission": "Download Student's Submission",
+      "viewDetails": "View Details",
+      "correct": "Correct",
+      "professorNotesTitle": "Professor Notes",
+      "gradeTitle": "Grade:",
+      "correctionFileLabel": "Correction File",
+      "hideDetails": "Hide Details",
+      "hideCorrectionForm": "Hide Correction Form",
+      "saveCorrection": "Save Correction",
+      "uploadCorrectionLabel": "Upload Correction File",
+      "studentTotalMarkLabel": "Total Mark",
+      "additionalNotesLabel": "Additional Notes",
+      "notesPlaceholder": "Enter any additional notes here..."
     }
   }
 }
