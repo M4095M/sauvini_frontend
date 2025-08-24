@@ -386,7 +386,7 @@
   "professor": {
     "professor": "أستاذ",
     "dr": "د.",
-    "notifications": "الإشعارات",
+    "notification": "الإشعارات",
     "navigation": {
       "manageContent": "إدارة المحتوى",
       "correctExams": "تصحيح الامتحانات",
@@ -485,6 +485,13 @@
         "corrected": "مصحح",
         "waiting": "في الانتظار"
       }
+    },
+    "notifications": {
+      "title": "الإشعارات",
+      "noNotifications": "لا توجد إشعارات",
+      "markAllAsSeen": "تحديد الكل كمقروء",
+      "sortByImportance": "ترتيب حسب: الأهمية",
+      "sortByTime": "ترتيب حسب: الوقت"
     }
   }
 }

@@ -293,7 +293,7 @@
   "professor": {
     "professor": "Professeur",
     "dr": "Dr.",
-    "Notifications": "Notifications",
+    "Notification": "Notifications",
     "navigation": {
       "manageContent": "Gérer le contenu",
       "correctExams": "Corriger les examens",
@@ -390,6 +390,15 @@
         "corrected": "Corrigé",
         "waiting": "En attente"
       }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "noNotifications": "Aucune notification trouvée",
+      "markAllAsSeen": "Marquer tout comme vu",
+      "markAsSeen": "Marquer comme vu",
+      "normal": "Normal",
+      "important": "Important",
+      "urgent": "Urgent"
     }
   }
 }

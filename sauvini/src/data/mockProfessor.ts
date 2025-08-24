@@ -1,5 +1,5 @@
 import type { ProfessorUser } from "@/types/professor"
-import type { Module } from "@/types/modules"
+import type { Module, Notification } from "@/types/modules"
 
 export const MOCK_PROFESSOR: ProfessorUser = {
   id: "prof_1",
@@ -298,5 +298,53 @@ export const MOCK_PROFESSOR_MODULES: Module[] = [
     hasPurchasedChapters: true,
     color: "green",
     academicStreams: ["Mathematics", "Experimental Sciences", "Literature", "Math-Technique"],
+  },
+]
+
+export const MOCK_PROFESSOR_NOTIFICATIONS: Notification[] = [
+  {
+    id: "p_notif_001",
+    title: "New exercise submitted by Amina Zahra",
+    content: "Amina submitted her exercise for 'Linear Equations'. Please review and grade.",
+    importance: "important",
+    type: "exercise",
+    isRead: false,
+    createdAt: new Date("2025-06-12T09:20:00"),
+  },
+  {
+    id: "p_notif_002",
+    title: "New exam submission - Complex Numbers",
+    content: "Student submission received for the Complex Numbers exam.",
+    importance: "most-important",
+    type: "exercise",
+    isRead: false,
+    createdAt: new Date("2025-06-11T14:10:00"),
+  },
+  {
+    id: "p_notif_003",
+    title: "Student question in Derivatives lesson",
+    content: "Omar asked a question in 'Basic derivatives' that needs your answer.",
+    importance: "important",
+    type: "general",
+    isRead: true,
+    createdAt: new Date("2025-06-10T08:45:00"),
+  },
+  {
+    id: "p_notif_004",
+    title: "Scheduled live session reminder",
+    content: "You have a live session tomorrow at 10:00 — check resources and slides.",
+    importance: "normal",
+    type: "content",
+    isRead: true,
+    createdAt: new Date("2025-06-08T12:00:00"),
+  },
+  {
+    id: "p_notif_005",
+    title: "Correction completed for Hassan Ali",
+    content: "You saved a review for Hassan Ali's submission.",
+    importance: "normal",
+    type: "exercise",
+    isRead: true,
+    createdAt: new Date("2025-06-07T16:30:00"),
   },
 ]

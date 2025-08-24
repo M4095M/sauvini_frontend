@@ -384,7 +384,7 @@
     "urgent": "Urgent"
   },
   "professor": {
-    "notifications": "Notifications",
+    "notification": "Notifications",
     "dr": "Dr.",
     "professor": "Professor",
     "navigation": {
@@ -487,6 +487,13 @@
         "corrected": "Corrected",
         "waiting": "Waiting"
       }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "noNotifications": "No notifications found",
+      "markAllAsSeen":"Mark all as seen",
+      "sortByImportance":"Sort by: Importance",
+      "sortByTime":"Order by time"
     }
   }
 }

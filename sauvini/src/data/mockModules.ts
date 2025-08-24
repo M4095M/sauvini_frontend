@@ -426,7 +426,7 @@ export const MOCK_EXERCISES: Exercise[] = [
       studentId: "user_001",
       submittedAt: new Date("2024-01-22T15:30:00"),
       grade: 18,
-      status: "graded",
+      status: "corrected",
       solutionPdfUrl: "/student-solution-001.pdf",
       studentNotes: "I found question 3 challenging but managed to solve it using the chain rule.",
       professorNotes: "Excellent work! Very clear presentation of solutions. Only minor calculation error in question 2.",
@@ -454,7 +454,7 @@ export const MOCK_EXERCISES: Exercise[] = [
       exerciseId: "exercise_002",
       studentId: "user_001",
       submittedAt: new Date("2024-01-25T10:15:00"),
-      status: "submitted",
+      status: "waiting",
       solutionPdfUrl: "/student-solution-002.pdf",
       studentNotes: "I struggled with the last two problems, but I think I got the method right."
     },
