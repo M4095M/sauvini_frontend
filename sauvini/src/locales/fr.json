@@ -362,6 +362,34 @@
       "studentTotalMarkLabel": "Note totale",
       "additionalNotesLabel": "Notes supplémentaires",
       "notesPlaceholder": "Entrez vos notes supplémentaires ici..."
+    },
+    "exercises": {
+      "title": "Soumissions d'exercices",
+      "downloadSubmissionFile": "Télécharger le fichier de soumission",
+      "studentNotesLabel": "Notes de l'étudiant",
+      "uploadReviewLabel": "Télécharger le fichier de révision",
+      "totalMarkLabel": "Note totale",
+      "additionalNotesLabel": "Notes supplémentaires",
+      "saveReview": "Enregistrer la révision",
+      "professorNotesTitle": "Notes du professeur",
+      "gradeTitle": "Note:",
+      "correct": "Corriger",
+      "noSubmissions": "Aucune soumission trouvée",
+      "selectLesson": "Sélectionner une leçon",
+      "selectChapter": "Sélectionner un chapitre",
+      "selectStatus": "Sélectionner un statut",
+      "studentNotes": "Notes de l'étudiant",
+      "viewDetails": "Voir les détails",
+      "hideDetails": "Masquer les détails",
+      "filter": {
+        "selectLesson": "Sélectionner une leçon",
+        "selectChapter": "Sélectionner un chapitre",
+        "selectStatus": "Sélectionner un statut"
+      },
+      "status": {
+        "corrected": "Corrigé",
+        "waiting": "En attente"
+      }
     }
   }
 }

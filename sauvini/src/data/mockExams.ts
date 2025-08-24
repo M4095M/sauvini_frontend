@@ -1,4 +1,5 @@
 import type { ExamSubmission } from "@/types/exam"
+import type { ExerciseSubmission } from "@/types/modules";
 
 export const MOCK_EXAM_SUBMISSIONS: ExamSubmission[] = [
   {
@@ -68,3 +69,80 @@ export const MOCK_EXAM_SUBMISSIONS: ExamSubmission[] = [
     submissionFileUrl: "/submissions/student4.pdf",
   },
 ]
+
+export const MOCK_EXERCISE_SUBMISSIONS: ExerciseSubmission[] = [
+  {
+    id: "e1",
+    student: {
+      id: "es1",
+      name: "Amina Zahra",
+      avatar: "/profile.png",
+      level: 1,
+    },
+    moduleName: "Algebra",
+    chapterName: "Linear Equations",
+    lessonName: "Solving 1st degree",
+    submittedAt: "2025-06-10",
+    status: "corrected",
+    grade: 18,
+    totalMarks: 20,
+    submissionFileUrl: "/exercises/submission_e1.pdf",
+    solutionPdfUrl: "/exercises/solution_e1.pdf",
+    professorReviewPdfUrl: "/exercises/review_e1.pdf",
+    professorReviewFileName: "review_e1.pdf",
+    professorNotes: "Good work, minor mistakes in question 3.",
+    studentNotes: "I had an issue with question 2, attempted an alternate method.",
+  },
+  {
+    id: "e2",
+    student: {
+      id: "es2",
+      name: "Omar Khaled",
+      avatar: "/profile.png",
+      level: 2,
+    },
+    moduleName: "Calculus",
+    chapterName: "Derivatives",
+    lessonName: "Basic derivatives",
+    submittedAt: "2025-06-11",
+    status: "waiting",
+    totalMarks: 25,
+    submissionFileUrl: "/exercises/submission_e2.pdf",
+    studentNotes: "I wasn't able to attach my handwritten steps properly.",
+  },
+  {
+    id: "e3",
+    student: {
+      id: "es3",
+      name: "Lina Bensalah",
+      avatar: "/profile.png",
+      level: 3,
+    },
+    moduleName: "Geometry",
+    chapterName: "Triangles",
+    lessonName: "Triangle centers",
+    submittedAt: "2025-06-12",
+    status: "waiting",
+    totalMarks: 15,
+    submissionFileUrl: "/exercises/submission_e3.pdf",
+  },
+  {
+    id: "e4",
+    student: {
+      id: "es4",
+      name: "Hassan Ali",
+      avatar: "/profile.png",
+      level: 1,
+    },
+    moduleName: "Statistics",
+    chapterName: "Descriptive Stats",
+    lessonName: "Mean / Median",
+    submittedAt: "2025-06-08",
+    status: "corrected",
+    grade: 12,
+    totalMarks: 15,
+    submissionFileUrl: "/exercises/submission_e4.pdf",
+    professorNotes: "Clear steps, lost marks on rounding.",
+    studentNotes: "I used a calculator for rounding.",
+  },
+];

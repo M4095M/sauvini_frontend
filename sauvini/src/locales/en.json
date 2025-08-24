@@ -459,6 +459,34 @@
       "studentTotalMarkLabel": "Total Mark",
       "additionalNotesLabel": "Additional Notes",
       "notesPlaceholder": "Enter any additional notes here..."
+    },
+    "exercises": {
+      "title": "Exercise Submissions",
+      "downloadSubmissionFile": "Download submission file",
+      "studentNotesLabel": "Student's notes",
+      "uploadReviewLabel": "Upload Review File",
+      "totalMarkLabel": "Total Mark",
+      "additionalNotesLabel": "Additional Notes",
+      "saveReview": "Save Review",
+      "professorNotesTitle": "Professor's Notes",
+      "gradeTitle": "Grade:",
+      "correct": "Correct",
+      "noSubmissions": "No submissions found",
+      "selectLesson": "Select lesson",
+      "selectChapter": "Select chapter",
+      "selectStatus": "Select status",
+      "studentNotes": "Student's Notes",
+      "viewDetails": "View Details",
+      "hideDetails": "Hide Details",
+      "filter": {
+        "selectLesson":"Select lesson",
+        "selectChapter":"Select chapter",
+        "selectStatus":"Select status"
+      },
+      "status": {
+        "corrected": "Corrected",
+        "waiting": "Waiting"
+      }
     }
   }
 }

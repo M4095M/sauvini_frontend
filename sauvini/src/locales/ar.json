@@ -457,7 +457,34 @@
       "studentTotalMarkLabel": "الدرجة الكلية",
       "additionalNotesLabel": "ملاحظات إضافية",
       "notesPlaceholder": "أدخل أي ملاحظات إضافية هنا..."
-
+    },
+    "exercises": {
+      "title": "تسليمات التمارين",
+      "downloadSubmissionFile": "تحميل ملف التسليم",
+      "studentNotesLabel": "ملاحظات الطالب",
+      "uploadReviewLabel": "تحميل ملف المراجعة",
+      "totalMarkLabel": "الدرجة الكلية",
+      "additionalNotesLabel": "ملاحظات إضافية",
+      "saveReview": "حفظ المراجعة",
+      "professorNotesTitle": "ملاحظات الأستاذ",
+      "gradeTitle": "الدرجة:",
+      "correct": "تصحيح",
+      "noSubmissions": "لا توجد تسليمات",
+      "selectLesson": "اختر الدرس",
+      "selectChapter": "اختر الفصل",
+      "selectStatus": "اختر الحالة",
+      "studentNotes": "ملاحظات الطالب",
+      "viewDetails": "عرض التفاصيل",
+      "hideDetails": "إخفاء التفاصيل",
+      "filter": {
+        "selectLesson": "اختر الدرس",
+        "selectChapter": "اختر الفصل",
+        "selectStatus": "اختر الحالة"
+      },
+      "status": {
+        "corrected": "مصحح",
+        "waiting": "في الانتظار"
+      }
     }
   }
 }
