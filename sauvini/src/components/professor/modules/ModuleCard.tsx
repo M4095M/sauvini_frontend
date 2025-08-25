@@ -6,6 +6,7 @@ import { ChevronRight, ChevronLeft } from "lucide-react"
 import type { Module } from "@/types/modules"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
+import Tag from "@/components/professor/tag"
 
 interface ProfessorModuleCardProps {
   module: Module
@@ -163,7 +164,7 @@ export default function ProfessorModuleCard({
         {/*Academic Stream */}
         <div className="w-full mt-auto mb-4">
           <div
-            className={`flex flex-wrap items-center gap-1.5 ${isRTL ? "justify-end" : "justify-start"}`}
+            className={`flex flex-wrap items-center gap-1 ${isRTL ? "justify-end" : "justify-start"}`}
             style={{
               maxWidth: "100%",
               lineHeight: 1.2,
@@ -172,32 +173,21 @@ export default function ProfessorModuleCard({
           >
             {coversAllStreams ? (
               // Show "All" tag when module covers all streams
-              <span
-                className={`text-xs font-medium text-white px-2.5 py-1 rounded-full flex-shrink-0 ${
-                  isRTL ? "font-arabic" : "font-sans"
-                }`}
-                style={{
-                  backgroundColor: moduleColor,
-                  fontSize: "11px",
-                  lineHeight: "1.2",
-                }}
-              >
-                {t("professor.academicStreams.all")}
+              <span className="inline-flex rounded-full" style={{ backgroundColor: moduleColor }}>
+                <Tag
+                  icon={null}
+                  text={t("professor.academicStreams.all")}
+                  className={`text-[11px] font-medium text-white px-2 py-0.5 ${isRTL ? "font-arabic" : "font-sans"}`}
+                />
               </span>
             ) : (
               module.academicStreams.map((stream) => (
-                <span
-                  key={stream}
-                  className={`text-xs font-medium text-white px-2.5 py-1 rounded-full flex-shrink-0 ${
-                    isRTL ? "font-arabic" : "font-sans"
-                  }`}
-                  style={{
-                    backgroundColor: moduleColor, // All tags use module color
-                    fontSize: "11px",
-                    lineHeight: "1.2",
-                  }}
-                >
-                  {t(`professor.academicStreams.${stream.toLowerCase().replace(/[^a-z0-9]/g, "")}`)}
+                <span key={stream} className="inline-flex rounded-full" style={{ backgroundColor: moduleColor }}>
+                  <Tag
+                    icon={null}
+                    text={t(`professor.academicStreams.${stream.toLowerCase().replace(/[^a-z0-9]/g, "")}`)}
+                    className={`text-[11px] font-medium text-white px-2 py-0.5 ${isRTL ? "font-arabic" : "font-sans"}`}
+                  />
                 </span>
               ))
             )}

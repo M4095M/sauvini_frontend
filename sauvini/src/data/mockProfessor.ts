@@ -54,7 +54,7 @@ export const MOCK_PROFESSOR_MODULES: Module[] = [
         isCompleted: false,
         isUnlocked: true,
         order: 1,
-        academicStreams: ["Mathematics", "Experimental Sciences"],
+        academicStreams: ["Mathematics", "Experimental Sciences", "Math-Technique"],
         totalLessons: 3,
         completedLessons: 1,
         status: {
@@ -119,7 +119,7 @@ export const MOCK_PROFESSOR_MODULES: Module[] = [
     isUnlocked: true,
     hasPurchasedChapters: true,
     color: "yellow",
-    academicStreams: ["Mathematics", "Experimental Sciences"],
+    academicStreams: ["Mathematics", "Experimental Sciences", "Math-Technique"],
   },
   {
     id: "physics",
