@@ -1,5 +1,8 @@
 import FileAttachement from "@/components/lesson/fileAttachment";
 import BigTag from "@/components/professor/BigTags";
+import { IconMissingQuiz } from "@/components/professor/tagIcons";
+import Tag from "@/components/questions/tag";
+import Button from "@/components/ui/button";
 
 export default function ViewLessonPopup() {
   return (
@@ -77,6 +80,33 @@ export default function ViewLessonPopup() {
           <div className="flex gap-3">
             <BigTag icon={undefined} text={"Mathematics"} />
             <BigTag icon={undefined} text={"Experimental Sciences"} />
+          </div>
+        </div>
+        {/* SHOW IF MISSING QUIZES */}
+        <div className="flex flex-row justify-between items-center ">
+          {/* left part */}
+          <div className="flex flex-row gap-3">
+            <div className="font-normal text-neutral-600 text-base">Quiz</div>
+            <Tag
+              icon={
+                <IconMissingQuiz
+                  className={"text-warning-400"}
+                  width={"12"}
+                  height={"12"}
+                />
+              }
+              text={"missing quiz"}
+              className={"bg-warning-100 text-warning-400"}
+            />
+          </div>
+          {/* right part */}
+          <div className="">
+            <Button
+              state={"filled"}
+              size={"M"}
+              icon_position={"none"}
+              text="Add Quiz"
+            />
           </div>
         </div>
       </div>

@@ -12,9 +12,9 @@ import ViewLessonPopup from "./viewLessonPopup";
 
 export default function CreateLessonPopupTest() {
   return (
-    <CreateLessonPopup />
+    // <CreateLessonPopup />
     // <UpdateLessonPopUp />
     // <ChapterDependencyPopup />
-    // <ViewLessonPopup />
+    <ViewLessonPopup />
   );
 }
