@@ -8,7 +8,7 @@ import Button from "@/components/ui/button";
 
 export default function CreateQuestionPopUp() {
   return (
-    <div className="px-10 py-11 w-full flex flex-col gap-12 bg-neutral-100 rounded-[60px]">
+    <div className="px-10 py-11 w-full flex flex-col gap-12 bg-neutral-100 rounded-[60px] ">
       {/* header */}
       <div className="flex flex-col gap-4">
         <div className="font-semibold text-neutral-600 text-4xl">
