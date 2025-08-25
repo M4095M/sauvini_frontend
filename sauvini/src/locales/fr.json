@@ -399,6 +399,34 @@
       "normal": "Normal",
       "important": "Important",
       "urgent": "Urgent"
+    },
+    "questions": {
+      "title": "Questions",
+      "noQuestions": "Aucune question trouvée",
+      "filter": {
+        "selectChapter": "Sélectionner un chapitre",
+        "selectLesson": "Sélectionner une leçon",
+        "selectStatus": "Sélectionner un statut"
+      },
+      "status": {
+        "waiting": "En attente",
+        "answered": "Répondu",
+        "all": "Tous"
+      },
+      "downloadAttachment": "Télécharger la pièce jointe",
+      "sendAnswer": "Envoyer la réponse",
+      "uploadAnswerLabel": "Télécharger un fichier",
+      "answerLabel": "Réponse",
+      "viewDetails": "Voir les détails",
+      "hideDetails": "Masquer les détails",
+      "answer": "Réponse",
+      "private": "Privé",
+      "public": "Public",
+      "answerPlaceholder": "Tapez votre réponse ici...",
+      "visibility": "Visibilité",
+      "cancel": "Annuler",
+      "professorNotes": "Notes du professeur",
+      "professorFile": "Fichier du professeur"
     }
   }
 }

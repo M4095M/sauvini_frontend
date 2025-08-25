@@ -86,20 +86,23 @@ export default function ExerciseSubmissionCard({
   const iconPos = isRTL ? "left" : "right";
 
   return (
-    <article dir={isRTL ? "rtl" : "ltr"} className="w-full max-w-[1153px] p-5 md:p-6 bg-white dark:bg-[#0b1220] rounded-[32px] border border-[var(--Card-Outline-Default,#BDBDBD)] flex flex-col gap-3">
+    <article
+      dir={isRTL ? "rtl" : "ltr"}
+      className="w-full max-w-[1153px] mx-auto p-6 bg-white dark:bg-[#0b1220] rounded-[40px] border border-[#BDBDBD] flex flex-col gap-10"
+    >
       <div className={`w-full flex flex-col md:items-center gap-4 ${rowDir}`}>
         <div className="flex items-start md:items-center gap-4 md:gap-6 flex-1">
-          <div className="flex-shrink-0 w-[72px] h-[72px] rounded-full overflow-hidden bg-neutral-100 flex items-center justify-center">
+          <div className="flex-shrink-0 w-[90px] h-[90px] rounded-full overflow-hidden bg-neutral-100 flex items-center justify-center">
             {submission.student?.avatar ? (
-              <Image src={submission.student.avatar} alt={submission.student.name} width={72} height={72} className="object-cover" />
+              <Image src={submission.student.avatar} alt={submission.student.name} width={90} height={90} className="object-cover" />
             ) : (
-              <div className="w-[72px] h-[72px] rounded-full bg-blue-500 flex items-center justify-center text-white font-medium text-lg">{initials}</div>
+              <div className="w-[90px] h-[90px] rounded-full bg-blue-500 flex items-center justify-center text-white font-medium text-lg">{initials}</div>
             )}
           </div>
 
           <div className="flex-1 flex flex-col justify-center">
             <div className={`text-sm text-gray-600 dark:text-gray-300 ${textAlign}`}>{submission.moduleName} / {submission.chapterName} / {submission.lessonName}</div>
-            <div className="text-xl font-semibold text-gray-900 dark:text-white mt-1">{submission.student?.name}</div>
+            <div className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mt-1">{submission.student?.name}</div>
             <div className="flex items-center gap-3 mt-2">
               <Tag icon={statusIcon} text={localizedStatusLabel} className={`px-3 py-1 text-sm font-medium rounded-full ${statusClass}`} />
             </div>

@@ -492,6 +492,34 @@
       "markAllAsSeen": "تحديد الكل كمقروء",
       "sortByImportance": "ترتيب حسب: الأهمية",
       "sortByTime": "ترتيب حسب: الوقت"
+    },
+    "questions": {
+      "title": "الأسئلة",
+      "noQuestions": "لا توجد أسئلة",
+      "filter": {
+        "selectChapter": "اختر الفصل",
+        "selectLesson": "اختر الدرس",
+        "selectStatus": "اختر الحالة"
+      },
+      "status": {
+        "waiting": "في الانتظار",
+        "answered": "تم الرد",
+        "all": "الكل"
+      },
+      "downloadAttachment": "تحميل المرفق",
+      "sendAnswer": "إرسال الإجابة",
+      "uploadAnswerLabel": "تحميل ملف",
+      "answerLabel": "الإجابة",
+      "viewDetails": "عرض التفاصيل",
+      "hideDetails": "إخفاء التفاصيل",
+      "answer": "الإجابة",
+      "private": "خاص",
+      "public": "عام",
+      "answerPlaceholder": "اكتب إجابتك هنا...",
+      "visibility": "الرؤية",
+      "cancel": "إلغاء",
+      "professorNotes": "ملاحظات الأستاذ",
+      "professorFile": "ملف الأستاذ"
     }
   }
 }

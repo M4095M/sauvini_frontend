@@ -494,6 +494,34 @@
       "markAllAsSeen":"Mark all as seen",
       "sortByImportance":"Sort by: Importance",
       "sortByTime":"Order by time"
+    },
+    "questions": {
+      "title": "Questions",
+      "noQuestions": "No questions found",
+      "filter": {
+        "selectChapter": "Select chapter",
+        "selectLesson": "Select lesson",
+        "selectStatus": "Select status"
+      },
+      "status": {
+        "waiting": "Waiting",
+        "answered": "Answered",
+        "all": "All"
+      },
+      "downloadAttachment": "Download Attachment",
+      "sendAnswer": "Send Answer",
+      "uploadAnswerLabel": "Upload a File",
+      "answerLabel": "Answer",
+      "viewDetails": "View Details",
+      "hideDetails": "Hide Details",
+      "answer": "Answer",
+      "private": "Private",
+      "public": "Public",
+      "answerPlaceholder": "Type your answer here...",
+      "visibility": "Visibility",
+      "cancel": "Cancel",
+      "professorNotes": "Professor's Notes",
+      "professorFile": "Professor's File"
     }
   }
 }
