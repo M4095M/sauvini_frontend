@@ -10,7 +10,8 @@
     "nexting": "التالي",
     "verifying": "جاري التحقق...",
     "cancel": "إلغاء",
-    "downloadShort": "تنزيل"
+    "downloadShort": "تنزيل",
+    "showCount": "عرض {count} عنصر"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-أدرار" },
@@ -521,5 +522,26 @@
       "professorNotes": "ملاحظات الأستاذ",
       "professorFile": "ملف الأستاذ"
     }
+  },
+  "admin": {
+    "navigation": {
+      "manageStudents": "إدارة الطلاب",
+      "manageProfessors": "إدارة الأساتذة",
+      "managePurchases": "إدارة المشتريات"
+    },
+    "manageStudents": {
+      "title": "الطلاب",
+      "searchPlaceholder": "بحث ...",
+      "viewProfile": "عرض الملف الشخصي",
+      "backToStudents": "العودة إلى الطلاب",
+      "titleTwo": "معلومات الطالب",
+      "fullName": "الاسم الكامل",
+      "phoneNumber": "رقم الهاتف",
+      "email": "عنوان البريد الإلكتروني",
+      "wilaya": "الولاية",
+      "academicStream": "المسار الأكاديمي",
+      "status": "الحالة"
+    }
+
   }
 }

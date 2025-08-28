@@ -1,13 +1,26 @@
 "use client"
 
 import type React from "react"
+import { useState, useEffect } from "react"
 
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useLanguage } from "@/hooks/useLanguage"
 import { useSidebar } from "@/context/SideBarContext"
-import { Settings, FileCheck, PenTool, MessageSquare, Bell, User, LogOut, X } from "lucide-react"
+import {
+  Settings,
+  FileCheck,
+  PenTool,
+  MessageSquare,
+  Bell,
+  User,
+  LogOut,
+  X,
+  BriefcaseBusiness,
+  CreditCard,
+  GraduationCap
+} from "lucide-react"
 
 interface NavItem {
   href: string
@@ -23,9 +36,23 @@ const navigationItems: NavItem[] = [
   { href: "/professor/notifications", label: "notifications", icon: Bell },
 ]
 
+// Admin-only links (rendered only when isAdmin === true)
+const adminLinks: NavItem[] = [
+  { href: "/professor/professor-management", label: "manageProfessors", icon: BriefcaseBusiness },
+  { href: "/professor/manage-purchases", label: "managePurchases", icon: CreditCard },
+  { href: "/professor/manage-students", label: "manageStudents", icon: GraduationCap },
+]
+
 function DesktopSidebar() {
   const pathname = usePathname()
   const { isRTL, t } = useLanguage()
+
+  // DUMMY admin flag 
+  const [isAdmin, setIsAdmin] = useState(false)
+  useEffect(() => {
+    // to be replaced with real API/context check
+    setIsAdmin(Boolean((window as any).__IS_ADMIN__) || true)
+  }, [])
 
   // check if user is on any content management page
   const isOnContentManagementPages =
@@ -71,6 +98,39 @@ function DesktopSidebar() {
             }}
             dir={isRTL ? "rtl" : "ltr"}
           >
+            {/* Admin links (top) */}
+            {isAdmin &&
+              adminLinks.map(({ href, label, icon: Icon }) => {
+                const isActive = pathname === href || pathname.startsWith(`${href}/`)
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={`flex items-center transition-all duration-200  ${
+                      isActive
+                        ? "bg-[#324C72] text-white"
+                        : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    }`}
+                    dir={isRTL ? "rtl" : "ltr"}
+                    style={{
+                      display: "flex",
+                      padding: "12px 20px",
+                      alignItems: "center",
+                      gap: 12,
+                      alignSelf: "stretch",
+                      borderRadius: 26,
+                      direction: isRTL ? "rtl" : "ltr",
+                    }}
+                  >
+                    <Icon className="w-5 h-5 flex-shrink-0" />
+                    <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                      {t(`admin.navigation.${label}`) || label}
+                    </span>
+                  </Link>
+                )
+              })}
+
+            {/* Professor links */}
             {navigationItems.map(({ href, label, icon: Icon }) => {
               // for manage content link, check if on any content management page
               const isActive =
@@ -170,6 +230,12 @@ function MobileDrawer() {
   const pathname = usePathname()
   const { isRTL, t } = useLanguage()
 
+  // DUMMY admin flag
+  const [isAdmin, setIsAdmin] = useState(false)
+  useEffect(() => {
+    setIsAdmin(Boolean((window as any).__IS_ADMIN__) || false)
+  }, [])
+
   // check if user is on any content management page
   const isOnContentManagementPages =
     pathname.startsWith("/professor/manage-content") ||
@@ -223,6 +289,40 @@ function MobileDrawer() {
           {/* Navigation */}
           <nav className="flex-1 overflow-y-auto" dir={isRTL ? "rtl" : "ltr"}>
             <div className="flex flex-col" style={{ gap: 16 }}>
+              {/* Admin links (top) */}
+              {isAdmin &&
+                adminLinks.map(({ href, label, icon: Icon }, index) => {
+                  const isActive = pathname === href || pathname.startsWith(`${href}/`)
+                  return (
+                    <Link
+                      key={href}
+                      href={href}
+                      onClick={close}
+                      className={`flex items-center transition-all duration-200 transform ${
+                        isRTL ? "flex-row-reverse text-right" : "text-left"
+                      } ${
+                        isActive
+                          ? "bg-[#324C72] text-white"
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                      } ${
+                        isOpen ? "translate-x-0 opacity-100" : isRTL ? "translate-x-8 opacity-0" : "-translate-x-8 opacity-0"
+                      }`}
+                      style={{
+                        padding: "12px 20px",
+                        gap: 12,
+                        borderRadius: 26,
+                        transitionDelay: isOpen ? `${200 + index * 50}ms` : "0ms",
+                        direction: isRTL ? "rtl" : "ltr",
+                      }}
+                    >
+                      <Icon className="w-5 h-5 flex-shrink-0" />
+                      <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                        {t(`admin.navigation.${label}`) || label}
+                      </span>
+                    </Link>
+                  )
+                })}
+
               {navigationItems.map(({ href, label, icon: Icon }, index) => {
                 // for manage content link, check if on any content management page
                 const isActive =
@@ -242,11 +342,7 @@ function MobileDrawer() {
                         ? "bg-[#324C72] text-white"
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                     } ${
-                      isOpen
-                        ? "translate-x-0 opacity-100"
-                        : isRTL
-                          ? "translate-x-8 opacity-0"
-                          : "-translate-x-8 opacity-0"
+                      isOpen ? "translate-x-0 opacity-100" : isRTL ? "translate-x-8 opacity-0" : "-translate-x-8 opacity-0"
                     }`}
                     style={{
                       padding: "12px 20px",

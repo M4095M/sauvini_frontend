@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   ColumnDef,
@@ -34,34 +34,29 @@ export function DataTable<TData, TValue>({
   return (
     <div className="overflow-hidden rounded-md">
       <Table className="">
-        {/* <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                )
-              })}
-            </TableRow>
-          ))}
-        </TableHeader> */}
         <TableBody className="">
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
-                className="bg-white rounded-2xl gap-1 border-0"
+                className="bg-white dark:bg-gray-900 rounded-xl flex items-center px-4 py-3 shadow-sm border-0 mb-3"
               >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+                {row.getVisibleCells().map((cell, idx) => (
+                  <TableCell
+                    key={cell.id}
+                    className={`${
+                      idx === 0
+                        ? "flex items-center gap-4 min-w-0"
+                        : idx === 1
+                        ? "flex flex-col min-w-0"
+                        : idx === 2
+                        ? "w-48 text-center"
+                        : idx === 3
+                        ? "flex-1 text-center px-6 truncate"
+                        : "relative"
+                    }`}
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}

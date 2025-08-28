@@ -10,7 +10,8 @@
     "nexting": "Suivant",
     "verifying": "Vérification...",
     "cancel": "Annuler",
-    "downloadShort": "Télécharger"
+    "downloadShort": "Télécharger",
+    "showCount": "Afficher {count} éléments"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -427,6 +428,26 @@
       "cancel": "Annuler",
       "professorNotes": "Notes du professeur",
       "professorFile": "Fichier du professeur"
+    }
+  },
+  "admin": {
+    "navigation": {
+      "manageStudents": "Gérer les étudiants",
+      "manageProfessors": "Gérer les professeurs",
+      "managePurchases": "Gérer les achats"
+    },
+    "manageStudents": {
+      "title": "Étudiants",
+      "searchPlaceholder": "Rechercher ...",
+      "viewProfile": "Voir le profil",
+      "backToStudents": "Retour aux étudiants",
+      "titleTwo": "Informations sur l'étudiant",
+      "fullName": "Nom complet",
+      "phoneNumber": "Numéro de téléphone",
+      "email": "Adresse e-mail",
+      "wilaya": "Wilaya",
+      "academicStream": "Parcours académique",
+      "status": "Statut"
     }
   }
 }

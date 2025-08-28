@@ -10,7 +10,8 @@
     "nexting": "Next",
     "verifying": "Verifying...",
     "cancel": "Cancel",
-    "downloadShort": "Download"
+    "downloadShort": "Download",
+    "showCount": "Show {count} elements"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -522,6 +523,26 @@
       "cancel": "Cancel",
       "professorNotes": "Professor's Notes",
       "professorFile": "Professor's File"
+    }
+  },
+  "admin": {
+    "navigation": {
+      "manageStudents": "Manage Students",
+      "manageProfessors": "Manage Professors",
+      "managePurchases": "Manage Purchases"
+    },
+    "manageStudents": {
+      "title": "Students",
+      "searchPlaceholder": "Search ...",
+      "viewProfile": "View Profile",
+      "backToStudents": "Back to Students",
+      "titleTwo": "Student Information",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "email": "Email Address",
+      "wilaya": "Wilaya",
+      "academicStream": "Academic Stream",
+      "status": "Status"
     }
   }
 }
