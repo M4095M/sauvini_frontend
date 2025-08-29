@@ -3,6 +3,7 @@ export type DropDownProps = {
   placeholder?: string;
   options?: DropDownOptionProps[];
   max_width?: string;
+  onChange?: (value: any) => void;
 
   // langauge specific:
   t?: any;
@@ -11,5 +12,5 @@ export type DropDownProps = {
 
 export type DropDownOptionProps = {
   id: string;
-  text: string;
+  text: any;
 };
