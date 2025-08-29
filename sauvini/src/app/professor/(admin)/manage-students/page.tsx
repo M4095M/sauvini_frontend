@@ -1,6 +1,6 @@
 "use client";
 
-import StudentsGrid from "@/components/professor/StudentsGrid";
+import StudentsGrid from "@/components/professor/adminStudents/StudentsGrid";
 import { useLanguage } from "@/hooks/useLanguage";
 import { MOCK_STUDENTS } from "@/data/students";
 

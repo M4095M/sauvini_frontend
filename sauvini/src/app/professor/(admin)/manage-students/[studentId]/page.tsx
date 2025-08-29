@@ -1,4 +1,4 @@
-import StudentProfile from "@/components/professor/StudentProfile";
+import StudentProfile from "@/components/professor/adminStudents/StudentProfile";
 import { MOCK_STUDENTS } from "@/data/students";
 
 type Params = { params: { studentId: string } };
