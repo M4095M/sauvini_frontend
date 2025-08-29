@@ -12,7 +12,9 @@ import {
   ProfessorColumn,
 } from "@/components/tables/professors/professor_columns";
 import Button from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import { ColumnDef } from "@tanstack/react-table";
+import { ChevronLast, ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { useMemo, useState } from "react";
 
 const professors: ProfessorColumn[] = [
   {
@@ -52,41 +54,145 @@ const professors: ProfessorColumn[] = [
   },
 ];
 
-export default function ProfessorManagementPage() {
-  // return (
-  //   <div className="w-full bg-neutral-100 rounded-[52px] py-6 px-3 flex flex-col gap-4">
-  //     {/* header */}
-  //     <div className="flex flex-col">
-  //       {/* title */}
-  //       <div className="font-medium px-4 text-2xl text-primary-600">
-  //         Teachers
-  //       </div>
-  //       {/* filters */}
-  //       <div className="flex flex-row justify-between items-center ">
-  //         <DropDown
-  //           placeholder="Teacher status"
-  //           options={[
-  //             { id: "1", text: "Active" },
-  //             { id: "2", text: "Inactive" },
-  //           ]}
-  //           max_width="max-w-56"
-  //         />
-  //         <DropDown
-  //           placeholder="Show"
-  //           options={[
-  //             { id: "1", text: "10 elements per page" },
-  //             { id: "2", text: "20 elements per page" },
-  //           ]}
-  //           max_width="max-w-56"
-  //         />
-  //       </div>
-  //     </div>
-  //     {/* table content */}
-  //     <div className="">
-  //       <DataTable columns={professor_columns} data={professors} />
-  //     </div>
-  //   </div>
-  // );
+type PaginatedTableProps<TData> = {
+  data: TData;
+  columns: ColumnDef<TData, any>[];
+  pageSizeOptions: number[];
+};
+
+export default function ProfessorManagementPage({
+  data = professors,
+  columns,
+  pageSizeOptions = [10, 20, 50, 100],
+}: PaginatedTableProps<ProfessorColumn[]>) {
+  // parameters for the query (use as query parameters)
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(pageSizeOptions[0]);
+
+  // totalPage needed for page navigation:
+  // const totalPage = Math.ceil(professors.length / pageSize);
+  const totalPage = 7;
+
+  const paginatedData = useMemo(() => {
+    const start = (page - 1) * pageSize;
+    return data.slice(start, start + pageSize);
+  }, [data, page, pageSize]);
+
+  return (
+    <div className="w-full flex flex-col gap-6">
+      <div className="w-full bg-neutral-100 rounded-[52px] py-6 px-3 flex flex-col gap-4">
+        {/* header */}
+        <div className="flex flex-col">
+          {/* title */}
+          <div className="font-medium px-4 text-2xl text-primary-600">
+            Teachers
+          </div>
+          {/* filters */}
+          <div className="flex flex-row justify-between items-center ">
+            <DropDown
+              placeholder="Teacher status"
+              options={[
+                { id: "1", text: "Active" },
+                { id: "2", text: "Inactive" },
+              ]}
+              max_width="max-w-56"
+            />
+            <DropDown
+              placeholder="Show"
+              options={[
+                { id: "1", text: "10 elements per page" },
+                { id: "2", text: "20 elements per page" },
+              ]}
+              max_width="max-w-56"
+              onChange={(size: number) => {
+                setPageSize(size);
+              }}
+            />
+          </div>
+        </div>
+        {/* table content */}
+        <div className="">
+          <DataTable columns={professor_columns} data={paginatedData} />
+        </div>
+      </div>
+      {/* pagination */}
+      <div className="w-full flex justify-center items-center">
+        <div className="rounded-full w-fit bg-white btn-elevation-1 pw-4 py-2 flex flex-row gap-7 items-center">
+          {/* prev */}
+          <div className="">
+            <Button
+              state={"text"}
+              size={"XS"}
+              icon_position={"icon-only"}
+              icon={<ChevronLeft />}
+            />
+          </div>
+          {/* page */}
+          <div className="flex items-center gap-5">
+            {[...Array(totalPage)].map((_, i) => {
+              // show number for last page
+              if (i + 1 === totalPage) {
+                return (
+                  <div
+                    className={`w-7 aspect-square rounded-full select-none cursor-pointer flex justify-center items-center${
+                      page === i + 1
+                        ? "bg-red-300  text-red-500"
+                        : "bg-white text-neutral-400"
+                    }`}
+                    onClick={() => {
+                      setPage(i + 1);
+                    }}
+                    key={i}
+                  >
+                    {i + 1}
+                  </div>
+                );
+              }
+
+              // skip
+              if (i > page + 4 || i < page - 5) {
+                return <div className="hidden" key={i}></div>;
+              }
+
+              // show ellipses:
+              if (i === page + 4 || i === page - 5) {
+                return (
+                  <div className="text-neutral-400" key={i}>
+                    ...
+                  </div>
+                );
+              }
+
+              return (
+                <div
+                  className={`w-7 aspect-square rounded-full select-none cursor-pointer flex justify-center items-center${
+                    page === i + 1
+                      ? "bg-red-300  text-red-500"
+                      : "bg-white text-neutral-400"
+                  }`}
+                  onClick={() => {
+                    setPage(i + 1);
+                  }}
+                  key={i}
+                >
+                  {i + 1}
+                </div>
+              );
+            })}
+          </div>
+          {/* next */}
+          <div className="">
+            <Button
+              state={"text"}
+              size={"XS"}
+              icon_position={"icon-only"}
+              icon={<ChevronRight />}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
   // return (
   //   <div className="w-full bg-neutral-100 rounded-[52px] pt-20 pb-11 px-10 flex flex-col gap-12">
   //     {/* teacher */}
