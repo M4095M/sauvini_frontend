@@ -21,11 +21,11 @@ export const student_columns = (
       const profile = row.getValue("profile_picture");
       const name = row.getValue("name");
       return (
-        <div className="w-12 h-12 rounded-full overflow-hidden bg-neutral-200 flex-shrink-0">
+        <div className="w-14 aspect-square rounded-full overflow-hidden bg-neutral-300 flex-shrink-0">
           {profile ? (
-            <Image src={profile as string} alt={name as string} width={48} height={48} className="object-cover" />
+            <Image src={profile as string} alt={name as string} width={56} height={56} className="object-cover w-full h-full" />
           ) : (
-            <div className="w-full h-full bg-neutral-300 flex items-center justify-center text-white">
+            <div className="w-full h-full bg-neutral-300 flex items-center justify-center text-white font-semibold">
               {(name as string || "U").split(" ").map((p) => p[0]).slice(0, 2).join("")}
             </div>
           )}
@@ -37,18 +37,22 @@ export const student_columns = (
     accessorKey: "name",
     header: "Name",
     cell: ({ row }) => (
-      <div className="text-sm font-medium text-neutral-800 dark:text-white truncate">{row.getValue("name")}</div>
+      <div className="text-xl font-medium text-neutral-600 dark:text-white truncate">{row.getValue("name")}</div>
     ),
   },
   {
     accessorKey: "phone",
     header: "Phone",
-    cell: ({ row }) => <div className="text-sm text-neutral-500 dark:text-neutral-400">{row.getValue("phone")}</div>,
+    cell: ({ row }) => (
+      <div dir="ltr" className="text-base font-normal text-neutral-400 dark:text-neutral-400 text-left">
+        {row.getValue("phone")}
+      </div>
+    ),
   },
   {
     accessorKey: "email",
     header: "Email",
-    cell: ({ row }) => <div className="text-sm text-neutral-500 dark:text-neutral-400 truncate">{row.getValue("email")}</div>,
+    cell: ({ row }) => <div className="text-base font-normal text-neutral-400 dark:text-neutral-400 truncate">{row.getValue("email")}</div>,
   },
   {
     id: "actions",
@@ -79,7 +83,7 @@ export const student_columns = (
                 state="text"
                 size="S"
                 icon_position="left"
-                icon={<Eye className="w-4 h-4" />}
+                icon={<Eye className="w-4 h-4 text-neutral-600 dark:text-neutral-200" />}
                 text={t("admin.manageStudents.viewProfile") ?? "View Profile"}
                 onClick={() => {
                   setOpenMenuFor(null);

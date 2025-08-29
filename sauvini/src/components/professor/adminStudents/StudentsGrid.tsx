@@ -1,11 +1,12 @@
 "use client";
 
 import { useMemo, useState, useEffect } from "react";
-import Button from "@/components/ui/button";
-import { useLanguage } from "@/hooks/useLanguage";
 import { useRouter } from "next/navigation";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DataTable } from "@/components/tables/data-table";
 import { student_columns } from "@/components/tables/students/students_columns";
+import Button from "@/components/ui/button";
+import { useLanguage } from "@/hooks/useLanguage";
 import { Student } from "@/data/students";
 
 interface StudentsGridProps {
@@ -58,10 +59,13 @@ export default function StudentsGrid({
 
   const columns = student_columns(toggleMenu, openMenuFor, menuPositionStyle, setOpenMenuFor, router, t);
 
+  const prevIcon = isRTL ? <ChevronRight /> : <ChevronLeft />;
+  const nextIcon = isRTL ? <ChevronLeft /> : <ChevronRight />;
+
   return (
-    <div dir={isRTL ? "rtl" : "ltr"} className={`w-full ${className}`}>
-      {/* Panel (fills page container width) */}
-      <div className="w-full bg-neutral-100 dark:bg-[#1A1A1A] rounded-[52px] p-6 flex flex-col gap-4">
+    <div dir={isRTL ? "rtl" : "ltr"} className={`w-full ${className} flex flex-col min-h-[520px]`}>
+      {/* Panel */}
+      <div className="w-full bg-neutral-100 dark:bg-[#1A1A1A] rounded-[52px] p-6 flex flex-col gap-4 flex-grow">
         {/* Title */}
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-semibold text-neutral-800 dark:text-white">
@@ -69,7 +73,7 @@ export default function StudentsGrid({
           </h2>
         </div>
 
-        {/* Search + per-page (under title) */}
+        {/* Search + per-page */}
         <div className="mt-2 flex items-center gap-4 w-full">
           <div className="flex items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full px-3 py-2 flex-1">
             <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -108,12 +112,70 @@ export default function StudentsGrid({
           </select>
         </div>
 
-        {/* Header separators (optional) */}
+        {/* Header separators */}
         <div className="w-full border-t border-transparent" />
 
         {/* Rows list */}
         <div className="flex flex-col gap-3">
           <DataTable columns={columns} data={visible} />
+        </div>
+      </div>
+
+      {/* Pagination */}
+      <div className="w-full flex justify-center items-center mt-4">
+        <div className="rounded-full w-fit bg-white btn-elevation-1 px-4 py-2 flex flex-row gap-7 items-center dark:bg-[#0B0B0B]">
+          <div>
+            <Button
+              state={"text"}
+              size={"XS"}
+              icon_position={"icon-only"}
+              icon={prevIcon}
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              optionalStyles="p-1"
+            />
+          </div>
+
+          <div className={`flex items-center gap-5 ${isRTL ? "flex-row-reverse" : ""}`}>
+            {[...Array(totalPages)].map((_, i) => {
+              if (i > page + 4 || i < page - 5) {
+                return <div className="hidden" key={i} />;
+              }
+
+              if (i === page + 4 || i === page - 5) {
+                return (
+                  <div className="text-neutral-400 dark:text-neutral-500" key={i}>
+                    ...
+                  </div>
+                );
+              }
+
+              return (
+                <div
+                  key={i}
+                  onClick={() => setPage(i + 1)}
+                  className={`w-7 aspect-square rounded-full select-none cursor-pointer flex justify-center items-center ${
+                    page === i + 1
+                      ? "bg-primary-100 text-primary-600"
+                      : "bg-white text-neutral-400 dark:bg-[#111112] dark:text-neutral-500"
+                  }`}
+                  aria-current={page === i + 1 ? "page" : undefined}
+                >
+                  {i + 1}
+                </div>
+              );
+            })}
+          </div>
+
+          <div>
+            <Button
+              state={"text"}
+              size={"XS"}
+              icon_position={"icon-only"}
+              icon={nextIcon}
+              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+              optionalStyles="p-1"
+            />
+          </div>
         </div>
       </div>
     </div>

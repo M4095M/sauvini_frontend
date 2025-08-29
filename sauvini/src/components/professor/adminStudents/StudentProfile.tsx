@@ -1,6 +1,6 @@
 "use client";
 
-import StudentCard from "../StudentCard";
+import StudentCard from "./StudentCard";
 import StudentInformation from "./StudentInformation";
 import { Student } from "@/data/students";
 
