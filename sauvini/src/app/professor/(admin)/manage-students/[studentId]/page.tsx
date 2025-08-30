@@ -4,18 +4,7 @@ import { MOCK_STUDENTS } from "@/data/students";
 type Params = { params: { studentId: string } };
 
 async function fetchStudent(id: string) {
-  // try API first (adjust endpoint if you have a different route)
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/students/${encodeURIComponent(id)}`, { cache: "no-store" });
-    if (res.ok) {
-      const json = await res.json();
-      return json;
-    }
-  } catch (err) {
-    // ignore, fallback to mock
-  }
-
-  // fallback
+  
   return MOCK_STUDENTS.find((s) => s.id === id) ?? null;
 }
 

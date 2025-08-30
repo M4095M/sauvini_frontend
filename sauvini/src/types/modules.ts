@@ -10,7 +10,10 @@ export interface UserProfile {
   level: number
   notificationCount: number
   xp: number
-  createdAt: Date
+  createdAt: Date,
+  chaptersCompleted?: number,
+  lessonsCompleted?: number,
+  lessonsLeft?: number
 }
 
 export interface Lesson {

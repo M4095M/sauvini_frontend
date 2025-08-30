@@ -15,7 +15,8 @@
     "all": "All",
     "show": "Show",
     "elements": "elements",
-    "page": "page"
+    "page": "page",
+    "browse": "Browse"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -583,5 +584,22 @@
         "receipt": "Receipt file"
       }
     }
+  },
+  "profile": {
+    "title": "Student Information",
+    "edit": "Edit Details",
+    "editTitle": "Edit Profile",
+    "editSubtitle": "Update your personal information below.",
+    "saveChanges": "Save Changes",
+    "picture": "Profile Picture",
+    "noFileChosen": "No file chosen",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
+    "email": "Email",
+    "wilaya": "Wilaya",
+    "academicStream": "Academic Stream",
+    "dragOrBrowse": "Drag your image or browse",
+    "maxSizeHint": "Max 5 MB. JPG/PNG."
   }
 }

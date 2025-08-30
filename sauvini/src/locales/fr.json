@@ -15,7 +15,8 @@
     "all": "Tout",
     "show": "Afficher",
     "elements": "éléments",
-    "page": "page"
+    "page": "page",
+    "browse": "Parcourir"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -488,6 +489,23 @@
         "receipt": "Fichier de reçu"
       }
     }
+  },
+  "profile": {
+    "title": "Mon Profil",
+    "edit": "Modifier les détails",
+    "editTitle": "Modifier le profil",
+    "editSubtitle": "Mettez à jour vos informations personnelles ci-dessous.",
+    "saveChanges": "Enregistrer les modifications",
+    "picture": "Photo de profil",
+    "noFileChosen": "Aucun fichier choisi",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "phoneNumber": "Numéro de téléphone",
+    "email": "Adresse e-mail",
+    "wilaya": "Wilaya",
+    "academicStream": "Parcours académique",
+    "dragOrBrowse": "Faites glisser votre image ou parcourez",
+    "maxSizeHint": "Max 5 Mo. JPG/PNG."
   }
 }
 
