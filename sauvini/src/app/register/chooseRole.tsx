@@ -1,8 +1,9 @@
 "use client";
 
-import AuthRoleCard from  "@/components/auth/role_card";
+import AuthRoleCard from "@/components/auth/role_card";
 import { RegisterCommonProps } from "@/types/registerCommonProps";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function ChooseRole({
   t,
@@ -14,6 +15,8 @@ export default function ChooseRole({
   const handleLogin = () => {
     router.push("/auth/login");
   };
+
+
 
   return (
     <div className="w-full h-full p-10 flex flex-col justify-center items-center gap-10 mt-14">

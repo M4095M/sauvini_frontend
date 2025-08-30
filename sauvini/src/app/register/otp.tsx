@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import OTPInput from "@/components/auth/otpInput";
 import { useLanguage } from "@/context/LanguageContext";
@@ -28,7 +28,7 @@ export default function OTP({
           name@email.com
         </span>
       </div>
-      <OTPInput t={t} isRTL={isRTL} />
+      <OTPInput t={t} isRTL={isRTL} onClick={NextStep} />
     </div>
   );
 }

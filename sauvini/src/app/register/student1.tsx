@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import DropDown from "@/components/input/dropDown";
 import InputButton from "@/components/input/InputButton";
@@ -6,8 +6,6 @@ import SimpleInput from "@/components/input/simpleInput";
 import Button from "@/components/ui/button";
 import { RegisterCommonProps } from "@/types/registerCommonProps";
 import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
-
-
 
 export default function RegisterPart1({
   t,
@@ -50,21 +48,21 @@ export default function RegisterPart1({
         />
       </div>
       {/* buttons */}
-      <div className="flex flex-row gap-4 ">
+      <div className="flex flex-row gap-4 " dir={isRTL ? "rtl" : "ltr"}>
         <Button
           state={"outlined"}
           size={"M"}
-          icon_position={"left"}
-          text="Previous"
-          icon={<ArrowLeft />}
+          icon_position={isRTL ? "left" : "left"}
+          text={t("register.common.previous")}
+          icon={!isRTL ? <ArrowLeft /> : <ArrowRight />}
           onClick={PreviousStep}
         />
         <Button
           state={"filled"}
           size={"M"}
-          icon_position={"right"}
-          text="Next"
-          icon={<ArrowRight />}
+          icon_position={isRTL ? "right" : "right"}
+          text={t("register.common.next")}
+          icon={isRTL ? <ArrowLeft /> : <ArrowRight />}
           onClick={NextStep}
         />
       </div>

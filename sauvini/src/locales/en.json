@@ -92,7 +92,8 @@
       "yes": "Yes",
       "no": "No",
       "male": "Male",
-      "Female": "Female"
+      "Female": "Female",
+      "return_home": "Return Home"
     },
     "cards": {
       "role": {

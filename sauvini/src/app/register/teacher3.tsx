@@ -27,28 +27,32 @@ export default function TeacherPart3({
       </div>
       {/* input fields */}
       <div className="flex flex-col gap-6" dir={isRTL ? "rtl" : "ltr"}>
-        <SimpleInput label={t("register.common.email")} value={""} type={"text"} />
+        <SimpleInput
+          label={t("register.common.email")}
+          value={""}
+          type={"text"}
+        />
         <div className="flex flex-row flex-flex-wrap gap-4">
           <PasswordInputField label={t("register.common.password")} />
           <PasswordInputField label={t("register.common.confirm_password")} />
         </div>
       </div>
       {/* buttons */}
-      <div className="flex flex-row gap-4 ">
+      <div className="flex flex-row gap-4 " dir={isRTL ? "rtl" : "ltr"}>
         <Button
           state={"outlined"}
           size={"M"}
-          icon_position={"left"}
-          text="Previous"
-          icon={<ArrowLeft />}
+          icon_position={isRTL ? "left" : "left"}
+          text={t("register.common.previous")}
+          icon={!isRTL ? <ArrowLeft /> : <ArrowRight />}
           onClick={PreviousStep}
         />
         <Button
           state={"filled"}
           size={"M"}
-          icon_position={"right"}
-          text="Next"
-          icon={<ArrowRight />}
+          icon_position={isRTL ? "right" : "right"}
+          text={t("register.common.next")}
+          icon={isRTL ? <ArrowLeft /> : <ArrowRight />}
           onClick={NextStep}
         />
       </div>

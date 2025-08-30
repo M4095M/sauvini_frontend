@@ -26,7 +26,7 @@ export default function ApplicationSubmitted({
           state={"tonal"}
           size={"M"}
           icon_position={"none"}
-          text="Return home"
+          text={t("register.common.return_home")}
         />
       </div>
     </div>

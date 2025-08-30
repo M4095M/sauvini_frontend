@@ -14,13 +14,13 @@ export default function ResetPassworCompleted() {
       </span>
       <span className="font-medium md:text-xl text-lg max-w-3xl text-neutral-400 text-center">
         {t("register.verify-email-done.description")}
-      </span>
+      </span> 
       <div className="max-w-80 ">
         <Button
           state={"filled"}
           size={"M"}
           icon_position={"none"}
-          text="Start learning"
+          text={t("register.verify-email.verify.button")}
         />
       </div>
     </div>

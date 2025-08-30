@@ -7,7 +7,7 @@ import {
 import Button from "../ui/button";
 import { OTPInputProps } from "@/types/otpInput";
 
-export default function OTPInput({t, isRTL} : OTPInputProps) {
+export default function OTPInput({ t, isRTL, onClick }: OTPInputProps) {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-4">
@@ -25,7 +25,13 @@ export default function OTPInput({t, isRTL} : OTPInputProps) {
           {t("register.verify-email.resend")}
         </div>
       </div>
-      <Button state={"filled"} size={"M"} icon_position={"none"} text="Verify code" />
+      <Button
+        state={"filled"}
+        size={"M"}
+        icon_position={"none"}
+        text={t("register.verify-email.button")}
+        onClick={onClick}
+      />
     </div>
   );
 }

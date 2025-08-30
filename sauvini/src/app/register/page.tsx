@@ -14,6 +14,7 @@ import TeacherPart3 from "./teacher3";
 import OTP from "./otp";
 
 import { motion } from "motion/react";
+import ResetPassworCompleted from "./password-reset-done";
 
 type ElementMap = Record<string, JSX.Element[]>;
 
@@ -104,7 +105,7 @@ export default function RegisterPage() {
       NextStep={NextStep}
       PreviousStep={PreviousStep}
     />,
-    <OTP
+    <ApplicationSubmitted
       t={t}
       isRTL={isRTL}
       language={language}
@@ -112,6 +113,16 @@ export default function RegisterPage() {
       PreviousStep={PreviousStep}
     />,
   ];
+
+  // !these two components are usd for verify otp page & otp verifed page
+  //   <OTP
+  //   t={t}
+  //   isRTL={isRTL}
+  //   language={language}
+  //   NextStep={NextStep}
+  //   PreviousStep={PreviousStep}
+  // />,
+  // <ResetPassworCompleted />,
 
   const elementMap: ElementMap = {
     student: StudentRegister,

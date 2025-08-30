@@ -1,14 +1,15 @@
-"use client";
+"use client"
 
 import Logo from "@/components/logo/logo";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { useLanguage } from "@/context/LanguageContext";
 
 import { motion } from "motion/react";
+import { useEffect } from "react";
 
 export default function RegisterLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-
   return (
     <div className="min-h-screen auth-background-gradient sm:px-28 pb-0 pt-14 px-0 md:py-20 flex justify-center items-center ">
       <div className="w-full h-full flex justify-center items-center bg-neutral-100 rounded-[80px] relative">
