@@ -11,7 +11,11 @@
     "verifying": "جاري التحقق...",
     "cancel": "إلغاء",
     "downloadShort": "تنزيل",
-    "showCount": "عرض {count} عنصر"
+    "showCount": "عرض {count} عنصر",
+    "all": "الكل",
+    "show": "عرض",
+    "elements": "عناصر",
+    "page": "صفحة"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-أدرار" },
@@ -541,7 +545,41 @@
       "wilaya": "الولاية",
       "academicStream": "المسار الأكاديمي",
       "status": "الحالة"
+    },
+    "managePurchases": {
+      "title": "المشتريات",
+      "noPurchases": "لا توجد مشتريات",
+      "filter": "تصفية",
+      "status": {
+        "validated": "مؤكد",
+        "rejected": "مرفوض",
+        "new": "جديد"
+      },
+      "sort": "ترتيب حسب",
+      "sortTwo": {
+        "new": "الأحدث أولاً",
+        "old": "الأقدم أولاً"
+      },
+      "receipt": "Receipt.pdf",
+      "viewDetails": "عرض التفاصيل",
+      "validate": "تأكيد",
+      "reject": "رفض",
+      "details": {
+        "title": "تفاصيل الشراء",
+        "statusLabel": "الحالة:",
+        "changeToValidated": "تغيير إلى مؤكد",
+        "studentInformation": "معلومات الطالب",
+        "viewProfile": "عرض الملف الشخصي",
+        "fullName": "الاسم الكامل",
+        "phoneNumber": "رقم الهاتف",
+        "emailAddress": "عنوان البريد الإلكتروني",
+        "academicStream": "المسار الأكاديمي",
+        "purchaseInfoTitle": "معلومات الشراء",
+        "module": "الوحدة",
+        "chapter": "الفصل",
+        "price": "السعر",
+        "receipt": "ملف الإيصال"
+      }
     }
-
   }
 }

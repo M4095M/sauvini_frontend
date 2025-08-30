@@ -11,7 +11,11 @@
     "verifying": "Vérification...",
     "cancel": "Annuler",
     "downloadShort": "Télécharger",
-    "showCount": "Afficher {count} éléments"
+    "showCount": "Afficher {count} éléments",
+    "all": "Tout",
+    "show": "Afficher",
+    "elements": "éléments",
+    "page": "page"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -448,6 +452,41 @@
       "wilaya": "Wilaya",
       "academicStream": "Parcours académique",
       "status": "Statut"
+    },
+    "managePurchases": {
+      "title": "Achats",
+      "noPurchases": "Aucun achat trouvé",
+      "filter": "Filtrer",
+      "status": {
+        "validated": "Validé",
+        "rejected": "Rejeté",
+        "new": "Nouveau"
+      },
+      "sort": "Trier par",
+      "sortTwo": {
+        "new": "Le plus récent d'abord",
+        "old": "Le plus ancien d'abord"
+      },
+      "receipt": "Receipt.pdf",
+      "viewDetails": "Voir les détails",
+      "validate": "Valider",
+      "reject": "Rejeter",
+      "details": {
+        "title": "Détails de l'achat",
+        "statusLabel": "Statut:",
+        "changeToValidated": "Changer en Validé",
+        "studentInformation": "Informations sur l'étudiant",
+        "viewProfile":"Voir le profil",
+        "fullName":"Nom complet",
+        "phoneNumber":"Numéro de téléphone",
+        "emailAddress": "Adresse e-mail",
+        "academicStream": "Parcours académique",
+        "purchaseInfoTitle": "Informations sur l'achat",
+        "module": "Module",
+        "chapter": "Chapitre",
+        "price": "Prix",
+        "receipt": "Fichier de reçu"
+      }
     }
   }
 }

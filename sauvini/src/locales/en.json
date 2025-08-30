@@ -11,7 +11,11 @@
     "verifying": "Verifying...",
     "cancel": "Cancel",
     "downloadShort": "Download",
-    "showCount": "Show {count} elements"
+    "showCount": "Show {count} elements",
+    "all": "All",
+    "show": "Show",
+    "elements": "elements",
+    "page": "page"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -543,6 +547,41 @@
       "wilaya": "Wilaya",
       "academicStream": "Academic Stream",
       "status": "Status"
+    },
+    "managePurchases": {
+      "title": "Purchases",
+      "noPurchases": "No purchases found",
+      "filter": "Filter",
+      "status": {
+        "validated": "Validated",
+        "rejected": "Rejected",
+        "new": "New"
+      },
+      "sort": "Sort By",
+      "sortTwo": {
+        "new": "Newest First",
+        "old": "Oldest First"
+      },
+      "receipt": "Receipt.pdf",
+      "viewDetails": "View Details",
+      "validate": "Validate",
+      "reject": "Reject",
+      "details": {
+        "title": "Purchases Details",
+        "statusLabel": "Status:",
+        "changeToValidated": "Change to Validated",
+        "studentInformation": "Student Information",
+        "viewProfile":"View Profile",
+        "fullName":"Full Name",
+        "phoneNumber":"Phone Number",
+        "emailAddress": "Email Address",
+        "academicStream": "Academic Stream",
+        "purchaseInfoTitle": "Purchase Information",
+        "module": "Module",
+        "chapter": "Chapter",
+        "price": "Price",
+        "receipt": "Receipt file"
+      }
     }
   }
 }
