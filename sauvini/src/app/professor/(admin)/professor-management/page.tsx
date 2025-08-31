@@ -162,6 +162,9 @@ export default function ProfessorManagementPage({
               size={"XS"}
               icon_position={"icon-only"}
               icon={<ChevronLeft />}
+              onClick={() => {
+                setPage((prev) => (prev > 1 ? prev - 1 : prev));
+              }}
             />
           </div>
           {/* page */}
@@ -173,7 +176,7 @@ export default function ProfessorManagementPage({
                   <div
                     className={`w-7 aspect-square rounded-full select-none cursor-pointer flex justify-center items-center${
                       page === i + 1
-                        ? "bg-red-300  text-red-500"
+                        ? "text-neutral-100 bg-primary-200"
                         : "bg-white text-neutral-400"
                     }`}
                     onClick={() => {
@@ -204,7 +207,7 @@ export default function ProfessorManagementPage({
                 <div
                   className={`w-7 aspect-square rounded-full select-none cursor-pointer flex justify-center items-center${
                     page === i + 1
-                      ? "bg-red-300  text-red-500"
+                      ? "text-white bg-primary-200"
                       : "bg-white text-neutral-400"
                   }`}
                   onClick={() => {
@@ -224,6 +227,9 @@ export default function ProfessorManagementPage({
               size={"XS"}
               icon_position={"icon-only"}
               icon={<ChevronRight />}
+              onClick={() => {
+                setPage((prev) => (prev < totalPage ? prev + 1 : prev));
+              }}
             />
           </div>
         </div>
