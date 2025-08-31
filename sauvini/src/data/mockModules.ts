@@ -11,8 +11,11 @@ export const MOCK_USER_PROFILE: UserProfile = {
   avatar: "/profile.png",
   level: 6,
   notificationCount: 3,
-  xp: 2450,
+  xp: 45,
   createdAt: new Date("2024-09-01"),
+  chaptersCompleted: 5,
+  lessonsCompleted: 45,
+  lessonsLeft: 30
 }
 
 const SAMPLE_LESSONS: Lesson[] = [

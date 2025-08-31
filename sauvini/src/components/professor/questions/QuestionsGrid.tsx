@@ -53,7 +53,7 @@ export default function QuestionsGrid({ submissions = MOCK_QUESTION_SUBMISSIONS,
 
   return (
     <section 
-      className="w-full self-stretch flex flex-col items-start rounded-[52px] bg-[#F8F8F8] dark:bg-neutral-800 p-6 md:p-6"
+      className="w-full self-stretch flex flex-col items-start rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A] p-6 md:p-6"
       dir={isRTL ? "rtl" : "ltr"}
     >
       {isMobile && (

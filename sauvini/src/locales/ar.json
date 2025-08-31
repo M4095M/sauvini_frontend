@@ -10,7 +10,13 @@
     "nexting": "التالي",
     "verifying": "جاري التحقق...",
     "cancel": "إلغاء",
-    "downloadShort": "تنزيل"
+    "downloadShort": "تنزيل",
+    "showCount": "عرض {count} عنصر",
+    "all": "الكل",
+    "show": "عرض",
+    "elements": "عناصر",
+    "page": "صفحة",
+    "browse": "تصفح"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-أدرار" },
@@ -522,5 +528,77 @@
       "professorNotes": "ملاحظات الأستاذ",
       "professorFile": "ملف الأستاذ"
     }
+  },
+  "admin": {
+    "navigation": {
+      "manageStudents": "إدارة الطلاب",
+      "manageProfessors": "إدارة الأساتذة",
+      "managePurchases": "إدارة المشتريات"
+    },
+    "manageStudents": {
+      "title": "الطلاب",
+      "searchPlaceholder": "بحث ...",
+      "viewProfile": "عرض الملف الشخصي",
+      "backToStudents": "العودة إلى الطلاب",
+      "titleTwo": "معلومات الطالب",
+      "fullName": "الاسم الكامل",
+      "phoneNumber": "رقم الهاتف",
+      "email": "عنوان البريد الإلكتروني",
+      "wilaya": "الولاية",
+      "academicStream": "المسار الأكاديمي",
+      "status": "الحالة"
+    },
+    "managePurchases": {
+      "title": "المشتريات",
+      "noPurchases": "لا توجد مشتريات",
+      "filter": "تصفية",
+      "status": {
+        "validated": "مؤكد",
+        "rejected": "مرفوض",
+        "new": "جديد"
+      },
+      "sort": "ترتيب حسب",
+      "sortTwo": {
+        "new": "الأحدث أولاً",
+        "old": "الأقدم أولاً"
+      },
+      "receipt": "Receipt.pdf",
+      "viewDetails": "عرض التفاصيل",
+      "validate": "تأكيد",
+      "reject": "رفض",
+      "details": {
+        "title": "تفاصيل الشراء",
+        "statusLabel": "الحالة:",
+        "changeToValidated": "تغيير إلى مؤكد",
+        "studentInformation": "معلومات الطالب",
+        "viewProfile": "عرض الملف الشخصي",
+        "fullName": "الاسم الكامل",
+        "phoneNumber": "رقم الهاتف",
+        "emailAddress": "عنوان البريد الإلكتروني",
+        "academicStream": "المسار الأكاديمي",
+        "purchaseInfoTitle": "معلومات الشراء",
+        "module": "الوحدة",
+        "chapter": "الفصل",
+        "price": "السعر",
+        "receipt": "ملف الإيصال"
+      }
+    }
+  },
+  "profile": {
+    "title": "ملفي الشخصي",
+    "edit": "تعديل التفاصيل",
+    "editTitle": "تعديل الملف الشخصي",
+    "editSubtitle": "قم بتحديث معلوماتك الشخصية أدناه.",
+    "saveChanges": "حفظ التغييرات",
+    "picture": "صورة الملف الشخصي",
+    "noFileChosen": "لا يوجد ملف مختار",
+    "firstName": "الاسم الأول",
+    "lastName": "الاسم الأخير",
+    "phoneNumber": "رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "wilaya": "الولاية",
+    "academicStream": "المسار الأكاديمي",
+    "dragOrBrowse": "اسحب صورتك أو تصفح",
+    "maxSizeHint": "Max 5 MB. JPG/PNG."
   }
 }

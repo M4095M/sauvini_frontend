@@ -10,7 +10,13 @@
     "nexting": "Next",
     "verifying": "Verifying...",
     "cancel": "Cancel",
-    "downloadShort": "Download"
+    "downloadShort": "Download",
+    "showCount": "Show {count} elements",
+    "all": "All",
+    "show": "Show",
+    "elements": "elements",
+    "page": "page",
+    "browse": "Browse"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -524,5 +530,77 @@
       "professorNotes": "Professor's Notes",
       "professorFile": "Professor's File"
     }
+  },
+  "admin": {
+    "navigation": {
+      "manageStudents": "Manage Students",
+      "manageProfessors": "Manage Professors",
+      "managePurchases": "Manage Purchases"
+    },
+    "manageStudents": {
+      "title": "Students",
+      "searchPlaceholder": "Search ...",
+      "viewProfile": "View Profile",
+      "backToStudents": "Back to Students",
+      "titleTwo": "Student Information",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "email": "Email Address",
+      "wilaya": "Wilaya",
+      "academicStream": "Academic Stream",
+      "status": "Status"
+    },
+    "managePurchases": {
+      "title": "Purchases",
+      "noPurchases": "No purchases found",
+      "filter": "Filter",
+      "status": {
+        "validated": "Validated",
+        "rejected": "Rejected",
+        "new": "New"
+      },
+      "sort": "Sort By",
+      "sortTwo": {
+        "new": "Newest First",
+        "old": "Oldest First"
+      },
+      "receipt": "Receipt.pdf",
+      "viewDetails": "View Details",
+      "validate": "Validate",
+      "reject": "Reject",
+      "details": {
+        "title": "Purchases Details",
+        "statusLabel": "Status:",
+        "changeToValidated": "Change to Validated",
+        "studentInformation": "Student Information",
+        "viewProfile":"View Profile",
+        "fullName":"Full Name",
+        "phoneNumber":"Phone Number",
+        "emailAddress": "Email Address",
+        "academicStream": "Academic Stream",
+        "purchaseInfoTitle": "Purchase Information",
+        "module": "Module",
+        "chapter": "Chapter",
+        "price": "Price",
+        "receipt": "Receipt file"
+      }
+    }
+  },
+  "profile": {
+    "title": "Student Information",
+    "edit": "Edit Details",
+    "editTitle": "Edit Profile",
+    "editSubtitle": "Update your personal information below.",
+    "saveChanges": "Save Changes",
+    "picture": "Profile Picture",
+    "noFileChosen": "No file chosen",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
+    "email": "Email",
+    "wilaya": "Wilaya",
+    "academicStream": "Academic Stream",
+    "dragOrBrowse": "Drag your image or browse",
+    "maxSizeHint": "Max 5 MB. JPG/PNG."
   }
 }
