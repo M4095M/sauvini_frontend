@@ -8,7 +8,9 @@
     "back": "رجوع",
     "next": "التالي",
     "nexting": "التالي",
-    "verifying": "جاري التحقق..."
+    "verifying": "جاري التحقق...",
+    "cancel": "إلغاء",
+    "downloadShort": "تنزيل"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-أدرار" },
@@ -381,5 +383,82 @@
     "normal": "عادي",
     "important": "مهم",
     "urgent": "عاجل"
+  },
+  "professor": {
+    "professor": "أستاذ",
+    "dr": "د.",
+    "notifications": "الإشعارات",
+    "navigation": {
+      "manageContent": "إدارة المحتوى",
+      "correctExams": "تصحيح الامتحانات",
+      "correctExercises": "تصحيح التمارين",
+      "answerQuestions": "الإجابة على الأسئلة",
+      "notifications": "الإشعارات",
+      "accountDetails": "تفاصيل الحساب",
+      "logout": "تسجيل الخروج"
+    },
+    "numberOfChapters": "عدد الفصول: ",
+    "academicStreams": {
+      "all": "الكل",
+      "mathematics": "الرياضيات",
+      "experimentalsciences": "العلوم التجريبية",
+      "literature": "الآداب",
+      "mathtechnique": "رياضيات تقني"
+    },
+    "modules": {
+      "title": "الوحدات",
+      "academicStream": "التخصص الأكاديمي",
+      "noModulesFound": "لم يتم العثور على وحدات للتخصص الأكاديمي المحدد."
+    },
+    "chapters": {
+      "title": "الفصول",
+      "academicStream": "التخصص الأكاديمي",
+      "addChapter": "إضافة فصل",
+      "createNewChapter": "إنشاء فصل جديد",
+      "createNewChapterSubtitle": "أضف التفاصيل الأساسية لبدء فصلك",
+      "chapterName": "اسم الفصل",
+      "chapterNamePlaceholder": "أدخل اسم الفصل",
+      "chapterDescription": "وصف الفصل",
+      "chapterDescriptionPlaceholder": "أدخل وصف الفصل",
+      "createChapter": "إنشاء فصل",
+      "editLaterNote": "يمكنك تعديل المزيد من التفاصيل لاحقاً في صفحة الفصل",
+      "lessonsCount": "عدد الدروس",
+      "noChaptersFound": "لم يتم العثور على فصول للتخصص الأكاديمي المحدد.",
+      "complete": "مكتمل",
+      "incomplete": "غير مكتمل",
+      "lastVersion": "آخر نسخة",
+      "status": {
+        "waiting": "في الانتظار",
+        "validated": "مصادق عليه",
+        "published": "منشور"
+      }
+    },
+    "exams": {
+      "title": "تسليمات الامتحانات",
+      "noSubmissions": "لا توجد تسليمات",
+      "filter": {
+        "chapterPrefix": "الفصل: ",
+        "statusPrefix": "الحالة: "
+      },
+      "status": {
+        "waiting": "في الانتظار",
+        "all": "الكل",
+        "corrected": "مصحح"
+      },
+      "downloadSubmission": "تحميل تسليم الطالب",
+      "viewDetails": "عرض التفاصيل",
+      "correct": "تصحيح",
+      "professorNotesTitle": "ملاحظات الأستاذ",
+      "gradeTitle": ":درجة",
+      "correctionFileLabel": "ملف التصحيح",
+      "hideDetails": "إخفاء التفاصيل",
+      "hideCorrectionForm": "إخفاء نموذج التصحيح",
+      "saveCorrection": "حفظ التصحيح",
+      "uploadCorrectionLabel": "تحميل ملف التصحيح",
+      "studentTotalMarkLabel": "الدرجة الكلية",
+      "additionalNotesLabel": "ملاحظات إضافية",
+      "notesPlaceholder": "أدخل أي ملاحظات إضافية هنا..."
+
+    }
   }
 }

@@ -8,7 +8,9 @@
     "back": "Retour",
     "next": "Suivant",
     "nexting": "Suivant",
-    "verifying": "Vérification..."
+    "verifying": "Vérification...",
+    "cancel": "Annuler",
+    "downloadShort": "Télécharger"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -287,6 +289,80 @@
     "normal": "Normal",
     "important": "Important",
     "urgent": "Urgent"
+  },
+  "professor": {
+    "professor": "Professeur",
+    "dr": "Dr.",
+    "Notifications": "Notifications",
+    "navigation": {
+      "manageContent": "Gérer le contenu",
+      "correctExams": "Corriger les examens",
+      "correctExercises": "Corriger les exercices",
+      "answerQuestions": "Répondre aux questions",
+      "notifications": "Notifications",
+      "accountDetails": "Détails du compte",
+      "logout": "Se déconnecter"
+    },
+    "numberOfChapters": "Nombre de chapitres : ",
+    "academicStreams": {
+      "all": "Tous",
+      "mathematics": "Mathématiques",
+      "experimentalsciences": "Sciences expérimentales",
+      "literature": "Littérature",
+      "mathtechnique": "Math-Technique"
+    },
+    "modules": {
+      "title": "Modules",
+      "academicStream": "Filière académique",
+      "noModulesFound": "Aucun module trouvé pour la filière académique sélectionnée."
+    },
+    "chapters": {
+      "title": "Chapitres",
+      "academicStream": "Filière académique",
+      "addChapter": "Ajouter un chapitre",
+      "createNewChapter": "Créer un nouveau chapitre",
+      "createNewChapterSubtitle": "Ajoutez les détails de base pour commencer votre chapitre",
+      "chapterName": "Nom du chapitre",
+      "chapterNamePlaceholder": "Entrez le nom du chapitre",
+      "chapterDescription": "Description du chapitre",
+      "chapterDescriptionPlaceholder": "Entrez la description du chapitre",
+      "createChapter": "Créer un chapitre",
+      "editLaterNote": "Vous pouvez modifier plus de détails plus tard sur la page du chapitre.",
+      "lessonsCount": "Nombre de leçons",
+      "noChaptersFound": "Aucun chapitre trouvé pour la filière académique sélectionnée.",
+      "complete": "Complet",
+      "incomplete": "Incomplet",
+      "lastVersion": "Dernière version",
+      "status": {
+        "waiting": "En attente",
+        "validated": "Validé",
+        "published": "Publié"
+      }
+    },
+    "exams": {
+      "title": "Soumissions d'examens",
+      "noSubmissions": "Aucune soumission trouvée",
+      "filters": {
+        "chapterPrefix": "Chapitre: ",
+        "statusPrefix": "Statut: ",
+        "waiting": "En attente",
+        "all": "Tous",
+        "corrected": "Corrigé"
+      },
+      "downloadSubmission": "Télécharger la soumission de l'étudiant",
+      "viewDetails": "Voir les détails",
+      "correct": "Corriger",
+      "professorNotesTitle": "Notes du professeur",
+      "gradeTitle": "Note:",
+      "correctionFileLabel": "Fichier de correction",
+      "hideDetails": "Masquer les détails",
+      "hideCorrectionForm": "Masquer le formulaire de correction",
+      "saveCorrection": "Enregistrer la correction",
+      "uploadCorrectionLabel": "Télécharger le fichier de correction",
+      "studentTotalMarkLabel": "Note totale",
+      "additionalNotesLabel": "Notes supplémentaires",
+      "notesPlaceholder": "Entrez vos notes supplémentaires ici..."
+    }
   }
 }
 

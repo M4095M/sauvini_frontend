@@ -10,12 +10,13 @@ export default function DropDown({
   options = [],
   t,
   isRTL,
+  max_width="max-w-xl"
 }: DropDownProps) {
   const [currentItem, setCurrentItem] = useState("");
   const [showList, setShowList] = useState(false);
 
   return (
-    <div className="max-w-xl min-w-2xs shrink grow flex flex-col gap-2">
+    <div className={`${max_width} w-full min-w-2xs shrink grow flex flex-col gap-2`}>
       <div className="font-work-sans text-neutral-600 font-normal px-4">
         {label}
       </div>
