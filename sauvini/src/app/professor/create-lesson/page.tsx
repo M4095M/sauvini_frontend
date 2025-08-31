@@ -9,12 +9,21 @@ import ChapterDependencyPopup from "./chapterDependencyPopup";
 import CreateLessonPopup from "./createLessonPopup";
 import UpdateLessonPopUp from "./updateLessonPopup";
 import ViewLessonPopup from "./viewLessonPopup";
+import LogoutPopUp from "@/components/general/logoutPopUp";
+import ErrorPage from "@/components/general/errorPage";
+import PurchaseChapter from "@/components/general/purchaseChapter";
+import CantPurchaseChapter from "@/components/general/cantPurchaseChapter";
 
 export default function CreateLessonPopupTest() {
   return (
     // <CreateLessonPopup />
     // <UpdateLessonPopUp />
     // <ChapterDependencyPopup />
-    <ViewLessonPopup />
+    // <ViewLessonPopup />
+
+    // test temp:
+    <CantPurchaseChapter
+      required={["Algebraic Expressions", "Algebraic Expressions"]}
+    />
   );
 }
