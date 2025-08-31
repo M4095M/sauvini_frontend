@@ -3,11 +3,40 @@ import OptionCard from "@/components/input/optionCard";
 import Button from "@/components/ui/button";
 import { Plus } from "lucide-react";
 
-export default function ProfessorPermission() {
+type ProfessorPermissionProps = {
+  onClose: () => void;
+};
+
+export default function ProfessorPermission({
+  onClose = () => {},
+}: ProfessorPermissionProps) {
   const handleAddOption = () => {};
   const handleRemoveOption = () => {};
   return (
     <div className="w-full bg-neutral-100 rounded-[52px] pt-20 pb-11 px-10 flex flex-col gap-12">
+      {/* close button */}
+      <div
+        className="w-full flex justify-end text-neutral-400 cursor-pointer"
+        onClick={() => {
+          onClose();
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="29"
+          viewBox="0 0 28 29"
+          fill="none"
+        >
+          <path
+            d="M7 21.5L21 7.5M7 7.5L21 21.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
       {/* header name */}
       <div className="font-semibold text-5xl text-neutral-600">
         [Prof name] Permissons

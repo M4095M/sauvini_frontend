@@ -10,6 +10,7 @@ import { DataTable } from "@/components/tables/data-table";
 import {
   professor_columns,
   ProfessorColumn,
+  returnProfessorColumns,
 } from "@/components/tables/professors/professor_columns";
 import Button from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
@@ -17,6 +18,7 @@ import { ChevronLast, ChevronLeft, ChevronRight, Plus } from "lucide-react";
 import { useMemo, useState } from "react";
 import ViewTeacherApplicationDetails from "./viewTeacherApplication";
 import ProfessorPermission from "./professorPermission";
+import ChangeStatusPopup from "./changeStatusPopup";
 
 const professors: ProfessorColumn[] = [
   {
@@ -24,35 +26,35 @@ const professors: ProfessorColumn[] = [
     name: "Dr. Ahmed Benali",
     phone_number: "+213 550 123 456",
     email: "ahmed.benali@example.com",
-    status: "Active",
+    status: "Accepted",
   },
   {
     profile_picture: "https://randomuser.me/api/portraits/women/12.jpg",
     name: "Prof. Samira Belkacem",
     phone_number: "+213 661 987 654",
     email: "samira.belkacem@example.com",
-    status: "On Leave",
+    status: "Pending",
   },
   {
     profile_picture: "https://randomuser.me/api/portraits/men/15.jpg",
     name: "Dr. Mourad Ait",
     phone_number: "+213 540 555 222",
     email: "mourad.ait@example.com",
-    status: "Inactive",
+    status: "Accepted",
   },
   {
     profile_picture: "https://randomuser.me/api/portraits/women/18.jpg",
     name: "Prof. Nadia Cherif",
     phone_number: "+213 790 444 333",
     email: "nadia.cherif@example.com",
-    status: "Active",
+    status: "Accepted",
   },
   {
     profile_picture: "https://randomuser.me/api/portraits/men/21.jpg",
     name: "Dr. Yassine Boudiaf",
     phone_number: "+213 660 777 888",
     email: "yassine.boudiaf@example.com",
-    status: "Retired",
+    status: "Accepted",
   },
 ];
 
@@ -67,6 +69,28 @@ export default function ProfessorManagementPage({
   columns,
   pageSizeOptions = [10, 20, 50, 100],
 }: PaginatedTableProps<ProfessorColumn[]>) {
+  // control pop ups:
+  const [showChangeStatusPopup, setShowChangeStatusPopup] = useState(false);
+  const [showPermissionPopup, setShowPermissionPopup] = useState(false);
+  const [showViewDetailsPopup, setShowViewDetailsPopup] = useState(false);
+
+  // handlers
+  const handleChangeStatusPopup = () => {
+    document.body.classList.add("no-scroll");
+
+    setShowChangeStatusPopup(true);
+  };
+
+  const handlePermissionPopup = () => {
+    document.body.classList.add("no-scroll");
+    setShowPermissionPopup(true);
+  };
+
+  const handleViewDetailsPopup = () => {
+    document.body.classList.add("no-scroll");
+    setShowViewDetailsPopup(true);
+  };
+
   // parameters for the query (use as query parameters)
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(pageSizeOptions[0]);
@@ -81,7 +105,11 @@ export default function ProfessorManagementPage({
   }, [data, page, pageSize]);
 
   return (
-    <div className="w-full flex flex-col gap-6">
+    <div
+      className={`w-full flex flex-col gap-6 ${
+        showChangeStatusPopup ? "ooverflow-hidden" : ""
+      }`}
+    >
       <div className="w-full bg-neutral-100 rounded-[52px] py-6 px-3 flex flex-col gap-4">
         {/* header */}
         <div className="flex flex-col">
@@ -114,7 +142,14 @@ export default function ProfessorManagementPage({
         </div>
         {/* table content */}
         <div className="">
-          <DataTable columns={professor_columns} data={paginatedData} />
+          <DataTable
+            columns={returnProfessorColumns(
+              handlePermissionPopup,
+              handleViewDetailsPopup,
+              handleChangeStatusPopup
+            )}
+            data={paginatedData}
+          />
         </div>
       </div>
       {/* pagination */}
@@ -193,9 +228,50 @@ export default function ProfessorManagementPage({
           </div>
         </div>
       </div>
+
+      {/* pop ups: confirm accept */}
+      {showChangeStatusPopup && (
+        <div className="w-full h-screen flex justify-center items-center bg-black/40 absolute top-0 left-0 z-100000">
+          {/* change status pop up */}
+          <div className="">
+            <ChangeStatusPopup
+              onAccept={() => {}}
+              onCancel={() => {
+                document.body.classList.remove("no-scroll");
+                setShowChangeStatusPopup(false);
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* pop ups: view details: */}
+      {showViewDetailsPopup && (
+        <div className="w-full overflow-y-auto h-screen flex justify-center bg-black/40 absolute top-0 left-0 z-100000">
+          <div className="m-20">
+            <ViewTeacherApplicationDetails
+              onClose={() => {
+                document.body.classList.remove("no-scroll");
+                setShowViewDetailsPopup(false);
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* pop up: manage permission */}
+      {showPermissionPopup && (
+        <div className="w-full overflow-y-auto h-screen flex justify-center bg-black/40 absolute top-0 left-0 z-100000">
+          <div className="m-20">
+            <ProfessorPermission
+              onClose={() => {
+                document.body.classList.remove("no-scroll");
+                setShowPermissionPopup(false);
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
-
-
-
 }

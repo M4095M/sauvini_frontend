@@ -1,6 +1,14 @@
 import Button from "@/components/ui/button";
 
-export default function ChangeStatusPopup() {
+type ChangeStatusPopupProps = {
+  onCancel: () => void;
+  onAccept: () => void;
+};
+
+export default function ChangeStatusPopup({
+  onCancel,
+  onAccept,
+}: ChangeStatusPopupProps) {
   return (
     <div className="w-full max-w-3xl py-11 px-10 rounded-[52px] flex flex-col gap-12 bg-neutral-100">
       {/* header */}
@@ -20,12 +28,14 @@ export default function ChangeStatusPopup() {
           size={"M"}
           icon_position={"none"}
           text="Cancel"
+          onClick={onCancel}
         />
         <Button
           state={"filled"}
           size={"M"}
           icon_position={"none"}
           text="Accepted Professor"
+          onClick={onAccept}
         />
       </div>
     </div>
