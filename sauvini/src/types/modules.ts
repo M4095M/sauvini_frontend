@@ -201,7 +201,7 @@ export interface ExerciseSubmission {
   studentId: string
   submittedAt: Date
   grade?: number // Professor's assigned grade (0-total marks)
-  status: "submitted" | "graded"
+  status: "corrected" | "waiting"
   solutionPdfUrl: string // Student's uploaded solution
   studentNotes?: string // Student's additional notes
   professorNotes?: string // Professor's review notes

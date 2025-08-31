@@ -8,6 +8,8 @@ import { useLanguage } from "@/hooks/useLanguage";
 import AttachementField from "@/components/input/attachementField";
 import InputButton from "@/components/input/InputButton";
 import type { ExamSubmission } from "@/types/exam";
+import Tag from "@/components/professor/tag";
+import { IconAnswered, IconNotAnswered } from "@/components/professor/tagIcons";
 
 interface ExamsCardProps {
   submission: ExamSubmission;
@@ -51,15 +53,20 @@ export default function ExamsCard({
 
   const isCorrected = submission.status === "corrected";
 
-  const statusBadge = isCorrected ? (
-    <span className="px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-      {submission.status ?? t("professor.exams.status.corrected") ?? "Corrected"}
-    </span>
-  ) : (
-    <span className="px-3 py-1 text-sm font-medium rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-      {submission.status ?? t("professor.exams.status.waiting") ?? "Waiting"}
-    </span>
-  );
+  const canonicalStatus = submission.status === "corrected" ? "corrected" : "waiting";
+  const localizedStatusLabel =
+    canonicalStatus === "corrected"
+      ? t("professor.exams.status.corrected") ?? "corrected"
+      : t("professor.exams.status.waiting") ?? "waiting";
+
+  const statusIcon = canonicalStatus === "corrected" ? <IconAnswered className="text-emerald-600" /> : <IconNotAnswered className="text-yellow-600" />;
+
+  const statusClass =
+    canonicalStatus === "corrected"
+      ? "text-green-800 bg-green-100 dark:bg-green-900 dark:text-green-200"
+      : "text-yellow-800 bg-yellow-100 dark:bg-yellow-900 dark:text-yellow-200";
+
+  const statusBadge = <Tag icon={statusIcon} text={localizedStatusLabel} className={`px-3 py-1 text-sm font-medium rounded-full ${statusClass}`} />;
 
   const toggleOpen = () => setOpen((v) => !v);
 

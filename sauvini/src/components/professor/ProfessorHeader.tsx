@@ -114,7 +114,7 @@ export default function ProfessorHeader({ professorProfile, isMobile = false, cl
             size="M"
             icon_position="left"
             icon={<Bell className="w-5 h-5" style={{ color: "#CEDAE9" }} aria-hidden="true" />}
-            text={t("professor.notifications")}
+            text={t("professor.notification")}
           />
         </div>
 

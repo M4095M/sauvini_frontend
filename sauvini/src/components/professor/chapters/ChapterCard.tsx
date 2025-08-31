@@ -6,6 +6,7 @@ import { ChevronRight, ChevronLeft, CheckCircle, Clock, Eye } from "lucide-react
 import type { Chapter } from "@/types/modules"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
+import Tag from "@/components/professor/tag"
 
 interface ProfessorChapterCardProps {
   chapter: Chapter
@@ -178,22 +179,16 @@ export default function ProfessorChapterCard({
             dir={isRTL ? "rtl" : "ltr"}
           >
             {chapter.academicStreams.slice(0, 3).map((stream) => (
-              <span
-                key={stream}
-                className={`text-xs font-medium text-white px-2.5 py-1 rounded-full flex-shrink-0 ${isRTL ? "font-arabic" : "font-sans"}`}
-                style={{
-                  backgroundColor: chapterColor,
-                  fontSize: "11px",
-                  lineHeight: "1.3",
-                }}
-              >
-                {t(`professor.academicStreams.${stream.toLowerCase().replace(/[^a-z0-9]/g, "")}`)}
+              <span key={stream} className="inline-flex rounded-full" style={{ backgroundColor: chapterColor }}>
+                <Tag
+                  icon={null}
+                  text={t(`professor.academicStreams.${stream.toLowerCase().replace(/[^a-z0-9]/g, "")}`)}
+                  className={`text-[11px] font-medium text-white px-2 py-0.5 ${isRTL ? "font-arabic" : "font-sans"}`}
+                />
               </span>
             ))}
             {chapter.academicStreams.length > 3 && (
-              <span
-                className={`text-xs font-medium text-gray-500 dark:text-gray-400 ${isRTL ? "font-arabic" : "font-sans"}`}
-              >
+              <span className={`text-xs font-medium text-gray-500 dark:text-gray-400 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 +{chapter.academicStreams.length - 3}
               </span>
             )}

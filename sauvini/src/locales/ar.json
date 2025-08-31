@@ -387,7 +387,7 @@
   "professor": {
     "professor": "أستاذ",
     "dr": "د.",
-    "notifications": "الإشعارات",
+    "notification": "الإشعارات",
     "navigation": {
       "manageContent": "إدارة المحتوى",
       "correctExams": "تصحيح الامتحانات",
@@ -458,7 +458,69 @@
       "studentTotalMarkLabel": "الدرجة الكلية",
       "additionalNotesLabel": "ملاحظات إضافية",
       "notesPlaceholder": "أدخل أي ملاحظات إضافية هنا..."
-
+    },
+    "exercises": {
+      "title": "تسليمات التمارين",
+      "downloadSubmissionFile": "تحميل ملف التسليم",
+      "studentNotesLabel": "ملاحظات الطالب",
+      "uploadReviewLabel": "تحميل ملف المراجعة",
+      "totalMarkLabel": "الدرجة الكلية",
+      "additionalNotesLabel": "ملاحظات إضافية",
+      "saveReview": "حفظ المراجعة",
+      "professorNotesTitle": "ملاحظات الأستاذ",
+      "gradeTitle": "الدرجة:",
+      "correct": "تصحيح",
+      "noSubmissions": "لا توجد تسليمات",
+      "selectLesson": "اختر الدرس",
+      "selectChapter": "اختر الفصل",
+      "selectStatus": "اختر الحالة",
+      "studentNotes": "ملاحظات الطالب",
+      "viewDetails": "عرض التفاصيل",
+      "hideDetails": "إخفاء التفاصيل",
+      "filter": {
+        "selectLesson": "اختر الدرس",
+        "selectChapter": "اختر الفصل",
+        "selectStatus": "اختر الحالة"
+      },
+      "status": {
+        "corrected": "مصحح",
+        "waiting": "في الانتظار"
+      }
+    },
+    "notifications": {
+      "title": "الإشعارات",
+      "noNotifications": "لا توجد إشعارات",
+      "markAllAsSeen": "تحديد الكل كمقروء",
+      "sortByImportance": "ترتيب حسب: الأهمية",
+      "sortByTime": "ترتيب حسب: الوقت"
+    },
+    "questions": {
+      "title": "الأسئلة",
+      "noQuestions": "لا توجد أسئلة",
+      "filter": {
+        "selectChapter": "اختر الفصل",
+        "selectLesson": "اختر الدرس",
+        "selectStatus": "اختر الحالة"
+      },
+      "status": {
+        "waiting": "في الانتظار",
+        "answered": "تم الرد",
+        "all": "الكل"
+      },
+      "downloadAttachment": "تحميل المرفق",
+      "sendAnswer": "إرسال الإجابة",
+      "uploadAnswerLabel": "تحميل ملف",
+      "answerLabel": "الإجابة",
+      "viewDetails": "عرض التفاصيل",
+      "hideDetails": "إخفاء التفاصيل",
+      "answer": "الإجابة",
+      "private": "خاص",
+      "public": "عام",
+      "answerPlaceholder": "اكتب إجابتك هنا...",
+      "visibility": "الرؤية",
+      "cancel": "إلغاء",
+      "professorNotes": "ملاحظات الأستاذ",
+      "professorFile": "ملف الأستاذ"
     }
   }
 }

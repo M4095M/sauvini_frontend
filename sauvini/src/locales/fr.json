@@ -293,7 +293,7 @@
   "professor": {
     "professor": "Professeur",
     "dr": "Dr.",
-    "Notifications": "Notifications",
+    "Notification": "Notifications",
     "navigation": {
       "manageContent": "Gérer le contenu",
       "correctExams": "Corriger les examens",
@@ -362,6 +362,71 @@
       "studentTotalMarkLabel": "Note totale",
       "additionalNotesLabel": "Notes supplémentaires",
       "notesPlaceholder": "Entrez vos notes supplémentaires ici..."
+    },
+    "exercises": {
+      "title": "Soumissions d'exercices",
+      "downloadSubmissionFile": "Télécharger le fichier de soumission",
+      "studentNotesLabel": "Notes de l'étudiant",
+      "uploadReviewLabel": "Télécharger le fichier de révision",
+      "totalMarkLabel": "Note totale",
+      "additionalNotesLabel": "Notes supplémentaires",
+      "saveReview": "Enregistrer la révision",
+      "professorNotesTitle": "Notes du professeur",
+      "gradeTitle": "Note:",
+      "correct": "Corriger",
+      "noSubmissions": "Aucune soumission trouvée",
+      "selectLesson": "Sélectionner une leçon",
+      "selectChapter": "Sélectionner un chapitre",
+      "selectStatus": "Sélectionner un statut",
+      "studentNotes": "Notes de l'étudiant",
+      "viewDetails": "Voir les détails",
+      "hideDetails": "Masquer les détails",
+      "filter": {
+        "selectLesson": "Sélectionner une leçon",
+        "selectChapter": "Sélectionner un chapitre",
+        "selectStatus": "Sélectionner un statut"
+      },
+      "status": {
+        "corrected": "Corrigé",
+        "waiting": "En attente"
+      }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "noNotifications": "Aucune notification trouvée",
+      "markAllAsSeen": "Marquer tout comme vu",
+      "markAsSeen": "Marquer comme vu",
+      "normal": "Normal",
+      "important": "Important",
+      "urgent": "Urgent"
+    },
+    "questions": {
+      "title": "Questions",
+      "noQuestions": "Aucune question trouvée",
+      "filter": {
+        "selectChapter": "Sélectionner un chapitre",
+        "selectLesson": "Sélectionner une leçon",
+        "selectStatus": "Sélectionner un statut"
+      },
+      "status": {
+        "waiting": "En attente",
+        "answered": "Répondu",
+        "all": "Tous"
+      },
+      "downloadAttachment": "Télécharger la pièce jointe",
+      "sendAnswer": "Envoyer la réponse",
+      "uploadAnswerLabel": "Télécharger un fichier",
+      "answerLabel": "Réponse",
+      "viewDetails": "Voir les détails",
+      "hideDetails": "Masquer les détails",
+      "answer": "Réponse",
+      "private": "Privé",
+      "public": "Public",
+      "answerPlaceholder": "Tapez votre réponse ici...",
+      "visibility": "Visibilité",
+      "cancel": "Annuler",
+      "professorNotes": "Notes du professeur",
+      "professorFile": "Fichier du professeur"
     }
   }
 }
