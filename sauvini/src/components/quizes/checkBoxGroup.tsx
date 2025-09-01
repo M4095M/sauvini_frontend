@@ -4,9 +4,10 @@ import { useState } from "react";
 
 type CheckBoxGroupProps = {
   options?: string[];
+  isRTL: boolean;
 };
 
-export default function CheckBoxGroup({ options }: CheckBoxGroupProps) {
+export default function CheckBoxGroup({ options, isRTL }: CheckBoxGroupProps) {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   return (
     <div className="flex flex-col gap-3 w-full">
@@ -15,7 +16,7 @@ export default function CheckBoxGroup({ options }: CheckBoxGroupProps) {
           <CheckBoxQuestion
             key={index}
             option={option}
-            isRTL={false}
+            isRTL={isRTL}
             state={false}
             onChange={(isChecked: boolean) => {
               if (isChecked) {

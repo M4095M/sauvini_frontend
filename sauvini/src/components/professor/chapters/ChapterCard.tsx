@@ -172,7 +172,7 @@ export default function ProfessorChapterCard({
         </div>
 
         {/* Content Section */}
-        <div className="flex flex-col gap-2.5 self-stretch mt-auto">
+        <div className="flex flex-col items-start gap-2.5 self-stretch mt-auto" dir={isRTL ? "rtl" : "ltr"}>
           {/* Academic Stream Tags */}
           <div
             className={`flex flex-wrap items-center gap-1.5 ${isRTL ? "justify-end" : "justify-start"}`}

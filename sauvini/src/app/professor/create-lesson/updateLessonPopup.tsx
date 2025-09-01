@@ -10,32 +10,38 @@ import Button from "@/components/ui/button";
 
 type UpdateLessonPopUProps = {
   onClose: () => void;
-}
+  t: any;
+  isRTL: boolean;
+};
 
-export default function UpdateLessonPopUp({onClose} : UpdateLessonPopUProps) {
+export default function UpdateLessonPopUp({
+  onClose,
+  t,
+  isRTL,
+}: UpdateLessonPopUProps) {
   return (
     <div className="w-full rounded-[60px] bg-neutral-100 py-11 px-10 flex flex-col justify-center gap-14">
       {/* header */}
       <div className="flex flex-col gap-4">
         <div className="font-semibold text-4xl text-neutral-600">
-          Update Course
+          {t("professor.lessons.UpdateLesson")}
         </div>
         <div className="text-neutral-400 text-xl font-medium">
-          Fill in the details below to create a new lesson.
+          {t("professor.lessons.UpdateLessonDesc")}
         </div>
       </div>
       {/* input fields */}
       <div className="flex flex-col gap-10">
         {/* lesson name */}
         <SimpleInput
-          label={"Lesson name"}
+          label={t("professor.lessons.LessonName")}
           value={""}
           type={"text"}
           max_width=""
         />
         {/* lesson description */}
         <SimpleInput
-          label={"Lesson description"}
+          label={t("professor.lessons.LessonDescription")}
           value={""}
           type={"text"}
           long
@@ -44,7 +50,7 @@ export default function UpdateLessonPopUp({onClose} : UpdateLessonPopUProps) {
         />
         {/* Lesson video */}
         <AttachementField
-          label="Lesson video"
+          label={t("professor.lessons.LessonVideo")}
           max_size={0}
           name={""}
           acceptedTypes={"image/*,.pdf,.doc,.docx"}
@@ -54,7 +60,7 @@ export default function UpdateLessonPopUp({onClose} : UpdateLessonPopUProps) {
         <div className="flex flex-col gap-5">
           {/* attach compo */}
           <AttachementField
-            label="Atttachements"
+            label={t("professor.lessons.LessonAttachment")}
             max_size={0}
             name={""}
             acceptedTypes={"image/*,.pdf,.doc,.docx"}
@@ -69,7 +75,7 @@ export default function UpdateLessonPopUp({onClose} : UpdateLessonPopUProps) {
         </div>
         {/* Exercise PDF */}
         <AttachementField
-          label="Exercise PDF"
+          label={t("professor.lessons.ExercicePDF")}
           max_size={0}
           name={""}
           acceptedTypes={"image/*,.pdf,.doc,.docx"}
@@ -77,20 +83,20 @@ export default function UpdateLessonPopUp({onClose} : UpdateLessonPopUProps) {
         />
         {/* Exercises Total Marks */}
         <InputButton
-          label={"Exercises Total Marks"}
+          label={t("professor.lessons.ExerciceTotalMark")}
           type={"plus-minus"}
           max_width=""
         />
         {/* Exercises Total XP */}
         <InputButton
-          label={"Exercises Total XP"}
+          label={t("professor.lessons.ExerciceTotalXP")}
           type={"plus-minus"}
           max_width=""
         />
         {/* Supported Academic Streams */}
         <div className="flex flex-col gap-4">
           <DropDown
-            label={"Supported Academic Streams"}
+            label={t("professor.lessons.SupportedStreams")}
             placeholder=""
             options={[
               {
@@ -110,7 +116,7 @@ export default function UpdateLessonPopUp({onClose} : UpdateLessonPopUProps) {
         <div className="flex flex-row justify-between items-center ">
           {/* left part */}
           <div className="flex flex-row gap-3">
-            <div className="font-normal text-neutral-600 text-base">Quiz</div>
+            <div className="font-normal text-neutral-600 text-base">{t("professor.lessons.Quiz")}</div>
             <Tag
               icon={
                 <IconMissingQuiz
@@ -129,7 +135,7 @@ export default function UpdateLessonPopUp({onClose} : UpdateLessonPopUProps) {
               state={"filled"}
               size={"M"}
               icon_position={"none"}
-              text="Add Quiz"
+              text={t("professor.lessons.UpdateQuiz")}
             />
           </div>
         </div>
@@ -140,14 +146,14 @@ export default function UpdateLessonPopUp({onClose} : UpdateLessonPopUProps) {
           state={"tonal"}
           size={"M"}
           icon_position={"none"}
-          text="Cancel"
+          text={t("professor.lessons.Cancel")}
           onClick={onClose}
         />
         <Button
           state={"filled"}
           size={"M"}
           icon_position={"none"}
-          text="Create lesson"
+          text={t("professor.lessons.UpdateLesson")}
         />
       </div>
     </div>

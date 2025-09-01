@@ -8,32 +8,36 @@ import Button from "@/components/ui/button";
 
 type CreateLessonPopupProps = {
   onClose: () => void;
+  t: any;
 };
 
-export default function CreateLessonPopup({ onClose }: CreateLessonPopupProps) {
+export default function CreateLessonPopup({
+  onClose,
+  t,
+}: CreateLessonPopupProps) {
   return (
     <div className="w-full rounded-[60px] bg-neutral-100 py-11 px-10 flex flex-col justify-center gap-14">
       {/* header */}
       <div className="flex flex-col gap-4">
         <div className="font-semibold text-4xl text-neutral-600">
-          Create Course
+          {t("professor.lessons.CreateLessonTitle")}
         </div>
         <div className="text-neutral-400 text-xl font-medium">
-          Fill in the details below to create a new lesson.
+          {t("professor.lessons.CreateLessonDesc")}
         </div>
       </div>
       {/* input fields */}
       <div className="flex flex-col gap-10">
         {/* lesson name */}
         <SimpleInput
-          label={"Lesson name"}
+          label={t("professor.lessons.LessonName")}
           value={""}
           type={"text"}
           max_width=""
         />
         {/* lesson description */}
         <SimpleInput
-          label={"Lesson description"}
+          label={t("professor.lessons.LessonDescription")}
           value={""}
           type={"text"}
           long
@@ -42,7 +46,7 @@ export default function CreateLessonPopup({ onClose }: CreateLessonPopupProps) {
         />
         {/* Lesson video */}
         <AttachementField
-          label="Lesson video"
+          label={t("professor.lessons.LessonVideo")}
           max_size={0}
           name={""}
           acceptedTypes={"image/*,.pdf,.doc,.docx"}
@@ -52,7 +56,7 @@ export default function CreateLessonPopup({ onClose }: CreateLessonPopupProps) {
         <div className="flex flex-col gap-5">
           {/* attach compo */}
           <AttachementField
-            label="Atttachements"
+            label={t("professor.lessons.LessonAttachment")}
             max_size={0}
             name={""}
             acceptedTypes={"image/*,.pdf,.doc,.docx"}
@@ -67,7 +71,7 @@ export default function CreateLessonPopup({ onClose }: CreateLessonPopupProps) {
         </div>
         {/* Exercise PDF */}
         <AttachementField
-          label="Exercise PDF"
+          label={t("professor.lessons.ExercicePDF")}
           max_size={0}
           name={""}
           acceptedTypes={"image/*,.pdf,.doc,.docx"}
@@ -75,20 +79,20 @@ export default function CreateLessonPopup({ onClose }: CreateLessonPopupProps) {
         />
         {/* Exercises Total Marks */}
         <InputButton
-          label={"Exercises Total Marks"}
+          label={t("professor.lessons.ExerciceTotalMark")}
           type={"plus-minus"}
           max_width=""
         />
         {/* Exercises Total XP */}
         <InputButton
-          label={"Exercises Total XP"}
+          label={t("professor.lessons.ExerciceTotalXP")}
           type={"plus-minus"}
           max_width=""
         />
         {/* Supported Academic Streams */}
         <div className="flex flex-col gap-4">
           <DropDown
-            label={"Supported Academic Streams"}
+            label={t("professor.lessons.SupportedStreams")}
             placeholder=""
             options={[
               {
@@ -111,7 +115,7 @@ export default function CreateLessonPopup({ onClose }: CreateLessonPopupProps) {
           state={"tonal"}
           size={"M"}
           icon_position={"none"}
-          text="Cancel"
+          text={t("professor.lessons.Cancel")}
           onClick={() => {
             onClose();
           }}
@@ -120,7 +124,7 @@ export default function CreateLessonPopup({ onClose }: CreateLessonPopupProps) {
           state={"filled"}
           size={"M"}
           icon_position={"none"}
-          text="Create lesson"
+          text={t("professor.lessons.CreateLesson")}
         />
       </div>
     </div>

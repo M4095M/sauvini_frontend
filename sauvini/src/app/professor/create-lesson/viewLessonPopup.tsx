@@ -6,11 +6,40 @@ import Button from "@/components/ui/button";
 
 type ViewLessonPopupProps = {
   onClose?: () => void;
-}
+  t: any;
+  isRTL: boolean;
+};
 
-export default function ViewLessonPopup({onClose} : ViewLessonPopupProps) {
+export default function ViewLessonPopup({
+  onClose,
+  t,
+  isRTL,
+}: ViewLessonPopupProps) {
   return (
     <div className="w-full pt-20 pb-11 px-10 bg-neutral-100 rounded-[60px] flex flex-col gap-12">
+      <div
+        className="flex justify-end w-full "
+        dir={isRTL ? "rtl" : "ltr"}
+        onClick={onClose}
+      >
+        <div className="w-fit text-neutral-400 cursor-pointer select-none">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <path
+              d="M5 15L15 5M5 5L15 15"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
       {/* header */}
       <div className="font-semibold text-4xl text-neutral-600">
         Chapter title
@@ -20,14 +49,14 @@ export default function ViewLessonPopup({onClose} : ViewLessonPopupProps) {
         {/* lesson name */}
         <div className="flex flex-col gap-3">
           <div className="font-medium text-2xl text-neutral-600">
-            Lesson Name
+            {t("professor.lessons.LessonName")}
           </div>
           <div className="text-base font-normal text-neutral-600">Name</div>
         </div>
         {/* lesson desc */}
         <div className="flex flex-col gap-3">
           <div className="font-medium text-2xl text-neutral-600">
-            Lesson Description
+            {t("professor.lessons.LessonDescription")}
           </div>
           <div className="text-base font-normal text-neutral-600">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
@@ -40,14 +69,14 @@ export default function ViewLessonPopup({onClose} : ViewLessonPopupProps) {
         {/* Lesson video */}
         <div className="flex flex-col gap-3">
           <div className="font-medium text-2xl text-neutral-600">
-            Lesson video
+            {t("professor.lessons.LessonVideo")}
           </div>
           <FileAttachement isRTL={false} downloadable={false} />
         </div>
         {/* attachement */}
         <div className="flex flex-col gap-3">
           <div className="font-medium text-2xl text-neutral-600">
-            Attachments
+            {t("professor.lessons.LessonAttachment")}
           </div>
           <div className="flex flex-col gap-3">
             <FileAttachement isRTL={false} downloadable />
@@ -58,28 +87,28 @@ export default function ViewLessonPopup({onClose} : ViewLessonPopupProps) {
         {/* Exercices pdf */}
         <div className="flex flex-col gap-3">
           <div className="font-medium text-2xl text-neutral-600">
-            Exercices pdf
+            {t("professor.lessons.ExercicePDF")}
           </div>
           <FileAttachement isRTL={false} downloadable={false} />
         </div>
         {/* total marks */}
         <div className="flex flex-col gap-3">
           <div className="font-medium text-2xl text-neutral-600">
-            Exercises Total Marks
+            {t("professor.lessons.ExerciceTotalMark")}
           </div>
           <div className="text-base font-normal text-neutral-600">20</div>
         </div>
         {/* total xp */}
         <div className="flex flex-col gap-3">
           <div className="font-medium text-2xl text-neutral-600">
-            Exercises Total XP
+            {t("professor.lessons.ExerciceTotalXP")}
           </div>
           <div className="text-base font-normal text-neutral-600">64</div>
         </div>
         {/* acadmic dependencties */}
         <div className="flex flex-col gap-3">
           <div className="font-medium text-2xl text-neutral-600">
-            Supported Academic Streams
+            {t("professor.lessons.SupportedStreams")}
           </div>
           <div className="flex gap-3">
             <BigTag icon={undefined} text={"Mathematics"} />
@@ -90,7 +119,9 @@ export default function ViewLessonPopup({onClose} : ViewLessonPopupProps) {
         <div className="flex flex-row justify-between items-center ">
           {/* left part */}
           <div className="flex flex-row gap-3">
-            <div className="font-normal text-neutral-600 text-base">Quiz</div>
+            <div className="font-normal text-neutral-600 text-base">
+              {t("professor.lessons.Quiz")}
+            </div>
             <Tag
               icon={
                 <IconMissingQuiz
@@ -109,7 +140,7 @@ export default function ViewLessonPopup({onClose} : ViewLessonPopupProps) {
               state={"filled"}
               size={"M"}
               icon_position={"none"}
-              text="Add Quiz"
+              text={t("professor.lessons.UpdateQuiz")}
             />
           </div>
         </div>

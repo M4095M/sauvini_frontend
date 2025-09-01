@@ -3,7 +3,7 @@
     "title": "À Propos de Nous",
     "description": "Nous sommes une équipe de développeurs passionnés qui s'efforcent d'offrir la meilleure expérience possible à nos utilisateurs. Nous croyons au pouvoir de la technologie pour améliorer la vie quotidienne."
   },
-  "common" : {
+  "common": {
     "language": "Langue",
     "back": "Retour",
     "next": "Suivant",
@@ -343,7 +343,43 @@
         "waiting": "En attente",
         "validated": "Validé",
         "published": "Publié"
-      }
+      },
+      "supportedStreams": "Filières académiques prises en charge",
+      "AddStream": "Ajouter une filière",
+      "ChapterDepencies": "Dépendances du chapitre",
+      "AddDepencies": "Ajouter une dépendance",
+      "ChapterExams": "Examens du chapitre",
+      "Upload": "Téléverser",
+      "UploadExamPDF": "Téléverser le PDF de l'examen",
+      "ExamTotalMark": "Note totale de l'examen",
+      "ExamMinScore": "Note minimale de l'examen",
+      "ExamTotalXP": "XP total de l'examen",
+      "Lessons": "Leçons",
+      "AddLesson": "Ajouter une leçon",
+      "NoLessonYet": "Aucune leçon pour le moment",
+      "SaveChanges": "Enregistrer les modifications"
+    },
+    "lessons": {
+      "CreatedOn": "Créé le",
+      "CreateLessonTitle": "Créer une leçon",
+      "CreateLessonDesc": "Remplissez les détails ci-dessous pour créer une nouvelle leçon.",
+      "LessonName": "Nom de la leçon",
+      "LessonDescription": "Description de la leçon",
+      "LessonVideo": "Vidéo de la leçon",
+      "LessonAttachment": "Pièces jointes de la leçon",
+      "ExercicePDF": "PDF de l'exercice",
+      "ExerciceTotalMark": "Note totale de l'exercice",
+      "ExerciceTotalXP": "XP total de l'exercice",
+      "SupportedStreams": "Filières académiques prises en charge",
+      "Cancel": "Annuler",
+      "CreateLesson": "Créer la leçon",
+      "AddDepency": "Ajouter des dépendances de chapitre",
+      "AddDepencyDesc": "Sélectionnez les chapitres dont dépend celui-ci",
+      "SaveDepencies": "Enregistrer les dépendances",
+      "UpdateLesson": "Mettre à jour la leçon",
+      "UpdateLessonDesc": "Modifier les détails ou remplacer les fichiers de cette leçon",
+      "UpdateQuiz": "Mettre à jour le quiz",
+      "Quiz": "Quiz"
     },
     "exams": {
       "title": "Soumissions d'examens",
@@ -477,9 +513,9 @@
         "statusLabel": "Statut:",
         "changeToValidated": "Changer en Validé",
         "studentInformation": "Informations sur l'étudiant",
-        "viewProfile":"Voir le profil",
-        "fullName":"Nom complet",
-        "phoneNumber":"Numéro de téléphone",
+        "viewProfile": "Voir le profil",
+        "fullName": "Nom complet",
+        "phoneNumber": "Numéro de téléphone",
         "emailAddress": "Adresse e-mail",
         "academicStream": "Parcours académique",
         "purchaseInfoTitle": "Informations sur l'achat",
@@ -508,4 +544,3 @@
     "maxSizeHint": "Max 5 Mo. JPG/PNG."
   }
 }
-

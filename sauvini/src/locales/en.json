@@ -437,7 +437,43 @@
         "waiting": "Waiting",
         "validated": "Validated",
         "published": "Published"
-      }
+      },
+      "supportedStreams": "Supported academic streams",
+      "AddStream": "Add a stream",
+      "ChapterDepencies": "Chapter Dependencies",
+      "AddDepencies": "Add dependency",
+      "ChapterExams": "Chapter Exams",
+      "Upload": "Upload",
+      "UploadExamPDF": "Uplaod Exam PDF",
+      "ExamTotalMark": "Exam Total Mark",
+      "ExamMinScore": "Exam Minimum Score",
+      "ExamTotalXP": "Exam Total XP",
+      "Lessons": "Lessons",
+      "AddLesson": "Add Lesson",
+      "NoLessonYet": "No lessons yet",
+      "SaveChanges": "Save Changes"
+    },
+    "lessons": {
+      "CreatedOn" : "Created on",
+      "CreateLessonTitle": "Create Lesson",
+      "CreateLessonDesc": "Fill in the details below to create a new lesson.",
+      "LessonName": "Lesson Name",
+      "LessonDescription" : "Lesson Description",
+      "LessonVideo": "Lesson Video",
+      "LessonAttachment": "Lesson Attachments",
+      "ExercicePDF": "Exercise PDF",
+      "ExerciceTotalMark": "Exercise Total Marks",
+      "ExerciceTotalXP": "Exercise Total XP",
+      "SupportedStreams": "Supported Academic Streams",
+      "Cancel": "Cancel",
+      "CreateLesson": "Create Lesson",
+      "AddDepency": "Add Chapter Dependencies",
+      "AddDepencyDesc": "Select the chapters this one depends on",
+      "SaveDepencies": "Save Dependencies",
+      "UpdateLesson": "Update Lesson",
+      "UpdateLessonDesc": "Edit the details or replace files for this lesson",
+      "UpdateQuiz" :  "Update Quiz",
+      "Quiz" : "Quiz"
     },
     "exams": {
       "title": "Exam Submissions",
@@ -486,9 +522,9 @@
       "viewDetails": "View Details",
       "hideDetails": "Hide Details",
       "filter": {
-        "selectLesson":"Select lesson",
-        "selectChapter":"Select chapter",
-        "selectStatus":"Select status"
+        "selectLesson": "Select lesson",
+        "selectChapter": "Select chapter",
+        "selectStatus": "Select status"
       },
       "status": {
         "corrected": "Corrected",
@@ -498,9 +534,9 @@
     "notifications": {
       "title": "Notifications",
       "noNotifications": "No notifications found",
-      "markAllAsSeen":"Mark all as seen",
-      "sortByImportance":"Sort by: Importance",
-      "sortByTime":"Order by time"
+      "markAllAsSeen": "Mark all as seen",
+      "sortByImportance": "Sort by: Importance",
+      "sortByTime": "Order by time"
     },
     "questions": {
       "title": "Questions",
@@ -573,9 +609,9 @@
         "statusLabel": "Status:",
         "changeToValidated": "Change to Validated",
         "studentInformation": "Student Information",
-        "viewProfile":"View Profile",
-        "fullName":"Full Name",
-        "phoneNumber":"Phone Number",
+        "viewProfile": "View Profile",
+        "fullName": "Full Name",
+        "phoneNumber": "Phone Number",
         "emailAddress": "Email Address",
         "academicStream": "Academic Stream",
         "purchaseInfoTitle": "Purchase Information",

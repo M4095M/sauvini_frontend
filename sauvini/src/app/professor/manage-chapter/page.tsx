@@ -14,8 +14,10 @@ import ChapterDependencyPopup from "../create-lesson/chapterDependencyPopup";
 import LessonCard from "@/components/professor/lessonCard";
 import UpdateLessonPopUp from "../create-lesson/updateLessonPopup";
 import ViewLessonPopup from "../create-lesson/viewLessonPopup";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProfessorManageChapter() {
+  const { t, language, isRTL } = useLanguage();
   const searchParams = useSearchParams();
   const chapterId = searchParams?.get("chapterId") || null;
   const moduleId = searchParams?.get("moduleId") || null;
@@ -77,7 +79,7 @@ export default function ProfessorManageChapter() {
               state={"filled"}
               size={"M"}
               icon_position={"right"}
-              text="Save changes"
+              text={t("professor.chapters.SaveChanges")}
               icon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -103,11 +105,11 @@ export default function ProfessorManageChapter() {
           {/* academic stream */}
           <div className="flex flex-col gap-5">
             <div className="px-8 text-2xl font-medium text-neutral-600">
-              Supported academic streams
+              {t("professor.chapters.supportedStreams")}
             </div>
             <div className="px-8 flex flex-col gap-4">
               <DropDown
-                label="Add a stream"
+                label={t("professor.chapters.AddStream")}
                 placeholder=""
                 options={[
                   {
@@ -136,7 +138,7 @@ export default function ProfessorManageChapter() {
             {/* info */}
             <div className="flex flex-col gap-5">
               <div className="text-2xl font-medium text-neutral-600">
-                Chapter dependencies
+                {t("professor.chapters.ChapterDepencies")}
               </div>
               <div className="flex flex-row gap-3 flex-wrap">
                 {dependencies.length > 0 ? (
@@ -159,7 +161,7 @@ export default function ProfessorManageChapter() {
               <Button
                 state={"outlined"}
                 size={"M"}
-                text="Add a dependecy"
+                text={t("professor.chapters.AddDepencies")}
                 icon_position={"left"}
                 icon={<Plus />}
                 onClick={() => {
@@ -174,7 +176,7 @@ export default function ProfessorManageChapter() {
           <div className="flex flex-col gap-5 px-8">
             {/* title */}
             <div className="text-2xl font-medium text-neutral-600">
-              Chapter Exam
+              {t("professor.chapters.ChapterExams")}
             </div>
             {/* input fields */}
             <div className="flex flex-col gap-6">
@@ -182,14 +184,14 @@ export default function ProfessorManageChapter() {
               <div className="flex flex-col gap-2">
                 <div className="flex flex-row justify-between items-center">
                   <div className="text-neutral-600 font-normal text-base px-4">
-                    Upload Exam PDF
+                    {t("professor.chapters.UploadExamPDF")}
                   </div>
                   <div className="">
                     <Button
                       state={"outlined"}
                       size={"M"}
                       icon_position={"none"}
-                      text="Upload"
+                      text={t("professor.chapters.Upload")}
                     />
                   </div>
                 </div>
@@ -197,19 +199,19 @@ export default function ProfessorManageChapter() {
               </div>
               {/* total score */}
               <InputButton
-                label={"Exam Total Mark"}
+                label={t("professor.chapters.ExamTotalMark")}
                 type={"plus-minus"}
                 max_width=""
               />
               {/* min score */}
               <InputButton
-                label={"Exam Minimum Score"}
+                label={t("professor.chapters.ExamMinScore")}
                 type={"plus-minus"}
                 max_width=""
               />
               {/* total xp */}
               <InputButton
-                label={"Exam Total XP"}
+                label={t("professor.chapters.ExamTotalXP")}
                 type={"plus-minus"}
                 max_width=""
               />
@@ -222,14 +224,18 @@ export default function ProfessorManageChapter() {
         {/* header */}
         <div className="px-4 flex justify-between items-center">
           {/* title */}
-          <div className="text-2xl font-medium grow">Lessons</div>
+          <div className="text-2xl font-medium grow">
+            {t("professor.chapters.Lessons")}
+          </div>
           {/* action button */}
           <div className="">
+            {/* DISPLAY IF THERE IS NOT LESSONS */}
+            {/* <div className="text-neural-300 font-semibold text-5xl">{t("professor.chapters.NoLessonYet")}</div> */}
             <Button
               state={"outlined"}
               size={"M"}
               icon_position={"left"}
-              text="Add a lesson"
+              text={t("professor.chapters.AddLesson")}
               icon={<Plus />}
               onClick={() => {
                 window.scrollTo(0, 0);
@@ -272,6 +278,7 @@ export default function ProfessorManageChapter() {
                 document.body.classList.remove("no-scroll");
                 setShowCreateLessonPopup(false);
               }}
+              t={t}
             />
           </div>
         </div>
@@ -285,6 +292,8 @@ export default function ProfessorManageChapter() {
                 document.body.classList.remove("no-scroll");
                 setShowChapterDependencyPopup(false);
               }}
+              t={t}
+              isRTL={isRTL}
             />
           </div>
         </div>
@@ -298,6 +307,8 @@ export default function ProfessorManageChapter() {
                 document.body.classList.remove("no-scroll");
                 setShowUpdateChapterPopup(false);
               }}
+              t={t}
+              isRTL={isRTL}
             />
           </div>
         </div>
@@ -309,8 +320,10 @@ export default function ProfessorManageChapter() {
             <ViewLessonPopup
               onClose={() => {
                 document.body.classList.remove("no-scroll");
-                setShowUpdateChapterPopup(false);
+                setShowLessonDetailsPopup(false);
               }}
+              t={t}
+              isRTL={isRTL}
             />
           </div>
         </div>
