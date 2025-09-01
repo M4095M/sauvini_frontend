@@ -1,19 +1,23 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
 type checkBoxProps = {
   isChecked: boolean;
+  onChange: (isChecked: boolean) => void;
 };
 
-export default function checkBox({ isChecked }: checkBoxProps) {
-  const [Checked, setChecked] = useState(isChecked)
+export default function checkBox({ isChecked, onChange }: checkBoxProps) {
+  const [Checked, setChecked] = useState(isChecked);
   return (
     <div
       className={`w-[18px] h-[18px] border-2 border-primary-300 rounded-[2px] flex justify-center items-center ${
         Checked ? "bg-primary-300" : "bg-white"
       }`}
-      onClick={() => setChecked(!Checked)}
+      onClick={() => {
+        onChange(!Checked);
+        setChecked(!Checked);
+      }}
     >
       {Checked && (
         <svg

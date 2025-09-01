@@ -8,7 +8,11 @@ import { IconMissingQuiz } from "@/components/professor/tagIcons";
 import Tag from "@/components/questions/tag";
 import Button from "@/components/ui/button";
 
-export default function UpdateLessonPopUp() {
+type UpdateLessonPopUProps = {
+  onClose: () => void;
+}
+
+export default function UpdateLessonPopUp({onClose} : UpdateLessonPopUProps) {
   return (
     <div className="w-full rounded-[60px] bg-neutral-100 py-11 px-10 flex flex-col justify-center gap-14">
       {/* header */}
@@ -137,6 +141,7 @@ export default function UpdateLessonPopUp() {
           size={"M"}
           icon_position={"none"}
           text="Cancel"
+          onClick={onClose}
         />
         <Button
           state={"filled"}

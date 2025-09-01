@@ -1,7 +1,14 @@
+import CheckBoxGroup from "@/components/quizes/checkBoxGroup";
 import CheckBoxQuestion from "@/components/quizes/checkBoxQuestion";
 import Button from "@/components/ui/button";
 
-export default function ChapterDependencyPopup() {
+type ChapterDependencyPopupProps = {
+  onClose: () => void;
+};
+
+export default function ChapterDependencyPopup({
+  onClose,
+}: ChapterDependencyPopupProps) {
   return (
     <div className="py-10 px-11 flex flex-col gap-12 bg-neutral-100 rounded-[40px]">
       {/* header */}
@@ -15,9 +22,7 @@ export default function ChapterDependencyPopup() {
       </div>
       {/* input header */}
       <div className="flex flex-col gap-3">
-        <CheckBoxQuestion option={"Option"} isRTL={false} max_width="" />
-        <CheckBoxQuestion option={"Option"} isRTL={false} max_width="" />
-        <CheckBoxQuestion option={"Option"} isRTL={false} max_width="" />
+        <CheckBoxGroup options={["option 1", "option 2"]} />
       </div>
       {/* action buttons */}
       <div className="flex flex-row gap-5">
@@ -26,6 +31,7 @@ export default function ChapterDependencyPopup() {
           size={"M"}
           icon_position={"none"}
           text="Cancel"
+          onClick={onClose}
         />
         <Button
           state={"filled"}

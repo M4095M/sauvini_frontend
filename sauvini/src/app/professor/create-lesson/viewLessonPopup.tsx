@@ -4,7 +4,11 @@ import { IconMissingQuiz } from "@/components/professor/tagIcons";
 import Tag from "@/components/questions/tag";
 import Button from "@/components/ui/button";
 
-export default function ViewLessonPopup() {
+type ViewLessonPopupProps = {
+  onClose?: () => void;
+}
+
+export default function ViewLessonPopup({onClose} : ViewLessonPopupProps) {
   return (
     <div className="w-full pt-20 pb-11 px-10 bg-neutral-100 rounded-[60px] flex flex-col gap-12">
       {/* header */}

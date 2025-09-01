@@ -6,7 +6,11 @@ import FileAttachement from "@/components/lesson/fileAttachment";
 import BigTag from "@/components/professor/BigTags";
 import Button from "@/components/ui/button";
 
-export default function CreateLessonPopup() {
+type CreateLessonPopupProps = {
+  onClose: () => void;
+};
+
+export default function CreateLessonPopup({ onClose }: CreateLessonPopupProps) {
   return (
     <div className="w-full rounded-[60px] bg-neutral-100 py-11 px-10 flex flex-col justify-center gap-14">
       {/* header */}
@@ -108,6 +112,9 @@ export default function CreateLessonPopup() {
           size={"M"}
           icon_position={"none"}
           text="Cancel"
+          onClick={() => {
+            onClose();
+          }}
         />
         <Button
           state={"filled"}

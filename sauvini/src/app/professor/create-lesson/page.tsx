@@ -19,11 +19,8 @@ export default function CreateLessonPopupTest() {
     // <CreateLessonPopup />
     // <UpdateLessonPopUp />
     // <ChapterDependencyPopup />
-    // <ViewLessonPopup />
+    <ViewLessonPopup />
 
-    // test temp:
-    <CantPurchaseChapter
-      required={["Algebraic Expressions", "Algebraic Expressions"]}
-    />
+
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { MOCK_PROFESSOR_MODULES } from "@/data/mockProfessor";
 import DropDown from "@/components/input/dropDown";
@@ -9,6 +9,11 @@ import FileAttachement from "@/components/lesson/fileAttachment";
 import BigTag from "@/components/professor/BigTags";
 import Button from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import CreateLessonPopup from "../create-lesson/createLessonPopup";
+import ChapterDependencyPopup from "../create-lesson/chapterDependencyPopup";
+import LessonCard from "@/components/professor/lessonCard";
+import UpdateLessonPopUp from "../create-lesson/updateLessonPopup";
+import ViewLessonPopup from "../create-lesson/viewLessonPopup";
 
 export default function ProfessorManageChapter() {
   const searchParams = useSearchParams();
@@ -16,18 +21,23 @@ export default function ProfessorManageChapter() {
   const moduleId = searchParams?.get("moduleId") || null;
 
   const { module, chapter } = useMemo(() => {
-    const module = MOCK_PROFESSOR_MODULES.find((m) => m.id === moduleId) || null;
+    const module =
+      MOCK_PROFESSOR_MODULES.find((m) => m.id === moduleId) || null;
     const chapter =
       module?.chapters?.find((c: any) => c.id === chapterId) ||
       // fallback: search across all modules
-      MOCK_PROFESSOR_MODULES.flatMap((m) => m.chapters).find((c: any) => c.id === chapterId) ||
+      MOCK_PROFESSOR_MODULES.flatMap((m) => m.chapters).find(
+        (c: any) => c.id === chapterId
+      ) ||
       null;
     return { module, chapter };
   }, [chapterId, moduleId]);
 
   const resolveChapterTitle = (id?: string) => {
     if (!id) return id;
-    const found = MOCK_PROFESSOR_MODULES.flatMap((m) => m.chapters).find((c) => c.id === id);
+    const found = MOCK_PROFESSOR_MODULES.flatMap((m) => m.chapters).find(
+      (c) => c.id === id
+    );
     return found ? found.title : id;
   };
 
@@ -38,6 +48,13 @@ export default function ProfessorManageChapter() {
   const dependencies = chapter?.prerequisites ?? [];
 
   const lessons = chapter?.lessons ?? [];
+
+  // manage popupss states
+  const [showCreateLessonPopup, setShowCreateLessonPopup] = useState(false);
+  const [showChapterDependencyPopup, setShowChapterDependencyPopup] =
+    useState(false);
+  const [showUpdateChapterPopup, setShowUpdateChapterPopup] = useState(false);
+  const [showLessonDetailsPopup, setShowLessonDetailsPopup] = useState(false);
 
   return (
     <div className="flex flex-col gap-6 w-full">
@@ -103,9 +120,13 @@ export default function ProfessorManageChapter() {
               {/* selected streams */}
               <div className="flex flex-row gap-3 flex-wrap">
                 {displayedStreams.length > 0 ? (
-                  displayedStreams.map((s) => <BigTag key={s} icon={undefined} text={s} />)
+                  displayedStreams.map((s) => (
+                    <BigTag key={s} icon={undefined} text={s} />
+                  ))
                 ) : (
-                  <div className="text-sm text-neutral-400 px-4">No streams configured</div>
+                  <div className="text-sm text-neutral-400 px-4">
+                    No streams configured
+                  </div>
                 )}
               </div>
             </div>
@@ -120,10 +141,16 @@ export default function ProfessorManageChapter() {
               <div className="flex flex-row gap-3 flex-wrap">
                 {dependencies.length > 0 ? (
                   dependencies.map((depId) => (
-                    <BigTag key={depId} icon={undefined} text={resolveChapterTitle(depId)} />
+                    <BigTag
+                      key={depId}
+                      icon={undefined}
+                      text={resolveChapterTitle(depId)}
+                    />
                   ))
                 ) : (
-                  <div className="text-sm text-neutral-400 px-4">No dependencies</div>
+                  <div className="text-sm text-neutral-400 px-4">
+                    No dependencies
+                  </div>
                 )}
               </div>
             </div>
@@ -135,6 +162,11 @@ export default function ProfessorManageChapter() {
                 text="Add a dependecy"
                 icon_position={"left"}
                 icon={<Plus />}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  document.body.classList.add("no-scroll");
+                  setShowChapterDependencyPopup(true);
+                }}
               />
             </div>
           </div>
@@ -199,14 +231,90 @@ export default function ProfessorManageChapter() {
               icon_position={"left"}
               text="Add a lesson"
               icon={<Plus />}
+              onClick={() => {
+                window.scrollTo(0, 0);
+                document.body.classList.add("no-scroll");
+                setShowCreateLessonPopup(true);
+              }}
             />
           </div>
         </div>
         {/* content */}
         <div className="w-full flex justify-center items-center text-5xl text-neutral-200 font-medium my-12">
-          No Lessons yet
+          <LessonCard
+            id="card-1"
+            title="Introduction to Algebra"
+            description="Learn the basics of algebra including variables, expressions, and equations."
+            created_date={new Date("2025-01-15T09:00:00")}
+            isQuizAvailable={true}
+            number={1}
+            isUploading={false}
+            isDisabled={false}
+            viewDetailsCallback={() => {
+              window.scrollTo(0, 0);
+              document.body.classList.add("no-scroll");
+              setShowUpdateChapterPopup(true);
+            }}
+            viewLessonDetailsCallback={() => {
+              window.scrollTo(0, 0);
+              document.body.classList.add("no-scroll");
+              setShowLessonDetailsPopup(true);
+            }}
+          />
         </div>
       </div>
+      {/* pop ups */}
+      {showCreateLessonPopup && (
+        <div className="w-full overflow-y-auto h-screen flex justify-center bg-black/40 absolute top-0 left-0 z-100000">
+          <div className="m-20 max-w-4xl w-full">
+            <CreateLessonPopup
+              onClose={() => {
+                document.body.classList.remove("no-scroll");
+                setShowCreateLessonPopup(false);
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {showChapterDependencyPopup && (
+        <div className="w-full overflow-y-auto h-screen flex justify-center bg-black/40 absolute top-0 left-0 z-100000">
+          <div className="m-20">
+            <ChapterDependencyPopup
+              onClose={() => {
+                document.body.classList.remove("no-scroll");
+                setShowChapterDependencyPopup(false);
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {showUpdateChapterPopup && (
+        <div className="w-full overflow-y-auto h-screen flex justify-center bg-black/40 absolute top-0 left-0 z-100000">
+          <div className="m-20 max-w-4xl w-full">
+            <UpdateLessonPopUp
+              onClose={() => {
+                document.body.classList.remove("no-scroll");
+                setShowUpdateChapterPopup(false);
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {showLessonDetailsPopup && (
+        <div className="w-full overflow-y-auto h-screen flex justify-center bg-black/40 absolute top-0 left-0 z-100000">
+          <div className="m-20 max-w-4xl w-full">
+            <ViewLessonPopup
+              onClose={() => {
+                document.body.classList.remove("no-scroll");
+                setShowUpdateChapterPopup(false);
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
