@@ -668,6 +668,31 @@
       "exploreModules": "Explore Modules",
       "login": "Log In",
       "signUp": "Sign Up"
+    },
+    "hero": {
+      "title": "Your Future Starts Here",
+      "description": "Learn, practice, and succeed with trusted teachers. Unlock chapters, track progress, and reach your goals.",
+      "exploreModules": "Explore Modules",
+      "startLearning": "Start Learning"
+    },
+    "footer": {
+      "explore": "Explore",
+      "contact": "Contact",
+      "language": "Language",
+      "access": "Access",
+      "home": "Home",
+      "whyUs": "Why Us",
+      "whatWeOffer": "What We Offer",
+      "exploreModules": "Explore Modules",
+      "emailUs": "Email Us",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "english": "English",
+      "french": "French",
+      "arabic": "Arabic",
+      "signUpStudent": "Sign Up As a Student",
+      "applyTeacher": "Apply For a Teacher Position",
+      "logIn": "Log In"
     }
   }
 }

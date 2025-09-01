@@ -666,6 +666,31 @@
       "exploreModules": "استكشاف الوحدات",
       "login": "تسجيل الدخول",
       "signUp": "إنشاء حساب"
+    },
+    "hero": {
+      "title": "مستقبلك يبدأ هنا",
+      "description": "تعلم، مارس، وانجح مع معلمين موثوقين. افتح الفصول، تتبع تقدمك، وحقق أهدافك.",
+      "exploreModules": "استكشاف الوحدات",
+      "startLearning": "ابدأ التعلم"
+    },
+    "footer": {
+      "explore": "استكشاف",
+      "contact": "اتصل",
+      "language": "اللغة",
+      "access": "الوصول",
+      "home": "الرئيسية",
+      "whyUs": "لماذا نحن",
+      "whatWeOffer": "ماذا نقدم",
+      "exploreModules": "استكشاف الوحدات",
+      "emailUs": "اتصل بنا عبر البريد الإلكتروني",
+      "instagram": "إنستغرام",
+      "facebook": "فيسبوك",
+      "english": "الإنجليزية",
+      "french": "الفرنسية",
+      "arabic": "العربية",
+      "signUpStudent": "سجل كطالب",
+      "applyTeacher": "تقدم لوظيفة معلم",
+      "logIn": "تسجيل الدخول"
     }
   }  
 }

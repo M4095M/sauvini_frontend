@@ -8,7 +8,7 @@ export default function LandingPage() {
   const { t } = useLanguage()
 
   // TODO: wire with auth 
-  const isAuthenticated = false
+  const isAuthenticated = true
 
   const cards = useMemo(
     () => [
@@ -28,7 +28,7 @@ export default function LandingPage() {
             id: "1",
             name: "John",
             lastname: "Doe",
-            avatar: "/profile.png",
+            avatar: "/placeholder.svg",
             userType: "student",
             title: "Level 6"
           }}
@@ -37,14 +37,9 @@ export default function LandingPage() {
         <NavBarGuest />
       )}
 
-      <Hero
-        title={t("landing.hero.title") || "Your future starts here"}
-        subtitle={t("landing.hero.subtitle") || "Learn smarter with Sauvini’s adaptive platform."}
-        primaryCta={{ label: t("landing.hero.ctaPrimary") || "Get Started", href: "/register" }}
-        secondaryCta={{ label: t("landing.hero.ctaSecondary") || "Explore Modules", href: "/modules" }}
-      />
+      <Hero/>
 
-      <WhySauvini cards={cards} />
+      {/* <WhySauvini cards={cards} />
 
       <ForWhom
         students={{
@@ -55,7 +50,7 @@ export default function LandingPage() {
           title: t("landing.for.professors.title") || "For Professors",
           desc: t("landing.for.professors.desc") || "Create, manage, and track learning content at scale."
         }}
-      />
+      /> */}
     </div>
   )
 }

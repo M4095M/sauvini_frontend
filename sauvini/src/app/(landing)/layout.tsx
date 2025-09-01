@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Footer from "@/components/ui/footer"
+import { LandingFooter } from "@/components/landing"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
 
@@ -23,9 +23,9 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
         {children}
       </main>
 
-      <div className="flex justify-center mt-10">
-        <div className="w-full max-w-[1200px] px-3">
-          <Footer />
+      <div className="flex justify-center">
+        <div className="w-full">
+          <LandingFooter />
         </div>
       </div>
     </div>
