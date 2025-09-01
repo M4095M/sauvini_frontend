@@ -39,9 +39,9 @@ export default function LandingPage() {
 
       <Hero/>
 
-      {/* <WhySauvini cards={cards} />
+      <WhySauvini/>
 
-      <ForWhom
+      {/* <ForWhom
         students={{
           title: t("landing.for.students.title") || "For Students",
           desc: t("landing.for.students.desc") || "Master subjects with structured modules and quizzes."
