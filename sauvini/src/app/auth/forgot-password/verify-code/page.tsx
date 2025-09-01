@@ -11,12 +11,16 @@ import SimpleInput from "@/components/input/simpleInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
+import { useSearchParams } from "next/navigation"
 
 export default function VerifyCodePage() {
   const [isLoading, setIsLoading] = useState(false)
   const [code, setCode] = useState("")
   const { t, language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
+
+  const SearchParamsContext = useSearchParams()
+  const email = SearchParamsContext.get("email") || "example@gmail.com"
 
   // dummy submit handler
   const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -103,11 +107,31 @@ export default function VerifyCodePage() {
               className="absolute"
               style={{ width: "420px", top: "270px", left: isRTL ? undefined : "86px", right: isRTL ? "86px" : undefined }}
             >
-              <SimpleInput 
-                label={t("auth.verify.email") || "Email"} 
-                value="Example@gmail.com" 
-                type="email" 
-              />
+              <div
+                style={{
+                  display: "flex",
+                  width: 390,
+                  height: 48,
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  flexShrink: 0,
+                  gap: 8,
+                  alignSelf: "stretch",
+                  borderRadius: 8,
+                }}
+              >
+                <label className={`block text-sm text-gray-600 dark:text-gray-400 ${isRTL ? "text-right" : "text-left"}`}>
+                  {t("auth.verify.email") || "Email"}
+                </label>
+                {/* read-only plain text */}
+                <div
+                  className="w-full px-3 py-2 text-gray-700 dark:text-gray-300"
+                  style={{ borderRadius: 8, background: "transparent", border: "none" }}
+                  aria-live="polite"
+                >
+                  <span className="block">{email || "—"}</span>
+                </div>
+              </div>
             </div>
 
             {/* OTP Input */}
@@ -304,11 +328,10 @@ export default function VerifyCodePage() {
 
             {/* Email InputButton */}
             <div className="px-5 sm:px-6 mt-6 sm:max-w-md sm:mx-auto">
-              <SimpleInput 
-                label={t("auth.verify.email") || "Email"} 
-                value="Example@gmail.com" 
-                type="email"
-              />
+              <label className="block text-sm text-gray-600 dark:text-gray-400 mb-1">{t("auth.verify.email") || "Email"}</label>
+              <div className="w-full px-3 py-2 text-gray-700 dark:text-gray-300" style={{ borderRadius: 8 }}>
+                {email || "—"}
+              </div>
             </div>
 
             {/* OTP */}

@@ -42,6 +42,9 @@ function DesktopSidebar() {
     pathname.startsWith("/chapters") ||
     pathname.startsWith("/lessons");
 
+  // Check if user is on profile page
+  const isOnProfilePage = pathname === "/profile" || pathname.startsWith("/profile/");
+
   return (
     <aside
       className={`fixed top-0 z-20 h-screen ${isRTL ? "right-0" : "left-0"}`}
@@ -136,7 +139,11 @@ function DesktopSidebar() {
         >
           <Link
             href="/profile"
-            className={`flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 `}
+            className={`flex items-center transition-all duration-200 ${
+              isOnProfilePage
+                ? "bg-[#324C72] text-white"
+                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+            }`}
             style={{
               display: "flex",
               padding: "12px 20px",
@@ -199,6 +206,9 @@ function MobileDrawer() {
     pathname.startsWith("/modules") ||
     pathname.startsWith("/chapters") ||
     pathname.startsWith("/lessons");
+
+  // Check if user is on profile page
+  const isOnProfilePage = pathname === "/profile" || pathname.startsWith("/profile/");
 
   return (
     <>
@@ -314,8 +324,12 @@ function MobileDrawer() {
               <Link
                 href="/profile"
                 onClick={close}
-                className={`flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 ${
+                className={`flex items-center transition-all duration-200 ${
                   isRTL ? "flex-row-reverse text-right" : "text-left"
+                } ${
+                  isOnProfilePage
+                    ? "bg-[#324C72] text-white"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
                 style={{
                   padding: "12px 20px",

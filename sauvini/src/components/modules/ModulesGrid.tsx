@@ -49,7 +49,7 @@ export default function ModulesGrid({
               alt="Sauvini S Logo"
               width={40}
               height={40}
-              className="dark:brightness-150" // Slightly brighten logo in dark mode
+              className="dark:brightness-150" // Slightly brighten logo in dark mode (same everywhere else tho)
             />
           </div>
 
@@ -126,14 +126,8 @@ export default function ModulesGrid({
             }`}
           >
             <span
-              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                showPurchasedOnly
-                  ? isRTL
-                    ? "translate-x-1"
-                    : "translate-x-6"
-                  : isRTL
-                  ? "translate-x-6"
-                  : "translate-x-1"
+              className={`absolute top-1 h-4 w-4 rounded-full bg-white transition-all ${
+                showPurchasedOnly ? (isRTL ? "left-1" : "right-1") : isRTL ? "right-1" : "left-1"
               }`}
             />
           </button>

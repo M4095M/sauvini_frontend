@@ -88,33 +88,37 @@ export default function PurchasesGrid({
 
         {/* Filters */}
         <div className="mt-2 px-2">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <DropDown
-                placeholder={t("admin.managePurchases.filter") ?? "Purchase Status: New"}
-                options={[
-                  { id: "all", text: t("common.all") ?? "All" },
-                  { id: "new", text: t("admin.managePurchases.status.new") ?? "New" },
-                  { id: "validated", text: t("admin.managePurchases.status.validated") ?? "Validated" },
-                  { id: "rejected", text: t("admin.managePurchases.status.rejected") ?? "Rejected" },
-                ]}
-                onChange={() => {}}
-                max_width="max-w-48"
-              />
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-3">
+              <div className="w-full sm:w-auto">
+                <DropDown
+                  placeholder={t("admin.managePurchases.filter") ?? "Purchase Status: New"}
+                  options={[
+                    { id: "all", text: t("common.all") ?? "All" },
+                    { id: "new", text: t("admin.managePurchases.status.new") ?? "New" },
+                    { id: "validated", text: t("admin.managePurchases.status.validated") ?? "Validated" },
+                    { id: "rejected", text: t("admin.managePurchases.status.rejected") ?? "Rejected" },
+                  ]}
+                  onChange={() => {}}
+                  max_width="max-w-48"
+                />
+              </div>
 
-              <DropDown
-                placeholder={t("admin.managePurchases.sort") ?? "Sort: Oldest first"}
-                options={[
-                  { id: "old", text: t("admin.managePurchases.sort.old") ?? "Oldest first" },
-                  { id: "new", text: t("admin.managePurchases.sort.new") ?? "Newest first" },
-                ]}
-                onChange={() => {}}
-                max_width="max-w-48"
-              />
+              <div className="w-full sm:w-auto">
+                <DropDown
+                  placeholder={t("admin.managePurchases.sort") ?? "Sort: Oldest first"}
+                  options={[
+                    { id: "old", text: t("admin.managePurchases.sortTwo.old") ?? "Oldest first" },
+                    { id: "new", text: t("admin.managePurchases.sortTwo.new") ?? "Newest first" },
+                  ]}
+                  onChange={() => {}}
+                  max_width="max-w-48"
+                />
+              </div>
             </div>
 
             {/* show-count */}
-            <div className="w-auto min-w-[220px] whitespace-nowrap">
+            <div className="w-full sm:w-auto min-w-0 sm:min-w-[220px]">
               <DropDown
                 placeholder={t("common.show") ?? "Show"}
                 options={perPageOptions.map((n) => ({
