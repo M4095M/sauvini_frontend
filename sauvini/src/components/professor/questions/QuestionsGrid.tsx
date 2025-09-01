@@ -85,8 +85,8 @@ export default function QuestionsGrid({ submissions = MOCK_QUESTION_SUBMISSIONS,
         </h2>
       </div>
 
-      <div className="w-full mb-4">
-        <div className={`w-full flex flex-col gap-3 md:flex-row md:items-center md:gap-3 ${isRTL ? "md:flex-row-reverse" : ""}`}>
+      <div className="w-full mb-4 ">
+        <div className={`w-full flex flex-col gap-3 md:flex-row md:items-center md:gap-3`}>
           <div className="relative w-full md:w-auto">
             <DropDown 
               label="" 
@@ -146,14 +146,14 @@ export default function QuestionsGrid({ submissions = MOCK_QUESTION_SUBMISSIONS,
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-4 w-full ">
         {filtered.length === 0 ? (
           <div className={`py-12 text-center text-gray-500 dark:text-gray-400 ${isRTL ? "font-arabic" : "font-sans"}`}>
             {t("professor.questions.noQuestions") ?? "No questions"}
           </div>
         ) : (
           filtered.map((s) => (
-            <div key={s.id} className="w-full">
+            <div key={s.id} className="w-full ">
               <QuestionCard submission={s} isRTL={isRTL} isMobile={isMobile} onAnswer={() => {}} onDownload={() => {}} />
             </div>
           ))

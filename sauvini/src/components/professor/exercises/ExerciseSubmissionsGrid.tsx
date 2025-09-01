@@ -92,7 +92,7 @@ export default function ExerciseSubmissionsGrid({ submissions = [], isMobile = f
       </div>
 
       {/* Filters: Lesson / Chapter / Status */}
-      <div className={`w-full mb-4 flex flex-col gap-3 md:flex-row md:items-center md:gap-3 ${isRTL ? "md:flex-row-reverse" : ""}`}>
+      <div className={`w-full mb-4 flex flex-col gap-3 md:flex-row md:items-center md:gap-3`}>
         <div className="relative w-full md:w-auto">
           <DropDown label="" placeholder={t("professor.exercises.filter.selectLesson") ?? "Select lesson"} options={lessonOptions.map((c) => ({ id: c, text: c }))} t={t} isRTL={isRTL} max_width="max-w-full" />
           <select aria-label={t("professor.exercises.filter.lesson") ?? "Lesson"} value={lessonFilter} onChange={(e) => setLessonFilter(e.target.value)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
@@ -100,7 +100,7 @@ export default function ExerciseSubmissionsGrid({ submissions = [], isMobile = f
           </select>
         </div>
 
-        <div className="relative w-full md:w-auto">
+        <div className="relative w-full md:w-auto ">
           <DropDown label="" placeholder={t("professor.exercises.filter.selectChapter") ?? "Select chapter"} options={chapterOptions.map((c) => ({ id: c, text: c }))} t={t} isRTL={isRTL} max_width="max-w-full" />
           <select aria-label={t("professor.exercises.filter.chapter") ?? "Chapter"} value={chapterFilter} onChange={(e) => setChapterFilter(e.target.value)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
             {chapterOptions.map((c) => <option key={c} value={c}>{c}</option>)}

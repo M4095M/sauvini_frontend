@@ -90,7 +90,7 @@ export default function ExerciseSubmissionCard({
       dir={isRTL ? "rtl" : "ltr"}
       className="w-full max-w-[1153px] mx-auto p-6 bg-white dark:bg-[#0b1220] rounded-[40px] border border-[#BDBDBD] flex flex-col gap-10"
     >
-      <div className={`w-full flex flex-col md:items-center gap-4 ${rowDir}`}>
+      <div className={`w-full flex  md:items-center gap-4`}>
         <div className="flex items-start md:items-center gap-4 md:gap-6 flex-1">
           <div className="flex-shrink-0 w-[90px] h-[90px] rounded-full overflow-hidden bg-neutral-100 flex items-center justify-center">
             {submission.student?.avatar ? (
