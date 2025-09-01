@@ -87,7 +87,8 @@ export default function ExamsGrid({ submissions = [], isMobile = false, userProf
 
       {/* Filters: responsive */}
       <div
-        className={`w-full mb-4 flex flex-col gap-3 md:flex-row md:items-center md:gap-3 ${isRTL ? "md:flex-row-reverse" : ""}`}
+        className={`w-full mb-4 flex flex-col gap-3 md:flex-row md:items-center md:gap-3`}
+        dir={isRTL ? "rtl" : "ltr"}
       >
         <div className="w-full md:w-auto">
           <DropDown
