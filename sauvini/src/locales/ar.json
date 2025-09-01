@@ -657,5 +657,15 @@
     "academicStream": "المسار الأكاديمي",
     "dragOrBrowse": "اسحب صورتك أو تصفح",
     "maxSizeHint": "Max 5 MB. JPG/PNG."
-  }
+  },
+  "landing": {
+    "nav": {
+      "home": "الرئيسية",
+      "whyUs": "لماذا نحن",
+      "whatWeOffer": "ماذا نقدم",
+      "exploreModules": "استكشاف الوحدات",
+      "login": "تسجيل الدخول",
+      "signUp": "إنشاء حساب"
+    }
+  }  
 }

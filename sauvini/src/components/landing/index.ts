@@ -1,0 +1,6 @@
+export { default as NavBarGuest } from "./NavBarGuest"
+export { default as NavBarAuthed } from "./NavBarAuthed"
+export { default as Hero } from "./Hero"
+export { default as WhySauvini } from "./WhySauvini"
+export { default as CardSlider } from "./CardSlider"
+export { default as ForWhom } from "./ForWhom"

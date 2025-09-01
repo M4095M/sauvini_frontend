@@ -563,5 +563,15 @@
     "academicStream": "Parcours académique",
     "dragOrBrowse": "Faites glisser votre image ou parcourez",
     "maxSizeHint": "Max 5 Mo. JPG/PNG."
+  },
+  "landing": {
+    "nav": {
+      "home": "Accueil",
+      "whyUs": "Pourquoi nous choisir",
+      "whatWeOffer": "Ce que nous offrons",
+      "exploreModules": "Explorer les modules",
+      "login": "Se connecter",
+      "signUp": "S'inscrire"
+    }
   }
 }

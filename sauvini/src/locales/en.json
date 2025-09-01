@@ -659,5 +659,15 @@
     "academicStream": "Academic Stream",
     "dragOrBrowse": "Drag your image or browse",
     "maxSizeHint": "Max 5 MB. JPG/PNG."
+  },
+  "landing": {
+    "nav": {
+      "home": "Home",
+      "whyUs": "Why Us",
+      "whatWeOffer": "What We Offer",
+      "exploreModules": "Explore Modules",
+      "login": "Log In",
+      "signUp": "Sign Up"
+    }
   }
 }
