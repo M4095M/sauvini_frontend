@@ -1,7 +1,12 @@
 import InputButton from "@/components/input/InputButton";
 import Button from "@/components/ui/button";
 
-export default function QuizBuilderHeader() {
+type QuizHeaderProps = {
+  t: any;
+  isRLT?: boolean;
+};
+
+export default function QuizBuilderHeader({ t, isRLT }: QuizHeaderProps) {
   return (
     <div className="w-full bg-neutral-100 px-3 py-11 rounded-[52px] flex flex-col gap-8">
       {/* header */}
@@ -19,7 +24,7 @@ export default function QuizBuilderHeader() {
             state={"filled"}
             size={"M"}
             icon_position={"right"}
-            text="Save Quiz"
+            text={t("professor.quizes.SaveQuiz")}
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +49,7 @@ export default function QuizBuilderHeader() {
       {/* quiz total xp points */}
       <div className="px-8">
         <InputButton
-          label={"Quiz total XP points"}
+          label={t("professor.quizes.QuizTotalPoints")}
           type={"plus-minus"}
           max_width=""
         />
@@ -52,7 +57,7 @@ export default function QuizBuilderHeader() {
       {/* min score */}
       <div className="px-8">
         <InputButton
-          label={"Quiz minimum score"}
+          label={t("professor.quizes.QuizMinScore")}
           type={"plus-minus"}
           max_width=""
         />

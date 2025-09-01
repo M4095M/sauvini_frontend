@@ -381,6 +381,27 @@
       "UpdateQuiz": "Mettre à jour le quiz",
       "Quiz": "Quiz"
     },
+    "quizes": {
+      "SaveQuiz": "Enregistrer le quiz",
+      "QuizTotalPoints": "Points totaux du quiz",
+      "QuizMinScore": "Score minimum du quiz",
+      "AddQuestion": "Ajouter une question",
+      "Questions": "Questions",
+      "Delete": "Supprimer",
+      "Update": "Mettre à jour",
+      "TotalPoints": "Points totaux",
+      "Question": "Question",
+      "QuestionTitle": "Titre de la question",
+      "QuestionText": "Texte de la question",
+      "QuestionType": "Type de question",
+      "Choices": "Choix",
+      "CorrectAnswers": "Réponses correctes",
+      "QuizAttach": "Pièces jointes",
+      "QuizTolalMark": "Note totale du quiz",
+      "CreateQuiz": "Créer un quiz",
+      "Cancel": "Annuler",
+      "CreateQuestionDesc": "Remplissez les détails ci-dessous pour créer une question."
+    },
     "exams": {
       "title": "Soumissions d'examens",
       "noSubmissions": "Aucune soumission trouvée",

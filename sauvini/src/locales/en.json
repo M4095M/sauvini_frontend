@@ -454,11 +454,11 @@
       "SaveChanges": "Save Changes"
     },
     "lessons": {
-      "CreatedOn" : "Created on",
+      "CreatedOn": "Created on",
       "CreateLessonTitle": "Create Lesson",
       "CreateLessonDesc": "Fill in the details below to create a new lesson.",
       "LessonName": "Lesson Name",
-      "LessonDescription" : "Lesson Description",
+      "LessonDescription": "Lesson Description",
       "LessonVideo": "Lesson Video",
       "LessonAttachment": "Lesson Attachments",
       "ExercicePDF": "Exercise PDF",
@@ -472,8 +472,29 @@
       "SaveDepencies": "Save Dependencies",
       "UpdateLesson": "Update Lesson",
       "UpdateLessonDesc": "Edit the details or replace files for this lesson",
-      "UpdateQuiz" :  "Update Quiz",
-      "Quiz" : "Quiz"
+      "UpdateQuiz": "Update Quiz",
+      "Quiz": "Quiz"
+    },
+    "quizes": {
+      "SaveQuiz": "Save Quiz",
+      "QuizTotalPoints": "Quiz Total Points",
+      "QuizMinScore": "Quiz minimum score",
+      "AddQuestion": "Add Question",
+      "Questions": "Questions",
+      "Delete": "Delete",
+      "Update": "Update",
+      "TotalPoints": "Total Points",
+      "Question": "Question",
+      "QuestionTitle": "Question Title",
+      "QuestionText": "Question Text",
+      "QuestionType": "Question Type",
+      "Choices": "Choices",
+      "CorrectAnswers": "Correct Answers",
+      "QuizAttach": "Attachments",
+      "QuizTolalMark": "Quiz Total Mark",
+      "CreateQuiz": "Create Question",
+      "Cancel": "Cancel",
+      "CreateQuestionDesc": "Fill in the details below to create a question."
     },
     "exams": {
       "title": "Exam Submissions",

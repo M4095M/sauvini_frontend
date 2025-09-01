@@ -475,6 +475,27 @@
       "UpdateQuiz": "تحديث الكويز",
       "Quiz": "الكويز"
     },
+    "quizes": {
+      "SaveQuiz": "حفظ الكويز",
+      "QuizTotalPoints": "إجمالي نقاط الكويز",
+      "QuizMinScore": "الدرجة الدنيا الكويز",
+      "AddQuestion": "إضافة سؤال",
+      "Questions": "الأسئلة",
+      "Delete": "حذف",
+      "Update": "تحديث",
+      "TotalPoints": "إجمالي النقاط",
+      "Question": "سؤال",
+      "QuestionTitle": "عنوان السؤال",
+      "QuestionText": "نص السؤال",
+      "QuestionType": "نوع السؤال",
+      "Choices": "الخيارات",
+      "CorrectAnswers": "الإجابات الصحيحة",
+      "QuizAttach": "المرفقات",
+      "QuizTolalMark": "العلامة الإجمالية للسؤال",
+      "CreateQuiz": "إنشاء سؤال",
+      "Cancel": "إلغاء",
+      "CreateQuestionDesc": "املأ التفاصيل أدناه لإنشاء سؤال."
+    },
     "exams": {
       "title": "تسليمات الامتحانات",
       "noSubmissions": "لا توجد تسليمات",

@@ -6,7 +6,12 @@ import Button from "@/components/ui/button";
 import RadioButton from "@/components/ui/radio-button";
 import { useState } from "react";
 
-export default function OneQuestionBox() {
+type OneQuestionBoxProps = {
+  t: any;
+  isRTL?: boolean;
+};
+
+export default function OneQuestionBox({ t, isRTL }: OneQuestionBoxProps) {
   const [showDropDown, setShowDropDown] = useState(false);
 
   const handleShowMore = () => {
@@ -22,10 +27,10 @@ export default function OneQuestionBox() {
           {/* text */}
           <div className="flex flex-col gap-1">
             <div className="text-primary-400 text-2xl font-medium">
-              Question 1
+              {t("professor.quizes.Question")} 1
             </div>
             <div className="text-neutral-400 font-normal text-sm">
-              Total Points: 5
+              {t("professor.quizes.TotalPoints")}: 5
             </div>
           </div>
           {/* actions */}
@@ -55,7 +60,11 @@ export default function OneQuestionBox() {
           </div>
           {/* drop down */}
           {showDropDown && (
-            <div className="absolute top-[100%] right-0 max-w-3xs py-3 flex flex-col gap-2 bg-white rounded-2xl btn-elevation-1 ">
+            <div
+              className={`absolute top-[100%] ${
+                isRTL ? "left-0" : "right-0"
+              } max-w-3xs py-3 flex flex-col gap-2 bg-white rounded-2xl btn-elevation-1`}
+            >
               <div className="px-9 flex gap-2 justify-start items-center text-error-400 cursor-pointer select-none">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +81,9 @@ export default function OneQuestionBox() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <div className="text-base font-normal ">Delete</div>
+                <div className="text-base font-normal ">
+                  {t("professor.quizes.Delete")}
+                </div>
               </div>
               <div className="px-9 flex gap-2 justify-start items-center text-neutral-600 cursor-pointer select-none">
                 <svg
@@ -90,7 +101,9 @@ export default function OneQuestionBox() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <div className="text-base font-normal">Update</div>
+                <div className="text-base font-normal">
+                  {t("professor.quizes.Update")}
+                </div>
               </div>
             </div>
           )}
@@ -104,7 +117,13 @@ export default function OneQuestionBox() {
       </div>
       {/* options */}
       <div className="flex flex-col gap-3">
-        <CheckBoxQuestion option={"Option"} isRTL={false} max_width="" />
+        <CheckBoxQuestion
+          option={"Option"}
+          isRTL={false}
+          max_width=""
+          state={false}
+          onChange={() => {}}
+        />
         <RadioQuestion option={"Option"} isRTL={false} max_width="" />
       </div>
     </div>
