@@ -624,6 +624,19 @@
         "title": "Accessible Partout",
         "desc": "Apprenez à votre rythme, à tout moment, n'importe où, sur n'importe quel appareil."
       }
+    },
+    "for": {
+      "students": {
+        "title": "Pour les étudiants",
+        "desc": "Apprenez avec des modules structurés, des leçons vidéo, des quiz et des examens ; tous conçus pour les filières académiques algériennes."
+      },
+      "professors": {
+        "title": "Pour les professeurs",
+        "desc": "Partagez votre expertise en créant des chapitres, des leçons et des examens. Interagissez avec les étudiants et suivez leur progression."
+      },
+      "forStudents": "Pour les étudiants",
+      "forProfessors": "Pour les professeurs",
+      "applyNow": "Postuler en tant que professeur"
     }
   }
 }

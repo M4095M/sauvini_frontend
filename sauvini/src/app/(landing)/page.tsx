@@ -41,7 +41,7 @@ export default function LandingPage() {
 
       <WhySauvini/>
 
-      {/* <ForWhom
+      <ForWhom
         students={{
           title: t("landing.for.students.title") || "For Students",
           desc: t("landing.for.students.desc") || "Master subjects with structured modules and quizzes."
@@ -50,7 +50,7 @@ export default function LandingPage() {
           title: t("landing.for.professors.title") || "For Professors",
           desc: t("landing.for.professors.desc") || "Create, manage, and track learning content at scale."
         }}
-      /> */}
+      />
     </div>
   )
 }

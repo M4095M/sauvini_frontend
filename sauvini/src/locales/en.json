@@ -720,6 +720,19 @@
         "title": "Accessible Anywhere",
         "desc": "Learn at your own pace, anytime, anywhere."
       }
+    },
+    "for": {
+      "students": {
+        "title": "For Students",
+        "desc": "Learn with structured modules, video lessons, quizzes, and exams;  all designed for Algerian academic streams."
+      },
+      "professors": {
+        "title": "For Professors",
+        "desc": "Share your expertise by creating chapters, lessons, and exams. Engage with students and track their progress."
+      },
+      "forStudents": "For Students",
+      "forProfessors": "For Professors",
+      "applyNow": "Apply As Professor"
     }
   }
 }
