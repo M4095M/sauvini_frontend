@@ -16,7 +16,11 @@
     "show": "Show",
     "elements": "elements",
     "page": "page",
-    "browse": "Browse"
+    "browse": "Browse",
+    "gender": {
+      "male": "Male",
+      "female": "Female"
+    }
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -586,6 +590,32 @@
       "cancel": "Cancel",
       "professorNotes": "Professor's Notes",
       "professorFile": "Professor's File"
+    },
+    "profile": {
+      "title": "Professor Information",
+      "edit": "Edit Details",
+      "fullName": "Full Name",
+      "gender": "Gender",
+      "dateOfBirth": "Date of Birth",
+      "phoneNumber": "Phone Number",
+      "emailAddress": "Email Address",
+      "wilaya": "Wilaya",
+      "academicStream": "Academic Stream",
+      "permissions": "Permissions",
+      "editTitle": "Edit Profile",
+      "editSubtitle":"Update your personal information below.",
+      "picture": "Profile Picture",
+      "dragOrBrowse":"Drag your image or browse",
+      "maxSizeHint":"Max 5 MB. JPG/PNG.",
+      "firstName":"First Name",
+      "lastName":"Last Name",
+      "birthdate": "Date of Birth",
+      "saveChanges": "Save Changes"
+    },
+    "permissions": {
+      "contentCreation": "Content Creation",
+      "questionAnswering": "Question Answering",
+      "exerciseExamCorrection": "Exercise/Exam Correction"
     }
   },
   "admin": {

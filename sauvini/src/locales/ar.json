@@ -16,7 +16,11 @@
     "show": "عرض",
     "elements": "عناصر",
     "page": "صفحة",
-    "browse": "تصفح"
+    "browse": "تصفح",
+    "gender": {
+      "male": "ذكر",
+      "female": "أنثى"
+    }
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-أدرار" },
@@ -584,6 +588,32 @@
       "cancel": "إلغاء",
       "professorNotes": "ملاحظات الأستاذ",
       "professorFile": "ملف الأستاذ"
+    },
+    "profile": {
+      "title": "معلومات الأستاذ",
+      "edit": "تعديل التفاصيل",
+      "fullName": "الاسم الكامل",
+      "gender": "الجنس",
+      "dateOfBirth": "تاريخ الميلاد",
+      "phoneNumber": "رقم الهاتف",
+      "emailAddress": "عنوان البريد الإلكتروني",
+      "wilaya": "الولاية",
+      "academicStream": "المسار الأكاديمي",
+      "permissions": "الأذونات",
+      "editTitle": "تعديل الملف الشخصي",
+      "editSubtitle":"قم بتحديث معلوماتك الشخصية أدناه.",
+      "picture": "صورة الملف الشخصي",
+      "dragOrBrowse":"اسحب صورتك أو تصفح",
+      "maxSizeHint":"Max 5 MB. JPG/PNG.",
+      "firstName":"الاسم الأول",
+      "lastName":"الاسم الأخير",
+      "birthdate": "تاريخ الميلاد",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "permissions": {
+      "contentCreation": "إنشاء المحتوى",
+      "questionAnswering": "الإجابة على الأسئلة",
+      "exerciseExamCorrection": "تصحيح التمارين/الامتحانات"
     }
   },
   "admin": {
