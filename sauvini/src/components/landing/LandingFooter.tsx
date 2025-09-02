@@ -4,11 +4,16 @@ import Image from "next/image"
 import Link from "next/link"
 import { Mail, Phone } from "lucide-react"
 import { useLanguage } from "@/hooks/useLanguage"
-import { RTL_LANGUAGES } from "@/lib/language"
+import { RTL_LANGUAGES, Language } from "@/lib/language"
 
 export default function LandingFooter() {
-  const { t, language } = useLanguage()
+  const { t, language, setLanguage } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
+  const currentYear = new Date().getFullYear()
+
+  const handleLanguageChange = (lang: Language) => {
+    setLanguage(lang)
+  }
 
   const footerSections = {
     explore: {
@@ -31,17 +36,17 @@ export default function LandingFooter() {
     language: {
       title: t("landing.footer.language") || "Language",
       links: [
-        { text: t("landing.footer.english") || "English", href: "/lang/en" },
-        { text: t("landing.footer.arabic") || "Arabic", href: "/lang/ar" },
-        { text: t("landing.footer.french") || "Français", href: "/lang/fr" },
+        { text: t("landing.footer.english") || "English", action: () => handleLanguageChange('en') },
+        { text: t("landing.footer.arabic") || "Arabic", action: () => handleLanguageChange('ar') },
+        { text: t("landing.footer.french") || "Français", action: () => handleLanguageChange('fr') },
       ]
     },
     access: {
       title: t("landing.footer.access") || "Access",
       links: [
-        { text: t("landing.footer.signUpStudent") || "Sign Up As a Student", href: "/register/student" },
-        { text: t("landing.footer.applyTeacher") || "Apply For a Teacher Position", href: "/register/teacher" },
-        { text: t("landing.footer.logIn") || "Log In", href: "/login" },
+        { text: t("landing.footer.signUpStudent") || "Sign Up As a Student", href: "/register" },
+        { text: t("landing.footer.applyTeacher") || "Apply For a Teacher Position", href: "/register" },
+        { text: t("landing.footer.logIn") || "Log In", href: "/auth/login" },
       ]
     }
   }
@@ -137,13 +142,13 @@ export default function LandingFooter() {
               </h3>
               <div className="flex flex-col gap-4">
                 {footerSections.language.links.map((link, index) => (
-                  <Link
+                    <button
                     key={index}
-                    href={link.href}
-                    className="text-sm text-primary-300 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-100 transition-colors"
-                  >
+                    onClick={link.action}
+                    className={`text-sm text-primary-300 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-100 transition-colors ${isRTL ? "text-right" : "text-left"}`}
+                    >
                     {link.text}
-                  </Link>
+                    </button>
                 ))}
               </div>
             </div>
@@ -172,7 +177,7 @@ export default function LandingFooter() {
         <div className="w-full pt-8 border-t border-primary-300/20 dark:border-neutral-400/20">
           <div className="flex justify-center">
             <p className="text-sm text-primary-300 dark:text-neutral-400 text-center">
-              © Sauvini 2025. All rights reserved.
+              © Sauvini {currentYear}. All rights reserved.
             </p>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/hooks/useLanguage"
 import Button from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 interface ForWhomProps {
   students: {
@@ -22,6 +23,7 @@ export default function ForWhom({ students, professors }: ForWhomProps) {
   const [activeTab, setActiveTab] = useState<'students' | 'professors'>('students')
 
   const currentContent = activeTab === 'students' ? students : professors
+  const router = useRouter()
 
   return (
     <section
@@ -167,6 +169,7 @@ export default function ForWhom({ students, professors }: ForWhomProps) {
                 {activeTab === 'students' ? (
                   <>
                     <button
+                      onClick={() => router.push('/modules')}
                       className="flex justify-center items-center transition-all duration-200 hover:scale-105"
                       style={{
                         padding: "16px 24px",
@@ -184,6 +187,7 @@ export default function ForWhom({ students, professors }: ForWhomProps) {
                       {t("landing.hero.exploreModules") || "Explore Modules"}
                     </button>
                     <button
+                      onClick={() => router.push('/register')}
                       className="flex justify-center items-center transition-all duration-200 hover:scale-105"
                       style={{
                         padding: "16px 24px",
@@ -203,6 +207,7 @@ export default function ForWhom({ students, professors }: ForWhomProps) {
                   </>
                 ) : (
                   <button
+                    onClick={() => router.push('/register')}
                     className="flex justify-center items-center transition-all duration-200 hover:scale-105"
                     style={{
                       padding: "16px 24px",
