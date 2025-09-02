@@ -48,18 +48,18 @@ export default function LandingFooter() {
 
   return (
     <footer
-      className="w-full flex-shrink-0 bg-[var(--Surface-Level-2,#F8F8F8)] dark:bg-[#1A1A1A]"
+      className="w-full flex-shrink-0 bg-neutral-100 dark:bg-neutral-700 mt-20"
       style={{
-        height: "549px",
+        height: "440px",
         borderRadius: "80px 80px 0 0",
       }}
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="w-full h-full flex flex-col justify-between px-16 py-12">
         {/* Top Section */}
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start w-full">
           {/* Logo and Contact Info */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 flex-shrink-0" style={{ minWidth: "280px" }}>
             {/* Logo */}
             <div>
               <Image
@@ -75,15 +75,15 @@ export default function LandingFooter() {
             {/* Contact Information */}
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-[var(--Content-Secondary,#7C7C7C)] dark:text-[#A0A0A0]" />
-                <span className="text-sm text-[var(--Content-Secondary,#7C7C7C)] dark:text-[#A0A0A0]">
-                  Email@gmail.com
+                <Mail className="w-5 h-5 text-primary-300 dark:text-neutral-400" />
+                <span className="text-sm text-primary-300 dark:text-neutral-400">
+                  sauvini@gmail.com
                 </span>
               </div>
               
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[var(--Content-Secondary,#7C7C7C)] dark:text-[#A0A0A0]" />
-                <span className="text-sm text-[var(--Content-Secondary,#7C7C7C)] dark:text-[#A0A0A0]">
+                <Phone className="w-5 h-5 text-primary-300 dark:text-neutral-400" />
+                <span className="text-sm text-primary-300 dark:text-neutral-400">
                   + 213 545 78 90 43
                 </span>
               </div>
@@ -91,10 +91,10 @@ export default function LandingFooter() {
           </div>
 
           {/* Footer Links Sections */}
-          <div className="flex gap-24">
+          <div className="flex justify-between flex-1 max-w-4xl">
             {/* Explore Section */}
-            <div className="flex flex-col gap-6">
-              <h3 className="text-lg font-semibold text-[var(--Content-Primary,#1A1A1A)] dark:text-white">
+            <div className="flex flex-col gap-6 flex-1">
+              <h3 className="text-lg font-semibold text-neutral-600 dark:text-neutral-100">
                 {footerSections.explore.title}
               </h3>
               <div className="flex flex-col gap-4">
@@ -102,7 +102,7 @@ export default function LandingFooter() {
                   <Link
                     key={index}
                     href={link.href}
-                    className="text-sm text-[var(--Content-Secondary,#7C7C7C)] dark:text-[#A0A0A0] hover:text-[var(--Content-Primary,#1A1A1A)] dark:hover:text-white transition-colors"
+                    className="text-sm text-primary-300 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-100 transition-colors"
                   >
                     {link.text}
                   </Link>
@@ -111,8 +111,8 @@ export default function LandingFooter() {
             </div>
 
             {/* Contact Section */}
-            <div className="flex flex-col gap-6">
-              <h3 className="text-lg font-semibold text-[var(--Content-Primary,#1A1A1A)] dark:text-white">
+            <div className="flex flex-col gap-6 flex-1">
+              <h3 className="text-lg font-semibold text-neutral-600 dark:text-neutral-100">
                 {footerSections.contact.title}
               </h3>
               <div className="flex flex-col gap-4">
@@ -120,7 +120,7 @@ export default function LandingFooter() {
                   <Link
                     key={index}
                     href={link.href}
-                    className="text-sm text-[var(--Content-Secondary,#7C7C7C)] dark:text-[#A0A0A0] hover:text-[var(--Content-Primary,#1A1A1A)] dark:hover:text-white transition-colors"
+                    className="text-sm text-primary-300 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-100 transition-colors"
                     target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   >
@@ -131,8 +131,8 @@ export default function LandingFooter() {
             </div>
 
             {/* Language Section */}
-            <div className="flex flex-col gap-6">
-              <h3 className="text-lg font-semibold text-[var(--Content-Primary,#1A1A1A)] dark:text-white">
+            <div className="flex flex-col gap-6 flex-1">
+              <h3 className="text-lg font-semibold text-neutral-600 dark:text-neutral-100">
                 {footerSections.language.title}
               </h3>
               <div className="flex flex-col gap-4">
@@ -140,7 +140,7 @@ export default function LandingFooter() {
                   <Link
                     key={index}
                     href={link.href}
-                    className="text-sm text-[var(--Content-Secondary,#7C7C7C)] dark:text-[#A0A0A0] hover:text-[var(--Content-Primary,#1A1A1A)] dark:hover:text-white transition-colors"
+                    className="text-sm text-primary-300 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-100 transition-colors"
                   >
                     {link.text}
                   </Link>
@@ -149,8 +149,8 @@ export default function LandingFooter() {
             </div>
 
             {/* Access Section */}
-            <div className="flex flex-col gap-6">
-              <h3 className="text-lg font-semibold text-[var(--Content-Primary,#1A1A1A)] dark:text-white">
+            <div className="flex flex-col gap-6 flex-1">
+              <h3 className="text-lg font-semibold text-neutral-600 dark:text-neutral-100">
                 {footerSections.access.title}
               </h3>
               <div className="flex flex-col gap-4">
@@ -158,7 +158,7 @@ export default function LandingFooter() {
                   <Link
                     key={index}
                     href={link.href}
-                    className="text-sm text-[var(--Content-Secondary,#7C7C7C)] dark:text-[#A0A0A0] hover:text-[var(--Content-Primary,#1A1A1A)] dark:hover:text-white transition-colors"
+                    className="text-sm text-primary-300 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-100 transition-colors"
                   >
                     {link.text}
                   </Link>
@@ -168,11 +168,11 @@ export default function LandingFooter() {
           </div>
         </div>
 
-        {/* Bottom Section - Copyright */}
-        <div className="w-full pt-8 border-t border-[var(--Content-Secondary,#7C7C7C)]/20 dark:border-[#A0A0A0]/20">
+        {/* Bottom Section */}
+        <div className="w-full pt-8 border-t border-primary-300/20 dark:border-neutral-400/20">
           <div className="flex justify-center">
-            <p className="text-sm text-[var(--Content-Secondary,#7C7C7C)] dark:text-[#A0A0A0] text-center">
-              © Sauvini 2025. All rights reserved.<br />
+            <p className="text-sm text-primary-300 dark:text-neutral-400 text-center">
+              © Sauvini 2025. All rights reserved.
             </p>
           </div>
         </div>

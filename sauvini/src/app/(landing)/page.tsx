@@ -8,7 +8,7 @@ export default function LandingPage() {
   const { t } = useLanguage()
 
   // TODO: wire with auth 
-  const isAuthenticated = true
+  const isAuthenticated = false
 
   const cards = useMemo(
     () => [
