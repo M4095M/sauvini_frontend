@@ -404,7 +404,8 @@
       "QuizTolalMark": "Note totale du quiz",
       "CreateQuiz": "Créer un quiz",
       "Cancel": "Annuler",
-      "CreateQuestionDesc": "Remplissez les détails ci-dessous pour créer une question."
+      "CreateQuestionDesc": "Remplissez les détails ci-dessous pour créer une question.",
+      "Submit": "Soumettre"
     },
     "exams": {
       "title": "Soumissions d'examens",
@@ -507,12 +508,12 @@
       "academicStream": "Parcours académique",
       "permissions": "Permissions",
       "editTitle": "Modifier le profil",
-      "editSubtitle":"Mettez à jour vos informations personnelles ci-dessous.",
+      "editSubtitle": "Mettez à jour vos informations personnelles ci-dessous.",
       "picture": "Photo de profil",
-      "dragOrBrowse":"Faites glisser votre image ou parcourez",
-      "maxSizeHint":"Max 5 Mo. JPG/PNG.",
-      "firstName":"Prénom",
-      "lastName":"Nom de famille",
+      "dragOrBrowse": "Faites glisser votre image ou parcourez",
+      "maxSizeHint": "Max 5 Mo. JPG/PNG.",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
       "birthdate": "Date de naissance",
       "saveChanges": "Enregistrer les modifications"
     },

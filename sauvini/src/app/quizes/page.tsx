@@ -6,7 +6,7 @@ import Button from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function QuizezPage() {
-  const { isRTL } = useLanguage();
+  const { isRTL, t } = useLanguage();
   return (
     <div
       className="bg-neutral-100 py-8 rounded-[60px] overflow-hidden w-full
@@ -68,7 +68,7 @@ export default function QuizezPage() {
             state={"filled"}
             size={"M"}
             icon_position={"none"}
-            text="submit"
+            text={t("professor.quizes.Submit")}
           />
         </div>
       </div>

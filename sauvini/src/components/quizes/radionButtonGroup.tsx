@@ -1,0 +1,41 @@
+"use client";
+import { useState } from "react";
+import RadioQuestion from "./radioButtonQuestion";
+
+type RadionButtonGroupProps = {
+  options: string[];
+  name: string;
+  ref: any;
+};
+
+export default function RadioButtonGroup({
+  options,
+  name,
+  ref,
+}: RadionButtonGroupProps) {
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  return (
+    <div className="flex flex-col gap-3 w-full">
+      <input
+        type="text"
+        className="hidden"
+        name={name}
+        ref={ref}
+        readOnly
+        value={selectedOption !== null ? options[selectedOption] : ""}
+      />
+      {options.map((option, index) => (
+        <RadioQuestion
+          key={index}
+          option={option}
+          isRTL={false}
+          id={index}
+          state={selectedOption === index}
+          onCheck={(selected_index: number) => {
+            setSelectedOption(selected_index);
+          }}
+        />
+      ))}
+    </div>
+  );
+}

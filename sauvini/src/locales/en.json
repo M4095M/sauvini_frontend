@@ -498,7 +498,8 @@
       "QuizTolalMark": "Quiz Total Mark",
       "CreateQuiz": "Create Question",
       "Cancel": "Cancel",
-      "CreateQuestionDesc": "Fill in the details below to create a question."
+      "CreateQuestionDesc": "Fill in the details below to create a question.",
+      "Submit": "Submit"
     },
     "exams": {
       "title": "Exam Submissions",

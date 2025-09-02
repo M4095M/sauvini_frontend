@@ -1,5 +1,7 @@
+import CheckBoxGroup from "./checkBoxGroup";
 import CheckBoxQuestion from "./checkBoxQuestion";
 import RadioQuestion from "./radioButtonQuestion";
+import RadioButtonGroup from "./radionButtonGroup";
 
 type QuestionProps = {
   number: string;
@@ -31,15 +33,11 @@ export default function Question({
         <div className="w-full h-64 bg-neutral-200 border-4 border-primary-400 rounded-3xl"></div>
       )}
       <div className="flex flex-col gap-3">
-        {options.map((option) => {
-          if (checkbox) {
-            return (
-              <CheckBoxQuestion key={option} option={option} isRTL={isRTL} />
-            );
-          } else {
-            return <RadioQuestion key={option} option={option} isRTL={isRTL} />;
-          }
-        })}
+        {checkbox ? (
+          <CheckBoxGroup isRTL={isRTL} options={options} />
+        ) : (
+          <RadioButtonGroup options={options} name={""} ref={undefined} />
+        )}
       </div>
     </div>
   );

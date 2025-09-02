@@ -498,7 +498,8 @@
       "QuizTolalMark": "العلامة الإجمالية للسؤال",
       "CreateQuiz": "إنشاء سؤال",
       "Cancel": "إلغاء",
-      "CreateQuestionDesc": "املأ التفاصيل أدناه لإنشاء سؤال."
+      "CreateQuestionDesc": "املأ التفاصيل أدناه لإنشاء سؤال.",
+      "Submit": "إرسال"
     },
     "exams": {
       "title": "تسليمات الامتحانات",
@@ -601,12 +602,12 @@
       "academicStream": "المسار الأكاديمي",
       "permissions": "الأذونات",
       "editTitle": "تعديل الملف الشخصي",
-      "editSubtitle":"قم بتحديث معلوماتك الشخصية أدناه.",
+      "editSubtitle": "قم بتحديث معلوماتك الشخصية أدناه.",
       "picture": "صورة الملف الشخصي",
-      "dragOrBrowse":"اسحب صورتك أو تصفح",
-      "maxSizeHint":"Max 5 MB. JPG/PNG.",
-      "firstName":"الاسم الأول",
-      "lastName":"الاسم الأخير",
+      "dragOrBrowse": "اسحب صورتك أو تصفح",
+      "maxSizeHint": "Max 5 MB. JPG/PNG.",
+      "firstName": "الاسم الأول",
+      "lastName": "الاسم الأخير",
       "birthdate": "تاريخ الميلاد",
       "saveChanges": "حفظ التغييرات"
     },
