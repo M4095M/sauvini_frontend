@@ -690,5 +690,80 @@
     "academicStream": "Academic Stream",
     "dragOrBrowse": "Drag your image or browse",
     "maxSizeHint": "Max 5 MB. JPG/PNG."
+  },
+  "landing": {
+    "nav": {
+      "home": "Home",
+      "whyUs": "Why Us",
+      "whatWeOffer": "What We Offer",
+      "exploreModules": "Explore Modules",
+      "login": "Log In",
+      "signUp": "Sign Up"
+    },
+    "hero": {
+      "title": "Your Future Starts Here",
+      "description": "Learn, practice, and succeed with trusted teachers. Unlock chapters, track progress, and reach your goals.",
+      "exploreModules": "Explore Modules",
+      "startLearning": "Start Learning"
+    },
+    "footer": {
+      "explore": "Explore",
+      "contact": "Contact",
+      "language": "Language",
+      "access": "Access",
+      "home": "Home",
+      "whyUs": "Why Us",
+      "whatWeOffer": "What We Offer",
+      "exploreModules": "Explore Modules",
+      "emailUs": "Email Us",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "english": "English",
+      "french": "French",
+      "arabic": "Arabic",
+      "signUpStudent": "Sign Up As a Student",
+      "applyTeacher": "Apply For a Teacher Position",
+      "logIn": "Log In"
+    },
+    "whySauvini": {
+      "title": "Why Sauvini?",
+      "structuredLearning": {
+        "title": "Structured Learning",
+        "desc": "Modules, chapters, and lessons designed for Algerian academic streams."
+      },
+      "expertProfessors": {
+        "title": "Expert Professors",
+        "desc": "Learn from verified teachers with years of real experience."
+      },
+      "trackProgress": {
+        "title": "Track Progress",
+        "desc": "Stay on top of your completed lessons and achievements."
+      },
+      "gamifiedLearning": {
+        "title": "Gamified Learning",
+        "desc": "Earn XP, unlock badges, and level up as you study."
+      },
+      "trustedSecure": {
+        "title": "Trusted & Secure",
+        "desc": "Your data and payments are safe, and content is validated by admins."
+      },
+      "accessibleAnywhere": {
+        "title": "Accessible Anywhere",
+        "desc": "Learn at your own pace, anytime, anywhere."
+      }
+    },
+    "for": {
+      "students": {
+        "title": "For Students",
+        "desc": "Learn with structured modules, video lessons, quizzes, and exams;  all designed for Algerian academic streams."
+      },
+      "professors": {
+        "title": "For Professors",
+        "desc": "Share your expertise by creating chapters, lessons, and exams. Engage with students and track their progress."
+      },
+      "forStudents": "For Students",
+      "forProfessors": "For Professors",
+      "applyNow": "Apply As Professor"
+    }
   }
 }

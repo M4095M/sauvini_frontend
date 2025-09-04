@@ -594,5 +594,80 @@
     "academicStream": "Parcours académique",
     "dragOrBrowse": "Faites glisser votre image ou parcourez",
     "maxSizeHint": "Max 5 Mo. JPG/PNG."
+  },
+  "landing": {
+    "nav": {
+      "home": "Accueil",
+      "whyUs": "Pourquoi nous choisir",
+      "whatWeOffer": "Ce que nous offrons",
+      "exploreModules": "Explorer les modules",
+      "login": "Se connecter",
+      "signUp": "S'inscrire"
+    },
+    "hero": {
+      "title": "Commencez votre avenir",
+      "description": "Apprenez, pratiquez et réussissez avec des enseignants de confiance. Déverrouillez des chapitres, suivez vos progrès et atteignez vos objectifs.",
+      "exploreModules": "Explorer les modules",
+      "startLearning": "Commencer à apprendre"
+    },
+    "footer": {
+      "explore": "Explorer",
+      "contact": "Contact",
+      "language": "Langue",
+      "access": "Accès",
+      "home": "Accueil",
+      "whyUs": "Pourquoi nous choisir",
+      "whatWeOffer": "Ce que nous offrons",
+      "exploreModules": "Explorer les modules",
+      "emailUs": "Email Us",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "english": "Anglais",
+      "french": "Français",
+      "arabic": "Arabe",
+      "signUpStudent": "S'inscrire en tant qu'étudiant",
+      "applyTeacher": "Postuler pour un poste d'enseignant",
+      "logIn": "Se connecter"
+    },
+    "whySauvini": {
+      "title": "Pourquoi Sauvini?",
+      "structuredLearning": {
+        "title": "Apprentissage Structuré",
+        "desc": "Modules, chapitres et leçons pour les filières algériennes."
+      },
+      "expertProfessors": {
+        "title": "Professeurs Experts",
+        "desc": "Apprenez auprès d'enseignants vérifiés avec des années d'expérience réelle."
+      },
+      "trackProgress": {
+        "title": "Suivi des Progrès",
+        "desc": "Restez informé de vos leçons et réalisations terminées."
+      },
+      "gamifiedLearning": {
+        "title": "Apprentissage Gamifié",
+        "desc": "Gagnez des XP, des badges et montez de niveau en étudiant."
+      },
+      "trustedSecure": {
+        "title": "Fiable & Sécurisé",
+        "desc": "Vos données, paiements et contenus sont en sécurité, et validés par des admins."
+      },
+      "accessibleAnywhere": {
+        "title": "Accessible Partout",
+        "desc": "Apprenez à votre rythme, à tout moment, n'importe où, sur n'importe quel appareil."
+      }
+    },
+    "for": {
+      "students": {
+        "title": "Pour les étudiants",
+        "desc": "Apprenez avec des modules structurés, des leçons vidéo, des quiz et des examens ; tous conçus pour les filières académiques algériennes."
+      },
+      "professors": {
+        "title": "Pour les professeurs",
+        "desc": "Partagez votre expertise en créant des chapitres, des leçons et des examens. Interagissez avec les étudiants et suivez leur progression."
+      },
+      "forStudents": "Pour les étudiants",
+      "forProfessors": "Pour les professeurs",
+      "applyNow": "Postuler en tant que professeur"
+    }
   }
 }
