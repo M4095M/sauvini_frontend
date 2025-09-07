@@ -36,7 +36,7 @@ export default function Question({
         {checkbox ? (
           <CheckBoxGroup isRTL={isRTL} options={options} />
         ) : (
-          <RadioButtonGroup options={options} name={""} ref={undefined} />
+          <RadioButtonGroup options={options} isRTL={isRTL} name={""} ref={undefined} />
         )}
       </div>
     </div>

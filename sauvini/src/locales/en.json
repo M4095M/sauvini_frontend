@@ -604,12 +604,12 @@
       "academicStream": "Academic Stream",
       "permissions": "Permissions",
       "editTitle": "Edit Profile",
-      "editSubtitle":"Update your personal information below.",
+      "editSubtitle": "Update your personal information below.",
       "picture": "Profile Picture",
-      "dragOrBrowse":"Drag your image or browse",
-      "maxSizeHint":"Max 5 MB. JPG/PNG.",
-      "firstName":"First Name",
-      "lastName":"Last Name",
+      "dragOrBrowse": "Drag your image or browse",
+      "maxSizeHint": "Max 5 MB. JPG/PNG.",
+      "firstName": "First Name",
+      "lastName": "Last Name",
       "birthdate": "Date of Birth",
       "saveChanges": "Save Changes"
     },
@@ -618,6 +618,15 @@
       "questionAnswering": "Question Answering",
       "exerciseExamCorrection": "Exercise/Exam Correction"
     }
+  },
+  "public": {
+    "modules": "Modules",
+    "unlock": "Unlock",
+    "viewChapters": "View Chapters",
+    "AcademicStream": "Academic Stream",
+    "chapters" : "Chapters",
+    "lessons" : "Lessons",
+    "lockMessage" : "This lesson is locked. Finish the previous to unlock it"
   },
   "admin": {
     "navigation": {

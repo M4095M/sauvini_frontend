@@ -6,12 +6,14 @@ type RadionButtonGroupProps = {
   options: string[];
   name: string;
   ref: any;
+  isRTL?: boolean;
 };
 
 export default function RadioButtonGroup({
   options,
   name,
   ref,
+  isRTL = false,
 }: RadionButtonGroupProps) {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   return (
@@ -28,7 +30,7 @@ export default function RadioButtonGroup({
         <RadioQuestion
           key={index}
           option={option}
-          isRTL={false}
+          isRTL={isRTL}
           id={index}
           state={selectedOption === index}
           onCheck={(selected_index: number) => {

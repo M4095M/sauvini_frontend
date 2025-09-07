@@ -32,23 +32,21 @@ export default function LessonCard({
 
   return (
     <div
-      className="flex w-full max-w-[1152px] p-6 md:p-6  flex-col md:flex-row md:items-center gap-3 md:gap-0 rounded-[28px] 
+      className="flex w-full p-6 md:p-6  flex-col md:flex-row md:items-center gap-3 md:gap-0 rounded-[28px] 
                    border border-[#BDBDBD] bg-white
                    dark:border-[#7C7C7C] dark:bg-[#1A1A1A]
                    transition-all duration-200 hover:shadow-md"
     >
       {/* Desktop Layout */}
       <div
-        className={`hidden md:flex flex-row justify-between items-center w-full`}
+        className={`hidden md:flex flex-row justify-between items-center w-full `}
       >
         {/* Left Content */}
-        <div className={`flex items-start gap-3 `}>
+        <div className={`flex items-start gap-3 w-full`}>
           {/* Number Icon */}
-          <div className="flex w-[30px] h-[30px] justify-center items-center rounded-full bg-[#CEDAE9] dark:bg-[#2A3A4A] flex-shrink-0">
+          <div className={`flex w-[30px] h-[30px] justify-center items-center rounded-full ${lesson.isUnlocked ? "bg-[#CEDAE9] dark:bg-[#2A3A4A]" : "bg-neutral-200 "}  flex-shrink-0`}>
             <span
-              className={`text-sm font-medium text-[#1E40AF] dark:text-[#90B0E0] ${
-                isRTL ? "font-arabic" : "font-sans"
-              }`}
+              className={`text-sm font-medium  ${lesson.isUnlocked ? "text-[#1E40AF] dark:text-[#90B0E0]" : "text-neutral-300"}`}
             >
               {lesson.order}
             </span>
@@ -56,26 +54,22 @@ export default function LessonCard({
 
           {/* Title and Description */}
           <div
-            className={`flex flex-col gap-1 max-w-[923px] `}
+            className={`flex flex-col gap-1 w-full  `}
             dir={isRTL ? "rtl" : "ltr"}
           >
             <h3
-              className={`text-lg font-semibold text-gray-900 dark:text-white ${
-                isRTL ? "font-arabic" : "font-sans"
-              }`}
+              className={`text-lg font-semibold  ${lesson.isUnlocked ? "text-gray-900 dark:text-white" : "text-neutral-300"}`}
             >
               {lesson.title}
             </h3>
             <p
-              className={`text-sm text-gray-600 dark:text-gray-300 ${
-                isRTL ? "font-arabic" : "font-sans"
-              }`}
+              className={`text-sm  ${lesson.isUnlocked ? "text-gray-600 dark:text-gray-300" : "text-neutral-300"}`}
             >
               {lesson.description}
             </p>
             {!lesson.isUnlocked && (
               <p
-                className={`text-xs text-gray-400 dark:text-gray-500 mt-1 ${
+                className={`text-xs text-gray-400 dark:text-gray-500  self-center mt-1 ${
                   isRTL ? "font-arabic" : "font-sans"
                 }`}
               >

@@ -16,6 +16,8 @@ import {
   LogOut,
   X,
 } from "lucide-react";
+import { useState } from "react";
+import LogoutPopUp from "../general/logoutPopUp";
 
 interface NavItem {
   href: string;
@@ -32,7 +34,12 @@ const navigationItems: NavItem[] = [
   { href: "/notifications", label: "notifications", icon: Bell },
 ];
 
-function DesktopSidebar() {
+type SidebarProps = {
+  // callbacks:
+  logoutCallback: () => void;
+}
+
+function DesktopSidebar({ logoutCallback }: SidebarProps) {
   const pathname = usePathname();
   const { isRTL, t } = useLanguage();
 
@@ -43,7 +50,8 @@ function DesktopSidebar() {
     pathname.startsWith("/lessons");
 
   // Check if user is on profile page
-  const isOnProfilePage = pathname === "/profile" || pathname.startsWith("/profile/");
+  const isOnProfilePage =
+    pathname === "/profile" || pathname.startsWith("/profile/");
 
   return (
     <aside
@@ -178,7 +186,7 @@ function DesktopSidebar() {
             }}
             onClick={() => {
               // Handle logout logic here
-              console.log("Logout clicked");
+              logoutCallback()
             }}
           >
             <LogOut className="w-5 h-5 flex-shrink-0" />
@@ -196,7 +204,7 @@ function DesktopSidebar() {
   );
 }
 
-function MobileDrawer() {
+function MobileDrawer({ logoutCallback }: SidebarProps) {
   const { isOpen, close } = useSidebar();
   const pathname = usePathname();
   const { isRTL, t } = useLanguage();
@@ -208,7 +216,8 @@ function MobileDrawer() {
     pathname.startsWith("/lessons");
 
   // Check if user is on profile page
-  const isOnProfilePage = pathname === "/profile" || pathname.startsWith("/profile/");
+  const isOnProfilePage =
+    pathname === "/profile" || pathname.startsWith("/profile/");
 
   return (
     <>
@@ -351,7 +360,7 @@ function MobileDrawer() {
               <button
                 type="button"
                 onClick={() => {
-                  console.log("Logout clicked");
+                  logoutCallback()
                   close();
                 }}
                 className={`flex items-center text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200 ${
@@ -382,17 +391,39 @@ function MobileDrawer() {
 }
 
 export default function Sidebar() {
+  const [isLogoutPopupOpen, setIsLogoutPopupOpen] = useState(false);
+  const handleShowLogoutPopup = () => {
+    document.body.classList.add("no-scroll");
+    window.scrollTo(0, 0);
+    setIsLogoutPopupOpen(true);
+  };
+
+  const handleShowLogoutPopupClose = () => {
+    document.body.classList.remove("no-scroll");
+    window.scrollTo(0, 0);
+    setIsLogoutPopupOpen(false);
+  };
+
   return (
     <>
       {/* Desktop Sidebar */}
       <div className="hidden md:block ">
-        <DesktopSidebar />
+        <DesktopSidebar logoutCallback={handleShowLogoutPopup} />
       </div>
 
       {/* Mobile Drawer */}
       <div className="md:hidden">
-        <MobileDrawer />
+        <MobileDrawer logoutCallback={handleShowLogoutPopup} />
       </div>
+
+      {/* log out pop up */}
+      {isLogoutPopupOpen && (
+        <div className="w-full h-screen bg-black/30 absolute top-0 left-0 flex justify-center items-center z-100000">
+          <div className="m-10">
+            <LogoutPopUp onClose={handleShowLogoutPopupClose}/>
+          </div>
+        </div>
+      )}
     </>
   );
 }

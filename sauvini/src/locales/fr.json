@@ -523,6 +523,15 @@
       "exerciseExamCorrection": "Correction d'exercices/examens"
     }
   },
+  "public": {
+    "modules": "Modules",
+    "unlock": "Déverrouiller",
+    "viewChapters": "Voir les chapitres",
+    "AcademicStream": "Filière académique",
+    "chapters": "Chapitres",
+    "lessons": "Leçons",
+    "lockMessage": "Cette leçon est verrouillée. Terminez la précédente pour la déverrouiller."
+  },
   "admin": {
     "navigation": {
       "manageStudents": "Gérer les étudiants",
