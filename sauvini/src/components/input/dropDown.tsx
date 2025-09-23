@@ -8,6 +8,7 @@ export default function DropDown({
   label,
   placeholder,
   options = [],
+  onChange,
   t,
   isRTL,
   max_width="max-w-xl"

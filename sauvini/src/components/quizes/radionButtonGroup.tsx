@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RadioQuestion from "./radioButtonQuestion";
 
 type RadionButtonGroupProps = {
@@ -15,7 +15,8 @@ export default function RadioButtonGroup({
   ref,
   isRTL = false,
 }: RadionButtonGroupProps) {
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [selectedOption, setSelectedOption] = useState<number>(-1);
+
   return (
     <div className="flex flex-col gap-3 w-full">
       <input
@@ -24,7 +25,7 @@ export default function RadioButtonGroup({
         name={name}
         ref={ref}
         readOnly
-        value={selectedOption !== null ? options[selectedOption] : ""}
+        value={selectedOption !== null && options[selectedOption] ? options[selectedOption] : ""}
       />
       {options.map((option, index) => (
         <RadioQuestion

@@ -74,22 +74,28 @@ export default function ProfessorManagementPage({
   const [showPermissionPopup, setShowPermissionPopup] = useState(false);
   const [showViewDetailsPopup, setShowViewDetailsPopup] = useState(false);
 
-  // handlers
+  // handlers for pop up
   const handleChangeStatusPopup = () => {
+    window.scrollTo(0, 0);
     document.body.classList.add("no-scroll");
-
     setShowChangeStatusPopup(true);
   };
 
   const handlePermissionPopup = () => {
+    window.scrollTo(0, 0);
     document.body.classList.add("no-scroll");
     setShowPermissionPopup(true);
   };
 
   const handleViewDetailsPopup = () => {
+    window.scrollTo(0, 0);
     document.body.classList.add("no-scroll");
     setShowViewDetailsPopup(true);
   };
+
+  // handler for different actions:
+  const handleChangeStatus = () => {};
+  const handleChangePermission = () => {};
 
   // parameters for the query (use as query parameters)
   const [page, setPage] = useState(1);
@@ -98,7 +104,6 @@ export default function ProfessorManagementPage({
   // totalPage needed for page navigation:
   // const totalPage = Math.ceil(professors.length / pageSize);
   const totalPage = 7;
-
   const paginatedData = useMemo(() => {
     const start = (page - 1) * pageSize;
     return data.slice(start, start + pageSize);
@@ -241,7 +246,9 @@ export default function ProfessorManagementPage({
           {/* change status pop up */}
           <div className="">
             <ChangeStatusPopup
-              onAccept={() => {}}
+              onAccept={() => {
+                handleChangeStatus();
+              }}
               onCancel={() => {
                 document.body.classList.remove("no-scroll");
                 setShowChangeStatusPopup(false);
@@ -256,6 +263,7 @@ export default function ProfessorManagementPage({
         <div className="w-full overflow-y-auto h-screen flex justify-center bg-black/40 absolute top-0 left-0 z-100000">
           <div className="m-20">
             <ViewTeacherApplicationDetails
+              applicationsDetails={{}}
               onClose={() => {
                 document.body.classList.remove("no-scroll");
                 setShowViewDetailsPopup(false);
@@ -270,6 +278,7 @@ export default function ProfessorManagementPage({
         <div className="w-full overflow-y-auto h-screen flex justify-center bg-black/40 absolute top-0 left-0 z-100000">
           <div className="m-20">
             <ProfessorPermission
+            handleChangePermission={handleChangePermission}
               onClose={() => {
                 document.body.classList.remove("no-scroll");
                 setShowPermissionPopup(false);

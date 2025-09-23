@@ -2,23 +2,30 @@
 
 import { InputButtonProps } from "@/types/inputButton";
 import { ChevronDown } from "lucide-react";
-import { useRef, useState } from "react";
+import { input } from "motion/react-client";
+import { useEffect, useRef, useState } from "react";
 
 export default function InputButton({
   label,
   type,
   icon,
   icon_position,
+  ref,
+  name,
   icon_filled = false,
-  max_width = "max-w-xl"
+  max_width = "max-w-xl",
+  onClick,
 }: InputButtonProps) {
   const [counter, setCounter] = useState(0);
-  const inputRef = useRef(null);
 
   const returnButton = (type: string) => {
     switch (type) {
       case "icon":
-        return <div className="">{icon}</div>;
+        return (
+          <div className="" onClick={onClick}>
+            {icon}
+          </div>
+        );
       case "plus-minus":
         return (
           <div className="w-full flex flex-col justify-center items-center">
@@ -26,10 +33,8 @@ export default function InputButton({
               className="font-work-sans text-primary-300 text-xl w-full text-center cursor-pointer select-none"
               onClick={() => {
                 setCounter(counter + 1);
-                if (inputRef.current) {
-                  (inputRef.current as HTMLInputElement).value = String(
-                    counter + 1
-                  );
+                if (ref.current) {
+                  (ref.current as HTMLInputElement).value = String(counter + 1);
                 }
               }}
             >
@@ -40,10 +45,8 @@ export default function InputButton({
               className="font-work-sans text-primary-300 text-xl  w-full text-center cursor-pointer select-none"
               onClick={() => {
                 setCounter(counter - 1);
-                if (inputRef.current && counter > 0) {
-                  (inputRef.current as HTMLInputElement).value = String(
-                    counter - 1
-                  );
+                if (ref.current && counter > 0) {
+                  (ref.current as HTMLInputElement).value = String(counter - 1);
                 }
               }}
             >
@@ -58,7 +61,9 @@ export default function InputButton({
   };
 
   return (
-    <div className={`${max_width} w-full min-w-2xs shrink grow flex flex-col gap-2`}>
+    <div
+      className={`${max_width} w-full min-w-2xs shrink grow flex flex-col gap-2`}
+    >
       <div className="font-work-sans text-neutral-600 font-normal px-4">
         {label}
       </div>
@@ -76,7 +81,8 @@ export default function InputButton({
           className={`appearance-none outline-none p-0 m-0 shadow-none bg-white border-neutral-200
           px-5 py-3 w-full 
         text-work-sans font-normal text-base text-neutral-600`}
-          ref={inputRef}
+          ref={ref}
+          name={name}
         />
         <button
           className={`px-4 ${type === "plus-minus" ? "bg-primary-50" : ""} ${

@@ -5,14 +5,22 @@ import DropDown from "@/components/input/dropDown";
 import FileAttachement from "@/components/lesson/fileAttachment";
 import AttachementField from "@/components/input/attachementField";
 import Button from "@/components/ui/button";
+import InputButton from "@/components/input/InputButton";
+import { Plus } from "lucide-react";
+import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
 
 type Props = {
   t: any;
   isRTL: boolean;
-  onClose: () => void
+  onClose: () => void;
 };
 
 export default function CreateQuestionPopUp({ t, isRTL, onClose }: Props) {
+  // handle adding new option:
+  const handleAddOption = () => {};
+
+  const handleRemoveOption = () => {};
+
   return (
     <div className="px-10 py-11 w-full flex flex-col gap-12 bg-neutral-100 rounded-[60px] ">
       {/* header */}
@@ -40,31 +48,37 @@ export default function CreateQuestionPopUp({ t, isRTL, onClose }: Props) {
           max_hight="h-[100px]"
           long
         />
-        <div className="flex flex-col gap-2">
-          <div className="px-4 text-neutral-600 font-normal text-base">
-            {t("professor.quizes.QuestionType")}
-          </div>
-          <CheckBoxQuestion
-            option={"Possibly has multiple correct answers"}
-            isRTL={isRTL}
+        <div className="flex flex-col">
+          <DropDown
+            label={t("professor.quizes.QuestionType")}
+            placeholder="Question Type"
+            options={[
+              {
+                id: "1",
+                text: "Possibly has multiple correct answers",
+              },
+              {
+                id: "2",
+                text: "Has one correct answer",
+              },
+            ]}
             max_width=""
-            state={false}
-            onChange={() => {}}
           />
         </div>
         <div className="flex flex-col gap-4">
           {/* add new option */}
-          <SimpleInput
+          <InputButton
             label={t("professor.quizes.Choices")}
-            value={"New options"}
-            type={"text"}
+            type={"icon"}
+            icon={<Plus />}
             max_width=""
+            onClick={handleAddOption}
           />
           {/* options */}
           <div className="flex flex-col gap-2">
-            <ChoiceBox />
-            <ChoiceBox />
-            <ChoiceBox />
+            <ChoiceBox handleRemove={handleRemoveOption} choice="Choice" />
+            <ChoiceBox handleRemove={handleRemoveOption} choice="Choice" />
+            <ChoiceBox handleRemove={handleRemoveOption} choice="Choice" />
           </div>
         </div>
         <DropDown

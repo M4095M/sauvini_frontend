@@ -2,6 +2,7 @@
 
 import InputButton from "@/components/input/InputButton";
 import TwoOptionRadio from "@/components/input/twoOptionRadio";
+import RadioButtonGroup from "@/components/quizes/radionButtonGroup";
 import Button from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 import { RegisterCommonProps } from "@/types/registerCommonProps";
@@ -30,28 +31,43 @@ export default function TeacherPart2({
         className="flex flex-col gap-6 w-full justify-start items-start"
         dir={isRTL ? "rtl" : "ltr"}
       >
-        <TwoOptionRadio
-          label={t("register.professor.page_2.questions.q_1")}
-          required={false}
-          firstOption={"Yes"}
-          secondOption={"No"}
-        />
-        <TwoOptionRadio
-          label={t("register.professor.page_2.questions.q_2")}
-          required={false}
-          firstOption={"Yes"}
-          secondOption={"No"}
-        />
+        <div className="flex flex-col gap-2 w-full">
+          <div className="px-4 text-neutral-600 font-normal">
+            {t("register.professor.page_2.questions.q_1")}
+          </div>
+          <RadioButtonGroup
+            options={[t("register.common.no"), t("register.common.yes")]}
+            isRTL={isRTL}
+            name={""}
+            ref={undefined}
+          />
+        </div>
+        <div className="flex flex-col gap-2 w-full">
+          <div className="px-4 text-neutral-600 font-normal">
+            {t("register.professor.page_2.questions.q_2")}
+          </div>
+          <RadioButtonGroup
+            options={[t("register.common.no"), t("register.common.yes")]}
+            isRTL={isRTL}
+            name={""}
+            ref={undefined}
+          />
+        </div>
         <InputButton
           label={t("register.professor.page_2.questions.q_3")}
           type={"plus-minus"}
         />
-        <TwoOptionRadio
-          label={t("register.professor.page_2.questions.q_4")}
-          required={false}
-          firstOption={"Yes"}
-          secondOption={"No"}
-        />
+        <div className="flex flex-col gap-2 w-full">
+          <div className="px-4 text-neutral-600 font-normal">
+            {t("register.professor.page_2.questions.q_4")}
+          </div>
+          <RadioButtonGroup
+            options={[t("register.common.no"), t("register.common.yes")]}
+            isRTL={isRTL}
+            name={""}
+            ref={undefined}
+          />
+        </div>
         <div className="w-full flex flex-row justify-center items-center ">
           <span className="font-normal text-base text-neutral-600 grow">
             {t("register.professor.page_2.questions.q_5")}

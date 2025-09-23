@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 
 type OptionCardProps = {
   option: string;
-  onClick?: () => void;
+  onClick?: (modules_name: string) => void;
 };
 
 export default function OptionCard({
@@ -22,7 +22,9 @@ export default function OptionCard({
           size={"XS"}
           icon_position={"icon-only"}
           icon={<X />}
-          onClick={onClick}
+          onClick={() => {
+            onClick(option);
+          }}
         />
       </div>
     </div>

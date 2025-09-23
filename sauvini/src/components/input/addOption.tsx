@@ -9,7 +9,7 @@ export type AddOptionProps = {
   placeholder?: string;
   readOnly?: boolean;
   icon?: any;
-  onClick?: () => void;
+  onClick?: (module_name: string) => void;
 };
 
 export default function AddOption({
@@ -48,7 +48,11 @@ export default function AddOption({
             size={"XS"}
             icon_position={"icon-only"}
             icon={icon}
-            onClick={onClick}
+            onClick={() => {
+              if (inputRef.current?.value) {
+                onClick(inputRef.current?.value);
+              }
+            }}
           />
         </div>
       )}

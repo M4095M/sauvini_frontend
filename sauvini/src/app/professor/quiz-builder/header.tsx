@@ -1,5 +1,6 @@
 import InputButton from "@/components/input/InputButton";
 import Button from "@/components/ui/button";
+import { useRef } from "react";
 
 type QuizHeaderProps = {
   t: any;
@@ -7,6 +8,10 @@ type QuizHeaderProps = {
 };
 
 export default function QuizBuilderHeader({ t, isRLT }: QuizHeaderProps) {
+  // ! tempo: should be replaced with ref from Form hook
+  const inputRef = useRef<HTMLInputElement>(null)
+
+
   return (
     <div className="w-full bg-neutral-100 px-3 py-11 rounded-[52px] flex flex-col gap-8">
       {/* header */}
@@ -52,6 +57,7 @@ export default function QuizBuilderHeader({ t, isRLT }: QuizHeaderProps) {
           label={t("professor.quizes.QuizTotalPoints")}
           type={"plus-minus"}
           max_width=""
+          ref={inputRef}
         />
       </div>
       {/* min score */}

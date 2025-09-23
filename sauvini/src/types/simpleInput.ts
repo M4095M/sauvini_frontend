@@ -5,4 +5,8 @@ export type SimpleInputProps = {
   long?: boolean
   max_width?: string
   max_hight?: string; // for textarea
+
+  // refs:
+  name?: string;
+  ref?: any;
 }

@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect, useState } from "react";
 import RadioCircle from "./radioCircle";
 
 type radioQuestionProps = {
@@ -16,8 +19,10 @@ export default function RadioQuestion({
   state,
   onCheck,
   max_width = "max-w-3xl",
+  
 }: radioQuestionProps) {
   return (
+
     <div
       className={`px-9 py-5 flex items-center gap-3 bg-white w-full ${max_width} ${
         isRTL ? "hover:border-r-2" : "hover:border-l-2"

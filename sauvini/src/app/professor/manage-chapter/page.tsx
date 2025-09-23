@@ -58,6 +58,12 @@ export default function ProfessorManageChapter() {
   const [showUpdateChapterPopup, setShowUpdateChapterPopup] = useState(false);
   const [showLessonDetailsPopup, setShowLessonDetailsPopup] = useState(false);
 
+
+  // callback function for form elements:
+  const handleAddStream = (value: string) => {
+    console.log("selected stream: ", value);
+  }
+
   return (
     <div className="flex flex-col gap-6 w-full">
       {/* manage chapter */}
@@ -118,6 +124,7 @@ export default function ProfessorManageChapter() {
                   },
                 ]}
                 max_width=""
+                onChange={handleAddStream}
               />
               {/* selected streams */}
               <div className="flex flex-row gap-3 flex-wrap">

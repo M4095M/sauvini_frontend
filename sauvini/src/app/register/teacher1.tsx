@@ -4,6 +4,7 @@ import DropDown from "@/components/input/dropDown";
 import InputButton from "@/components/input/InputButton";
 import SimpleInput from "@/components/input/simpleInput";
 import TwoOptionRadio from "@/components/input/twoOptionRadio";
+import RadioButtonGroup from "@/components/quizes/radionButtonGroup";
 import Button from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 import { RegisterCommonProps } from "@/types/registerCommonProps";
@@ -47,12 +48,15 @@ export default function TeacherPart1({
             type="text"
           />
         </div>
-        <TwoOptionRadio
-          label={t("register.common.gender")}
-          required={true}
-          firstOption={t("register.common.male")}
-          secondOption={t("register.common.Female")}
-        />
+        <div className="flex flex-col gap-2">
+          <div className="px-4 text-neutral-600 font-normal">{t("register.common.gender")}</div>
+          <RadioButtonGroup
+            options={[t("register.common.male"), t("register.common.Female")]}
+            isRTL={isRTL}
+            name={""}
+            ref={undefined}
+          />
+        </div>
         <InputButton
           label={t("register.common.date_of_birth")}
           type="icon"

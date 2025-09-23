@@ -8,6 +8,8 @@ export default function SimpleInput({
   value,
   type,
   long = false,
+  ref,
+  name,
   max_width = "max-w-xl",
   max_hight = "max-h-64",
 }: SimpleInputProps) {
@@ -22,12 +24,14 @@ export default function SimpleInput({
           className={`appearance-none outline-[var(--primary-200)] p-0 m-0 shadow-none 
         bg-white border border-neutral-200 px-5 py-3 rounded-3xl w-full ${max_hight}  focus:border-2
         text-work-sans font-normal text-base text-neutral-600 resize-none`}
+          ref={ref}
+          name={name}
         />
       ) : (
         <input
           type={type}
-          name={value}
-          ref={firstName}
+          name={name}
+          ref={ref}
           className={`appearance-none outline-[var(--primary-200)] p-0 m-0 shadow-none 
         bg-white border border-neutral-200 px-5 py-3 rounded-full w-full focus:border-2
         text-work-sans font-normal text-base text-neutral-600 ${

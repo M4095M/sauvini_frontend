@@ -3,11 +3,17 @@ import BigTag from "@/components/professor/BigTags";
 import Tag from "@/components/questions/tag";
 import Button from "@/components/ui/button";
 
+type AppliactionsDetails = {
+
+}
+
 type ViewTeacherApplicationDetailsProps = {
+  applicationsDetails: AppliactionsDetails;
   onClose: () => void;
 };
 
 export default function ViewTeacherApplicationDetails({
+  applicationsDetails,
   onClose,
 }: ViewTeacherApplicationDetailsProps) {
   return (
