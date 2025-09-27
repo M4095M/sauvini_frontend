@@ -13,6 +13,7 @@ export default function TeacherPart3({
   language,
   NextStep,
   PreviousStep,
+  errors
 }: RegisterCommonProps) {
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-10 mt-15">
@@ -33,8 +34,16 @@ export default function TeacherPart3({
           type={"text"}
         />
         <div className="flex flex-row flex-flex-wrap gap-4">
-          <PasswordInputField label={t("register.common.password")} />
-          <PasswordInputField label={t("register.common.confirm_password")} />
+          <PasswordInputField
+            label={t("register.common.password")}
+            isRTL={isRTL}
+            errors={errors?.password}
+          />
+          <PasswordInputField
+            label={t("register.common.confirm_password")}
+            isRTL={isRTL}
+            errors={errors?.confirmPassword}
+          />
         </div>
       </div>
       {/* buttons */}

@@ -1,3 +1,4 @@
+import DropDown from "@/components/input/dropDown";
 import PasswordInputField from "@/components/input/passwordInput";
 import SimpleInput from "@/components/input/simpleInput";
 import Button from "@/components/ui/button";
@@ -10,6 +11,8 @@ export default function RegisterPart2({
   language,
   NextStep,
   PreviousStep,
+  register,
+  errors,
 }: RegisterCommonProps) {
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-10 mt-15">
@@ -24,21 +27,41 @@ export default function RegisterPart2({
       </div>
       {/* input fields */}
       <div className="flex flex-col gap-6" dir={isRTL ? "rtl" : "ltr"}>
-        <SimpleInput
+        <DropDown
           label={t("register.common.Academic_stream")}
-          value={""}
-          type="text"
+          placeholder="الشعبة"
+          options={[
+            { id: 1, text: "علوم تجريبية" },
+            { id: 2, text: " رياضيات" },
+            { id: 3, text: "تقني رياضي" },
+            { id: 4, text: "تسيير و اقتصاد" },
+            { id: 5, text: "اداب و فلسفة" },
+          ]}
+          {...register("academic_stream")}
+          errors={errors?.academic_stream}
         />
         <SimpleInput
           label={t("register.common.email")}
           value={""}
           type="text"
+          {...register("email")}
+          errors={errors?.email}
         />
         <div className="flex flex-row flex-wrap gap-4">
           {/* <SimpleInput label={"Password"} value={""} type="password" /> */}
           {/* <SimpleInput label={"Confirm password"} value={""} type="password" /> */}
-          <PasswordInputField label={t("register.common.password")} />
-          <PasswordInputField label={t("register.common.confirm_password")} />
+          <PasswordInputField
+            label={t("register.common.password")}
+            {...register("password")}
+            errors={errors?.password}
+            isRTL={isRTL}
+          />
+          <PasswordInputField
+            label={t("register.common.confirm_password")}
+            {...register("confirmPassword")}
+            errors={errors?.confirmPassword}
+            isRTL={isRTL}
+          />
         </div>
       </div>
       {/* buttons */}

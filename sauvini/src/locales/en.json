@@ -20,7 +20,11 @@
     "gender": {
       "male": "Male",
       "female": "Female"
-    }
+    },
+    "uploading": "Uploading...",
+    "uploaded": "Uploaded",
+    "retry": "Retry",
+    "upload": "Upload"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -773,6 +777,11 @@
       "forStudents": "For Students",
       "forProfessors": "For Professors",
       "applyNow": "Apply As Professor"
+    }
+  },
+  "errors" : {
+    "radio" : {
+      "required" : "Please select an option"
     }
   }
 }

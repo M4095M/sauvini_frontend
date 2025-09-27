@@ -7,6 +7,10 @@ import { useState } from "react";
 export default function PasswordInputField({
   label,
   placeholder,
+  ref,
+  name,
+  errors,
+  isRTL,
 }: PasswordInputProps) {
   const [show, setShow] = useState(false);
   return (
@@ -16,14 +20,19 @@ export default function PasswordInputField({
       </div>
       <div
         className={`flex flex-row w-full justify-center items-center
-      bg-white border border-neutral-200 rounded-full
+      bg-white border  rounded-full ${
+        errors ? "border-red-500" : "border-neutral-200"
+      }
         text-work-sans font-normal text-base relative`}
       >
         <input
           type={show === true ? "text" : "password"}
           className="appearance-none outline-none p-0 m-0 shadow-none 
-         border-neutral-200 px-5 py-3 w-full
+         border-neutral-200 px-5 py-3 w-full rounded-full
         text-work-sans font-normal text-base text-neutral-600"
+          name={name}
+          ref={ref}
+          dir={isRTL ? "rtl" : "ltr"}
         />
         <button
           className="px-4 text-neutral-400"

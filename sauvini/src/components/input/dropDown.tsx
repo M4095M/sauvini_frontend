@@ -11,27 +11,35 @@ export default function DropDown({
   onChange,
   t,
   isRTL,
-  max_width="max-w-xl"
+  ref,
+  name,
+  max_width = "max-w-xl",
+  errors,
 }: DropDownProps) {
   const [currentItem, setCurrentItem] = useState("");
   const [showList, setShowList] = useState(false);
 
   return (
-    <div className={`${max_width} w-full min-w-2xs shrink grow flex flex-col gap-2`}>
+    <div
+      className={`${max_width} w-full min-w-2xs shrink grow flex flex-col gap-2`}
+    >
       <div className="font-work-sans text-neutral-600 font-normal px-4">
         {label}
       </div>
       <div
-        className="flex flex-row w-full justify-center items-center
-      bg-white border border-neutral-200 rounded-full
-        text-work-sans font-normal text-base relative"
+        className={`flex flex-row w-full justify-center items-center
+      bg-white border rounded-full ${
+        errors ? "border-red-500" : "border-neutral-200"
+      }
+        text-work-sans font-normal text-base relative`}
       >
         <input
           type="text"
-          value={`${placeholder} ${
-            currentItem === "" ? `` : `: ${currentItem}`
-          }`}
+          value={currentItem}
+          placeholder={placeholder}
           readOnly
+          ref={ref}
+          name={name}
           className="appearance-none outline-none p-0 m-0 shadow-none 
          border-neutral-200 px-5 py-3 w-full
         text-work-sans font-normal text-base text-neutral-600"

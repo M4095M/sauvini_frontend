@@ -12,6 +12,7 @@ export default function SimpleInput({
   name,
   max_width = "max-w-xl",
   max_hight = "max-h-64",
+  errors,
 }: SimpleInputProps) {
   const firstName = useRef<HTMLInputElement>(null);
   return (
@@ -22,7 +23,9 @@ export default function SimpleInput({
       {long ? (
         <textarea
           className={`appearance-none outline-[var(--primary-200)] p-0 m-0 shadow-none 
-        bg-white border border-neutral-200 px-5 py-3 rounded-3xl w-full ${max_hight}  focus:border-2
+        bg-white border  px-5 py-3 rounded-3xl w-full ${max_hight} ${
+            errors ? "border-red-500" : "border-neutral-200"
+          } focus:border-2
         text-work-sans font-normal text-base text-neutral-600 resize-none`}
           ref={ref}
           name={name}
@@ -33,10 +36,10 @@ export default function SimpleInput({
           name={name}
           ref={ref}
           className={`appearance-none outline-[var(--primary-200)] p-0 m-0 shadow-none 
-        bg-white border border-neutral-200 px-5 py-3 rounded-full w-full focus:border-2
+        bg-white border px-5 py-3 rounded-full w-full focus:border-2
         text-work-sans font-normal text-base text-neutral-600 ${
-          long ? "grow" : ""
-        }`}
+          errors ? "border-red-500" : "border-neutral-200"
+        } ${long ? "grow" : ""}`}
         />
       )}
     </div>

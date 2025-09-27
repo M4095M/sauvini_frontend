@@ -8,9 +8,16 @@ export type DropDownProps = {
   // langauge specific:
   t?: any;
   isRTL?: boolean;
+
+  // refs:
+  name?: string;
+  ref?: any;
+
+  // errors:
+  errors?: string;
 };
 
 export type DropDownOptionProps = {
-  id: string;
+  id: number;
   text: any;
 };

@@ -20,7 +20,11 @@
     "gender": {
       "male": "ذكر",
       "female": "أنثى"
-    }
+    },
+    "uploading": "جارٍ الرفع...",
+    "uploaded": "تم الرفع",
+    "retry": "إعادة المحاولة",
+    "upload": "رفع"
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-أدرار" },
@@ -771,6 +775,11 @@
       "forStudents": "للطلاب",
       "forProfessors": "للاساتذة",
       "applyNow": "قدّم كأستاذ"
+    }
+  },
+  "errors": {
+    "radio": {
+      "required": "يرجى اختيار خيار"
     }
   }
 }

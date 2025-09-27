@@ -7,6 +7,7 @@ import TwoOptionRadio from "@/components/input/twoOptionRadio";
 import RadioButtonGroup from "@/components/quizes/radionButtonGroup";
 import Button from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
+import { DropDownOptionProps } from "@/types/dropDownProps";
 import { RegisterCommonProps } from "@/types/registerCommonProps";
 import {
   ArrowLeft,
@@ -16,12 +17,75 @@ import {
   Phone,
 } from "lucide-react";
 
+const wilayas: DropDownOptionProps[] = [
+  { id: 1, text: "Adrar" },
+  { id: 2, text: "Chlef" },
+  { id: 3, text: "Laghouat" },
+  { id: 4, text: "Oum El Bouaghi" },
+  { id: 5, text: "Batna" },
+  { id: 6, text: "Béjaïa" },
+  { id: 7, text: "Biskra" },
+  { id: 8, text: "Béchar" },
+  { id: 9, text: "Blida" },
+  { id: 10, text: "Bouira" },
+  { id: 11, text: "Tamanrasset" },
+  { id: 12, text: "Tébessa" },
+  { id: 13, text: "Tlemcen" },
+  { id: 14, text: "Tiaret" },
+  { id: 15, text: "Tizi Ouzou" },
+  { id: 16, text: "Alger" },
+  { id: 17, text: "Djelfa" },
+  { id: 18, text: "Jijel" },
+  { id: 19, text: "Sétif" },
+  { id: 20, text: "Saïda" },
+  { id: 21, text: "Skikda" },
+  { id: 22, text: "Sidi Bel Abbès" },
+  { id: 23, text: "Annaba" },
+  { id: 24, text: "Guelma" },
+  { id: 25, text: "Constantine" },
+  { id: 26, text: "Médéa" },
+  { id: 27, text: "Mostaganem" },
+  { id: 28, text: "M’Sila" },
+  { id: 29, text: "Mascara" },
+  { id: 30, text: "Ouargla" },
+  { id: 31, text: "Oran" },
+  { id: 32, text: "El Bayadh" },
+  { id: 33, text: "Illizi" },
+  { id: 34, text: "Bordj Bou Arréridj" },
+  { id: 35, text: "Boumerdès" },
+  { id: 36, text: "El Tarf" },
+  { id: 37, text: "Tindouf" },
+  { id: 38, text: "Tissemsilt" },
+  { id: 39, text: "El Oued" },
+  { id: 40, text: "Khenchela" },
+  { id: 41, text: "Souk Ahras" },
+  { id: 42, text: "Tipaza" },
+  { id: 43, text: "Mila" },
+  { id: 44, text: "Aïn Defla" },
+  { id: 45, text: "Naâma" },
+  { id: 46, text: "Aïn Témouchent" },
+  { id: 47, text: "Ghardaïa" },
+  { id: 48, text: "Relizane" },
+  { id: 49, text: "El M'ghair" },
+  { id: 50, text: "El Meniaa" },
+  { id: 51, text: "Ouled Djellal" },
+  { id: 52, text: "Bordj Baji Mokhtar" },
+  { id: 53, text: "Béni Abbès" },
+  { id: 54, text: "Timimoun" },
+  { id: 55, text: "Touggourt" },
+  { id: 56, text: "Djanet" },
+  { id: 57, text: "In Salah" },
+  { id: 58, text: "In Guezzam" },
+];
+
 export default function TeacherPart1({
   t,
   isRTL,
   language,
   NextStep,
   PreviousStep,
+  register,
+  errors,
 }: RegisterCommonProps) {
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-10 mt-15">
@@ -41,35 +105,55 @@ export default function TeacherPart1({
             label={t("register.common.firstname")}
             value={""}
             type="text"
+            {...register("firstname")}
+            errors={errors?.firstname}
           />
           <SimpleInput
             label={t("register.common.lastname")}
             value={""}
             type="text"
+            {...register("lastname")}
+            errors={errors?.lastname}
           />
         </div>
         <div className="flex flex-col gap-2">
-          <div className="px-4 text-neutral-600 font-normal">{t("register.common.gender")}</div>
+          <div className="px-4 text-neutral-600 font-normal">
+            {t("register.common.gender")}
+          </div>
+          {errors.gender && (
+            <div className="font-medium text-base text-red-500 px-4">
+              {t("errors.radio.required")}
+            </div>
+          )}
           <RadioButtonGroup
             options={[t("register.common.male"), t("register.common.Female")]}
             isRTL={isRTL}
-            name={""}
-            ref={undefined}
+            {...register("gender")}
           />
         </div>
-        <InputButton
+        <SimpleInput
           label={t("register.common.date_of_birth")}
-          type="icon"
-          icon={<Calendar />}
-          icon_position="right"
-          icon_filled={true}
+          value={""}
+          type={"date"}
+          errors={errors?.date_of_birth}
+          {...register("date_of_birth")}
         />
-        <DropDown label={t("register.common.Wilaya")} t={t} isRTL={isRTL} />
+        <DropDown
+          label={t("register.common.Wilaya")}
+          t={t}
+          isRTL={isRTL}
+          placeholder="Wilaya"
+          {...register("wilaya")}
+          errors={errors?.wilaya}
+          options={wilayas}
+        />
         <InputButton
           label={t("register.common.phone")}
           type="icon"
           icon={<Phone />}
           icon_position="left"
+          {...register("phone")}
+          errors={errors?.phone}
         />
       </div>
       {/* buttons */}

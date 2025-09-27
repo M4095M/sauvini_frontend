@@ -15,6 +15,7 @@ export default function InputButton({
   icon_filled = false,
   max_width = "max-w-xl",
   onClick,
+  errors,
 }: InputButtonProps) {
   const [counter, setCounter] = useState(0);
 
@@ -33,9 +34,6 @@ export default function InputButton({
               className="font-work-sans text-primary-300 text-xl w-full text-center cursor-pointer select-none"
               onClick={() => {
                 setCounter(counter + 1);
-                if (ref.current) {
-                  (ref.current as HTMLInputElement).value = String(counter + 1);
-                }
               }}
             >
               +
@@ -44,9 +42,8 @@ export default function InputButton({
             <span
               className="font-work-sans text-primary-300 text-xl  w-full text-center cursor-pointer select-none"
               onClick={() => {
-                setCounter(counter - 1);
-                if (ref.current && counter > 0) {
-                  (ref.current as HTMLInputElement).value = String(counter - 1);
+                if (counter > 0) {
+                  setCounter(counter - 1);
                 }
               }}
             >
@@ -73,7 +70,9 @@ export default function InputButton({
         } w-full  items-center 
        border ${
          icon_filled ? "bg-primary-50" : "bg-white"
-       }  border-neutral-200 rounded-full overflow-hidden
+       } rounded-full overflow-hidden ${
+          errors ? "border-red-500" : "border-neutral-200 "
+        }
         text-work-sans font-normal text-base relative`}
       >
         <input
@@ -83,6 +82,8 @@ export default function InputButton({
         text-work-sans font-normal text-base text-neutral-600`}
           ref={ref}
           name={name}
+          readOnly={type === "plus-minus"}
+          value={type === "plus-minus" ? counter : undefined}
         />
         <button
           className={`px-4 ${type === "plus-minus" ? "bg-primary-50" : ""} ${
