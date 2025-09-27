@@ -1,9 +1,9 @@
 import { Language } from "@/lib/language";
 
 export type RegisterCommonProps = {
-  t: any;
+  t: unknown;
   isRTL: boolean;
   language: Language;
-  NextStep: any;
-  PreviousStep: any;
+  NextStep: unknown;
+  PreviousStep: unknown;
 };

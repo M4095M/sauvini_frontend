@@ -1,5 +1,5 @@
 export type OTPInputProps = {
-  t: any;
+  t: unknown;
   isRTL: boolean;
   onClick: () => void
 }

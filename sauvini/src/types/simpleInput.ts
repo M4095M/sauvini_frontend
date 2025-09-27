@@ -8,5 +8,5 @@ export type SimpleInputProps = {
 
   // refs:
   name?: string;
-  ref?: any;
+  ref?: unknown;
 }
