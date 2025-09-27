@@ -1,4 +1,4 @@
 export type QuizPopupProps = {
-  onClose: any
-  onAccept: any
+  onClose: unknown
+  onAccept: unknown
 }

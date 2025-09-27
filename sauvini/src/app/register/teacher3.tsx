@@ -3,7 +3,6 @@
 import PasswordInputField from "@/components/input/passwordInput";
 import SimpleInput from "@/components/input/simpleInput";
 import Button from "@/components/ui/button";
-import { useLanguage } from "@/context/LanguageContext";
 import { RegisterCommonProps } from "@/types/registerCommonProps";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -13,8 +12,10 @@ export default function TeacherPart3({
   language,
   NextStep,
   PreviousStep,
-  errors
+  errors,
+  register,
 }: RegisterCommonProps) {
+  console.log("rendering teacher part 3");
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-10 mt-15">
       {/* Header */}
@@ -32,17 +33,21 @@ export default function TeacherPart3({
           label={t("register.common.email")}
           value={""}
           type={"text"}
+          errors={errors?.teacher_email}
+          {...register("teacher_email")}
         />
-        <div className="flex flex-row flex-flex-wrap gap-4">
+        <div className=" flex flex-row flex-wrap gap-4">
           <PasswordInputField
             label={t("register.common.password")}
             isRTL={isRTL}
-            errors={errors?.password}
+            errors={errors?.teacher_password}
+            {...register("teacher_password")}
           />
           <PasswordInputField
             label={t("register.common.confirm_password")}
             isRTL={isRTL}
-            errors={errors?.confirmPassword}
+            errors={errors?.teacher_confirmPassword}
+            {...register("teacher_confirmPassword")}
           />
         </div>
       </div>

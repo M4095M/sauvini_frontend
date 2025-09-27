@@ -17,17 +17,17 @@ export function translate(language: Language, key: string): string {
   const t = getTranslations(language);
   const keys = key.split('.');
   
-  let value: any = t;
+  let value: unknown = t;
   for (const k of keys) {
     if (value && typeof value === 'object' && k in value) {
-      value = value[k];
+      value = (value as Record<string, unknown>)[k];
     } else {
       // Fallback to English if key not found
       const fallbackT = translations.en;
-      let fallbackValue: any = fallbackT;
+      let fallbackValue: unknown = fallbackT;
       for (const fallbackK of keys) {
         if (fallbackValue && typeof fallbackValue === 'object' && fallbackK in fallbackValue) {
-          fallbackValue = fallbackValue[fallbackK];
+          fallbackValue = (fallbackValue as Record<string, unknown>)[fallbackK];
         } else {
           return `Missing translation: ${key}`;
         }
@@ -44,10 +44,10 @@ export function hasTranslation(language: Language, key: string): boolean {
   const t = getTranslations(language);
   const keys = key.split('.');
   
-  let value: any = t;
+  let value: unknown = t;
   for (const k of keys) {
     if (value && typeof value === 'object' && k in value) {
-      value = value[k];
+      value = (value as Record<string, unknown>)[k];
     } else {
       return false;
     }
@@ -61,13 +61,13 @@ export function getAllTranslationKeys(language: Language, prefix = ''): string[]
   const t = getTranslations(language);
   const keys: string[] = [];
   
-  function traverse(obj: any, currentPath: string) {
+  function traverse(obj: unknown, currentPath: string) {
     if (typeof obj === 'string') {
       keys.push(currentPath);
     } else if (typeof obj === 'object' && obj !== null) {
       Object.keys(obj).forEach(key => {
         const newPath = currentPath ? `${currentPath}.${key}` : key;
-        traverse(obj[key], newPath);
+        traverse((obj as Record<string, unknown>)[key], newPath);
       });
     }
   }

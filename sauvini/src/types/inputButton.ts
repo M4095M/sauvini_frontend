@@ -7,7 +7,7 @@ export type InputButtonProps = {
   max_width?: string;
 
   // refs for Form hook:
-  ref?: any;
+  ref?: unknown;
   name?: string;
 
   // actions:

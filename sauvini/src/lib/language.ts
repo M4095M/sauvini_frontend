@@ -1,7 +1,7 @@
 export type Language = 'en' | 'fr' | 'ar';
 
 // Dynamic translations interface - allows any nested structure
-export type Translations = Record<string, any>;
+export type Translations = Record<string, unknown>;
 
 // Helper type for translation key paths (dot notation)
 export type TranslationKey = string;

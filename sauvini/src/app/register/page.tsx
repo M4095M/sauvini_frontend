@@ -21,9 +21,9 @@ export type RegisterRequest = {
   firstname: string;
   lastname: string;
   phone: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
+  student_email: string;
+  student_password: string;
+  student_confirmPassword: string;
   academic_stream: string;
   wilaya: string;
 
@@ -34,6 +34,9 @@ export type RegisterRequest = {
   highSchool_experience_num: number;
   offSchool_experience: boolean;
   onlineSchool_experience: boolean;
+  teacher_email: string;
+  teacher_password: string;
+  teacher_confirmPassword: string;
 
   // input forms:
   cv: File | null;
@@ -94,27 +97,27 @@ export default function RegisterPage() {
     const errors: Partial<Record<keyof RegisterRequest, string>> = {};
 
     // Validate email
-    if (!values.email || values.email.trim() === "") {
-      errors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
-      errors.email = "Please enter a valid email address";
+    if (!values.teacher_email || values.teacher_email.trim() === "") {
+      errors.teacher_email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.teacher_email.trim())) {
+      errors.teacher_email = "Please enter a valid email address";
     }
 
     // Validate password
-    if (!values.password || values.password === "") {
-      errors.password = "Password is required";
-    } else if (values.password.length < 8) {
-      errors.password = "Password must be at least 8 characters";
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(values.password)) {
-      errors.password =
+    if (!values.student_email || values.student_email === "") {
+      errors.student_email = "Password is required";
+    } else if (values.student_email.length < 8) {
+      errors.student_email = "Password must be at least 8 characters";
+    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(values.student_email)) {
+      errors.student_email =
         "Password must contain at least one uppercase letter, one lowercase letter, and one number";
     }
 
     // Validate confirm password
-    if (!values.confirmPassword || values.confirmPassword === "") {
-      errors.confirmPassword = "Please confirm your password";
-    } else if (values.password !== values.confirmPassword) {
-      errors.confirmPassword = "Passwords do not match";
+    if (!values.student_confirmPassword || values.student_confirmPassword === "") {
+      errors.student_confirmPassword = "Please confirm your password";
+    } else if (values.student_password !== values.student_confirmPassword) {
+      errors.student_confirmPassword = "Passwords do not match";
     }
 
     // validate academic stream
@@ -221,27 +224,27 @@ export default function RegisterPage() {
     const errors: Partial<Record<keyof RegisterRequest, string>> = {};
 
     // Validate email
-    if (!values.email || values.email.trim() === "") {
-      errors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
-      errors.email = "Please enter a valid email address";
+    if (!values.teacher_email || values.teacher_email.trim() === "") {
+      errors.teacher_email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.teacher_email.trim())) {
+      errors.teacher_email = "Please enter a valid email address";
     }
 
     // Validate password
-    if (!values.password || values.password === "") {
-      errors.password = "Password is required";
-    } else if (values.password.length < 8) {
-      errors.password = "Password must be at least 8 characters";
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(values.password)) {
-      errors.password =
+    if (!values.teacher_password || values.teacher_password === "") {
+      errors.teacher_password = "Password is required";
+    } else if (values.teacher_password.length < 8) {
+      errors.teacher_password = "Password must be at least 8 characters";
+    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(values.teacher_password)) {
+      errors.teacher_password =
         "Password must contain at least one uppercase letter, one lowercase letter, and one number";
     }
 
     // Validate confirm password
-    if (!values.confirmPassword || values.confirmPassword === "") {
-      errors.confirmPassword = "Please confirm your password";
-    } else if (values.password !== values.confirmPassword) {
-      errors.confirmPassword = "Passwords do not match";
+    if (!values.teacher_confirmPassword || values.teacher_confirmPassword === "") {
+      errors.teacher_confirmPassword = "Please confirm your password";
+    } else if (values.teacher_password !== values.teacher_confirmPassword) {
+      errors.teacher_confirmPassword = "Passwords do not match";
     }
 
     return errors;

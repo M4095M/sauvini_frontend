@@ -8,8 +8,10 @@ export type SimpleInputProps = {
 
   // refs:
   name?: string;
-  ref?: any;
+
 
   // errors:
   errors?: string;
+
+  ref?: unknown;
 }

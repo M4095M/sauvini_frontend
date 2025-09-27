@@ -3,11 +3,10 @@ import { Language } from "@/lib/language";
 import { FormErrors } from "./api";
 
 export type RegisterCommonProps = {
-  t: any;
+  t: (key: string) => string;
   isRTL: boolean;
   language: Language;
-  NextStep: any;
-  PreviousStep: any;
+
 
   // used to register input fields
   register: (name: keyof RegisterRequest) => {
@@ -24,4 +23,8 @@ export type RegisterCommonProps = {
 
   // validations:
   errors: FormErrors<RegisterRequest>;
+
+  NextStep: any;
+  PreviousStep: any;
+
 };

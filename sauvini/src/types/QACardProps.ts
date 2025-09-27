@@ -2,8 +2,8 @@ export type QACardProps = {
   title: string;
   description: string;
   icon_type: "icon" | "button"
-  icon: any;
-  attachment?: any;
+  icon: unknown;
+  attachment?: unknown;
   onClick: () => void;
   isRTL: boolean
 }
