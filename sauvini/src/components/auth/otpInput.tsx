@@ -7,7 +7,7 @@ import {
 import Button from "../ui/button";
 import { OTPInputProps } from "@/types/otpInput";
 
-export default function OTPInput({ t, isRTL, onClick }: OTPInputProps) {
+export default function OTPInput({ t, isRTL, onClick, resendOTP }: OTPInputProps) {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-4">
@@ -21,7 +21,10 @@ export default function OTPInput({ t, isRTL, onClick }: OTPInputProps) {
             <InputOTPSlot index={5} />
           </InputOTPGroup>
         </InputOTP>
-        <div className="font-work-sans font-medium text-sm self-end cursor-pointer text-primary-300">
+        <div className="font-work-sans font-medium text-sm self-end cursor-pointer text-primary-300" 
+        onClick={() => {
+          resendOTP();
+        }}>
           {t("register.verify-email.resend")}
         </div>
       </div>

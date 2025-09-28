@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Eye, EyeOff } from 'lucide-react'
@@ -9,6 +9,11 @@ import SimpleInput from "@/components/input/simpleInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
+import { useForm } from "@/hooks/useForm"
+import { LoginRequest } from "@/api"
+import { FormErrors } from "@/types/api"
+import { useAuth } from "@/context/AuthContext"
+
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
@@ -16,16 +21,46 @@ export default function LoginPage() {
   const { t, language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
 
-  // dummy login handler for backend to replace later
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsLoading(true)
-    // NOTE:
-    // - Input values should be rendered via InputButton.
-    await new Promise((r) => setTimeout(r, 600))
-    console.log("LoginRequestData (to be wired by backend): { email, password }")
-    setIsLoading(false)
+  const {loginStudent, loginProfessor} = useAuth()
+
+  // Add form data ref to persist across steps without triggering re-renders
+  const formDataRef = useRef<Partial<LoginRequest>>({});
+
+  const handleLogin  = () => {
+    const errors: Partial<Record<keyof LoginRequest, string>> = {};
+    const values = getValues();
+  
+    // validation:
+    setIsLoading(true);
+
+    if (!values.email || values.email.trim() === "") {
+      errors.email = "Email is required";
+    }
+
+    if (!values.password || values.password.trim() === ""){
+      errors.password = "Password is required";
+    }
+
+    setErrors(errors)
   }
+
+  // Initialize useForm hook with external form data management
+  const {
+    register,
+    registerFile,
+    handleSubmit,
+    errors,
+    setErrors,
+    isSubmitting,
+    getValues,
+    validate,
+  } = useForm<LoginRequest>({
+    initialValues: {},
+    onSubmit: handleLogin,
+    externalFormData: formDataRef, // Pass the external form data ref
+  });
+
+
 
   return (
     <>
@@ -111,12 +146,12 @@ export default function LoginPage() {
               <form onSubmit={handleLogin} className="flex flex-col" style={{ gap: "6px" }}>
                 {/* Email */}
                 <div className="mb-4">
-                  <SimpleInput label={t("auth.login.email")} value="email" type="email" />
+                  <SimpleInput label={t("auth.login.email")} value="email" type="email" {...register("email")} errors={errors.email} />
                 </div>
 
                 {/* Password */}
                 <div className="mb-4">
-                  <SimpleInput label={t("auth.login.password")} value="password" type="password" />
+                  <SimpleInput label={t("auth.login.password")} value="password" type="password" {...register("password")} errors={errors.password} />
                 </div>
 
                 {/* Forgot password link */}

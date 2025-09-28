@@ -22,6 +22,7 @@ export default function VerifyCodePage() {
   const SearchParamsContext = useSearchParams()
   const email = SearchParamsContext.get("email") || "example@gmail.com"
 
+
   // dummy submit handler
   const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -34,7 +35,6 @@ export default function VerifyCodePage() {
 
   // dummy resend handler
   const handleResendCode = async () => {
-    console.log("Resending verification code...")
   }
 
   return (

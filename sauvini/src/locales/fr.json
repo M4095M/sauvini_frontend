@@ -687,5 +687,8 @@
         "required": "Veuillez sélectionner une option"
       }
     }
-  }
+  },
+  "otp": {
+  "resent": "OTP renvoyé avec succès"
+}
 }

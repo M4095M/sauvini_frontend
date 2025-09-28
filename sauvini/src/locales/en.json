@@ -783,5 +783,8 @@
     "radio" : {
       "required" : "Please select an option"
     }
+  },
+  "otp" : {
+    "resent" : "OTP resent successfully"
   }
 }

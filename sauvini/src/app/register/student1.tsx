@@ -97,15 +97,15 @@ export default function RegisterPart1({
             label={t("register.common.firstname")}
             value={"firstname"}
             type="text"
-            {...register("firstname")}
-            errors={errors?.firstname}
+            {...register("first_name")}
+            errors={errors?.first_name}
           />
           <SimpleInput
             label={t("register.common.lastname")}
             value={"lastname"}
             type="text"
-            {...register("lastname")}
-            errors={errors?.lastname}
+            {...register("last_name")}
+            errors={errors?.last_name}
           />
         </div>
         <DropDown
@@ -121,8 +121,8 @@ export default function RegisterPart1({
           type="icon"
           icon={<Phone />}
           icon_position="left"
-          {...register("phone")}
-          errors={errors?.phone}
+          {...register("phone_number")}
+          errors={errors?.phone_number}
         />
       </div>
       {/* buttons */}

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -9,21 +9,54 @@ import SimpleInput from "@/components/input/simpleInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
+import { useForm } from "@/hooks/useForm"
+import { ForgotPasswordRequest } from "@/api"
 
 export default function ForgotPasswordPage() {
   const [isLoading, setIsLoading] = useState(false)
   const { t, language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
 
+
   // dummy submit handler
-  const handleNext = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const handleNext = async () => {
     setIsLoading(true)
-    
-    await new Promise((r) => setTimeout(r, 600))
-    console.log("ForgotPasswordRequestData (to be wired by backend): { email }")
+
+    // validation:
+    const errors: Partial<Record<keyof ForgotPasswordRequest, string>> = {};
+    const values = getValues();
+
+    // request OTP
+    if (!values.email || values.email.trim() === "") {
+      console.log("Email is required");
+      errors.email = t("auth.forgot.errors.email_required") || "Email is required";
+      setErrors(errors);
+      return
+    }
+
+
     setIsLoading(false)
   }
+
+  // Add form data ref to persist across steps without triggering re-renders
+  const formDataRef = useRef<Partial<ForgotPasswordRequest>>({});
+
+  const {
+    register,
+    registerFile,
+    handleSubmit,
+    errors,
+    setErrors,
+    isSubmitting,
+    getValues,
+    validate,
+  } = useForm<ForgotPasswordRequest>({
+    initialValues: {},
+    onSubmit: handleNext,
+    externalFormData: formDataRef, // Pass the external form data ref
+  });
+
+
 
   return (
     <>
@@ -101,7 +134,7 @@ export default function ForgotPasswordPage() {
                 right: isRTL ? "86px" : undefined,
               }}
             >
-              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" type="email" />
+              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" type="email" {...register("email")} errors={errors.email} />
             </div>
 
             {/* Actions */}
@@ -140,6 +173,7 @@ export default function ForgotPasswordPage() {
                           : (t("common.next") || "Next")
                       }
                       disabled={isLoading}
+                      onClick={handleNext}
                     />
                   </Link>
                 </form>
@@ -249,7 +283,7 @@ export default function ForgotPasswordPage() {
 
             {/* Email */}
             <div className="px-5 sm:px-6 mt-10 sm:mt-12 sm:max-w-md sm:mx-auto" style={{ direction: isRTL ? "rtl" : "ltr" }}>
-              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" type="email" />
+              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" type="email" {...register("email")} errors={errors.email} />
             </div>
 
             {/* Buttons */}
@@ -277,6 +311,7 @@ export default function ForgotPasswordPage() {
                           : (t("common.next") || "Next")
                       }
                       disabled={isLoading}
+                      onClick={handleNext}
                     />
                   </Link>
                 </form>

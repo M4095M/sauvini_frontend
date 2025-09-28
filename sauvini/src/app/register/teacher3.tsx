@@ -33,21 +33,21 @@ export default function TeacherPart3({
           label={t("register.common.email")}
           value={""}
           type={"text"}
-          errors={errors?.teacher_email}
-          {...register("teacher_email")}
+          errors={errors?.email}
+          {...register("email")}
         />
         <div className=" flex flex-row flex-wrap gap-4">
           <PasswordInputField
             label={t("register.common.password")}
             isRTL={isRTL}
-            errors={errors?.teacher_password}
-            {...register("teacher_password")}
+            errors={errors?.password}
+            {...register("password")}
           />
           <PasswordInputField
             label={t("register.common.confirm_password")}
             isRTL={isRTL}
-            errors={errors?.teacher_confirmPassword}
-            {...register("teacher_confirmPassword")}
+            errors={errors?.confirmPassword}
+            {...register("confirmPassword")}
           />
         </div>
       </div>

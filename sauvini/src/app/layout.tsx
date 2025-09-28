@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import { getServerLanguage } from "@/lib/server-cookies";
 
 import { Work_Sans, Tajawal } from "next/font/google";
+import { AuthProvider } from "@/context/AuthContext";
 
 const work_sans = Work_Sans({
   subsets: ["latin"],
@@ -47,7 +48,11 @@ export default async function RootLayout({
         className={`${work_sans.variable} ${tajawal.variable} antialiased`}
       >
         <LanguageProvider initialLanguage={initialLanguage}>
-          <ThemeProvider defaultTheme="light">{children}</ThemeProvider>
+          <ThemeProvider defaultTheme="light">
+            <AuthProvider >
+              {children}
+            </AuthProvider>
+          </ThemeProvider>
         </LanguageProvider>
       </body>
     </html>

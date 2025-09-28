@@ -12,18 +12,24 @@ import TeacherPart3 from "./teacher3";
 import { motion } from "motion/react";
 import { useForm } from "@/hooks/useForm";
 import { FormErrors } from "@/types/api";
+import { StringOrTemplateHeader } from "@tanstack/react-table";
+import OTP from "./otp";
+import { useAuth } from "@/context/AuthContext";
 
 type ElementMap = Record<string, JSX.Element[]>;
 
 export type RegisterRequest = {
   // !important: fields of student registration and teacher registration are grouped together to simply the logic only
   // student fields
-  firstname: string;
-  lastname: string;
-  phone: string;
-  student_email: string;
-  student_password: string;
-  student_confirmPassword: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  email:string;
+  password: string;
+  confirmPassword: string;
+  // student_email: string;
+  // student_password: string;
+  // student_confirmPassword: string;
   academic_stream: string;
   wilaya: string;
 
@@ -34,9 +40,9 @@ export type RegisterRequest = {
   highSchool_experience_num: number;
   offSchool_experience: boolean;
   onlineSchool_experience: boolean;
-  teacher_email: string;
-  teacher_password: string;
-  teacher_confirmPassword: string;
+  // teacher_email: string;
+  // teacher_password: string;
+  // teacher_confirmPassword: string;
 
   // input forms:
   cv: File | null;
@@ -46,18 +52,41 @@ export default function RegisterPage() {
   const { t, isRTL, language } = useLanguage();
   const [step, setStep] = useState(0);
   const stepRef = useRef(0);
+  const {registerStudent, registerProfessor} = useAuth()
 
   // Define submission handlers first
   const handleTeacherRegister = async (values: RegisterRequest) => {
-    console.log("Teacher registration:", values);
     // Add your teacher registration logic here
+    await registerProfessor({
+      first_name: values.first_name,
+      last_name: values.last_name,
+      wilaya: values.wilaya,
+      phone_number: values.phone_number,
+      email: values.email,
+      gender: values.gender,
+      date_of_birth: values.date_of_birth.toISOString(),
+      exp_school: values.highSchool_experience,
+      exp_school_years: values.highSchool_experience_num,
+      exp_off_school: values.offSchool_experience,
+      exp_online: values.onlineSchool_experience,
+      password: values.password,
+    }, values.cv as File);
+    console.log("Teacher registered with values: ", values);
   };
   const handleStudentRegister = async (values: RegisterRequest) => {
-    console.log("Student registration:", values);
     // Add your student registration logic here
-  };
+    await registerStudent({
+      first_name: values.first_name,
+      last_name: values.last_name,
+      phone_number: values.phone_number,
+      email: values.email,
+      password: values.password,
+      academic_stream: values.academic_stream,
+      wilaya: values.wilaya,
+    });
+    console.log("Student registered with values: ", values);
 
-  console.log("from register componenet");
+  };
 
   // define validation functions:
 
@@ -65,25 +94,25 @@ export default function RegisterPage() {
   const StudentvalidateStep1 = (values: Partial<RegisterRequest>) => {
     const errors: Partial<Record<keyof RegisterRequest, string>> = {};
 
-    // Validate firstname
-    if (!values.firstname || values.firstname.trim() === "") {
-      errors.firstname = "First name is required";
-    } else if (values.firstname.trim().length < 2) {
-      errors.firstname = "First name must be at least 2 characters";
+    // Validate first_name
+    if (!values.first_name || values.first_name.trim() === "") {
+      errors.first_name = "First name is required";
+    } else if (values.first_name.trim().length < 2) {
+      errors.first_name = "First name must be at least 2 characters";
     }
 
-    // Validate lastname
-    if (!values.lastname || values.lastname.trim() === "") {
-      errors.lastname = "Last name is required";
-    } else if (values.lastname.trim().length < 2) {
-      errors.lastname = "Last name must be at least 2 characters";
+    // Validate last_name
+    if (!values.last_name || values.last_name.trim() === "") {
+      errors.last_name = "Last name is required";
+    } else if (values.last_name.trim().length < 2) {
+      errors.last_name = "Last name must be at least 2 characters";
     }
 
     // Validate phone number
-    if (!values.phone || values.phone.trim() === "") {
-      errors.phone = "Phone number is required";
-    } else if (!/^[\+]?[0-9\-\(\)\s]{10,15}$/.test(values.phone.trim())) {
-      errors.phone = "Please enter a valid phone number";
+    if (!values.phone_number || values.phone_number.trim() === "") {
+      errors.phone_number = "Phone number is required";
+    } else if (!/^[\+]?[0-9\-\(\)\s]{10,15}$/.test(values.phone_number.trim())) {
+      errors.phone_number = "Please enter a valid phone number";
     }
 
     // validate wilaya:
@@ -97,27 +126,27 @@ export default function RegisterPage() {
     const errors: Partial<Record<keyof RegisterRequest, string>> = {};
 
     // Validate email
-    if (!values.teacher_email || values.teacher_email.trim() === "") {
-      errors.teacher_email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.teacher_email.trim())) {
-      errors.teacher_email = "Please enter a valid email address";
+    if (!values.email || values.email.trim() === "") {
+      errors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
+      errors.email = "Please enter a valid email address";
     }
 
     // Validate password
-    if (!values.student_email || values.student_email === "") {
-      errors.student_email = "Password is required";
-    } else if (values.student_email.length < 8) {
-      errors.student_email = "Password must be at least 8 characters";
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(values.student_email)) {
-      errors.student_email =
+    if (!values.password || values.password === "") {
+      errors.password = "Password is required";
+    } else if (values.password.length < 8) {
+      errors.password = "Password must be at least 8 characters";
+    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(values.password)) {
+      errors.password =
         "Password must contain at least one uppercase letter, one lowercase letter, and one number";
     }
 
     // Validate confirm password
-    if (!values.student_confirmPassword || values.student_confirmPassword === "") {
-      errors.student_confirmPassword = "Please confirm your password";
-    } else if (values.student_password !== values.student_confirmPassword) {
-      errors.student_confirmPassword = "Passwords do not match";
+    if (!values.confirmPassword || values.confirmPassword === "") {
+      errors.confirmPassword = "Please confirm your password";
+    } else if (values.confirmPassword !== values.confirmPassword) {
+      errors.confirmPassword = "Passwords do not match";
     }
 
     // validate academic stream
@@ -139,25 +168,25 @@ export default function RegisterPage() {
   const TeachervalidateStep1 = (values: Partial<RegisterRequest>) => {
     const errors: Partial<Record<keyof RegisterRequest, string>> = {};
 
-    // Validate firstname
-    if (!values.firstname || values.firstname.trim() === "") {
-      errors.firstname = "First name is required";
-    } else if (values.firstname.trim().length < 2) {
-      errors.firstname = "First name must be at least 2 characters";
+    // Validate first_name
+    if (!values.first_name || values.first_name.trim() === "") {
+      errors.first_name = "First name is required";
+    } else if (values.first_name.trim().length < 2) {
+      errors.first_name = "First name must be at least 2 characters";
     }
 
-    // Validate lastname
-    if (!values.lastname || values.lastname.trim() === "") {
-      errors.lastname = "Last name is required";
-    } else if (values.lastname.trim().length < 2) {
-      errors.lastname = "Last name must be at least 2 characters";
+    // Validate last_name
+    if (!values.last_name || values.last_name.trim() === "") {
+      errors.last_name = "Last name is required";
+    } else if (values.last_name.trim().length < 2) {
+      errors.last_name = "Last name must be at least 2 characters";
     }
 
     // Validate phone number
-    if (!values.phone || values.phone.trim() === "") {
-      errors.phone = "Phone number is required";
-    } else if (!/^[\+]?[0-9\-\(\)\s]{10,15}$/.test(values.phone.trim())) {
-      errors.phone = "Please enter a valid phone number";
+    if (!values.phone_number || values.phone_number.trim() === "") {
+      errors.phone_number = "Phone number is required";
+    } else if (!/^[\+]?[0-9\-\(\)\s]{10,15}$/.test(values.phone_number.trim())) {
+      errors.phone_number = "Please enter a valid phone number";
     }
 
     // validate wilaya:
@@ -224,27 +253,27 @@ export default function RegisterPage() {
     const errors: Partial<Record<keyof RegisterRequest, string>> = {};
 
     // Validate email
-    if (!values.teacher_email || values.teacher_email.trim() === "") {
-      errors.teacher_email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.teacher_email.trim())) {
-      errors.teacher_email = "Please enter a valid email address";
+    if (!values.email || values.email.trim() === "") {
+      errors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
+      errors.email = "Please enter a valid email address";
     }
 
     // Validate password
-    if (!values.teacher_password || values.teacher_password === "") {
-      errors.teacher_password = "Password is required";
-    } else if (values.teacher_password.length < 8) {
-      errors.teacher_password = "Password must be at least 8 characters";
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(values.teacher_password)) {
-      errors.teacher_password =
+    if (!values.password || values.password === "") {
+      errors.password = "Password is required";
+    } else if (values.password.length < 8) {
+      errors.password = "Password must be at least 8 characters";
+    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(values.password)) {
+      errors.password =
         "Password must contain at least one uppercase letter, one lowercase letter, and one number";
     }
 
     // Validate confirm password
-    if (!values.teacher_confirmPassword || values.teacher_confirmPassword === "") {
-      errors.teacher_confirmPassword = "Please confirm your password";
-    } else if (values.teacher_password !== values.teacher_confirmPassword) {
-      errors.teacher_confirmPassword = "Passwords do not match";
+    if (!values.confirmPassword || values.confirmPassword === "") {
+      errors.confirmPassword = "Please confirm your password";
+    } else if (values.confirmPassword !== values.password) {
+      errors.confirmPassword = "Passwords do not match";
     }
 
     return errors;
@@ -271,10 +300,13 @@ export default function RegisterPage() {
   };
 
   const [submissionHandler, setSubmissionHandler] = useState<
-    (values: RegisterRequest) => Promise<void>
+    (values: RegisterRequest) => Promise<any>
   >(() => handleStudentRegister); // Default handler
 
-  // Initialize useForm hook
+  // Add form data ref to persist across steps without triggering re-renders
+  const formDataRef = useRef<Partial<RegisterRequest>>({});
+
+  // Initialize useForm hook with external form data management
   const {
     register,
     registerFile,
@@ -287,6 +319,7 @@ export default function RegisterPage() {
   } = useForm<RegisterRequest>({
     initialValues: {},
     onSubmit: submissionHandler,
+    externalFormData: formDataRef, // Pass the external form data ref
   });
 
   const [selectedRole, setSelectedRole] = useState<
@@ -310,8 +343,9 @@ export default function RegisterPage() {
     const currentValidator = currentValidators[stepRef.current];
 
     if (currentValidator) {
-      // Get current form values
+      // Get current form values (this automatically updates formDataRef)
       const formValues = getValues();
+      console.log("persistent form data: ", formDataRef.current);
 
       // Validate current step
       const validationErrors = currentValidator(formValues);
@@ -320,13 +354,11 @@ export default function RegisterPage() {
       if (Object.keys(validationErrors).length > 0) {
         setErrors(validationErrors);
         console.log("Validation errors: ", validationErrors);
-        // console.log("Errors after validate call: ", validationErrors);
         return; // Don't go to next step
       }
     }
 
     // If validation passes or no validator needed, go to next step
-    console.log("current form values: ", getValues());
     setStep((prevStep) => prevStep + 1);
     stepRef.current += 1;
   };
@@ -336,110 +368,12 @@ export default function RegisterPage() {
     setStep((prevStep) => Math.max(prevStep - 1, 0));
   };
 
-  // Move JSX arrays inside component so they get fresh props on each render
-  const StudentRegister = [
-    <ChooseRole
-      key="choose-role-student"
-      t={t}
-      isRTL={isRTL}
-      language={language}
-      NextStep={BeginRegister}
-      PreviousStep={PreviousStep}
-      register={register}
-      errors={errors}
-    />,
-    <RegisterPart1
-      key="register-part1"
-      t={t}
-      isRTL={isRTL}
-      language={language}
-      NextStep={NextStep}
-      PreviousStep={PreviousStep}
-      register={register}
-      errors={errors} // Fresh errors on each render
-    />,
-    <RegisterPart2
-      key="register-part2"
-      t={t}
-      isRTL={isRTL}
-      language={language}
-      NextStep={NextStep}
-      PreviousStep={PreviousStep}
-      register={register}
-      errors={errors} // Fresh errors on each render
-    />,
-    <ApplicationSubmitted
-      key="submitted-student"
-      t={t}
-      isRTL={isRTL}
-      language={language}
-      NextStep={NextStep}
-      PreviousStep={PreviousStep}
-      register={register}
-      errors={errors}
-    />,
-  ];
-
-  const TeacherRegister = [
-    <ChooseRole
-      key="choose-role-teacher"
-      t={t}
-      isRTL={isRTL}
-      language={language}
-      NextStep={BeginRegister}
-      PreviousStep={PreviousStep}
-      register={register}
-      errors={errors}
-    />,
-    <TeacherPart1
-      key="teacher-part1"
-      t={t}
-      isRTL={isRTL}
-      language={language}
-      NextStep={NextStep}
-      PreviousStep={PreviousStep}
-      register={register}
-      errors={errors} // Fresh errors on each render
-    />,
-    <TeacherPart2
-      key="teacher-part2"
-      t={t}
-      isRTL={isRTL}
-      language={language}
-      NextStep={NextStep}
-      PreviousStep={PreviousStep}
-      register={register}
-      registerFile={registerFile}
-      errors={errors} // Fresh errors on each render
-    />,
-    <TeacherPart3
-      key="teacher-part3"
-      t={t}
-      isRTL={isRTL}
-      language={language}
-      NextStep={NextStep}
-      PreviousStep={PreviousStep}
-      register={register}
-      errors={errors} // Fresh errors on each render
-    />,
-    <ApplicationSubmitted
-      key="submitted-teacher"
-      t={t}
-      isRTL={isRTL}
-      language={language}
-      NextStep={NextStep}
-      PreviousStep={PreviousStep}
-      register={register}
-      errors={errors}
-    />,
-  ];
-
-  // Get current component based on role and step
+  // Get current component based on role and step - using conditional rendering instead of arrays
   const getCurrentComponent = () => {
+    // Step 0: Choose role (always the same regardless of selected role)
     if (step === 0 || !selectedRole) {
       return (
         <ChooseRole
-          key="choose-role-initial"
           t={t}
           isRTL={isRTL}
           language={language}
@@ -451,11 +385,124 @@ export default function RegisterPage() {
       );
     }
 
+    // Student registration steps
     if (selectedRole === "student") {
-      return StudentRegister[step];
-    } else {
-      return TeacherRegister[step];
+      switch (step) {
+        case 1:
+          return (
+            <RegisterPart1
+              t={t}
+              isRTL={isRTL}
+              language={language}
+              NextStep={NextStep}
+              PreviousStep={PreviousStep}
+              register={register}
+              errors={errors}
+            />
+          );
+        case 2:
+          return (
+            <RegisterPart2
+              t={t}
+              isRTL={isRTL}
+              language={language}
+              NextStep={NextStep}
+              PreviousStep={PreviousStep}
+              register={register}
+              errors={errors}
+            />
+          );
+        case 3:
+          return (
+            <OTP
+              t={t}
+              isRTL={isRTL}
+              language={language}
+              NextStep={NextStep}
+              PreviousStep={PreviousStep}
+              register={register}
+              errors={errors}
+              completeRegistration={handleSubmit}
+            />
+
+          );
+
+        case 4:
+          return (
+            <ApplicationSubmitted
+              t={t}
+              isRTL={isRTL}
+              language={language}
+              NextStep={NextStep}
+              PreviousStep={PreviousStep}
+              register={register}
+              errors={errors}
+            />
+          );
+
+        default:
+          return null;
+      }
     }
+
+    // Teacher registration steps
+    if (selectedRole === "teacher") {
+      switch (step) {
+        case 1:
+          return (
+            <TeacherPart1
+              t={t}
+              isRTL={isRTL}
+              language={language}
+              NextStep={NextStep}
+              PreviousStep={PreviousStep}
+              register={register}
+              errors={errors}
+            />
+          );
+        case 2:
+          return (
+            <TeacherPart2
+              t={t}
+              isRTL={isRTL}
+              language={language}
+              NextStep={NextStep}
+              PreviousStep={PreviousStep}
+              register={register}
+              registerFile={registerFile}
+              errors={errors}
+            />
+          );
+        case 3:
+          return (
+            <TeacherPart3
+              t={t}
+              isRTL={isRTL}
+              language={language}
+              NextStep={NextStep}
+              PreviousStep={PreviousStep}
+              register={register}
+              errors={errors}
+            />
+          );
+        case 4:
+          return (
+            <ApplicationSubmitted
+              t={t}
+              isRTL={isRTL}
+              language={language}
+              NextStep={NextStep}
+              PreviousStep={PreviousStep}
+              register={register}
+              errors={errors}
+            />
+          );
+        default:
+          return null;
+      }
+    }
+
+    return null;
   };
 
   return (

@@ -1,5 +1,6 @@
 export type OTPInputProps = {
-  t: unknown;
+  t: (key: string) => string;
   isRTL: boolean;
   onClick: () => void
+  resendOTP: () => void
 }

@@ -6,17 +6,26 @@ export interface UseFormConfig<T> {
   initialValues?: Partial<T>;
   validate?: (values: T) => Partial<T>;
   onSubmit: (values: T) => Promise<void> | void;
+  externalFormData?: React.MutableRefObject<Partial<T>>; // Add external form data ref
+  onFormDataChange?: (formData: Partial<T>) => void; // Callback for form data changes
 }
 
 export function useForm<T extends Record<string, any>>({
   initialValues = {},
   validate: validateFn,
   onSubmit,
+  externalFormData,
+  onFormDataChange,
 }: UseFormConfig<T>) {
   const refs = useRef<Record<string, HTMLInputElement | null>>({});
   const fileRefs = useRef<Record<string, File | null>>({});
   const [errors, setErrors] = useState<FormErrors<T>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Use external form data if provided, otherwise use initialValues
+  const getCurrentFormData = useCallback(() => {
+    return externalFormData?.current || initialValues;
+  }, [externalFormData, initialValues]);
 
   const register = useCallback(
     (name: keyof T) => ({
@@ -24,14 +33,17 @@ export function useForm<T extends Record<string, any>>({
         // Store reference
         refs.current[name as string] = el;
 
-        // Set initial value
-        if (el && initialValues[name]) {
-          el.value = String(initialValues[name]);
+        // Set initial value from external form data or initialValues
+        if (el) {
+          const currentFormData = getCurrentFormData();
+          if (currentFormData[name]) {
+            el.value = String(currentFormData[name]);
+          }
         }
       },
       name: name as string,
     }),
-    [initialValues]
+    [getCurrentFormData]
   );
 
   // Register specifically for file inputs
@@ -49,7 +61,7 @@ export function useForm<T extends Record<string, any>>({
     []
   );
 
-  // Get all form values
+  // Get all form values and update external form data if provided
   const getValues = useCallback((): Partial<T> => {
     const values = {} as T;
 
@@ -67,8 +79,21 @@ export function useForm<T extends Record<string, any>>({
       values[key as keyof T] = file as T[keyof T];
     });
 
+    // Update external form data if provided
+    if (externalFormData) {
+      externalFormData.current = {
+        ...externalFormData.current,
+        ...values,
+      };
+    }
+
+    // Call onFormDataChange callback if provided
+    if (onFormDataChange) {
+      onFormDataChange(values);
+    }
+
     return values;
-  }, []);
+  }, [externalFormData, onFormDataChange]);
 
   // Get only files
   const getFiles = useCallback((): Record<string, File | null> => {
@@ -97,7 +122,7 @@ export function useForm<T extends Record<string, any>>({
 
   // Handle form submission with validation
   const handleSubmit = useCallback(async () => {
-    const values = getValues();
+    const values = externalFormData?.current;
 
     // Run validation before submission
     const isValid = validate(values);
@@ -108,6 +133,7 @@ export function useForm<T extends Record<string, any>>({
     setIsSubmitting(true);
     try {
       await onSubmit(values as T);
+      console.log("Form submitted successfully: ", values);
     } catch (error) {
       console.error("Form submission failed:", error);
     } finally {

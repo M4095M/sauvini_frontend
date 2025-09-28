@@ -2,6 +2,7 @@
 
 import Logo from "@/components/logo/logo";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { AuthProvider } from "@/context/AuthContext";
 import { useLanguage } from "@/context/LanguageContext";
 
 import { motion } from "motion/react";
@@ -25,7 +26,8 @@ export default function RegisterLayout({
           <Logo color={"text-primary-300"} width={84} height={84} />
           <LanguageSwitcher />
         </motion.div>
-        {children}
+          {children}
+
       </div>
     </div>
   );

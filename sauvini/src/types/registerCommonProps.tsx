@@ -24,6 +24,9 @@ export type RegisterCommonProps = {
   // validations:
   errors: FormErrors<RegisterRequest>;
 
+  // complete registration:
+  completeRegistration?: () => Promise<void>;
+
   NextStep: any;
   PreviousStep: any;
 
