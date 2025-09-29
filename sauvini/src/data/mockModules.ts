@@ -573,10 +573,10 @@ export const MOCK_QUIZZES: Record<string, { threshold: number; questions: QuizQu
 
 // Find lesson + parents by lessonId
 export function findLessonContext(lessonId: string) {
-  for (const module of MOCK_MODULES) {
-    for (const chapter of module.chapters) {
+  for (const mod of MOCK_MODULES) {
+    for (const chapter of mod.chapters) {
       const lesson = chapter.lessons.find((l) => l.id === lessonId)
-      if (lesson) return { module, chapter, lesson }
+      if (lesson) return { module: mod, chapter, lesson }
     }
   }
   return { module: undefined, chapter: undefined, lesson: undefined }

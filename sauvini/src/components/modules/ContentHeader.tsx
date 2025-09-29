@@ -185,10 +185,10 @@ export default function ContentHeader(props: ContentHeaderProps) {
   // Progress + colors
   const getProgressData = () => {
     if (contentType === "module") {
-      const module = content as Module
+      const mod = content as Module
       return {
-        completed: module.completedLessons || 0,
-        total: module.totalLessons || 0,
+        completed: mod.completedLessons || 0,
+        total: mod.totalLessons || 0,
         label: t("chapters.lesson"),
       }
     } else {
@@ -203,8 +203,8 @@ export default function ContentHeader(props: ContentHeaderProps) {
 
   const getContentColor = (): Module["color"] => {
     if (contentType === "module") {
-      const module = content as Module
-      return module.color
+      const mod = content as Module
+      return mod.color
     }
     // chapter: use parent module color if provided
     return parentModule?.color || "blue"

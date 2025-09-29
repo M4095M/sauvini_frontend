@@ -13,7 +13,7 @@ export default function ProfessorChaptersPage() {
   const [isLoaded, setIsLoaded] = useState(false)
 
   // Find the module by ID
-  const module = MOCK_PROFESSOR_MODULES.find((mod) => mod.id === moduleId)
+  const mod = MOCK_PROFESSOR_MODULES.find((mod) => mod.id === moduleId)
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,7 +37,7 @@ export default function ProfessorChaptersPage() {
     )
   }
 
-  if (!module) {
+  if (!mod) {
     return (
       <div className="self-stretch w-full flex items-center justify-center py-16">
         <p className="text-lg text-gray-500 dark:text-gray-400">Module not found</p>
@@ -45,5 +45,5 @@ export default function ProfessorChaptersPage() {
     )
   }
 
-  return <ProfessorChaptersSection module={module} isMobile={isMobile} />
+  return <ProfessorChaptersSection module={mod} isMobile={isMobile} />
 }

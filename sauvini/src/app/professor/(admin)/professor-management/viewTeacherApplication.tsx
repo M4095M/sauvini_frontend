@@ -4,7 +4,7 @@ import Tag from "@/components/questions/tag";
 import Button from "@/components/ui/button";
 
 type AppliactionsDetails = {
-
+  dummy?: string
 }
 
 type ViewTeacherApplicationDetailsProps = {

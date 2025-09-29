@@ -25,11 +25,11 @@ export default function LessonPage() {
   const {isRTL} = useLanguage()
 
   const findLessonData = () => {
-    for (const module of MOCK_MODULES_DATA.modules) {
-      for (const chapter of module.chapters) {
+    for (const mod of MOCK_MODULES_DATA.modules) {
+      for (const chapter of mod.chapters) {
         const lesson = chapter.lessons.find((l) => l.id === lessonId);
         if (lesson) {
-          return { lesson, chapter, module };
+          return { lesson, chapter, mod };
         }
       }
     }
@@ -68,7 +68,7 @@ export default function LessonPage() {
     return null; // notFound() will handle this
   }
 
-  const { lesson, chapter, module } = lessonData;
+  const { lesson, chapter, mod } = lessonData;
 
   const showQuizPopupCallback = () => {
     setShowQuizPopup(true);
@@ -95,7 +95,7 @@ export default function LessonPage() {
         callback={startQuiz}
         lessonData={lesson}
         chapterData={chapter}
-        moduleData={module}
+        moduleData={mod}
         isRTL={isRTL}
       />
 

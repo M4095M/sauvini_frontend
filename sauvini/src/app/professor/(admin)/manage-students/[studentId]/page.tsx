@@ -1,16 +1,17 @@
 import StudentProfile from "@/components/professor/adminStudents/StudentProfile";
-import { MOCK_STUDENTS } from "@/data/students";
-
-type Params = { params: { studentId: string } };
+import { MOCK_STUDENTS, Student } from "@/data/students";
 
 async function fetchStudent(id: string) {
   
   return MOCK_STUDENTS.find((s) => s.id === id) ?? null;
 }
 
-export default async function Page({ params }: Params) {
-  const id = params.studentId;
-  const student = await fetchStudent(id);
+export default async function Page() {
+  const student: Student = {
+    id: "1",
+    name: "John Doe",
+    email: "john.doe@example.com",
+  }
 
   if (!student) {
     return (

@@ -7,7 +7,7 @@ type checkBoxProps = {
   onChange: (isChecked: boolean) => void;
 };
 
-export default function checkBox({ isChecked, onChange }: checkBoxProps) {
+export default function CheckBox({ isChecked, onChange }: checkBoxProps) {
   const [Checked, setChecked] = useState(isChecked);
   return (
     <div

@@ -22,17 +22,17 @@ export default function ProfessorManageChapter() {
   const chapterId = searchParams?.get("chapterId") || null;
   const moduleId = searchParams?.get("moduleId") || null;
 
-  const { module, chapter } = useMemo(() => {
-    const module =
+  const { module: mod, chapter } = useMemo(() => {
+    const modul =
       MOCK_PROFESSOR_MODULES.find((m) => m.id === moduleId) || null;
     const chapter =
-      module?.chapters?.find((c: any) => c.id === chapterId) ||
+      modul?.chapters?.find((c: any) => c.id === chapterId) ||
       // fallback: search across all modules
       MOCK_PROFESSOR_MODULES.flatMap((m) => m.chapters).find(
         (c: any) => c.id === chapterId
       ) ||
       null;
-    return { module, chapter };
+    return { module: modul, chapter };
   }, [chapterId, moduleId]);
 
   const resolveChapterTitle = (id?: string) => {
@@ -45,7 +45,7 @@ export default function ProfessorManageChapter() {
 
   const displayedStreams = chapter?.academicStreams?.length
     ? chapter.academicStreams
-    : module?.academicStreams ?? [];
+    : mod?.academicStreams ?? [];
 
   const dependencies = chapter?.prerequisites ?? [];
 
@@ -76,7 +76,7 @@ export default function ProfessorManageChapter() {
               {chapter?.title ?? "Chapter title"}
             </span>
             <span className="font-medium text-2xl text-neutral-400">
-              {module?.name ?? "Module name"}
+              {mod?.name ?? "Module name"}
             </span>
           </div>
           {/* action button */}

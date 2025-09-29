@@ -43,7 +43,7 @@ export default function CantPurchaseChapter({
         <div className="flex flex-col gap-5">
           {required.map((req, index) => {
             return (
-              <div className="font-medium text-xl text-neutral-600">{`Chapter ${
+              <div className="font-medium text-xl text-neutral-600" key={index}>{`Chapter ${
                 index + 1
               } : ${req}`}</div>
             );

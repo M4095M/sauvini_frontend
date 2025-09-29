@@ -3,10 +3,10 @@ export type DropDownProps = {
   placeholder?: string;
   options?: DropDownOptionProps[];
   max_width?: string;
-  onChange?: (value: unknown) => void;
+  onChange?: (value: any) => void;
 
   // langauge specific:
-  t?: unknown;
+  t?: any;
   isRTL?: boolean;
 
   // refs:
@@ -19,6 +19,6 @@ export type DropDownProps = {
 
 export type DropDownOptionProps = {
 
-  id: number;
+  id: number | string;
   text: string;
 };
