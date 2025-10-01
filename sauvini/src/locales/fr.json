@@ -24,7 +24,8 @@
     "uploading": "Téléchargement...",
     "uploaded": "Téléchargé",
     "retry": "Réessayer",
-    "upload": "Télécharger"
+    "upload": "Télécharger",
+    "sending": "Envoi..."
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -99,14 +100,24 @@
       "loggingIn": "Connexion en cours...",
       "noAccount": "Vous n'avez pas de compte ?",
       "signUp": " S'inscrire",
-      "tagline": "Où l'apprentissage rencontre un but"
+      "tagline": "Où l'apprentissage rencontre un but",
+      "errors": {
+        "email_required": "L'e-mail est requis",
+        "password_required": "Le mot de passe est requis",
+        "invalid_credentials": "E-mail ou mot de passe invalide"
+      }
     },
     "forgot": {
       "title": "Mot de passe oublié ?",
       "subtitle": "Entrez l'e-mail lié à votre compte.",
       "helper": "Nous vous enverrons un code de vérification par e-mail.",
       "email": "E-mail",
-      "tagline": "Où l'apprentissage rencontre un but"
+      "tagline": "Où l'apprentissage rencontre un but",
+      "errors": {
+        "email_required": "L'e-mail est requis",
+        "invalid_email": "Format d'e-mail invalide",
+        "email_not_found": "E-mail introuvable. Veuillez vérifier et réessayer."
+      }
     },
     "verify": {
       "title": "Vérifiez votre e-mail",
@@ -116,19 +127,32 @@
       "button": "Vérifier le code",
       "tagline": "Où l'apprentissage rencontre un but",
       "email": "E-mail",
+      "code": "Code de vérification",
       "codeLabel": "Code de vérification"
     },
     "reset": {
       "title": "Réinitialiser votre mot de passe",
-      "subtitle": "Créez un nouveau mot de passe pour votre compte.",
+      "subtitle": "Entrez le code de votre e-mail et créez un nouveau mot de passe",
       "newPassword": "Nouveau mot de passe",
-      "confirmPassword": "Confirmer le nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
       "cta": "Réinitialiser le mot de passe",
       "tagline": "Où l'apprentissage rencontre un but",
       "submitting": "Envoi en cours...",
       "successTitle": "Mot de passe changé avec succès !",
       "successBody": "Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
-      "successCta": "Aller à la connexion"
+      "successCta": "Aller à la connexion",
+      "submit": "Réinitialiser le mot de passe",
+      "errors": {
+        "password_min": "Le mot de passe doit contenir au moins 8 caractères",
+        "password_format": "Le mot de passe doit contenir des majuscules, des minuscules et des chiffres",
+        "confirm_required": "Veuillez confirmer votre mot de passe",
+        "password_mismatch": "Les mots de passe ne correspondent pas",
+        "reset_failed": "Échec de la réinitialisation du mot de passe. Veuillez réessayer."
+      }
+    },
+    "branding": {
+      "title": "Bienvenue chez Sauvini",
+      "subtitle": "Votre parcours d'apprentissage commence ici"
     }
   },
   "footer": {

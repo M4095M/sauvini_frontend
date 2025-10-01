@@ -4,6 +4,7 @@ import Button from "@/components/ui/button";
 import DoneIcon from "./DoneIcon";
 import { useLanguage } from "@/context/LanguageContext";
 import { RegisterCommonProps } from "@/types/registerCommonProps";
+import { useRouter } from "next/navigation";
 
 export default function ApplicationSubmitted({
   t,
@@ -12,9 +13,16 @@ export default function ApplicationSubmitted({
   NextStep,
   PreviousStep,
 }: RegisterCommonProps) {
+  const router = useRouter();
+
+  const handleReturnHome = () => {
+    console.log("🏠 Navigating to home page");
+    router.push("/");
+  };
+
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-7 mt-15 ">
-      <DoneIcon color="text-success-400" width="186" height="186" />
+      <DoneIcon className="text-success-400" width="186" height="186" />
       <span className="font-semibold md:text-4xl text-3xl text-success-400">
         {t("register.submission.title")}
       </span>
@@ -27,6 +35,7 @@ export default function ApplicationSubmitted({
           size={"M"}
           icon_position={"none"}
           text={t("register.common.return_home")}
+          onClick={handleReturnHome}
         />
       </div>
     </div>

@@ -1,8 +1,8 @@
 import { IconProps } from "@/types/icon";
 
-export default function DoneIcon({ color, width, height }: IconProps) {
+export default function DoneIcon({ className, width, height }: IconProps) {
   return (
-    <div className={color}>
+    <div className={className}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width}

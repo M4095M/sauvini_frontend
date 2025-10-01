@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Eye, EyeOff, Check } from 'lucide-react'
@@ -9,23 +9,89 @@ import SimpleInput from "@/components/input/simpleInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
+import { useRouter } from "next/navigation"
+import { AuthApi } from "@/api"
 
 export default function ResetPasswordPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [showNewPw, setShowNewPw] = useState(false)
   const [showConfirmPw, setShowConfirmPw] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [newPassword, setNewPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [errors, setErrors] = useState<{ newPassword?: string; confirmPassword?: string }>({})
+  const [resetToken, setResetToken] = useState<string | null>(null)
   const { t, language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
+  const router = useRouter()
 
-  // dummy submit handler for backend to replace later
+  // Get reset token from session storage on mount
+  useEffect(() => {
+    const token = sessionStorage.getItem('reset_token');
+    if (!token) {
+      console.error("❌ No reset token found");
+      // Redirect back to forgot password if no token
+      router.push('/auth/forgot-password');
+    } else {
+      setResetToken(token);
+    }
+  }, [router]);
+
   const handleReset = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    
+    // Validation
+    const newErrors: typeof errors = {};
+    
+    if (!newPassword || newPassword.length < 8) {
+      newErrors.newPassword = t("auth.reset.errors.password_min") || "Password must be at least 8 characters";
+    }
+    
+    if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(newPassword)) {
+      newErrors.newPassword = t("auth.reset.errors.password_format") || "Password must contain uppercase, lowercase, and number";
+    }
+    
+    if (!confirmPassword) {
+      newErrors.confirmPassword = t("auth.reset.errors.confirm_required") || "Please confirm your password";
+    } else if (confirmPassword !== newPassword) {
+      newErrors.confirmPassword = t("auth.reset.errors.password_mismatch") || "Passwords do not match";
+    }
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    
+    if (!resetToken) {
+      console.error("❌ No reset token available");
+      return;
+    }
+    
     setIsLoading(true)
-    await new Promise((r) => setTimeout(r, 600))
-    console.log("ResetPasswordData (to be wired by backend): { newPassword, confirmPassword }")
-    setIsLoading(false)
-    setSuccess(true)
+    setErrors({});
+    
+    try {
+      console.log("🔐 Resetting password with token");
+      await AuthApi.resetPasswordStudent(resetToken, newPassword);
+      
+      console.log("✅ Password reset successful");
+      // Clear session storage
+      sessionStorage.removeItem('reset_token');
+      sessionStorage.removeItem('reset_email');
+      
+      setSuccess(true);
+      
+      // Redirect to login after 3 seconds
+      setTimeout(() => {
+        router.push('/auth/login?reset=success');
+      }, 3000);
+    } catch (error: any) {
+      console.error("❌ Password reset failed:", error);
+      const errorMessage = error?.message || t("auth.reset.errors.reset_failed") || "Failed to reset password";
+      setErrors({ newPassword: errorMessage });
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   // Success content
@@ -162,17 +228,61 @@ export default function ResetPasswordPage() {
                 >
                   <form onSubmit={handleReset} className="flex flex-col gap-6">
                     {/* New password */}
-                    <SimpleInput
-                      label={t("auth.reset.newPassword") || "New password"}
-                      value="newPassword"
-                      type="password"
-                    />
+                    <div className="relative">
+                      <div className="max-w-xl min-w-2xs shrink grow flex flex-col gap-2">
+                        <div className="font-work-sans text-neutral-600 font-normal px-4">
+                          {t("auth.reset.newPassword") || "New password"}
+                        </div>
+                        <input
+                          type={showNewPw ? "text" : "password"}
+                          value={newPassword}
+                          onChange={(e) => setNewPassword(e.target.value)}
+                          className={`appearance-none outline-[var(--primary-200)] p-0 m-0 shadow-none 
+                            bg-white border px-5 py-3 rounded-full w-full focus:border-2
+                            text-work-sans font-normal text-base text-neutral-600 ${
+                              errors.newPassword ? "border-red-500" : "border-neutral-200"
+                            }`}
+                        />
+                        {errors.newPassword && (
+                          <p className="text-red-500 text-sm mt-1 px-4">{errors.newPassword}</p>
+                        )}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setShowNewPw(!showNewPw)}
+                        className="absolute right-4 top-12 text-gray-500"
+                      >
+                        {showNewPw ? <EyeOff size={20} /> : <Eye size={20} />}
+                      </button>
+                    </div>
                     {/* Confirm password */}
-                    <SimpleInput
-                      label={t("auth.reset.confirmPassword") || "Confirm new password"}
-                      value="confirmPassword"
-                      type="password"
-                    />
+                    <div className="relative">
+                      <div className="max-w-xl min-w-2xs shrink grow flex flex-col gap-2">
+                        <div className="font-work-sans text-neutral-600 font-normal px-4">
+                          {t("auth.reset.confirmPassword") || "Confirm new password"}
+                        </div>
+                        <input
+                          type={showConfirmPw ? "text" : "password"}
+                          value={confirmPassword}
+                          onChange={(e) => setConfirmPassword(e.target.value)}
+                          className={`appearance-none outline-[var(--primary-200)] p-0 m-0 shadow-none 
+                            bg-white border px-5 py-3 rounded-full w-full focus:border-2
+                            text-work-sans font-normal text-base text-neutral-600 ${
+                              errors.confirmPassword ? "border-red-500" : "border-neutral-200"
+                            }`}
+                        />
+                        {errors.confirmPassword && (
+                          <p className="text-red-500 text-sm mt-1 px-4">{errors.confirmPassword}</p>
+                        )}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setShowConfirmPw(!showConfirmPw)}
+                        className="absolute right-4 top-12 text-gray-500"
+                      >
+                        {showConfirmPw ? <EyeOff size={20} /> : <Eye size={20} />}
+                      </button>
+                    </div>
                     {/* Submit */}
                     <div className="pt-3">
                       <Button

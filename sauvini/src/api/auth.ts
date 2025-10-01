@@ -9,6 +9,7 @@ import type {
   ResetPasswordConfirmRequest,
   EmailVerificationRequest,
   ApproveRejectProfessorRequest,
+  PaginationRequest,
   TokenPair,
   Student,
   Professor,
@@ -18,23 +19,56 @@ import type {
 /**
  * Authentication API class that handles all auth-related requests
  * Extends BaseApi to inherit common HTTP methods and token management
+ * 
+ * This class provides complete authentication functionality for all user types:
+ * - Student authentication and registration
+ * - Professor authentication and registration  
+ * - Admin authentication and management
+ * - Password recovery flows
+ * - Email verification
  */
 export class AuthApi extends BaseApi {
-  
   // ===========================================
   // LOGIN METHODS
   // ===========================================
 
   /**
-   * Login as student
+   * Student login
    * @param credentials - Email and password
-   * @returns Promise with user data and tokens
+   * @returns Promise with login response including tokens and user data
    */
   static async loginStudent(credentials: LoginRequest): Promise<ApiResponse<LoginResponse<Student>>> {
     return this.post<LoginResponse<Student>>(
       '/auth/student/login',
       credentials,
-      { skipAuth: true }
+      { requiresAuth: false }
+    );
+  }
+
+  /**
+   * Request password reset for student
+   * @param email - Student email address
+   * @returns Promise with reset request result
+   */
+  static async forgotPasswordStudent(email: string): Promise<ApiResponse<null>> {
+    return this.post<null>(
+      '/auth/student/forgot-password',
+      { email },
+      { requiresAuth: false }
+    );
+  }
+
+  /**
+   * Reset student password with token
+   * @param token - Reset token from email
+   * @param newPassword - New password
+   * @returns Promise with reset result
+   */
+  static async resetPasswordStudent(token: string, newPassword: string): Promise<ApiResponse<null>> {
+    return this.post<null>(
+      '/auth/student/reset-password',
+      { token, new_password: newPassword },
+      { requiresAuth: false }
     );
   }
 
@@ -47,7 +81,34 @@ export class AuthApi extends BaseApi {
     return this.post<LoginResponse<Professor>>(
       '/auth/professor/login', 
       credentials,
-      { skipAuth: true }
+      { requiresAuth: false }
+    );
+  }
+
+  /**
+   * Request password reset for professor
+   * @param email - Professor email address
+   * @returns Promise with reset request result
+   */
+  static async forgotPasswordProfessor(email: string): Promise<ApiResponse<null>> {
+    return this.post<null>(
+      '/auth/professor/forgot-password',
+      { email },
+      { requiresAuth: false }
+    );
+  }
+
+  /**
+   * Reset professor password with token
+   * @param token - Reset token from email
+   * @param newPassword - New password
+   * @returns Promise with reset result
+   */
+  static async resetPasswordProfessor(token: string, newPassword: string): Promise<ApiResponse<null>> {
+    return this.post<null>(
+      '/auth/professor/reset-password',
+      { token, new_password: newPassword },
+      { requiresAuth: false }
     );
   }
 
@@ -60,7 +121,7 @@ export class AuthApi extends BaseApi {
     return this.post<LoginResponse<Admin>>(
       '/auth/admin/login',
       credentials, 
-      { skipAuth: true }
+      { requiresAuth: false }
     );
   }
 
@@ -69,15 +130,29 @@ export class AuthApi extends BaseApi {
   // ===========================================
 
   /**
-   * Register a new student account
+   * Register a new student account with optional profile picture upload
    * @param data - Student registration data
-   * @returns Promise with registration result
+   * @param profilePicture - Optional profile picture file
+   * @returns Promise with registration result including student data
    */
-  static async registerStudent(data: RegisterStudentData): Promise<ApiResponse<{ message: string }>> {
-    return this.post<{ message: string }>(
+  static async registerStudent(
+    data: RegisterStudentData,
+    profilePicture?: File
+  ): Promise<ApiResponse<Student>> {
+    const formData = new FormData();
+    
+    // Add student data as JSON string (as required by backend)
+    formData.append('student', JSON.stringify(data));
+    
+    // Add optional profile picture
+    if (profilePicture) {
+      formData.append('profile_picture', profilePicture);
+    }
+
+    return this.post<Student>(
       '/auth/student/register',
-      data,
-      { skipAuth: true }
+      formData,
+      { requiresAuth: false }
     );
   }
 
@@ -86,34 +161,30 @@ export class AuthApi extends BaseApi {
    * @param data - Professor registration data
    * @param cvFile - CV file to upload
    * @param profilePicture - Optional profile picture file
-   * @returns Promise with registration result
+   * @returns Promise with registration result including professor data
    */
   static async registerProfessor(
     data: RegisterProfessorData,
     cvFile: File,
     profilePicture?: File
-  ): Promise<ApiResponse<{ message: string }>> {
+  ): Promise<ApiResponse<Professor>> {
     const formData = new FormData();
     
-    // Add all professor data as form fields
-    Object.entries(data).forEach(([key, value]) => {
-      if (value !== undefined && value !== null) {
-        formData.append(key, value.toString());
-      }
-    });
+    // Add professor data as JSON string (as required by backend)
+    formData.append('professor_data', JSON.stringify(data));
     
     // Add required CV file
-    formData.append('cv', cvFile);
+    formData.append('cv_file', cvFile);
     
     // Add optional profile picture
     if (profilePicture) {
       formData.append('profile_picture', profilePicture);
     }
 
-    return this.post<{ message: string }>(
+    return this.post<Professor>(
       '/auth/professor/register',
       formData,
-      { skipAuth: true }
+      { requiresAuth: false }
     );
   }
 
@@ -130,7 +201,7 @@ export class AuthApi extends BaseApi {
     return this.post<TokenPair>(
       '/auth/refresh',
       { token: refreshToken },
-      { skipAuth: true, skipAuthRefresh: true }
+      { requiresAuth: false, skipAuthRefresh: true }
     );
   }
 
@@ -138,9 +209,9 @@ export class AuthApi extends BaseApi {
    * Logout and invalidate tokens
    * @returns Promise with logout result
    */
-  static async logout(): Promise<ApiResponse<{ message: string }>> {
+  static async logout(): Promise<ApiResponse<null>> {
     try {
-      const response = await this.post<{ message: string }>('/auth/logout');
+      const response = await this.post<null>('/auth/logout', {}, { requiresAuth: true });
       return response;
     } finally {
       // Always clear local tokens regardless of API response
@@ -153,28 +224,54 @@ export class AuthApi extends BaseApi {
   // ===========================================
 
   /**
-   * Request password reset email
+   * Request password reset email for admin
    * @param data - Email address for password reset
    * @returns Promise with reset request result
    */
-  static async forgotPassword(data: ForgotPasswordRequest): Promise<ApiResponse<{ message: string }>> {
-    return this.post<{ message: string }>(
-      '/auth/forgot-password',
+  static async forgotPasswordAdmin(data: ForgotPasswordRequest): Promise<ApiResponse<null>> {
+    return this.post<null>(
+      '/auth/admin/forgot-password',
       data,
-      { skipAuth: true }
+      { requiresAuth: false }
     );
   }
 
   /**
-   * Confirm password reset with token and new password
+   * Confirm password reset with token and new password for admin
    * @param data - Reset token and new password
    * @returns Promise with reset confirmation result
    */
-  static async resetPasswordConfirm(data: ResetPasswordConfirmRequest): Promise<ApiResponse<{ message: string }>> {
-    return this.post<{ message: string }>(
+  static async resetPasswordAdmin(data: ResetPasswordConfirmRequest): Promise<ApiResponse<null>> {
+    return this.post<null>(
+      '/auth/admin/reset-password',
+      data,
+      { requiresAuth: false }
+    );
+  }
+
+  /**
+   * Generic password reset request (for future implementation)
+   * @param data - Email address for password reset
+   * @returns Promise with reset request result
+   */
+  static async forgotPassword(data: ForgotPasswordRequest): Promise<ApiResponse<null>> {
+    return this.post<null>(
+      '/auth/forgot-password',
+      data,
+      { requiresAuth: false }
+    );
+  }
+
+  /**
+   * Generic password reset confirmation (for future implementation)
+   * @param data - Reset token and new password
+   * @returns Promise with reset confirmation result
+   */
+  static async resetPasswordConfirm(data: ResetPasswordConfirmRequest): Promise<ApiResponse<null>> {
+    return this.post<null>(
       '/auth/reset-password-confirm',
       data,
-      { skipAuth: true }
+      { requiresAuth: false }
     );
   }
 
@@ -183,29 +280,52 @@ export class AuthApi extends BaseApi {
   // ===========================================
 
   /**
-   * Verify email address with token
-   * @param data - Verification token
+   * Verify student email address with token from URL query parameter
+   * @param token - Verification token from email link
    * @returns Promise with verification result
    */
-  static async verifyEmail(data: EmailVerificationRequest): Promise<ApiResponse<{ message: string }>> {
-    return this.post<{ message: string }>(
-      '/auth/verify-email',
-      data,
-      { skipAuth: true }
+  static async verifyStudentEmail(token: string): Promise<ApiResponse<null>> {
+    return this.get<null>(
+      `/auth/student/verify-email?token=${encodeURIComponent(token)}`,
+      { requiresAuth: false }
     );
   }
 
   /**
+   * Generic email verification (for future implementation)
+   * @param data - Verification token
+   * @returns Promise with verification result
+   */
+  static async verifyEmail(data: EmailVerificationRequest): Promise<ApiResponse<null>> {
+    return this.post<null>(
+      '/auth/verify-email',
+      data,
+      { requiresAuth: false }
+    );
+  }
+
+  /**
+   * Send verification email to student (can be used for initial send or resend)
+   * @param email - Email address to send verification to
+   * @returns Promise with send result
+   */
+  static async sendStudentVerificationEmail(email: string): Promise<ApiResponse<null>> {
+    return this.post<null>(
+      '/auth/student/send-verification-email',
+      { email },
+      { requiresAuth: false }
+    );
+  }
+
+  /**
+   * @deprecated Use sendStudentVerificationEmail instead
    * Resend email verification
    * @param email - Email address to resend verification to
    * @returns Promise with resend result
    */
-  static async resendEmailVerification(email: string): Promise<ApiResponse<{ message: string }>> {
-    return this.post<{ message: string }>(
-      '/auth/resend-verification',
-      { email },
-      { skipAuth: true }
-    );
+  static async resendEmailVerification(email: string): Promise<ApiResponse<null>> {
+    console.warn('resendEmailVerification is deprecated. Use sendStudentVerificationEmail instead.');
+    return this.sendStudentVerificationEmail(email);
   }
 
   // ===========================================
@@ -213,11 +333,19 @@ export class AuthApi extends BaseApi {
   // ===========================================
 
   /**
-   * Get pending professors awaiting approval (admin only)
-   * @returns Promise with list of pending professors
+   * Get all professors with pagination (admin only)
+   * @param pagination - Optional pagination parameters
+   * @returns Promise with paginated list of professors
    */
-  static async getPendingProfessors(): Promise<ApiResponse<Professor[]>> {
-    return this.get<Professor[]>('/auth/admin/professors/pending');
+  static async getAllProfessors(pagination?: PaginationRequest): Promise<ApiResponse<Professor[]>> {
+    const params = new URLSearchParams();
+    if (pagination?.page) params.append('page', pagination.page.toString());
+    if (pagination?.limit) params.append('limit', pagination.limit.toString());
+    
+    const queryString = params.toString();
+    const url = queryString ? `/auth/admin/all-professors?${queryString}` : '/auth/admin/all-professors';
+    
+    return this.get<Professor[]>(url, { requiresAuth: true });
   }
 
   /**
@@ -225,8 +353,8 @@ export class AuthApi extends BaseApi {
    * @param data - Professor ID to approve
    * @returns Promise with approval result
    */
-  static async approveProfessor(data: ApproveRejectProfessorRequest): Promise<ApiResponse<{ message: string }>> {
-    return this.post<{ message: string }>('/auth/admin/professors/approve', data);
+  static async approveProfessor(data: ApproveRejectProfessorRequest): Promise<ApiResponse<null>> {
+    return this.post<null>('/auth/admin/approve-professor', data, { requiresAuth: true });
   }
 
   /**
@@ -234,7 +362,21 @@ export class AuthApi extends BaseApi {
    * @param data - Professor ID to reject
    * @returns Promise with rejection result
    */
-  static async rejectProfessor(data: ApproveRejectProfessorRequest): Promise<ApiResponse<{ message: string }>> {
-    return this.post<{ message: string }>('/auth/admin/professors/reject', data);
+  static async rejectProfessor(data: ApproveRejectProfessorRequest): Promise<ApiResponse<null>> {
+    return this.post<null>('/auth/admin/reject-professor', data, { requiresAuth: true });
+  }
+
+  // ===========================================
+  // LEGACY/DEPRECATED METHODS
+  // ===========================================
+
+  /**
+   * @deprecated Use getAllProfessors with filtering instead
+   * Get pending professors awaiting approval (admin only)
+   * @returns Promise with list of pending professors
+   */
+  static async getPendingProfessors(): Promise<ApiResponse<Professor[]>> {
+    console.warn('getPendingProfessors is deprecated. Use getAllProfessors with status filtering instead.');
+    return this.get<Professor[]>('/auth/admin/professors/pending', { requiresAuth: true });
   }
 }

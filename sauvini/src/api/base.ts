@@ -21,6 +21,10 @@ export abstract class BaseApi {
   /** Base URL for all API requests */
   protected static readonly baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api/v1';
   
+  static {
+    console.log('🔧 BaseApi initialized with URL:', this.baseURL);
+  }
+  
   /** Current authentication tokens */
   private static authTokens: TokenPair | null = null;
   
@@ -208,9 +212,24 @@ export abstract class BaseApi {
     // Construct full URL
     const fullUrl = url.startsWith('http') ? url : `${this.baseURL}${url}`;
     
+    // Check if body is FormData (important for multipart/form-data)
+    const isFormData = options.body instanceof FormData;
+    
+    // Add detailed logging for debugging
+    console.log('🌐 Making API Request:', {
+      method: options.method || 'GET',
+      url: fullUrl,
+      hasBody: !!options.body,
+      bodyType: options.body ? typeof options.body : 'none',
+      isFormData,
+      config,
+      timestamp: new Date().toISOString()
+    });
+    
     // Prepare headers
+    // IMPORTANT: For FormData, DO NOT set Content-Type - let browser set it with boundary
     const headers: Record<string, string> = {
-      'Content-Type': 'application/json',
+      ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
       ...config.headers,
       ...(options.headers as Record<string, string>),
     };
@@ -237,21 +256,41 @@ export abstract class BaseApi {
         signal: controller.signal,
       });
 
+      console.log('📡 Response received:', {
+        status: response.status,
+        statusText: response.statusText,
+        url: fullUrl,
+        ok: response.ok,
+        timestamp: new Date().toISOString()
+      });
+
       // Handle authentication errors with retry logic
       if (response.status === 401 && config.requiresAuth !== false && !config.skipAuthRefresh) {
+        console.log('🔐 Handling 401 - attempting token refresh');
         return this.handleUnauthorizedResponse<T>(fullUrl, options);
       }
 
       // Handle other HTTP errors
       if (!response.ok) {
-        throw await this.createApiError(response);
+        const apiError = await this.createApiError(response);
+        console.error('❌ HTTP Error:', apiError);
+        throw apiError;
       }
 
       // Parse and return successful response
-      return await response.json();
+      const responseData = await response.json();
+      console.log('✅ Successful response:', responseData);
+      return responseData;
 
     } catch (error) {
+      console.error('🔥 Request failed:', {
+        url: fullUrl,
+        error,
+        timestamp: new Date().toISOString()
+      });
+      
       if (typeof error === 'object' && error !== null && 'name' in error && (error as Error).name === 'AbortError') {
+        console.error('⏱️ Request timeout');
         throw new Error('Request timeout');
       }
       throw error;
@@ -369,9 +408,12 @@ export abstract class BaseApi {
   /**
    * Make a POST request
    * @param url - The endpoint URL
-   * @param data - Data to send in request body
+   * @param data - Data to send in request body (JSON object or FormData for file uploads)
    * @param config - Request configuration
    * @returns Promise that resolves to typed response
+   * 
+   * Note: For FormData, Content-Type header is automatically set by the browser
+   * with the correct multipart/form-data boundary. Do not manually set it.
    */
   protected static async post<T>(
     url: string,
@@ -380,6 +422,7 @@ export abstract class BaseApi {
   ): Promise<ApiResponse<T>> {
     const isFormData = data instanceof FormData;
     const body = isFormData ? data : (data ? JSON.stringify(data) : undefined);
+    // For FormData, use empty headers - browser will set Content-Type with boundary
     const headers: Record<string, string> = isFormData ? {} : { 'Content-Type': 'application/json' };
     
     return this.makeRequest<T>(
@@ -392,9 +435,12 @@ export abstract class BaseApi {
   /**
    * Make a PUT request
    * @param url - The endpoint URL
-   * @param data - Data to send in request body
+   * @param data - Data to send in request body (JSON object or FormData for file uploads)
    * @param config - Request configuration
    * @returns Promise that resolves to typed response
+   * 
+   * Note: For FormData, Content-Type header is automatically set by the browser
+   * with the correct multipart/form-data boundary. Do not manually set it.
    */
   protected static async put<T>(
     url: string,
@@ -403,6 +449,7 @@ export abstract class BaseApi {
   ): Promise<ApiResponse<T>> {
     const isFormData = data instanceof FormData;
     const body = isFormData ? data : (data ? JSON.stringify(data) : undefined);
+    // For FormData, use empty headers - browser will set Content-Type with boundary
     const headers: Record<string, string> = isFormData ? {} : { 'Content-Type': 'application/json' };
     
     return this.makeRequest<T>(

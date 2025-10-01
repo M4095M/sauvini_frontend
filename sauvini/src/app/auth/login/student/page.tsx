@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useRef, useState } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff, GraduationCap, ChevronLeft } from 'lucide-react'
 import Button from "@/components/ui/button"
 import SimpleInput from "@/components/input/simpleInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
@@ -13,35 +13,80 @@ import { useForm } from "@/hooks/useForm"
 import { LoginRequest } from "@/api"
 import { FormErrors } from "@/types/api"
 import { useAuth } from "@/context/AuthContext"
+import { useSearchParams, useRouter } from "next/navigation"
 
 
-export default function LoginPage() {
+export default function StudentLoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [successMessage, setSuccessMessage] = useState<string | null>(null)
   const { t, language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
+  const searchParams = useSearchParams()
 
   const {loginStudent, loginProfessor} = useAuth()
+
+  // Check for verification success
+  useEffect(() => {
+    if (searchParams.get('verified') === 'true') {
+      setSuccessMessage("Email verified successfully! You can now log in.");
+      // Clear success message after 5 seconds
+      const timer = setTimeout(() => setSuccessMessage(null), 5000);
+      return () => clearTimeout(timer);
+    }
+    if (searchParams.get('reset') === 'success') {
+      setSuccessMessage("Password reset successfully! You can now log in with your new password.");
+      // Clear success message after 5 seconds
+      const timer = setTimeout(() => setSuccessMessage(null), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [searchParams]);
 
   // Add form data ref to persist across steps without triggering re-renders
   const formDataRef = useRef<Partial<LoginRequest>>({});
 
-  const handleLogin  = () => {
+  const router = useRouter();
+
+  const handleLogin = async () => {
     const errors: Partial<Record<keyof LoginRequest, string>> = {};
     const values = getValues();
   
     // validation:
-    setIsLoading(true);
-
     if (!values.email || values.email.trim() === "") {
-      errors.email = "Email is required";
+      errors.email = t("auth.login.errors.email_required") || "Email is required";
     }
 
     if (!values.password || values.password.trim() === ""){
-      errors.password = "Password is required";
+      errors.password = t("auth.login.errors.password_required") || "Password is required";
     }
 
-    setErrors(errors)
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+      return;
+    }
+
+    setIsLoading(true);
+    setErrors({}); // Clear previous errors
+
+    try {
+      console.log("🔐 Attempting student login...");
+      // We already validated that email and password exist
+      const result = await loginStudent(values.email!, values.password!);
+      
+      console.log("✅ Login successful");
+      // The loginStudent function in AuthContext already handles token storage
+      // and user state management. Now we just need to redirect.
+      
+      // Redirect to profile page
+      router.push("/profile");
+    } catch (error: any) {
+      console.error("❌ Login failed:", error);
+      // Display error to user
+      const errorMessage = error?.message || t("auth.login.errors.invalid_credentials") || "Invalid email or password";
+      setErrors({ email: errorMessage });
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   // Initialize useForm hook with external form data management
@@ -98,13 +143,28 @@ export default function LoginPage() {
               height: "660px",
             }}
           >
+            {/* Back to Role Selection */}
+            <Link
+              href="/auth/select-role"
+              className="absolute flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:opacity-80"
+              style={{
+                top: "48px",
+                ...(isRTL ? { right: "48px" } : { left: "48px" }),
+              }}
+            >
+              <ChevronLeft className="w-5 h-5" />
+              <span className={`text-sm ${isRTL ? "font-arabic" : "font-sans"}`}>
+                {t("common.back") || "Back"}
+              </span>
+            </Link>
+
             {/* S Logo */}
             <div
               className="absolute flex items-center justify-center"
               style={{
                 width: "48px",
                 height: "48px",
-                top: "48px",
+                top: "100px",
                 ...(isRTL ? { right: "48px" } : { left: "48px" }),
               }}
             >
@@ -112,19 +172,38 @@ export default function LoginPage() {
               <Image src="/S_logo_white.svg" alt="Logo" width={84} height={84} className="hidden dark:block" />
             </div>
 
+            {/* Role Indicator */}
+            <div
+              className="absolute flex justify-center"
+              style={{
+                width: "390px",
+                top: "140px",
+                left: isRTL ? undefined : "101px",
+                right: isRTL ? "101px" : undefined,
+              }}
+            >
+              <div className="flex items-center gap-3 bg-blue-50 dark:bg-blue-900/20 px-4 py-2 rounded-full">
+                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                  <GraduationCap className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                </div>
+                <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                  {t("auth.login.studentLogin") || "Student Login"}
+                </span>
+              </div>
+            </div>
+
             {/* Welcome Section */}
             <div
               className="absolute flex flex-col items-center text-center"
               style={{
                 width: "390px",
-                height: "86px",
-                top: "140px",
+                top: "200px",
                 left: isRTL ? undefined : "101px",
                 right: isRTL ? "101px" : undefined,
                 gap: "8px",
               }}
             >
-              <h1 className={`text-4xl font-bold text-gray-900 dark:text-white ${isRTL ? "font-arabic" : "font-sans"}`}>
+              <h1 className={`text-4xl font-bold text-gray-900 dark:text-white mb-2 ${isRTL ? "font-arabic" : "font-sans"}`}>
                 {t("auth.login.title")}
               </h1>
               <p className={`text-gray-600 dark:text-gray-300 text-lg ${isRTL ? "font-arabic" : "font-sans"}`}>
@@ -137,13 +216,20 @@ export default function LoginPage() {
               className="absolute"
               style={{
                 width: "390px",
-                height: "353px",
-                top: "260px",
+                top: "300px",
                 left: isRTL ? undefined : "101px",
                 right: isRTL ? "101px" : undefined,
               }}
             >
-              <form onSubmit={handleLogin} className="flex flex-col" style={{ gap: "6px" }}>
+              {successMessage && (
+                <div className="mb-4 p-3 bg-green-100 dark:bg-green-900/30 border border-green-400 dark:border-green-600 text-green-700 dark:text-green-300 rounded-lg text-sm">
+                  {successMessage}
+                </div>
+              )}
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                handleLogin();
+              }} className="flex flex-col" style={{ gap: "6px" }}>
                 {/* Email */}
                 <div className="mb-4">
                   <SimpleInput label={t("auth.login.email")} value="email" type="email" {...register("email")} errors={errors.email} />
@@ -155,23 +241,23 @@ export default function LoginPage() {
                 </div>
 
                 {/* Forgot password link */}
-                <div className={`mb-6 ${isRTL ? "text-left" : "text-right"}`}>
+                <div className={`text-right ${isRTL ? "font-arabic" : "font-sans"}`}>
                   <Link
-                    href="/auth/forgot-password"
-                    className={`text-sm font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded ${isRTL ? "font-arabic" : "font-sans"}`}
+                    href="/auth/forgot-password/student"
+                    className={`text-sm font-medium text-[var(--primary-300)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-500)] rounded`}
                   >
                     {t("auth.login.forgotPassword")}
                   </Link>
                 </div>
-
                 {/* Submit */}
                 <div className="mb-6">
                   <Button
                     state="filled"
                     size="M"
                     icon_position="none"
-                    text={isLoading ? t("auth.login.loggingIn") : t("auth.login.loginButton")}
+                    text={isLoading ? (t("auth.login.loggingIn") || "Logging in...") : (t("auth.login.loginButton") || "Login")}
                     disabled={isLoading}
+                    onClick={handleLogin}
                   />
                 </div>
 
@@ -300,6 +386,11 @@ export default function LoginPage() {
 
             {/* Form */}
             <div className="px-5 sm:px-6 mt-10 sm:mt-12 sm:max-w-md sm:mx-auto">
+              {successMessage && (
+                <div className="mb-6 p-3 bg-green-100 dark:bg-green-900/30 border border-green-400 dark:border-green-600 text-green-700 dark:text-green-300 rounded-lg text-sm">
+                  {successMessage}
+                </div>
+              )}
               <form onSubmit={handleLogin} className="space-y-8 sm:space-y-9">
                 <div>
                   <SimpleInput label={t("auth.login.email")} value="email" type="email" />

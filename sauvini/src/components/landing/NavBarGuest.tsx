@@ -52,7 +52,7 @@ export default function NavBarGuest() {
   ]
 
   const handleLogin = () => {
-    window.location.href = "/auth/login"
+    window.location.href = "/auth/select-role"
   }
 
   const handleSignUp = () => {

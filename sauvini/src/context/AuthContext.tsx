@@ -39,8 +39,8 @@ interface AuthContextType {
   logout: () => Promise<void>;
   
   // Registration methods
-  registerStudent: (data: RegisterStudentData) => Promise<{ message: string }>;
-  registerProfessor: (data: RegisterProfessorData, cvFile: File, profilePicture?: File) => Promise<{ message: string }>;
+  registerStudent: (data: RegisterStudentData, profilePicture?: File) => Promise<Student>;
+  registerProfessor: (data: RegisterProfessorData, cvFile: File, profilePicture?: File) => Promise<Professor>;
   
   // Utility methods
   getUserRole: () => UserRole | null;
@@ -208,20 +208,29 @@ export function AuthProvider({ children }: AuthProviderProps) {
   // REGISTRATION METHODS
   // ===========================================
 
-  const registerStudent = useCallback(async (data: RegisterStudentData): Promise<{ message: string }> => {
+  const registerStudent = useCallback(async (
+    data: RegisterStudentData,
+    profilePicture?: File
+  ): Promise<Student> => {
+    console.log('🎓 Starting student registration with data:', data);
     setIsLoading(true);
     clearError();
     
     try {
-      const response = await AuthApi.registerStudent(data);
+      console.log('📞 Calling AuthApi.registerStudent...');
+      const response = await AuthApi.registerStudent(data, profilePicture);
+      console.log('📋 Registration response received:', response);
       
       if (!response.success || !response.data) {
+        console.error('❌ Registration failed - invalid response:', response);
         throw new Error(response.message || 'Registration failed');
       }
 
+      console.log('✅ Student registration successful:', response.data);
       return response.data;
       
     } catch (error: unknown) {
+      console.error('🔥 Student registration error:', error);
       const errorMessage = handleApiError(error);
       throw new Error(errorMessage);
     } finally {
@@ -233,7 +242,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     data: RegisterProfessorData,
     cvFile: File,
     profilePicture?: File
-  ): Promise<{ message: string }> => {
+  ): Promise<Professor> => {
     setIsLoading(true);
     clearError();
     

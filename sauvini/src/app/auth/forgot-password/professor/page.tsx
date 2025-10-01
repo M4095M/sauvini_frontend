@@ -1,60 +1,64 @@
 "use client"
 
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Button from "@/components/ui/button"
-import SimpleInput from "@/components/input/simpleInput"
+import ControlledInput from "@/components/input/ControlledInput"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/hooks/useLanguage"
 import { RTL_LANGUAGES } from "@/lib/language"
-import { useForm } from "@/hooks/useForm"
-import { ForgotPasswordRequest } from "@/api"
+import { AuthApi } from "@/api"
+import { useRouter } from "next/navigation"
 
 export default function ForgotPasswordPage() {
+  const [email, setEmail] = useState("")
+  const [emailError, setEmailError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [apiError, setApiError] = useState<string | null>(null)
   const { t, language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
+  const router = useRouter()
 
-
-  // dummy submit handler
   const handleNext = async () => {
-    setIsLoading(true)
+    // Clear previous errors
+    setEmailError("");
+    setApiError(null);
 
-    // validation:
-    const errors: Partial<Record<keyof ForgotPasswordRequest, string>> = {};
-    const values = getValues();
-
-    // request OTP
-    if (!values.email || values.email.trim() === "") {
-      console.log("Email is required");
-      errors.email = t("auth.forgot.errors.email_required") || "Email is required";
-      setErrors(errors);
-      return
+    // Validate email
+    if (!email || email.trim() === "") {
+      setEmailError(t("auth.forgot.errors.email_required") || "Email is required");
+      return;
     }
 
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setEmailError(t("auth.forgot.errors.invalid_email") || "Invalid email format");
+      return;
+    }
 
-    setIsLoading(false)
+    setIsLoading(true);
+
+    try {
+      console.log("📧 Requesting password reset for:", email);
+      await AuthApi.forgotPasswordProfessor(email);
+      
+      console.log("✅ Reset email sent successfully");
+      // Store email in sessionStorage for the next page
+      sessionStorage.setItem('reset_email', email);
+      
+      // Navigate to verify code page
+      router.push('/auth/forgot-password/professor/verify-code');
+    } catch (error: any) {
+      console.error("❌ Failed to send reset email:", error);
+      const errorMessage = error?.message || t("auth.forgot.errors.email_not_found") || "Email not found";
+      setApiError(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   }
-
-  // Add form data ref to persist across steps without triggering re-renders
-  const formDataRef = useRef<Partial<ForgotPasswordRequest>>({});
-
-  const {
-    register,
-    registerFile,
-    handleSubmit,
-    errors,
-    setErrors,
-    isSubmitting,
-    getValues,
-    validate,
-  } = useForm<ForgotPasswordRequest>({
-    initialValues: {},
-    onSubmit: handleNext,
-    externalFormData: formDataRef, // Pass the external form data ref
-  });
 
 
 
@@ -134,14 +138,25 @@ export default function ForgotPasswordPage() {
                 right: isRTL ? "86px" : undefined,
               }}
             >
-              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" type="email" {...register("email")} errors={errors.email} />
+              {/* Email */}
+              <div className="mb-6">
+                <ControlledInput 
+                  label={t("auth.forgot.email")} 
+                  value={email}
+                  onChange={setEmail}
+                  type="email"
+                  error={emailError}
+                />
+                {apiError && (
+                  <p className="text-red-500 text-sm mt-2">{apiError}</p>
+                )}
+              </div>
             </div>
 
             {/* Actions */}
             <div
               className="absolute"
               style={{
-                width: "420px",
                 top: "420px",
                 left: isRTL ? undefined : "86px",
                 right: isRTL ? "86px" : undefined,
@@ -160,23 +175,19 @@ export default function ForgotPasswordPage() {
                 </Link>
 
                 {/* Next as submit */}
-                <form onSubmit={handleNext}>
-                  <Link href="/auth/forgot-password/verify-code">
-                    <Button
-                      state="filled"
-                      size="M"
-                      icon_position={isRTL ? "left" : "right"}
-                      icon={<ChevronRight className="w-4 h-4" />}
-                      text={
-                        isLoading
-                          ? (t("common.nexting") || "Next")
-                          : (t("common.next") || "Next")
-                      }
-                      disabled={isLoading}
-                      onClick={handleNext}
-                    />
-                  </Link>
-                </form>
+                <Button
+                  state="filled"
+                  size="M"
+                  icon_position={isRTL ? "left" : "right"}
+                  icon={<ChevronRight className="w-4 h-4" />}
+                  text={
+                    isLoading
+                      ? (t("common.sending") || "Sending...")
+                      : (t("common.next") || "Next")
+                  }
+                  disabled={isLoading}
+                  onClick={handleNext}
+                />
               </div>
             </div>
           </div>
@@ -283,7 +294,16 @@ export default function ForgotPasswordPage() {
 
             {/* Email */}
             <div className="px-5 sm:px-6 mt-10 sm:mt-12 sm:max-w-md sm:mx-auto" style={{ direction: isRTL ? "rtl" : "ltr" }}>
-              <SimpleInput label={t("auth.forgot.email") || "Email"} value="email" type="email" {...register("email")} errors={errors.email} />
+              <ControlledInput 
+                label={t("auth.forgot.email") || "Email"} 
+                value={email}
+                onChange={setEmail}
+                type="email"
+                error={emailError}
+              />
+              {apiError && (
+                <p className="text-red-500 text-sm mt-2">{apiError}</p>
+              )}
             </div>
 
             {/* Buttons */}
@@ -298,23 +318,19 @@ export default function ForgotPasswordPage() {
                     text={t("common.back") || "Back"}
                   />
                 </Link>
-                <form onSubmit={handleNext}>
-                  <Link href="/auth/forgot-password/verify-code">
-                    <Button
-                      state="filled"
-                      size="M"
-                      icon_position={isRTL ? "left" : "right"}
-                      icon={<ChevronRight className="w-4 h-4" />}
-                      text={
-                        isLoading
-                          ? (t("common.nexting") || "Next")
-                          : (t("common.next") || "Next")
-                      }
-                      disabled={isLoading}
-                      onClick={handleNext}
-                    />
-                  </Link>
-                </form>
+                <Button
+                  state="filled"
+                  size="M"
+                  icon_position={isRTL ? "left" : "right"}
+                  icon={<ChevronRight className="w-4 h-4" />}
+                  text={
+                    isLoading
+                      ? (t("common.sending") || "Sending...")
+                      : (t("common.next") || "Next")
+                  }
+                  disabled={isLoading}
+                  onClick={handleNext}
+                />
               </div>
             </div>
           </div>

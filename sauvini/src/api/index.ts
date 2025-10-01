@@ -17,6 +17,9 @@
 
 export { BaseApi } from './base';
 export { AuthApi } from './auth';
+export { AdminApi } from './admin';
+export { ProfessorApi } from './professor';
+export { StudentApi } from './student';
 export { LessonsApi } from './lessons';
 
 // ===========================================
@@ -64,6 +67,9 @@ export type {
 // Import the classes for utility functions
 import { BaseApi } from './base';
 import { AuthApi } from './auth';
+import { AdminApi } from './admin';
+import { ProfessorApi } from './professor';
+import { StudentApi } from './student';
 import type { UserRole } from '../types/api';
 
 /**
@@ -144,13 +150,40 @@ export const API_CONSTANTS = {
       REGISTER_PROFESSOR: '/auth/professor/register',
       LOGOUT: '/auth/logout',
       REFRESH: '/auth/refresh',
-      FORGOT_PASSWORD: '/auth/forgot-password',
-      RESET_PASSWORD_CONFIRM: '/auth/reset-password-confirm',
-      VERIFY_EMAIL: '/auth/verify-email',
+      FORGOT_PASSWORD_ADMIN: '/auth/admin/forgot-password',
+      RESET_PASSWORD_ADMIN: '/auth/admin/reset-password',
+      VERIFY_EMAIL_STUDENT: '/auth/student/verify-email',
       RESEND_VERIFICATION: '/auth/resend-verification',
-      ADMIN_PENDING_PROFESSORS: '/auth/admin/professors/pending',
-      ADMIN_APPROVE_PROFESSOR: '/auth/admin/professors/approve',
-      ADMIN_REJECT_PROFESSOR: '/auth/admin/professors/reject',
+      ADMIN_ALL_PROFESSORS: '/auth/admin/all-professors',
+      ADMIN_APPROVE_PROFESSOR: '/auth/admin/approve-professor',
+      ADMIN_REJECT_PROFESSOR: '/auth/admin/reject-professor',
+    },
+    ADMIN: {
+      DASHBOARD_STATS: '/auth/admin/dashboard/stats',
+      ALL_STUDENTS: '/auth/admin/all-students',
+      ALL_ADMINS: '/auth/admin/all-admins',
+      CREATE_ADMIN: '/auth/admin/create-admin',
+      SYSTEM_HEALTH: '/auth/admin/system/health',
+      CLEAR_CACHE: '/auth/admin/system/clear-cache',
+      EXPORT_DATA: '/auth/admin/export',
+    },
+    PROFESSOR: {
+      PROFILE: '/professor/profile',
+      COURSES: '/professor/courses',
+      STUDENTS: '/professor/students',
+      ANALYTICS: '/professor/analytics',
+      LESSONS: '/professor/lessons',
+      QUIZZES: '/professor/quizzes',
+    },
+    STUDENT: {
+      PROFILE: '/student/profile',
+      COURSES_AVAILABLE: '/student/courses/available',
+      COURSES_ENROLLED: '/student/courses/enrolled',
+      PROGRESS_OVERALL: '/student/progress/overall',
+      RECOMMENDATIONS_COURSES: '/student/recommendations/courses',
+      RECOMMENDATIONS_LESSONS: '/student/recommendations/lessons',
+      CERTIFICATES: '/student/certificates',
+      ACHIEVEMENTS: '/student/achievements',
     },
     LESSONS: {
       MODULES: '/modules',

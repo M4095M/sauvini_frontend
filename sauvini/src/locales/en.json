@@ -24,7 +24,8 @@
     "uploading": "Uploading...",
     "uploaded": "Uploaded",
     "retry": "Retry",
-    "upload": "Upload"
+    "upload": "Upload",
+    "sending": "Sending..."
   },
   "wilayas": [
     { "id": 1, "wilaya_name": "01-Adrar" },
@@ -184,6 +185,20 @@
     }
   },
   "auth": {
+    "selectRole": {
+      "title": "Welcome to Sauvini",
+      "subtitle": "Please select your role to continue",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "student": {
+        "title": "I'm a Student",
+        "description": "Access your courses, track progress, and continue learning"
+      },
+      "professor": {
+        "title": "I'm a Professor",
+        "description": "Manage your courses, students, and teaching materials"
+      }
+    },
     "login": {
       "title": "Welcome Back",
       "subtitle": "Log in to access your account.",
@@ -196,14 +211,32 @@
       "loggingIn": "Logging in...",
       "noAccount": "Don't have an account?",
       "signUp": " Sign Up",
-      "tagline": "Where learning meets purpose"
+      "tagline": "Where learning meets purpose",
+      "studentLogin": "Student Login",
+      "professorLogin": "Professor Login",
+      "wrongRole": "Not a student?",
+      "professorTagline": "Empower students and shape the future of education",
+      "errors": {
+        "email_required": "Email is required",
+        "password_required": "Password is required",
+        "invalid_credentials": "Invalid email or password"
+      },
+      "switchRole": {
+        "toProfessor": "Not a student? Professor Login",
+        "toStudent": "Not a professor? Student Login"
+      }
     },
     "forgot": {
       "title": "Forgot Your Password?",
       "subtitle": "Enter the email linked to your account.",
       "helper": "We'll send you a verification code by email.",
       "email": "Email",
-      "tagline": "Where learning meets purpose"
+      "tagline": "Where learning meets purpose",
+      "errors": {
+        "email_required": "Email is required",
+        "invalid_email": "Invalid email format",
+        "email_not_found": "Email not found. Please check and try again."
+      }
     },
     "verify": {
       "title": "Check Your Email",
@@ -213,19 +246,32 @@
       "button": "Verify Code",
       "tagline": "Where learning meets purpose",
       "email": "Email",
+      "code": "Verification Code",
       "codeLabel": "Verification code"
     },
     "reset": {
       "title": "Reset Your Password",
-      "subtitle": "Create a new password for your account.",
-      "newPassword": "New password",
-      "confirmPassword": "Confirm new password",
+      "subtitle": "Enter the code from your email and create a new password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password",
       "cta": "Reset Password",
       "tagline": "Where learning meets purpose",
       "submitting": "Submitting...",
       "successTitle": "Password Changed Successfully!",
       "successBody": "Your password has been reset successfully. You can now log in with your new password.",
-      "successCta": "Go to Login"
+      "successCta": "Go to Login",
+      "submit": "Reset Password",
+      "errors": {
+        "password_min": "Password must be at least 8 characters",
+        "password_format": "Password must contain uppercase, lowercase, and number",
+        "confirm_required": "Please confirm your password",
+        "password_mismatch": "Passwords do not match",
+        "reset_failed": "Failed to reset password. Please try again."
+      }
+    },
+    "branding": {
+      "title": "Welcome to Sauvini",
+      "subtitle": "Your learning journey starts here"
     }
   },
   "footer": {

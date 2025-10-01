@@ -52,30 +52,76 @@ export default function RegisterPage() {
   const { t, isRTL, language } = useLanguage();
   const [step, setStep] = useState(0);
   const stepRef = useRef(0);
+  const [registeredEmail, setRegisteredEmail] = useState<string>("");
   const {registerStudent, registerProfessor} = useAuth()
 
   // Define submission handlers first
   const handleTeacherRegister = async (values: RegisterRequest) => {
-    // Add your teacher registration logic here
-    await registerProfessor({
-      first_name: values.first_name,
-      last_name: values.last_name,
-      wilaya: values.wilaya,
-      phone_number: values.phone_number,
-      email: values.email,
-      gender: values.gender,
-      date_of_birth: values.date_of_birth.toISOString(),
-      exp_school: values.highSchool_experience,
-      exp_school_years: values.highSchool_experience_num,
-      exp_off_school: values.offSchool_experience,
-      exp_online: values.onlineSchool_experience,
-      password: values.password,
-    }, values.cv as File);
-    console.log("Teacher registered with values: ", values);
+    console.log("🚀 handleTeacherRegister called with values:", values);
+    
+    try {
+      // Handle date_of_birth - it might be a Date object or a string from the form
+      let dateOfBirthISO: string;
+      if (values.date_of_birth instanceof Date) {
+        dateOfBirthISO = values.date_of_birth.toISOString();
+      } else if (typeof values.date_of_birth === 'string') {
+        // If it's already a string (from form input), convert to ISO format
+        dateOfBirthISO = new Date(values.date_of_birth).toISOString();
+      } else {
+        throw new Error("Invalid date_of_birth format");
+      }
+      
+      // Convert string values to booleans for experience fields
+      // The form stores "Yes"/"No" or true/false, but API expects boolean
+      const convertToBoolean = (value: any): boolean => {
+        if (typeof value === 'boolean') return value;
+        if (typeof value === 'string') {
+          return value.toLowerCase() === 'yes' || value.toLowerCase() === 'true';
+        }
+        return Boolean(value);
+      };
+      
+      // Prepare professor data for API
+      const professorData = {
+        first_name: values.first_name,
+        last_name: values.last_name,
+        wilaya: values.wilaya,
+        phone_number: values.phone_number,
+        email: values.email,
+        gender: values.gender.toLowerCase(), // Backend expects lowercase 'male' or 'female'
+        date_of_birth: dateOfBirthISO,
+        exp_school: convertToBoolean(values.highSchool_experience),
+        exp_school_years: Number(values.highSchool_experience_num) || 0,
+        exp_off_school: convertToBoolean(values.offSchool_experience),
+        exp_online: convertToBoolean(values.onlineSchool_experience),
+        password: values.password,
+      };
+      
+      console.log("📝 Prepared professor data for API:", professorData);
+      
+      // Validate that CV file exists
+      if (!values.cv || !(values.cv instanceof File)) {
+        throw new Error("CV file is required for professor registration");
+      }
+      
+      // Register the professor with CV file
+      const result = await registerProfessor(professorData, values.cv as File);
+      console.log("✅ Professor registration completed successfully:", result);
+      
+      return result;
+    } catch (error) {
+      console.error("❌ Professor registration failed:", error);
+      // Display error to user
+      if (error instanceof Error) {
+        setErrors({ email: error.message || "Registration failed. Please try again." });
+      }
+      throw error; // Re-throw to let the form handle it
+    }
   };
   const handleStudentRegister = async (values: RegisterRequest) => {
-    // Add your student registration logic here
-    await registerStudent({
+    console.log("🚀 handleStudentRegister called with values:", values);
+    
+    const studentData = {
       first_name: values.first_name,
       last_name: values.last_name,
       phone_number: values.phone_number,
@@ -83,9 +129,29 @@ export default function RegisterPage() {
       password: values.password,
       academic_stream: values.academic_stream,
       wilaya: values.wilaya,
-    });
-    console.log("Student registered with values: ", values);
-
+    };
+    
+    console.log("📝 Prepared student data for API:", studentData);
+    
+    try {
+      // Step 1: Register the student (without sending email)
+      const result = await registerStudent(studentData);
+      console.log("✅ Student registration completed successfully:", result);
+      
+      // Step 2: Store email for OTP component to send verification
+      setRegisteredEmail(values.email);
+      console.log("📧 Email stored for verification:", values.email);
+      
+      // Registration successful - NextStep will handle navigation
+      return result;
+    } catch (error) {
+      console.error("❌ Student registration failed:", error);
+      // Display error to user
+      if (error instanceof Error) {
+        setErrors({ email: error.message || "Registration failed. Please try again." });
+      }
+      throw error; // Re-throw to let the form handle it
+    }
   };
 
   // define validation functions:
@@ -145,7 +211,7 @@ export default function RegisterPage() {
     // Validate confirm password
     if (!values.confirmPassword || values.confirmPassword === "") {
       errors.confirmPassword = "Please confirm your password";
-    } else if (values.confirmPassword !== values.confirmPassword) {
+    } else if (values.confirmPassword !== values.password) {
       errors.confirmPassword = "Passwords do not match";
     }
 
@@ -334,7 +400,7 @@ export default function RegisterPage() {
     stepRef.current = 1;
   };
 
-  const NextStep = () => {
+  const NextStep = async () => {
     // Get current step validator based on selected role
     const currentValidators =
       selectedRole === "teacher"
@@ -345,7 +411,8 @@ export default function RegisterPage() {
     if (currentValidator) {
       // Get current form values (this automatically updates formDataRef)
       const formValues = getValues();
-      console.log("persistent form data: ", formDataRef.current);
+      console.log("📝 NextStep - Current form values:", formValues);
+      console.log("📝 NextStep - Persistent form data:", formDataRef.current);
 
       // Validate current step
       const validationErrors = currentValidator(formValues);
@@ -353,8 +420,40 @@ export default function RegisterPage() {
       // If there are validation errors, don't proceed
       if (Object.keys(validationErrors).length > 0) {
         setErrors(validationErrors);
-        console.log("Validation errors: ", validationErrors);
+        console.log("❌ Validation errors:", validationErrors);
         return; // Don't go to next step
+      }
+    }
+
+    // If on step 2 for student (about to go to step 3 - OTP), submit the registration
+    if (selectedRole === "student" && stepRef.current === 2) {
+      try {
+        console.log("🎓 Student registration - Step 2 -> Step 3 (OTP)");
+        // Ensure we have the latest form data before submission
+        getValues();
+        await handleSubmit(); // This will call handleStudentRegister
+        // If successful, the email will be stored and we can proceed
+      } catch (error) {
+        console.error("❌ Student registration failed:", error);
+        return; // Don't proceed if registration failed
+      }
+    }
+    
+    // If on step 3 for teacher (about to go to step 4 - Application Submitted), submit the registration
+    if (selectedRole === "teacher" && stepRef.current === 3) {
+      try {
+        console.log("👨‍🏫 Professor registration - Step 3 -> Step 4 (Success)");
+        // CRITICAL: Ensure we get fresh values from Step 3 (email, password) before submission
+        const allFormData = getValues();
+        console.log("📋 All form data before professor submission:", allFormData);
+        console.log("📋 FormDataRef before submission:", formDataRef.current);
+        
+        await handleSubmit(); // This will call handleTeacherRegister
+        console.log("✅ Professor registration submitted successfully");
+        // If successful, proceed to the success page
+      } catch (error) {
+        console.error("❌ Professor registration failed:", error);
+        return; // Don't proceed if registration failed
       }
     }
 
@@ -422,9 +521,8 @@ export default function RegisterPage() {
               PreviousStep={PreviousStep}
               register={register}
               errors={errors}
-              completeRegistration={handleSubmit}
+              userEmail={registeredEmail}
             />
-
           );
 
         case 4:

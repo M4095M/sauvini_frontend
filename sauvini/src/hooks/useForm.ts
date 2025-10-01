@@ -122,24 +122,35 @@ export function useForm<T extends Record<string, any>>({
 
   // Handle form submission with validation
   const handleSubmit = useCallback(async () => {
-    const values = externalFormData?.current;
+    // CRITICAL: Always get fresh values from form inputs before submission
+    // This ensures we have the latest data from all form fields
+    const freshValues = getValues();
+    
+    // Use external form data if available (which now has fresh values), otherwise use freshValues
+    const values = externalFormData?.current || freshValues;
+
+    console.log("📋 handleSubmit - Fresh values collected:", freshValues);
+    console.log("📋 handleSubmit - Final values for submission:", values);
 
     // Run validation before submission
     const isValid = validate(values);
     if (!isValid) {
+      console.log("❌ Validation failed, not submitting");
       return; // Don't submit if validation fails
     }
 
     setIsSubmitting(true);
     try {
+      console.log("🚀 Calling onSubmit with values:", values);
       await onSubmit(values as T);
-      console.log("Form submitted successfully: ", values);
+      console.log("✅ Form submitted successfully");
     } catch (error) {
-      console.error("Form submission failed:", error);
+      console.error("❌ Form submission failed:", error);
+      throw error; // Re-throw to let caller handle it
     } finally {
       setIsSubmitting(false);
     }
-  }, [getValues, onSubmit, validate]);
+  }, [getValues, onSubmit, validate, externalFormData]);
 
   return {
     register,

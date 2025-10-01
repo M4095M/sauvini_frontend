@@ -8,7 +8,7 @@ export default function ResetPassworCompleted() {
   const { t, isRTL } = useLanguage();
   return (
     <div className="w-fit h-full p-10 flex flex-col justify-center items-center gap-7 mt-15 ">
-      <DoneIcon color="text-success-400" width="186" height="186" />
+      <DoneIcon className="text-success-400" width="186" height="186" />
       <span className="font-semibold md:text-4xl text-3xl text-success-400">
         {t("register.verify-email-done.title")}
       </span>
