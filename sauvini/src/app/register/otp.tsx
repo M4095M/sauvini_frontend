@@ -97,7 +97,7 @@ export default function OTP({
       if (response.success) {
         console.log("✅ Email verified successfully");
         // Route to login page after successful verification
-        router.push("/auth/login?verified=true");
+        router.push("/auth/login/student");
       } else {
         // Display error message from backend
         setVerificationError(response.message || "Verification failed. Please try again.");

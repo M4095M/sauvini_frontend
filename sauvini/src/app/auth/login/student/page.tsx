@@ -47,23 +47,22 @@ export default function StudentLoginPage() {
 
   const router = useRouter();
 
-  const handleLogin = async () => {
+  const handleLogin = async (values: LoginRequest) => {
     const errors: Partial<Record<keyof LoginRequest, string>> = {};
-    const values = getValues();
   
-    // validation:
-    if (!values.email || values.email.trim() === "") {
-      errors.email = t("auth.login.errors.email_required") || "Email is required";
-    }
+    // // validation:
+    // if (!values.email || values.email.trim() === "") {
+    //   errors.email = t("auth.login.errors.email_required") || "Email is required";
+    // }
 
-    if (!values.password || values.password.trim() === ""){
-      errors.password = t("auth.login.errors.password_required") || "Password is required";
-    }
+    // if (!values.password || values.password.trim() === ""){
+    //   errors.password = t("auth.login.errors.password_required") || "Password is required";
+    // }
 
-    if (Object.keys(errors).length > 0) {
-      setErrors(errors);
-      return;
-    }
+    // if (Object.keys(errors).length > 0) {
+    //   setErrors(errors);
+    //   return;
+    // }
 
     setIsLoading(true);
     setErrors({}); // Clear previous errors
