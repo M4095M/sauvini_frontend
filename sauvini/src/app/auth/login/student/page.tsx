@@ -390,12 +390,12 @@ export default function StudentLoginPage() {
                   {successMessage}
                 </div>
               )}
-              <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-9">
+              <div className="space-y-8 sm:space-y-9">
                 <div>
-                  <SimpleInput label={t("auth.login.email")} value="email" type="email" />
+                  <SimpleInput label={t("auth.login.email")} value="email" type="email" {...register("email")} />
                 </div>
                 <div>
-                  <SimpleInput label={t("auth.login.password")} value="password" type="password" />
+                  <SimpleInput label={t("auth.login.password")} value="password" type="password" {...register("password")} />
                 </div>
                 <div style={{ textAlign: isRTL ? "right" : "left" }}>
                   <Link
@@ -412,6 +412,7 @@ export default function StudentLoginPage() {
                     icon_position="none"
                     text={isLoading ? t("auth.login.loggingIn") : t("auth.login.loginButton")}
                     disabled={isLoading}
+                    onClick={handleSubmit}
                   />
                 </div>
                 <div className="text-center pt-1">
@@ -425,7 +426,7 @@ export default function StudentLoginPage() {
                     {t("auth.login.signUp")}
                   </Link>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
