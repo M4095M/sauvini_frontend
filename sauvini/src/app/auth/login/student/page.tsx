@@ -68,7 +68,7 @@ export default function StudentLoginPage() {
     setErrors({}); // Clear previous errors
 
     try {
-      console.log("🔐 Attempting student login...");
+      console.log("🔐 Attempting student login...", values);
       // We already validated that email and password exist
       const result = await loginStudent(values.email!, values.password!);
       
@@ -227,7 +227,7 @@ export default function StudentLoginPage() {
               )}
               <form onSubmit={(e) => {
                 e.preventDefault();
-                handleLogin();
+                handleSubmit();
               }} className="flex flex-col" style={{ gap: "6px" }}>
                 {/* Email */}
                 <div className="mb-4">
@@ -256,7 +256,7 @@ export default function StudentLoginPage() {
                     icon_position="none"
                     text={isLoading ? (t("auth.login.loggingIn") || "Logging in...") : (t("auth.login.loginButton") || "Login")}
                     disabled={isLoading}
-                    onClick={handleLogin}
+                    onClick={handleSubmit}
                   />
                 </div>
 
@@ -390,7 +390,7 @@ export default function StudentLoginPage() {
                   {successMessage}
                 </div>
               )}
-              <form onSubmit={handleLogin} className="space-y-8 sm:space-y-9">
+              <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-9">
                 <div>
                   <SimpleInput label={t("auth.login.email")} value="email" type="email" />
                 </div>
