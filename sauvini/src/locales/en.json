@@ -832,5 +832,60 @@
   },
   "otp" : {
     "resent" : "OTP resent successfully"
+  },
+  "terms": {
+    "title": "Platform Terms of Use",
+    "subtitle": "By accessing and using the platform, the user fully and unreservedly accepts these terms of use. Any violation may result in sanctions, including warnings, temporary or permanent account suspension, as well as legal action if necessary.",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. Intellectual Property and Copyright",
+        "item1": "All content available on the platform (courses, videos, quizzes, subjects, educational materials, documents, etc.) is protected by intellectual property laws.",
+        "item2": "It is strictly forbidden to copy, reproduce, record, download, share, or distribute this content outside the platform without prior written authorization.",
+        "item3": "Any theft or illegal distribution will expose the user to legal action."
+      },
+      "respect": {
+        "title": "2. Respect and Courtesy",
+        "item1": "Users agree to behave respectfully towards teachers, other students, and the platform team.",
+        "item2": "Insults, defamatory statements, threats, offensive language, discriminatory remarks, or harassment are strictly prohibited.",
+        "item3": "These rules apply to all communication spaces: comment sections, forums, chats, or any other integrated tool.",
+        "item4": "It is strictly forbidden to copy, reproduce, record, download, share, or distribute this content outside the platform without prior written authorization.",
+        "item5": "Any theft or illegal distribution will expose the user to legal action."
+      },
+      "deadlines": {
+        "title": "3. Respect for Deadlines and Exam Rules",
+        "item1": "Students must strictly respect deadlines set for exams, quizzes, and other assessments.",
+        "item2": "Any unjustified delay or attempt at cheating may result in sanctions, including suspension or permanent exclusion from the platform."
+      },
+      "security": {
+        "title": "4. Account Security",
+        "item1": "Each user is responsible for the confidentiality of their login details (username and password).",
+        "item2": "It is forbidden to share an account with another person.",
+        "item3": "Any suspicious or fraudulent activity must be reported immediately to the platform administration."
+      },
+      "fraud": {
+        "title": "5. Prohibition of Fraud and Cheating",
+        "item1": "Any attempt at fraud (copying answers, using forbidden means, impersonating another student, etc.) is strictly prohibited.",
+        "item2": "In cases of proven cheating, the user may be sanctioned with test cancellation, suspension, or exclusion."
+      },
+      "technical": {
+        "title": "6. Technical Protection of the Site",
+        "item1": "It is strictly forbidden to attempt to access the source code, bypass security measures, or disrupt the proper functioning of the platform (hacking, injections, etc.).",
+        "item2": "Any attempted cyberattack will be reported to the competent authorities."
+      },
+      "privacy": {
+        "title": "7. Privacy and Data Protection",
+        "item1": "Users’ personal data is collected solely for educational and administrative purposes.",
+        "item2": "It will never be shared with third parties without consent, unless legally required.",
+        "item3": "The user agrees not to disclose confidential information regarding the platform or its members."
+      },
+      "responsibility": {
+        "title": "8. Student Responsibility",
+        "item1": "Each student is responsible for the way they use the courses, videos, quizzes, and exams made available to them.",
+        "item2": "In cases of misuse (illegal distribution, unauthorized sharing, fraud, insults, etc.), the student is subject to disciplinary sanctions (warning, suspension, exclusion) and, if necessary, legal action.",
+        "item3": "The platform reserves the right to take all necessary measures to protect its content and its community."
+      }
+    },
+    "agreement": "I agree to the Terms of Use",
+    "continue": "Continue"
   }
 }

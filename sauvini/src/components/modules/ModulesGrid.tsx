@@ -2,11 +2,16 @@
 
 import Image from "next/image";
 import { Heart, Bell, Menu } from "lucide-react";
-import { Module } from "@/types/modules";
 import ModuleCard from "./ModuleCard";
 import { useLanguage } from "@/hooks/useLanguage";
 import { RTL_LANGUAGES } from "@/lib/language";
 import { useSidebar } from "@/context/SideBarContext";
+
+import {Module} from '@/api/modules'
+
+
+import logoMark from "./logoMark.svg"
+import { useAuth } from "@/hooks/api";
 
 interface ModulesGridProps {
   modules: Module[];
@@ -27,6 +32,11 @@ export default function ModulesGrid({
   const { toggle } = useSidebar();
   const noModules = modules.length === 0;
 
+  // user auth:
+  const { isAuthenticated } = useAuth();
+
+  console.log(isAuthenticated())
+
   return (
     <div
       className="flex flex-col items-start rounded-[52px] bg-[#F8F8F8] dark:bg-[#1A1A1A] w-full"
@@ -45,11 +55,11 @@ export default function ModulesGrid({
           {/* S Logo */}
           <div>
             <Image
-              src="/S_logo.svg"
+              src={logoMark}
               alt="Sauvini S Logo"
               width={40}
               height={40}
-              className="dark:brightness-150" // Slightly brighten logo in dark mode (same everywhere else tho)
+              className="dark:brightness-150 m-4" // Slightly brighten logo in dark mode (same everywhere else tho)
             />
           </div>
 
@@ -109,7 +119,8 @@ export default function ModulesGrid({
         </h2>
 
         {/* toggle */}
-        <div className={`flex items-center gap-3 `} dir={isRTL ? "rtl" : "ltr"}>
+        {isAuthenticated() &&  (
+                  <div className={`flex items-center gap-3 `} dir={isRTL ? "rtl" : "ltr"}>
           <span
             className={`text-sm text-gray-600 dark:text-gray-300 ${
               isRTL ? "font-arabic" : "font-sans"
@@ -132,6 +143,8 @@ export default function ModulesGrid({
             />
           </button>
         </div>
+        )}
+
       </div>
 
       {/* Modules Grid */}
@@ -151,7 +164,7 @@ export default function ModulesGrid({
             className={`grid gap-6 w-full ${
               isMobile
                 ? "grid-cols-1"
-                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                : "grid-cols-1 md:grid-cols-2"
             }`}
           >
             {modules.map((module) => (

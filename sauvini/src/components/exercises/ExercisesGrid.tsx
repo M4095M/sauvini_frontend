@@ -181,7 +181,7 @@ export default function ExercisesGrid({ exercises, modules, isMobile = false, us
             <p className={`text-lg text-gray-500 dark:text-gray-400 ${isRTL ? "font-arabic" : "font-sans"}`}>{t("exercises.noExercises") || "No exercises found"}</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-4">
+          <div className="flex flex-wrap gap-4 w-full">
             {filtered.map((exercise) => (
               <ExerciseCard key={exercise.id} exercise={exercise} isMobile={false} />
             ))}

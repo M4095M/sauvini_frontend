@@ -226,7 +226,7 @@ export default function ExamsGrid({
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-4">
+          <div className="flex flex-wrap gap-4 w-full">
             {filteredExams.map((exam) => (
               <ExamCard key={exam.id} exam={exam} isMobile={false} />
             ))}

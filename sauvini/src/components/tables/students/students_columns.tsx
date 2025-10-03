@@ -17,18 +17,21 @@ export const student_columns = (
   {
     accessorKey: "profile_picture",
     header: "Profile",
+    size: 100,
     cell: ({ row }) => {
       const profile = row.getValue("profile_picture");
       const name = row.getValue("name");
       return (
-        <div className="w-14 aspect-square rounded-full overflow-hidden bg-neutral-300 flex-shrink-0">
-          {profile ? (
-            <Image src={profile as string} alt={name as string} width={56} height={56} className="object-cover w-full h-full" />
-          ) : (
-            <div className="w-full h-full bg-neutral-300 flex items-center justify-center text-white font-semibold">
-              {(name as string || "U").split(" ").map((p) => p[0]).slice(0, 2).join("")}
-            </div>
-          )}
+        <div className="w-[100px] flex items-center px-2">
+          <div className="w-14 aspect-square rounded-full overflow-hidden bg-neutral-300 flex-shrink-0">
+            {profile ? (
+              <Image src={profile as string} alt={name as string} width={56} height={56} className="object-cover w-full h-full" />
+            ) : (
+              <div className="w-full h-full bg-neutral-300 flex items-center justify-center text-white font-semibold">
+                {(name as string || "U").split(" ").map((p) => p[0]).slice(0, 2).join("")}
+              </div>
+            )}
+          </div>
         </div>
       );
     },
@@ -36,15 +39,19 @@ export const student_columns = (
   {
     accessorKey: "name",
     header: "Name",
+    size: 200,
     cell: ({ row }) => (
-      <div className="text-xl font-medium text-neutral-600 dark:text-white truncate">{row.getValue("name")}</div>
+      <div className="w-[200px] text-sm font-medium text-neutral-600 dark:text-white truncate px-2" title={row.getValue("name")}>
+        {row.getValue("name")}
+      </div>
     ),
   },
   {
     accessorKey: "phone",
     header: "Phone",
+    size: 150,
     cell: ({ row }) => (
-      <div dir="ltr" className="text-base font-normal text-neutral-400 dark:text-neutral-400 text-left">
+      <div dir="ltr" className="w-[150px] text-sm font-normal text-neutral-400 dark:text-neutral-400 text-left truncate px-2">
         {row.getValue("phone")}
       </div>
     ),
@@ -52,15 +59,21 @@ export const student_columns = (
   {
     accessorKey: "email",
     header: "Email",
-    cell: ({ row }) => <div className="text-base font-normal text-neutral-400 dark:text-neutral-400 truncate">{row.getValue("email")}</div>,
+    size: 220,
+    cell: ({ row }) => (
+      <div className="w-[220px] text-sm font-normal text-neutral-400 dark:text-neutral-400 truncate px-2" title={row.getValue("email")}>
+        {row.getValue("email")}
+      </div>
+    ),
   },
   {
     id: "actions",
     header: "",
+    size: 80,
     cell: ({ row }) => {
       const id = row.original.id;
       return (
-        <div className="flex items-center justify-end relative">
+        <div className="w-[80px] flex items-center justify-end relative px-2">
           <Button
             state="text"
             size="S"

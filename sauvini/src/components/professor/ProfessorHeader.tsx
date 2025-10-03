@@ -114,7 +114,7 @@ export default function ProfessorHeader({ professorProfile, isMobile = false, cl
   return (
     <header
       className={`
-        flex justify-between items-center self-stretch
+        flex flex-wrap gap-4 justify-between items-center self-stretch
         bg-[#F8F8F8] dark:bg-[#1A1A1A]
         ${className}
       `}
@@ -124,12 +124,11 @@ export default function ProfessorHeader({ professorProfile, isMobile = false, cl
         borderRadius: PROFESSOR_HEADER_STYLES.container.borderRadius,
       }}
     >
-      {/* Professor Profile Card */}
+      {/* Professor Profile Card - Responsive with min-width */}
       <div
-        className={`flex items-center`}
+        className="flex items-center gap-4 min-w-0 flex-shrink-0"
         style={{
-          width: PROFESSOR_HEADER_STYLES.profileCard.width,
-          gap: PROFESSOR_HEADER_STYLES.profileCard.gap,
+          maxWidth: PROFESSOR_HEADER_STYLES.profileCard.width,
         }}
         dir={isRTL ? "rtl" : "ltr"}
       >
@@ -144,7 +143,7 @@ export default function ProfessorHeader({ professorProfile, isMobile = false, cl
         >
           <Image
             src={professorProfile.avatar || "/placeholder.svg"}
-            alt={`${t("professor.dr")} ${professorProfile.firstName} ${professorProfile.lastName} profile picture`}
+            alt={`${t("professor.dr") || "Dr."} ${professorProfile.firstName} ${professorProfile.lastName} profile picture`}
             fill
             className="object-cover"
             sizes="81px"
@@ -152,44 +151,48 @@ export default function ProfessorHeader({ professorProfile, isMobile = false, cl
           />
         </div>
 
-        {/* Text Frame */}
-        <div className={`flex flex-col items-start flex-1`}>
+        {/* Text Frame with truncation */}
+        <div className="flex flex-col items-start min-w-0 flex-1">
           {/* Professor Name */}
           <h1
-            className={`text-gray-900 dark:text-white text-[36px] font-semibold -tracking-[0.72px] m-0 whitespace-nowrap`}
+            className="text-gray-900 dark:text-white text-2xl lg:text-[36px] font-semibold -tracking-[0.72px] m-0 truncate w-full"
+            title={`${t("professor.dr") || "Dr."} ${professorProfile.firstName} ${professorProfile.lastName}`}
           >
-            {t("professor.dr")} {professorProfile.firstName} {professorProfile.lastName}
+            {t("professor.dr") || "Dr."} {professorProfile.firstName} {professorProfile.lastName}
           </h1>
 
           {/* Module Title */}
-          <p className={`text-[#7C7C7C] dark:text-[#A0A0A0] text-[20px] font-medium leading-[30px] -tracking-[0.4px]`}>
-            {moduleTitle} {t("professor.professor")}
+          <p className="text-[#7C7C7C] dark:text-[#A0A0A0] text-base lg:text-[20px] font-medium leading-[30px] -tracking-[0.4px] truncate w-full">
+            {moduleTitle} {t("professor.professor") || "Professor"}
           </p>
         </div>
       </div>
 
-      {/* Actions Section: Notifications, Language Switcher, Theme Toggle */}
+      {/* Actions Section: Responsive with wrap and gap */}
       <div
-        className={`flex items-center`}
-        style={{ gap: PROFESSOR_HEADER_STYLES.actionsContainer.gap }}
+        className="flex flex-wrap items-center gap-3 lg:gap-4"
         dir={isRTL ? "rtl" : "ltr"}
       >
-        {/* Notifications Button */}
-        <div className="flex items-center" style={{ width: PROFESSOR_HEADER_STYLES.notificationsButton.width }}>
+        {/* Notifications Button - Responsive width */}
+        <div className="flex items-center">
           <Button
             state="filled"
             size="M"
             icon_position="left"
             icon={<Bell className="w-5 h-5" style={{ color: "#CEDAE9" }} aria-hidden="true" />}
-            text={t("professor.notification")}
+            text={t("professor.notification") || "Notifications"}
           />
         </div>
 
         {/* Language Switcher */}
-        <LanguageSwitcher />
+        <div className="flex-shrink-0">
+          <LanguageSwitcher />
+        </div>
 
         {/* Theme Toggle */}
-        <ThemeToggleButton className="ml-3" />
+        <div className="flex-shrink-0">
+          <ThemeToggleButton />
+        </div>
       </div>
     </header>
   )

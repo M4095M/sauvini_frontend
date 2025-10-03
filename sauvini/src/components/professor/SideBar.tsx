@@ -19,8 +19,12 @@ import {
   X,
   BriefcaseBusiness,
   CreditCard,
-  GraduationCap
+  GraduationCap,
+  Sun,
+  Moon,
+  Globe
 } from "lucide-react"
+import { useTheme } from "@/hooks/useTheme"
 
 interface NavItem {
   href: string
@@ -228,7 +232,8 @@ function DesktopSidebar() {
 function MobileDrawer() {
   const { isOpen, close } = useSidebar()
   const pathname = usePathname()
-  const { isRTL, t } = useLanguage()
+  const { isRTL, t, language, setLanguage } = useLanguage()
+  const { resolvedTheme, toggleTheme } = useTheme()
 
   // DUMMY admin flag
   const [isAdmin, setIsAdmin] = useState(false)
@@ -371,6 +376,82 @@ function MobileDrawer() {
             style={{ transitionDelay: isOpen ? "400ms" : "0ms" }}
           >
             <div className="flex flex-col" style={{ gap: 16 }}>
+              {/* Theme Toggle */}
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className={`flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 ${
+                  isRTL ? "flex-row-reverse text-right" : "text-left"
+                }`}
+                style={{
+                  padding: "12px 20px",
+                  gap: 12,
+                  borderRadius: 26,
+                  direction: isRTL ? "rtl" : "ltr",
+                }}
+              >
+                {resolvedTheme === "dark" ? (
+                  <Sun className="w-5 h-5 flex-shrink-0 text-yellow-500" />
+                ) : (
+                  <Moon className="w-5 h-5 flex-shrink-0 text-blue-600" />
+                )}
+                <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                  {resolvedTheme === "dark" ? t("common.lightMode") || "Light Mode" : t("common.darkMode") || "Dark Mode"}
+                </span>
+              </button>
+
+              {/* Language Switcher */}
+              <div className="flex flex-col" style={{ gap: 8 }}>
+                <div
+                  className={`flex items-center text-gray-500 dark:text-gray-400 ${
+                    isRTL ? "flex-row-reverse text-right" : "text-left"
+                  }`}
+                  style={{
+                    padding: "0 20px",
+                    gap: 12,
+                  }}
+                >
+                  <Globe className="w-4 h-4 flex-shrink-0" />
+                  <span className={`text-xs font-medium uppercase ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                    {t("common.language") || "Language"}
+                  </span>
+                </div>
+                <div className="flex flex-col" style={{ gap: 4 }}>
+                  {[
+                    { code: "en", label: "English" },
+                    { code: "fr", label: "Français" },
+                    { code: "ar", label: "العربية" },
+                  ].map((lang) => (
+                    <button
+                      key={lang.code}
+                      type="button"
+                      onClick={() => setLanguage(lang.code as "en" | "fr" | "ar")}
+                      className={`flex items-center transition-all duration-200 ${
+                        isRTL ? "flex-row-reverse text-right" : "text-left"
+                      } ${
+                        language === lang.code
+                          ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                      }`}
+                      style={{
+                        padding: "8px 20px",
+                        gap: 12,
+                        borderRadius: 20,
+                        direction: isRTL ? "rtl" : "ltr",
+                      }}
+                    >
+                      <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                        {lang.label}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-gray-200 dark:border-gray-700 my-2" />
+
+              {/* Account Details */}
               <Link
                 href="/professor/profile"
                 onClick={close}
@@ -390,6 +471,7 @@ function MobileDrawer() {
                 </span>
               </Link>
 
+              {/* Logout */}
               <button
                 type="button"
                 onClick={() => {

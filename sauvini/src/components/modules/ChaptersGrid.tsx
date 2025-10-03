@@ -122,7 +122,7 @@ export default function ChaptersGrid({
             </p>
           </div>
         ) : (
-          <div className="grid gap-6 w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="w-full flex flex-wrap gap-4">
             {chapters.map((chapter) => (
               <ChapterCard key={chapter.id} chapter={chapter} />
             ))}

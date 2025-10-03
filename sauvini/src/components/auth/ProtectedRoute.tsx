@@ -124,7 +124,7 @@ export default function ProtectedRoute({
   requiredRole,
   fallback = <DefaultLoadingFallback />,
   accessDenied,
-  loginRedirect = '/auth/login',
+  loginRedirect = '/auth/select-role',
   unauthorizedRedirect = '/unauthorized',
   showLoadingState = true,
 }: ProtectedRouteProps) {
@@ -191,7 +191,7 @@ export default function ProtectedRoute({
       }
       
       // Redirect to login
-      router.push(loginRedirect);
+      router.push(loginRedirect); 
       return;
     }
     

@@ -123,52 +123,82 @@ export default function ProfessorChapterCard({
         }
       }}
       className={`
-        flex w-[373px] min-h-[260px] flex-col items-start gap-[8px] rounded-[28px] 
+        relative flex flex-col w-full rounded-[28px] 
         transition-all duration-200 hover:shadow-md cursor-pointer
         border border-[#BDBDBD] bg-white
         dark:border-[#7C7C7C] dark:bg-[#1A1A1A]
+        overflow-hidden
         ${className}
       `}
-      style={{ padding: "16px 24px 20px 24px" }}
+      style={{ minHeight: 260, padding: "16px 24px 20px 24px" }}
       onClick={handleChapterClick}
     >
-      <div className="flex flex-col items-start gap-2 self-stretch h-full">
-        {/* Icon + Title + Description + Arrow */}
-        <div className={`flex justify-between items-start self-stretch`} dir={isRTL ? "rtl" : "ltr"}>
-          {/* Icon and content */}
-          <div className={`flex items-start gap-3 flex-1`} dir={isRTL ? "rtl" : "ltr"}>
-            {/* Chapter Icon */}
-            <div className="flex justify-center items-center w-[60px] h-[60px] flex-shrink-0">
-              <Image
-                src={chapter.image || "/placeholder.svg?height=70&width=72&query=chapter"}
-                alt={`${chapter.title} illustration`}
-                width={60}
-                height={60}
-                className="object-cover"
-              />
-            </div>
+      <div className="flex flex-col justify-between gap-3 w-full h-full min-h-0">
+        {/* Top Section: Icon + Content */}
+        <div 
+          className={`flex w-full items-start gap-3`} 
+          style={{ minWidth: 0, minHeight: 0 }}
+          dir={isRTL ? "rtl" : "ltr"}
+        >
+          {/* Chapter Icon */}
+          <div className="relative flex-shrink-0 w-[60px] h-[60px]">
+            <Image
+              src={chapter.image || "/placeholder.svg?height=70&width=72&query=chapter"}
+              alt={`${chapter.title} illustration`}
+              width={60}
+              height={60}
+              className="object-cover"
+            />
+          </div>
+          
+          {/* Content Section */}
+          <div 
+            className="flex flex-col gap-2" 
+            style={{ 
+              flex: '1 1 0%',
+              minWidth: 0,
+              overflow: 'hidden'
+            }}
+          >
 
-            {/* Title and description */}
-            <div className={`flex flex-col gap-1 flex-1`} dir={isRTL ? "rtl" : "ltr"}>
+            {/* Title Row with Arrow */}
+            <div 
+              className={`flex items-center justify-between gap-2`}
+              style={{ minWidth: 0, width: '100%' }}
+              dir={isRTL ? "rtl" : "ltr"}
+            >
               <h3
-                className={`font-semibold text-base leading-tight 
-                             text-gray-900 dark:text-white 
-                             ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}
+                className={`
+                  text-base font-semibold text-gray-900 dark:text-white 
+                  truncate leading-tight
+                  ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
+                `}
+                style={{ 
+                  flex: '1 1 0%',
+                  minWidth: 0
+                }}
+                title={chapter.title}
               >
                 {chapter.title}
               </h3>
-              <p
-                className={`text-xs leading-relaxed line-clamp-2 
-                           text-gray-600 dark:text-gray-300
-                           ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}
-              >
-                {truncateDescription(chapter.description, 80)}
-              </p>
+              
+              {/* Arrow Icon */}
+              <div className="flex-shrink-0">
+                <ChevronIcon className="w-5 h-5 text-gray-400 dark:text-gray-500" />
+              </div>
             </div>
+            
+            {/* Description */}
+            <p
+              className={`
+                text-xs text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2
+                ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
+              `}
+              style={{ minWidth: 0 }}
+            >
+              {chapter.description}
+            </p>
           </div>
-
-          {/* Arrow */}
-          <ChevronIcon className="w-4 h-4 text-gray-400 dark:text-gray-500 flex-shrink-0 mt-1" />
         </div>
 
         {/* Content Section */}

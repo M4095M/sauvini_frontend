@@ -30,18 +30,22 @@ export function returnProfessorColumns(
     {
       accessorKey: "profile_picture",
       header: "Profile Picture",
+      size: 100,
       cell: ({ row }) => {
         return (
-          <div className="w-14 aspect-square rounded-full bg-neutral-300"></div>
+          <div className="w-[100px] flex items-center px-2">
+            <div className="w-14 aspect-square rounded-full bg-neutral-300"></div>
+          </div>
         );
       },
     },
     {
       accessorKey: "name",
       header: "Name",
+      size: 200,
       cell: ({ row }) => {
         return (
-          <div className="text-xl font-medium text-neutral-600">
+          <div className="w-[200px] text-sm font-medium text-neutral-600 dark:text-neutral-200 truncate px-2" title={row.getValue("name")}>
             {row.getValue("name")}
           </div>
         );
@@ -50,9 +54,10 @@ export function returnProfessorColumns(
     {
       accessorKey: "phone_number",
       header: "Phone Number",
+      size: 150,
       cell: ({ row }) => {
         return (
-          <div className="text-base font-normal text-neutral-400">
+          <div className="w-[150px] text-sm font-normal text-neutral-400 dark:text-neutral-400 truncate px-2">
             {row.getValue("phone_number")}
           </div>
         );
@@ -61,9 +66,10 @@ export function returnProfessorColumns(
     {
       accessorKey: "email",
       header: "Email",
+      size: 220,
       cell: ({ row }) => {
         return (
-          <div className="text-base font-normal text-neutral-400">
+          <div className="w-[220px] text-sm font-normal text-neutral-400 dark:text-neutral-400 truncate px-2" title={row.getValue("email")}>
             {row.getValue("email")}
           </div>
         );
@@ -72,12 +78,11 @@ export function returnProfessorColumns(
     {
       accessorKey: "status",
       header: "Status",
+      size: 120,
       cell: ({ row }) => {
         const status = row.getValue("status") as string;
         return (
-          <div className="">
-            {/* replace later the text with the language translator */}
-            {/* same here set the className relevant to the status value */}
+          <div className="w-[120px] px-2">
             <Tag
               icon={undefined}
               text={row.getValue("status")}
@@ -93,6 +98,7 @@ export function returnProfessorColumns(
     },
     {
       id: "actions",
+      size: 80,
       cell: ({ row }) => {
         const payment = row.original;
 
@@ -100,17 +106,18 @@ export function returnProfessorColumns(
           (row.getValue("status") as string).toLocaleLowerCase() === "accepted";
 
         return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <div className="">
-                <Button
-                  state={"text"}
-                  size={"S"}
-                  icon_position={"icon-only"}
-                  icon={<MoreHorizontal />}
-                />
-              </div>
-            </DropdownMenuTrigger>
+          <div className="w-[80px] flex items-center justify-end px-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <div className="">
+                  <Button
+                    state={"text"}
+                    size={"S"}
+                    icon_position={"icon-only"}
+                    icon={<MoreHorizontal />}
+                  />
+                </div>
+              </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-white">
               <DropdownMenuItem>
                 <div
@@ -206,6 +213,7 @@ export function returnProfessorColumns(
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          </div>
         );
       },
     },

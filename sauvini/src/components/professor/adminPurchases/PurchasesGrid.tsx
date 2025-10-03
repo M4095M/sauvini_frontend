@@ -45,7 +45,6 @@ export default function PurchasesGrid({
   const toggleMenu = (id: string) => setOpenMenuFor((p) => (p === id ? null : id));
   const menuPositionStyle = isRTL ? { left: 0 } : { right: 0 };
 
-  // dummy handlers
   const handleView = (p: Purchase) => {
     setSelectedPurchase(p);
     setDetailsOpen(true);
@@ -53,12 +52,18 @@ export default function PurchasesGrid({
   };
 
   const handleValidate = (p: Purchase) => {
+    // Update status to validated - in production, this would call an API
     console.log("validate purchase", p.id);
+    // TODO: Call API to validate purchase
+    // For now, update local state (if needed)
     setOpenMenuFor(null);
   };
 
   const handleReject = (p: Purchase) => {
+    // Update status to rejected - in production, this would call an API
     console.log("reject purchase", p.id);
+    // TODO: Call API to reject purchase
+    // For now, update local state (if needed)
     setOpenMenuFor(null);
   };
 
@@ -86,11 +91,12 @@ export default function PurchasesGrid({
           </h2>
         </div>
 
-        {/* Filters */}
+        {/* ✅ STANDARDIZED: Filters with flex-wrap */}
         <div className="mt-2 px-2">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-3">
-              <div className="w-full sm:w-auto">
+          <div className="flex flex-wrap items-start sm:items-center justify-between gap-4 w-full">
+            {/* Filter dropdowns group with flex-wrap and min-w-0 */}
+            <div className="flex flex-wrap gap-3 min-w-0">
+              <div className="w-full sm:w-auto min-w-0">
                 <DropDown
                   placeholder={t("admin.managePurchases.filter") ?? "Purchase Status: New"}
                   options={[
@@ -104,7 +110,7 @@ export default function PurchasesGrid({
                 />
               </div>
 
-              <div className="w-full sm:w-auto">
+              <div className="w-full sm:w-auto min-w-0">
                 <DropDown
                   placeholder={t("admin.managePurchases.sort") ?? "Sort: Oldest first"}
                   options={[
@@ -117,8 +123,8 @@ export default function PurchasesGrid({
               </div>
             </div>
 
-            {/* show-count */}
-            <div className="w-full sm:w-auto min-w-0 sm:min-w-[220px]">
+            {/* Show count dropdown - flex-shrink-0 to prevent crushing */}
+            <div className="w-full sm:w-auto flex-shrink-0">
               <DropDown
                 placeholder={t("common.show") ?? "Show"}
                 options={perPageOptions.map((n) => ({

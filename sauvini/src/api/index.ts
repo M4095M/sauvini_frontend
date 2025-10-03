@@ -21,6 +21,7 @@ export { AdminApi } from './admin';
 export { ProfessorApi } from './professor';
 export { StudentApi } from './student';
 export { LessonsApi } from './lessons';
+export { ModulesApi } from './modules';
 
 // ===========================================
 // API TYPES
@@ -59,6 +60,14 @@ export type {
   Quiz,
   QuizQuestion,
 } from './lessons';
+
+// Re-export module management types
+export type {
+  Module as ModuleType,
+  CreateModuleData,
+  UpdateModuleData,
+  AssignModuleData,
+} from './modules';
 
 // ===========================================
 // API UTILITIES

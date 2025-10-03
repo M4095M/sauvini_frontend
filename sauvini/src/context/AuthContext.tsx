@@ -10,7 +10,7 @@ import React, {
   useMemo 
 } from 'react';
 
-import { AuthApi, BaseApi } from '@/api';
+import { AuthApi, BaseApi, StudentApi } from '@/api';
 import type { 
   User,
   Student,
@@ -21,6 +21,7 @@ import type {
   RegisterStudentData,
   RegisterProfessorData,
 } from '@/types/api';
+import { fromTheme } from 'tailwind-merge';
 
 // ===========================================
 // CONTEXT TYPES
@@ -46,6 +47,7 @@ interface AuthContextType {
   getUserRole: () => UserRole | null;
   hasRole: (role: UserRole) => boolean;
   getUserFullName: () => string | null;
+  getStudentSub: () => string | null;
   
   // Error handling
   error: string | null;
@@ -120,6 +122,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       // Store tokens
       BaseApi.setTokens(response.data.token);
+
+
+      console.log("from auth context: ", response.data.user)
       
       // Update user state
       setUser(response.data.user);
@@ -275,6 +280,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return BaseApi.hasRole(role);
   }, []);
 
+  const getStudentSub = useCallback((): string | null => {
+    if (!user || !hasRole('student')) return null;
+    return StudentApi.getStudentSub();
+  }, [user, hasRole]);
+
   const getUserFullName = useCallback((): string | null => {
     if (!user) return null;
     
@@ -345,6 +355,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     getUserRole,
     hasRole,
     getUserFullName,
+    getStudentSub,
     
     // Error handling
     error,
@@ -361,6 +372,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     registerProfessor,
     getUserRole,
     hasRole,
+    getStudentSub,
     getUserFullName,
     error,
     clearError,

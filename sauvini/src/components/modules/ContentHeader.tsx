@@ -159,7 +159,7 @@ export default function ContentHeader(props: ContentHeaderProps) {
 
         {/* Illustration */}
         <div
-          className={`absolute top-0 z-10 flex w-[373px] h-[393px] flex-col justify-start items-center flex-shrink-0 ${
+          className={`hidden absolute top-0 z-10 lg:flex w-[373px] h-[393px] flex-col justify-start items-center flex-shrink-0 ${
             isRTL ? "left-1/4" : "right-1/4"
           }`}
           style={{ transform: isRTL ? "translateX(-50%)" : "translateX(50%)" }}

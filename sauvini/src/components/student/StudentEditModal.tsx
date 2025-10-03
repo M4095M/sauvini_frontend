@@ -5,10 +5,11 @@ import Button from "@/components/ui/button";
 import type { UserProfile } from "@/types/modules";
 import { X, Trash } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { Student } from "@/api";
 
 interface Props {
   open: boolean;
-  user: UserProfile;
+  user: Student;
   onClose: () => void;
   onSave?: (payload: Partial<UserProfile>) => Promise<void> | void;
 }
@@ -17,12 +18,12 @@ export default function StudentEditModal({ open, user, onClose, onSave }: Props)
   const { t, isRTL } = useLanguage();
 
   const [form, setForm] = useState({
-    name: user.name ?? "",
-    lastname: user.lastname ?? "",
-    phoneNumber: user.phoneNumber ?? "",
+    name: user.first_name ?? "",
+    lastname: user.last_name ?? "",
+    phoneNumber: user.phone_number ?? "",
     email: user.email ?? "",
     wilaya: user.wilaya ?? "",
-    academicStream: (user.academicStream as string) ?? "",
+    academicStream: (user.academic_stream as string) ?? "",
   });
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);

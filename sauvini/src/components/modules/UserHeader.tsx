@@ -36,7 +36,7 @@ const USER_HEADER_STYLES = {
   },
 } as const;
 
-const ThemeToggleButton = React.memo(function ThemeToggleButton({ className = "" }: { className?: string }) {
+export const ThemeToggleButton = React.memo(function ThemeToggleButton({ className = "" }: { className?: string }) {
   const { resolvedTheme, toggleTheme } = useTheme();
   const isDarkFromContext = resolvedTheme === "dark";
 
@@ -62,7 +62,7 @@ const ThemeToggleButton = React.memo(function ThemeToggleButton({ className = ""
       aria-pressed={isDarkLocal}
       aria-label={isDarkLocal ? "Switch to light theme" : "Switch to dark theme"}
       className={`flex items-center justify-center ${className}`}
-      style={{ width: 104, height: 80, padding: 0, background: "transparent", border: "none" }}
+      style={{ width: 104, height: 80, padding: 0, border: "none" }}
       type="button"
     >
       <div
@@ -76,7 +76,7 @@ const ThemeToggleButton = React.memo(function ThemeToggleButton({ className = ""
         }}
       >
         <div
-          className="relative flex items-center"
+          className="relative flex items-center bg-primary-50"
           style={{
             flex: "1 0 0",
             borderRadius: 100,
@@ -87,7 +87,7 @@ const ThemeToggleButton = React.memo(function ThemeToggleButton({ className = ""
             justifyContent: "space-between",
             alignItems: "center",
             boxSizing: "border-box",
-            background: "transparent",
+            // background: "transparent",
             willChange: "transform, background-color",
           }}
         >
@@ -152,52 +152,40 @@ export default function UserHeader({
   return (
     <header
       className={`
-        flex justify-between items-center self-stretch
+         flex flex-col xl:flex-row justify-between items-start xl:items-center w-full
         bg-[#F8F8F8] dark:bg-[#1A1A1A]
+        p-3 md:p-4 rounded-[56px] gap-4 md:gap-2
         ${className}
       `}
       dir={isRTL ? "rtl" : "ltr"}
-      style={{
-        padding: USER_HEADER_STYLES.container.padding,
-        borderRadius: USER_HEADER_STYLES.container.borderRadius,
-      }}
     >
       {/* Student Profile Card */}
       <div
-        className={`flex items-center`}
-        style={{
-          width: USER_HEADER_STYLES.profileCard.width,
-          gap: USER_HEADER_STYLES.profileCard.gap,
-        }}
+        className={`flex items-center gap-3 md:gap-4 flex-shrink-0 min-w-0`}
         dir={isRTL ? "rtl" : "ltr"}
       >
         {/* Profile Picture */}
         <div
-          className="flex justify-center items-center flex-shrink-0 relative overflow-hidden rounded-full"
-          style={{
-            width: USER_HEADER_STYLES.avatar.width,
-            height: USER_HEADER_STYLES.avatar.height,
-            aspectRatio: "1/1",
-          }}
+          className="flex justify-center items-center flex-shrink-0 relative overflow-hidden rounded-full w-16 h-16 md:w-20 md:h-20"
         >
           <Image
             src={userProfile.avatar || "/placeholder.svg"}
             alt={`${userProfile.name} ${userProfile.lastname} profile picture`}
             fill
             className="object-cover"
-            sizes="81px"
+            sizes="(max-width: 768px) 64px, 80px"
             priority
           />
         </div>
 
         {/* Text Frame */}
-        <div className={`flex flex-col items-start flex-1`}>
-          <p className={`text-[#7C7C7C] dark:text-[#A0A0A0] text-[20px] font-medium leading-[30px] -tracking-[0.4px]`}>
+        <div className={`flex flex-col items-start flex-1 min-w-0`}>
+          <p className={`text-[#7C7C7C] dark:text-[#A0A0A0] text-sm md:text-lg lg:text-xl font-medium truncate w-full`}>
             {t("modules.keepGoing")}
           </p>
 
           {/* User Name */}
-          <h1 className={`text-gray-900 dark:text-white text-[36px] font-semibold -tracking-[0.72px] m-0`}>
+          <h1 className={`text-gray-900 dark:text-white text-xl md:text-2xl lg:text-4xl font-semibold truncate w-full`}>
             {userProfile.name} {userProfile.lastname}
           </h1>
         </div>
@@ -205,28 +193,24 @@ export default function UserHeader({
 
       {/* Actions Section: Level, Notifications, Language Switcher, Theme Toggle */}
       <div
-        className={`flex items-center`}
-        style={{ gap: USER_HEADER_STYLES.actionsContainer.gap }}
+        className={`flex flex-wrap items-center gap-2 md:gap-4 justify-center md:justify-start`}
         dir={isRTL ? "rtl" : "ltr"}
       >
         {/* Level Badge */}
-        <div className="flex items-center gap-2 px-6 py-4 rounded-full shadow-sm bg-[#CEDAE9] dark:bg-[#324C72]">
+        <div className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-4 rounded-full shadow-sm bg-[#CEDAE9] dark:bg-[#324C72] flex-shrink-0">
           <Heart
             className="w-5 h-5 text-[#324C72] dark:text-[#90B0E0] fill-current"
             aria-hidden="true"
           />
           <span
-            className={`text-sm font-medium text-[#324C72] dark:text-[#CEDAE9] `}
+            className={`text-xs md:text-sm font-medium text-[#324C72] dark:text-[#CEDAE9] whitespace-nowrap`}
           >
             {t("modules.level")} {userProfile.level}
           </span>
         </div>
 
         {/* Notifications Button */}
-        <div
-          className="flex items-center"
-          style={{ width: USER_HEADER_STYLES.notificationsButton.width }}
-        >
+        <div className="flex items-center flex-shrink-0">
           <Button
             state="filled"
             size="M"
@@ -243,10 +227,14 @@ export default function UserHeader({
         </div>
 
         {/* Language Switcher */}
-        <LanguageSwitcher />
+        <div className="flex-shrink-0">
+          <LanguageSwitcher />
+        </div>
 
         {/* Theme Toggle */}
-        <ThemeToggleButton className="ml-3" />
+        <div className="flex-shrink-0">
+          <ThemeToggleButton />
+        </div>
       </div>
     </header>
   );

@@ -45,23 +45,7 @@ export default function ProfessorLoginPage() {
 
   const handleLogin = async () => {
     const values = getValues();
-    const errors: FormErrors<LoginRequest> = {};
 
-    console.log("values", values);
-  
-    // validation:
-    if (!values.email || values.email.trim() === "") {
-      errors.email = t("auth.login.errors.email_required") || "Email is required";
-    }
-
-    if (!values.password || values.password.trim() === ""){
-      errors.password = t("auth.login.errors.password_required") || "Password is required";
-    }
-
-    if (Object.keys(errors).length > 0) {
-      setErrors(errors);
-      return;
-    }
 
     setIsLoading(true);
     
@@ -73,8 +57,8 @@ export default function ProfessorLoginPage() {
       );
       
       console.log("✅ Professor login successful");
-      // Redirect to professor dashboard
-      router.push('/professor/dashboard');
+      // Redirect to professor profile
+      router.push('/professor/profile');
     } catch (error: any) {
       console.error("❌ Professor login failed:", error);
       const errorMessage = error?.message || t("auth.login.errors.invalid_credentials") || "Invalid email or password";

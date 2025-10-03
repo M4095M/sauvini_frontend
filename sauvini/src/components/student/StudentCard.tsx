@@ -5,8 +5,12 @@ import { BookOpen, FileText, Clock } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import type { UserProfile } from "@/types/modules";
 
+import { Student } from "@/api";
+import { useEffect } from "react";
+
+
 interface Props {
-  user: UserProfile;
+  user: Student;
   className?: string;
 }
 
@@ -50,26 +54,38 @@ function Stat({ icon, value, label, isRTL }: { icon: React.ReactNode; value: num
   );
 }
 
+
 export default function StudentCard({ user, className = "" }: Props) {
+  const url_prefix = process.env.NEXT_PUBLIC_IMAGES_PREFIX
+
+  useEffect(() => {
+    console.log("user in student card: ", url_prefix)
+  })
+
   const { isRTL } = useLanguage();
+
+  console.log(`${url_prefix}${user.profile_picture_path}`)
 
   return (
     <div
       dir={isRTL ? "rtl" : "ltr"}
       className={`w-full h-[342px] flex items-center rounded-[56px] border-[5px] border-[var(--BASE-Primary-100,#A3BAD6)] bg-[var(--Surface-Level-2,#F8F8F8)] dark:bg-[#1A1A1A] overflow-hidden relative ${className}`}
       role="region"
-      aria-label={`${user.name} profile card`}
+      aria-label={`${user.first_name} profile card`}
     >
       {!isRTL && (
         <div className="ml-8 inline-flex items-center justify-center w-[232px] h-[232px] rounded-[48px] overflow-hidden flex-shrink-0 bg-neutral-200 dark:bg-neutral-800">
-          <Image src={user.avatar ?? "/profile.png"} alt={user.name} width={232} height={232} className="w-full h-full object-cover" />
+          {
+            user.profile_picture_path && 
+             (<Image src={`${url_prefix}${user.profile_picture_path}`} alt={user.first_name} width={232} height={232} className="w-full h-full object-cover" />)
+          }
         </div>
       )}
 
       <div className={`mx-8 flex-1 h-[232px] flex flex-col justify-start py-6 relative ${isRTL ? "items-end" : "items-start"}`}>
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white leading-tight">{user.name} {user.lastname ?? ""}</h2>
-          <div className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">{user.academicStream ?? "Academic Stream"}</div>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white leading-tight">{user.first_name} {user.last_name ?? ""}</h2>
+          <div className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">{user.academic_stream ?? "Academic Stream"}</div>
         </div>
 
         <div className="mt-6 w-full">
@@ -93,8 +109,10 @@ export default function StudentCard({ user, className = "" }: Props) {
 
       {isRTL && (
         <div className="mr-8 inline-flex items-center justify-center w-[232px] h-[232px] rounded-[48px] overflow-hidden flex-shrink-0 bg-neutral-200 dark:bg-neutral-800">
-          <Image src={user.avatar ?? "/profile.png"} alt={user.name} width={232} height={232} className="w-full h-full object-cover" />
-        </div>
+          {
+            user.profile_picture_path && 
+             (<Image src={`${url_prefix}${user.profile_picture_path}`} alt={user.first_name} width={232} height={232} className="w-full h-full object-cover" />)
+          }        </div>
       )}
     </div>
   );

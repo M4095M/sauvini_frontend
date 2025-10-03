@@ -4,13 +4,13 @@ import { useState } from "react";
 import Button from "@/components/ui/button";
 import { Edit } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
-import type { UserProfile } from "@/types/modules";
+import { Student } from "@/api";
 import StudentEditModal from "./StudentEditModal";
 
 interface Props {
-  user: UserProfile;
+  user: Student;
   className?: string;
-  onSave?: (payload: Partial<UserProfile>) => Promise<void> | void; 
+  onSave?: (payload: Partial<Student>) => Promise<void> | void;
 }
 
 export default function StudentInformation({ user, className = "", onSave }: Props) {
@@ -44,12 +44,12 @@ export default function StudentInformation({ user, className = "", onSave }: Pro
       <div className="w-full flex flex-col items-start gap-6 self-stretch">
         <div className="w-full flex flex-col items-start gap-2">
           <div className="text-lg text-neutral-900 dark:text-neutral-300">{t("admin.manageStudents.fullName") ?? "Full Name"}</div>
-          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.name} {user.lastname}</div>
+          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.first_name} {user.last_name}</div>
         </div>
 
         <div className="w-full flex flex-col items-start gap-2">
           <div className="text-lg text-neutral-900 dark:text-neutral-300">{t("admin.manageStudents.phoneNumber") ?? "Phone Number"}</div>
-          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.phoneNumber ?? "—"}</div>
+          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.phone_number ?? "—"}</div>
         </div>
 
         <div className="w-full flex flex-col items-start gap-2">
@@ -64,7 +64,7 @@ export default function StudentInformation({ user, className = "", onSave }: Pro
 
         <div className="w-full flex flex-col items-start gap-2">
           <div className="text-lg text-neutral-900 dark:text-neutral-300">{t("admin.manageStudents.academicStream") ?? "Academic Stream"}</div>
-          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.academicStream ?? "—"}</div>
+          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.academic_stream ?? "—"}</div>
         </div>
       </div>
 

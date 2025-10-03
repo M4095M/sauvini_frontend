@@ -33,6 +33,15 @@ export class StudentApi extends BaseApi {
   }
 
   /**
+   * Get student by ID
+   * @param studentId - The ID of the student to fetch (e.g., "Student:20qcc103nw0429f8swty")
+   * @returns Promise with student data
+   */
+  static async getStudentById(studentId: string): Promise<ApiResponse<Student>> {
+    return this.get<Student>(`/student/${studentId}`, { requiresAuth: false });
+  }
+
+  /**
    * Update student profile information
    * @param profileData - Updated profile data
    * @returns Promise with updated student data

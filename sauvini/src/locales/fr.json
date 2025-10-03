@@ -714,5 +714,61 @@
   },
   "otp": {
   "resent": "OTP renvoyé avec succès"
-}
+  },
+  "terms": {
+    "title": "Conditions d’utilisation de la plateforme",
+    "subtitle": "En accédant et en utilisant la plateforme, l’utilisateur accepte pleinement et sans réserve ces conditions d’utilisation. Toute violation peut entraîner des sanctions, y compris des avertissements, la suspension temporaire ou définitive du compte, ainsi que des poursuites judiciaires si nécessaire.",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. Propriété intellectuelle et droits d’auteur",
+        "item1": "Tout le contenu disponible sur la plateforme (cours, vidéos, quiz, matières, supports éducatifs, documents, etc.) est protégé par les lois sur la propriété intellectuelle.",
+        "item2": "Il est strictement interdit de copier, reproduire, enregistrer, télécharger, partager ou distribuer ce contenu en dehors de la plateforme sans autorisation écrite préalable.",
+        "item3": "Tout vol ou distribution illégale exposera l’utilisateur à des poursuites judiciaires."
+      },
+      "respect": {
+        "title": "2. Respect et courtoisie",
+        "item1": "Les utilisateurs s’engagent à se comporter respectueusement envers les enseignants, les autres étudiants et l’équipe de la plateforme.",
+        "item2": "Les insultes, déclarations diffamatoires, menaces, langage offensant, remarques discriminatoires ou le harcèlement sont strictement interdits.",
+        "item3": "Ces règles s’appliquent à tous les espaces de communication : sections de commentaires, forums, chats ou tout autre outil intégré.",
+        "item4": "Il est strictement interdit de copier, reproduire, enregistrer, télécharger, partager ou distribuer ce contenu en dehors de la plateforme sans autorisation écrite préalable.",
+        "item5": "Tout vol ou distribution illégale exposera l’utilisateur à des poursuites judiciaires."
+      },
+      "deadlines": {
+        "title": "3. Respect des délais et règles d’examen",
+        "item1": "Les étudiants doivent respecter strictement les délais fixés pour les examens, quiz et autres évaluations.",
+        "item2": "Tout retard injustifié ou toute tentative de tricherie peut entraîner des sanctions, y compris la suspension ou l’exclusion définitive de la plateforme."
+      },
+      "security": {
+        "title": "4. Sécurité du compte",
+        "item1": "Chaque utilisateur est responsable de la confidentialité de ses identifiants (nom d’utilisateur et mot de passe).",
+        "item2": "Il est interdit de partager un compte avec une autre personne.",
+        "item3": "Toute activité suspecte ou frauduleuse doit être signalée immédiatement à l’administration de la plateforme."
+      },
+      "fraud": {
+        "title": "5. Interdiction de la fraude et de la tricherie",
+        "item1": "Toute tentative de fraude (copie de réponses, utilisation de moyens interdits, usurpation d’identité d’un autre étudiant, etc.) est strictement interdite.",
+        "item2": "En cas de tricherie avérée, l’utilisateur peut être sanctionné par l’annulation de l’épreuve, une suspension ou une exclusion."
+      },
+      "technical": {
+        "title": "6. Protection technique du site",
+        "item1": "Il est strictement interdit de tenter d’accéder au code source, de contourner les mesures de sécurité ou de perturber le bon fonctionnement de la plateforme (piratage, injections, etc.).",
+        "item2": "Toute tentative de cyberattaque sera signalée aux autorités compétentes."
+      },
+      "privacy": {
+        "title": "7. Vie privée et protection des données",
+        "item1": "Les données personnelles des utilisateurs sont collectées uniquement à des fins éducatives et administratives.",
+        "item2": "Elles ne seront jamais partagées avec des tiers sans consentement, sauf si la loi l’exige.",
+        "item3": "L’utilisateur s’engage à ne pas divulguer d’informations confidentielles concernant la plateforme ou ses membres."
+      },
+      "responsibility": {
+        "title": "8. Responsabilité de l’étudiant",
+        "item1": "Chaque étudiant est responsable de la manière dont il utilise les cours, vidéos, quiz et examens mis à sa disposition.",
+        "item2": "En cas de mauvaise utilisation (distribution illégale, partage non autorisé, fraude, insultes, etc.), l’étudiant est soumis à des sanctions disciplinaires (avertissement, suspension, exclusion) et, si nécessaire, à des poursuites judiciaires.",
+        "item3": "La plateforme se réserve le droit de prendre toutes les mesures nécessaires pour protéger son contenu et sa communauté."
+      }
+    },
+    "agreement": "J’accepte les conditions d’utilisation",
+    "continue": "Continuer"
+  }
+
 }

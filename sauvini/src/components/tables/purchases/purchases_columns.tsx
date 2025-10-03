@@ -28,10 +28,10 @@ export const purchases_columns = (
   {
     accessorKey: "moduleName",
     header: "Module Name",
-    size: 160,
+    size: 180,
     cell: ({ row }) => (
       <div 
-        className="w-[160px] text-base font-medium text-neutral-700 dark:text-neutral-200 truncate"
+        className="w-[180px] text-sm font-medium text-neutral-700 dark:text-neutral-200 truncate px-2"
         title={row.getValue("moduleName") as string}
       >
         {row.getValue("moduleName")}
@@ -41,10 +41,10 @@ export const purchases_columns = (
   {
     accessorKey: "chapterName",
     header: "Chapter Name",
-    size: 160,
+    size: 180,
     cell: ({ row }) => (
       <div 
-        className="w-[160px] text-sm text-neutral-500 dark:text-neutral-400 truncate"
+        className="w-[180px] text-sm text-neutral-500 dark:text-neutral-400 truncate px-2"
         title={row.getValue("chapterName") as string}
       >
         {row.getValue("chapterName")}
@@ -54,15 +54,15 @@ export const purchases_columns = (
   {
     accessorKey: "price",
     header: "Price",
-    size: 100,
-    cell: ({ row }) => <div className="w-[100px] text-sm text-neutral-600 dark:text-neutral-300 truncate">{row.getValue("price")}</div>,
+    size: 120,
+    cell: ({ row }) => <div className="w-[120px] text-sm text-neutral-600 dark:text-neutral-300 truncate px-2">{row.getValue("price")}</div>,
   },
   {
     accessorKey: "phone",
     header: "Phone",
-    size: 120,
+    size: 140,
     cell: ({ row }) => (
-      <div dir="ltr" className="w-[120px] text-sm text-neutral-500 dark:text-neutral-400 truncate">
+      <div dir="ltr" className="w-[140px] text-sm text-neutral-500 dark:text-neutral-400 truncate px-2">
         {row.getValue("phone")}
       </div>
     ),
@@ -70,12 +70,12 @@ export const purchases_columns = (
   {
     accessorKey: "receipt",
     header: "Receipt",
-    size: 100,
+    size: 110,
     cell: ({ row }) => {
       const receiptUrl = row.getValue("receipt") as string;
       const fileName = receiptUrl.split("/").pop() || "Receipt.pdf";
       return (
-        <div className="w-[100px]">
+        <div className="w-[110px] px-2">
           <a 
             className="text-sm text-primary-600 dark:text-primary-300 underline truncate block" 
             href={receiptUrl} 
@@ -92,19 +92,19 @@ export const purchases_columns = (
   {
     accessorKey: "date",
     header: "Date",
-    size: 90,
-    cell: ({ row }) => <div className="w-[90px] text-sm text-neutral-500 dark:text-neutral-400 truncate">{row.getValue("date")}</div>,
+    size: 110,
+    cell: ({ row }) => <div className="w-[110px] text-sm text-neutral-500 dark:text-neutral-400 truncate px-2">{row.getValue("date")}</div>,
   },
   {
     accessorKey: "time",
     header: "Time",
-    size: 80,
-    cell: ({ row }) => <div className="w-[80px] text-sm text-neutral-500 dark:text-neutral-400 truncate">{row.getValue("time")}</div>,
+    size: 90,
+    cell: ({ row }) => <div className="w-[90px] text-sm text-neutral-500 dark:text-neutral-400 truncate px-2">{row.getValue("time")}</div>,
   },
   {
     accessorKey: "status",
     header: "Status",
-    size: 80,
+    size: 110,
     cell: ({ row }) => {
       const statusRaw = (row.getValue("status") as string) || "";
       const status = statusRaw.toLowerCase();
@@ -115,7 +115,7 @@ export const purchases_columns = (
       }[status] ?? "bg-neutral-100 text-neutral-600";
 
       return (
-        <div className="w-[80px]">
+        <div className="w-[110px] px-2">
           <Tag
             icon={null}
             text={t(`admin.managePurchases.status.${status}`) ?? statusRaw}
@@ -128,12 +128,12 @@ export const purchases_columns = (
   {
     id: "actions",
     header: "",
-    size: 60,
+    size: 80,
     cell: ({ row }) => {
       const id = row.original.id;
       const purchase = row.original as Purchase;
       return (
-        <div className="w-[60px] flex items-center justify-end relative">
+        <div className="w-[80px] flex items-center justify-end relative px-2">
           <Button
             state="text"
             size="S"

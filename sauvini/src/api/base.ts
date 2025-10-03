@@ -481,15 +481,15 @@ export abstract class BaseApi {
    * Only works on client side
    */
   private static redirectToLogin(): void {
-    if (typeof window !== 'undefined') {
-      // Store the current page to redirect back after login
-      const currentPath = window.location.pathname;
-      if (currentPath !== '/auth/login' && currentPath !== '/auth/register') {
-        sessionStorage.setItem('redirect_after_login', currentPath);
-      }
+    // if (typeof window !== 'undefined') {
+    //   // Store the current page to redirect back after login
+    //   const currentPath = window.location.pathname;
+    //   if (currentPath !== '/auth/login' && currentPath !== '/auth/register') {
+    //     sessionStorage.setItem('redirect_after_login', currentPath);
+    //   }
       
-      window.location.href = '/auth/login';
-    }
+    //   window.location.href = '/auth/login';
+    // }
   }
 
   /**
@@ -515,7 +515,22 @@ export abstract class BaseApi {
     try {
       // Decode JWT payload to get user role
       const payload = JSON.parse(atob(tokens.access_token.split('.')[1]));
+      console.log('Decoded JWT payload:', payload);
       return payload.role || null;
+    } catch {
+      return null;
+    }
+  }
+
+  static getStudentSub(): string | null {
+    const tokens = this.getTokens();
+    if (!tokens?.access_token) return null;
+    
+    try {
+      // Decode JWT payload to get user role
+      const payload = JSON.parse(atob(tokens.access_token.split('.')[1]));
+      console.log('Decoded JWT payload:', payload);
+      return payload.sub || null;
     } catch {
       return null;
     }

@@ -178,14 +178,15 @@ export default function NotificationsGrid({ notifications, isMobile = false, use
 
         {/* Filters Frame */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 24, alignSelf: "stretch" }}>
-          {/* Filters and Mark All Row */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", alignSelf: "stretch" }}>
-            <div className={`flex items-center gap-6 ${isRTL ? "flex-row-reverse" : ""}`}>
-              <div style={{ display: "flex", width: 276, flexDirection: "column", alignItems: "flex-start" }}>
+          {/* ✅ STANDARDIZED: Filters and Mark All Row with flex-wrap */}
+          <div className="flex flex-wrap gap-4 justify-between items-center w-full">
+            {/* Filter dropdowns container with flex-wrap */}
+            <div className={`flex flex-wrap items-center gap-4 min-w-0 ${isRTL ? "flex-row-reverse" : ""}`}>
+              <div className="flex flex-col items-start min-w-0" style={{ maxWidth: 276 }}>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className={`p-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg w-full ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}
+                  className={`p-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg w-full min-w-[200px] ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}
                   dir={isRTL ? "rtl" : "ltr"}
                 >
                   <option value="importance">{t("notifications.sortByImportance") || "Sort by: Importance"}</option>
@@ -193,11 +194,11 @@ export default function NotificationsGrid({ notifications, isMobile = false, use
                 </select>
               </div>
 
-              <div style={{ display: "flex", width: 276, flexDirection: "column", alignItems: "flex-start" }}>
+              <div className="flex flex-col items-start min-w-0" style={{ maxWidth: 276 }}>
                 <select
                   value={importanceFilter}
                   onChange={(e) => setImportanceFilter(e.target.value)}
-                  className={`p-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg w-full ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}
+                  className={`p-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg w-full min-w-[200px] ${isRTL ? "text-right font-arabic" : "text-left font-sans"}`}
                   dir={isRTL ? "rtl" : "ltr"}
                 >
                   <option value="all">{t("notifications.importanceAll") || "Importance: All"}</option>
@@ -207,7 +208,8 @@ export default function NotificationsGrid({ notifications, isMobile = false, use
               </div>
             </div>
 
-            <div>
+            {/* Mark all action - flex-shrink-0 to prevent crushing */}
+            <div className="flex-shrink-0">
               <Button state="text" size="M" icon_position="none" text={t("notifications.markAllAsSeen") || "Mark all as seen"} onClick={markAllAsSeen} />
             </div>
           </div>

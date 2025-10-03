@@ -68,7 +68,7 @@ export default function QuestionCard({
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Header */}
-      <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="w-full flex flex-col lg:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
           {/* Picture */}
           <div

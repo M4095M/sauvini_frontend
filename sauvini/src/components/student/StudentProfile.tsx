@@ -1,11 +1,12 @@
 "use client";
 
+import { Student } from "@/api";
 import StudentCard from "./StudentCard";
 import StudentInformation from "./StudentInformation";
 import type { UserProfile } from "@/types/modules";
 
 interface Props {
-  user: UserProfile;
+  user: Student;
   className?: string;
 }
 

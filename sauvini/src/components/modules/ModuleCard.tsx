@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChevronRight, ChevronLeft, Lock } from "lucide-react";
-import type { Module } from "@/types/modules";
+import {Module} from '@/api/modules'
 import Button from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
 import { RTL_LANGUAGES } from "@/lib/language";
@@ -25,19 +25,18 @@ const COLOR_MAP: Record<string, string> = {
 
 const CARD_STYLES = {
   desktop: {
-    width: 373,
-    height: 220,
-    padding: "20px 24px 44px 24px",
+    minHeight: 220,
+    padding: "20px 24px 20px 24px",
   },
   mobile: {
-    height: 220,
-    padding: "20px 20px 44px 24px",
+    minHeight: 220,
+    padding: "20px 20px 20px 20px",
   },
 } as const;
 
 const ILLUSTRATION_SIZE = {
-  width: 114,
-  height: 120,
+  width: 100,
+  height: 100,
 } as const;
 
 export default function ModuleCard({
@@ -51,26 +50,26 @@ export default function ModuleCard({
   const isRTL =
     propIsRTL !== undefined ? propIsRTL : RTL_LANGUAGES.includes(language);
 
-  const progressColor = COLOR_MAP[module.color] || "#BDBDBD";
+  const progressColor = "#BDBDBD";
   const ChevronIcon = isRTL ? ChevronLeft : ChevronRight;
-  const progressPercentage = Math.round(
-    (module.completedLessons / module.totalLessons) * 100
-  );
+  // const progressPercentage = Math.round(
+  //   (module.completedLessons / module.totalLessons) * 100
+  // );
+
+  const progressPercentage = 50
 
   const handleModuleClick = () => {
-    if (module.isUnlocked) {
-      router.push(`/modules/${module.id}`);
-    }
+    // if (module.isUnlocked) {
+    //   router.push(`/modules/${module.id}`);
+    // }
   };
 
-  const handleUnlockClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleUnlockClick = () => {
     // TODO: Implement unlock logic
     console.log(`Unlock module: ${module.id}`);
   };
 
-  const handleViewChaptersClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleViewChaptersClick = () => {
     router.push(`/modules/${module.id}`);
   };
 
@@ -85,114 +84,122 @@ export default function ModuleCard({
   return (
     <div
       className={`
-        relative flex items-center justify-center
+        relative flex flex-col w-full
         rounded-[28px] border border-gray-300 bg-white
         dark:border-[#7C7C7C] dark:bg-[#1A1A1A]
         transition-all duration-200 hover:shadow-lg
+        overflow-hidden
         ${
           module.isUnlocked
             ? "cursor-pointer hover:shadow-md"
             : "cursor-default"
         }
-        ${isMobile ? "self-stretch" : ""}
         ${className}
       `}
-      style={cardStyles}
-      onClick={module.isUnlocked ? handleModuleClick : undefined}
+      style={{
+        minHeight: cardStyles.minHeight,
+        padding: cardStyles.padding,
+      }}
+      onClick={handleModuleClick}
     >
-      {/* Internal frame */}
+      {/* Card Content Container */}
       <div
-        className="flex flex-col items-start gap-2"
-        style={{ width: 325, flexShrink: 0, height: "100%" }}
+        className="flex flex-col justify-between gap-4 w-full h-full min-h-0"
       >
-        {/* Top Row: illustration + info */}
+        {/* Top Section: Illustration + Content */}
         <div
-          className={`flex w-full items-start gap-4 `}
+          className={`flex w-full items-start gap-4`}
+          style={{ minWidth: 0, minHeight: 0 }}
           dir={isRTL ? "rtl" : "ltr"}
         >
           {/* Illustration */}
-          <div
-            className="relative flex-shrink-0 flex items-center justify-center"
-            style={{
-              width: ILLUSTRATION_SIZE.width,
-              height: ILLUSTRATION_SIZE.height,
-              padding: "3px 0 3.458px 0",
-            }}
-          >
+          <div className="relative flex-shrink-0 w-[100px] h-[100px]">
             <Image
-              src={module.illustration || "/placeholder.svg"}
-              alt={`${module.name} illustration`}
-              fill
+              src={"/placeholder.svg"}
+              alt={`${module.lessonsCount} illustration`}
+              width={100}
+              height={100}
               className="object-contain"
-              sizes="114px"
+              sizes="100px"
             />
           </div>
 
-          {/* Module info */}
-          <div
-            className="flex-1 min-w-0 flex flex-col justify-between"
-            style={{ height: ILLUSTRATION_SIZE.height }}
+          {/* Module Content */}
+          <div 
+            className="flex flex-col gap-2" 
+            style={{ 
+              flex: '1 1 0%',
+              minWidth: 0,
+              overflow: 'hidden'
+            }}
           >
-            <div>
-              <div
-                className={`flex items-start justify-between gap-2 `}
-                dir={isRTL ? "rtl" : "ltr"}
-              >
-                {/* Module title */}
-                <h3
-                  className={`
-                  text-xl font-semibold text-gray-900 dark:text-white leading-tight
+            {/* Title Row */}
+            <div
+              className={`flex items-center justify-between gap-2`}
+              style={{ minWidth: 0, width: '100%' }}
+              dir={isRTL ? "rtl" : "ltr"}
+            >
+              {/* Module Title */}
+              <h3
+                className={`
+                  text-base font-semibold text-gray-900 dark:text-white 
+                  truncate
                   ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
                 `}
-                >
-                  {module.name}
-                </h3>
-                {/* Action icon */}
-                <div className="flex-shrink-0 mt-1">
-                  {module.isUnlocked ? (
-                    <ChevronIcon
-                      className="w-5 h-5 text-gray-400 dark:text-gray-500 transition-colors hover:text-gray-600 dark:hover:text-gray-300"
+                style={{ 
+                  flex: '1 1 0%',
+                  minWidth: 0
+                }}
+                title={module.name}
+              >
+                {module.name}
+              </h3>
+              
+              {/* Action Icon */}
+              <div className="flex-shrink-0">
+                {module.isUnlocked ? (
+                  <ChevronIcon
+                    className="w-5 h-5 text-gray-400 dark:text-gray-500 transition-colors hover:text-gray-600 dark:hover:text-gray-300"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <div
+                    className="flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 dark:bg-gray-800"
+                    aria-label="Module locked"
+                  >
+                    <Lock
+                      className="w-4 h-4"
+                      style={{ color: progressColor }}
                       aria-hidden="true"
                     />
-                  ) : (
-                    <div
-                      className="flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800"
-                      style={{ width: 30, height: 30 }}
-                      aria-label="Module locked"
-                    >
-                      <Lock
-                        className="w-4 h-4"
-                        style={{ color: progressColor }}
-                        aria-hidden="true"
-                      />
-                    </div>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
-              {/* Description */}
-              <p
-                className={`
-                text-sm text-gray-600 dark:text-gray-300 mt-1 leading-relaxed
+            </div>
+
+            {/* Description */}
+            <p
+              className={`
+                text-xs text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2
                 ${isRTL ? "text-right font-arabic" : "text-left font-sans"}
               `}
-              >
-                {truncateDescription(module.description)}
-              </p>
-            </div>
-            {/* spacer to keep layout consistent */}
-            {!module.isUnlocked && <div style={{ height: 24 }} />}
+              style={{ minWidth: 0 }}
+            >
+              {module.description}
+            </p>
           </div>
         </div>
 
-        {/* Progress Bar (only if unlocked) */}
+        {/* Progress Bar (Unlocked Modules) */}
         {module.isUnlocked && (
-          <div className="w-full mt-2">
+          <div className="w-full min-w-0">
             <div
-              className={`flex items-center gap-2`}
+              className={`flex items-center gap-3 w-full min-w-0`}
               dir={isRTL ? "rtl" : "ltr"}
             >
+              {/* Progress Bar */}
               <div
-                className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2 relative overflow-hidden"
+                className="flex-1 min-w-0 bg-gray-200 dark:bg-gray-700 rounded-full h-2 relative overflow-hidden"
                 role="progressbar"
                 aria-valuenow={progressPercentage}
                 aria-valuemin={0}
@@ -208,8 +215,10 @@ export default function ModuleCard({
                   }}
                 />
               </div>
+              
+              {/* Lesson Count */}
               <span
-                className={`text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap font-medium ${
+                className={`text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap font-medium flex-shrink-0 ${
                   isRTL ? "font-arabic" : "font-sans"
                 }`}
               >
@@ -225,7 +234,7 @@ export default function ModuleCard({
         {/* Locked actions */}
         {!module.isUnlocked && (
           <div
-            className={`flex w-full gap-2 mt-4 ${
+            className={`flex flex-wrap w-full gap-2 ${
               isRTL ? "flex-row-reverse" : ""
             }`}
           >
