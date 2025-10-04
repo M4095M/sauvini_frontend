@@ -114,12 +114,61 @@ export abstract class BaseApi {
   }
 
   /**
+   * Get authentication status with detailed information
+   * @returns Object containing authentication state details
+   */
+  static getAuthStatus(): {
+    isAuthenticated: boolean;
+    hasTokens: boolean;
+    isExpired: boolean;
+    needsRefresh: boolean;
+  } {
+    const tokens = this.getTokens();
+    
+    if (!tokens) {
+      return {
+        isAuthenticated: false,
+        hasTokens: false,
+        isExpired: false,
+        needsRefresh: false,
+      };
+    }
+
+    const isExpired = this.isTokenExpired(tokens);
+    
+    return {
+      isAuthenticated: !isExpired,
+      hasTokens: true,
+      isExpired,
+      needsRefresh: isExpired && !!tokens.refresh_token,
+    };
+  }
+
+  /**
    * Check if user is currently authenticated with valid tokens
-   * @returns True if user has valid authentication
+   * @returns True if user has valid (non-expired) tokens
    */
   static isAuthenticated(): boolean {
     const tokens = this.getTokens();
     return tokens !== null && !this.isTokenExpired(tokens);
+  }
+
+  /**
+   * Check if user has tokens (regardless of expiration)
+   * @returns True if tokens exist
+   */
+  static hasTokens(): boolean {
+    return this.getTokens() !== null;
+  }
+
+  /**
+   * Check if user needs token refresh
+   * @returns True if tokens exist but are expired and refresh token is available
+   */
+  static needsTokenRefresh(): boolean {
+    const tokens = this.getTokens();
+    if (!tokens) return false;
+    return this.isTokenExpired(tokens) && !!tokens.refresh_token;
   }
 
   // ===========================================
@@ -132,7 +181,7 @@ export abstract class BaseApi {
    * @returns Promise that resolves to new tokens
    * @throws Error if refresh fails
    */
-  private static async refreshTokens(): Promise<TokenPair> {
+  static async refreshTokens(): Promise<TokenPair> {
     // If refresh is already in progress, wait for it
     if (this.refreshPromise) {
       return this.refreshPromise;
@@ -140,7 +189,10 @@ export abstract class BaseApi {
 
     const tokens = this.getTokens();
     if (!tokens?.refresh_token) {
-      throw new Error('No refresh token available');
+      const error = new Error('No refresh token available');
+      this.clearTokens();
+      this.redirectToLogin();
+      throw error;
     }
 
     // Start the refresh process
@@ -236,9 +288,12 @@ export abstract class BaseApi {
 
     // Handle authentication (this is our middleware logic)
     if (config.requiresAuth !== false) {
-      const authHeader = await this.getAuthorizationHeader(config.skipAuthRefresh);
-      if (authHeader) {
+      try {
+        const authHeader = await this.getAuthorizationHeader(config.skipAuthRefresh);
         headers.Authorization = authHeader;
+      } catch (error) {
+        console.error('Failed to get authorization header:', error);
+        throw error;
       }
     }
 
@@ -304,12 +359,14 @@ export abstract class BaseApi {
   /**
    * Get authorization header with automatic token refresh
    * @param skipRefresh - Whether to skip token refresh
-   * @returns Authorization header value or null
+   * @returns Authorization header value
+   * @throws Error if authentication fails
    */
-  private static async getAuthorizationHeader(skipRefresh?: boolean): Promise<string | null> {
+  private static async getAuthorizationHeader(skipRefresh?: boolean): Promise<string> {
     let tokens = this.getTokens();
     
     if (!tokens) {
+      this.clearTokens();
       this.redirectToLogin();
       throw new Error('Authentication required');
     }
@@ -317,8 +374,12 @@ export abstract class BaseApi {
     // Check if token needs refresh
     if (this.isTokenExpired(tokens) && !skipRefresh) {
       try {
-        tokens = await this.refreshTokens();
+        const refreshedTokens = await this.refreshTokens();
+        this.setTokens(refreshedTokens);
+        tokens = refreshedTokens;
       } catch (error) {
+        console.error('Token refresh failed:', error);
+        this.clearTokens();
         this.redirectToLogin();
         throw error;
       }
@@ -338,8 +399,11 @@ export abstract class BaseApi {
     options: RequestInit
   ): Promise<ApiResponse<T>> {
     try {
+      console.log('🔄 Attempting to refresh tokens and retry request...');
+      
       // Try to refresh tokens
-      await this.refreshTokens();
+      const refreshedTokens = await this.refreshTokens();
+      this.setTokens(refreshedTokens);
       
       // Retry the original request with new tokens
       const authHeader = await this.getAuthorizationHeader(true); // Skip refresh on retry
@@ -347,19 +411,25 @@ export abstract class BaseApi {
         ...options,
         headers: {
           ...options.headers,
-          ...(authHeader && { Authorization: authHeader }),
+          Authorization: authHeader,
         },
       };
 
       const retryResponse = await fetch(url, retryOptions);
       
       if (retryResponse.ok) {
-        return await retryResponse.json();
+        const data = await retryResponse.json();
+        console.log('✅ Retry successful after token refresh');
+        return data;
       } else {
-        throw await this.createApiError(retryResponse);
+        const apiError = await this.createApiError(retryResponse);
+        console.error('❌ Retry failed after token refresh:', apiError);
+        throw apiError;
       }
       
     } catch (error) {
+      console.error('🔥 Token refresh and retry failed:', error);
+      // this.clearTokens();
       this.redirectToLogin();
       throw error;
     }
@@ -481,6 +551,7 @@ export abstract class BaseApi {
    * Only works on client side
    */
   private static redirectToLogin(): void {
+    console.log("Redirecting to login...");
     // if (typeof window !== 'undefined') {
     //   // Store the current page to redirect back after login
     //   const currentPath = window.location.pathname;
@@ -488,20 +559,48 @@ export abstract class BaseApi {
     //     sessionStorage.setItem('redirect_after_login', currentPath);
     //   }
       
-    //   window.location.href = '/auth/login';
+    //   window.location.href = '/auth/select-role';
     // }
   }
 
   /**
-   * Execute callback only if user is authenticated, otherwise redirect to login
+   * Execute callback only if user is authenticated, otherwise try to refresh or redirect to login
    * @param callback - Function to execute if authenticated
    */
-  static requiresAuth(callback: () => void): void {
-    if (!this.isAuthenticated()) {
+  static async requiresAuth(callback: () => void | Promise<void>): Promise<void> {
+    const authStatus = this.getAuthStatus();
+    
+    // If no tokens at all, redirect to login
+    if (!authStatus.hasTokens) {
+      this.clearTokens();
       this.redirectToLogin();
       return;
     }
-    callback();
+    
+    // If tokens are expired but can be refreshed
+    if (authStatus.needsRefresh) {
+      try {
+        console.log('🔄 Tokens expired, refreshing before execution...');
+        const refreshedTokens = await this.refreshTokens();
+        this.setTokens(refreshedTokens);
+        console.log('✅ Tokens refreshed successfully');
+      } catch (error) {
+        console.error('❌ Token refresh failed:', error);
+        this.clearTokens();
+        this.redirectToLogin();
+        return;
+      }
+    }
+    
+    // If tokens are expired and cannot be refreshed, redirect to login
+    if (authStatus.isExpired && !authStatus.needsRefresh) {
+      this.clearTokens();
+      this.redirectToLogin();
+      return;
+    }
+    
+    // User is authenticated, execute callback
+    await callback();
   }
 
   /**

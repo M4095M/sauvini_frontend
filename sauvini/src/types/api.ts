@@ -55,7 +55,7 @@ export interface Admin {
  * Student model that matches Rust backend Student
  */
 export interface Student {
-  id?: string; // RecordId as string
+  id?: any; // RecordId as string
   first_name: string;
   last_name: string;
   wilaya: string;

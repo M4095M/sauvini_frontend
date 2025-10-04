@@ -21,7 +21,6 @@ import type {
   RegisterStudentData,
   RegisterProfessorData,
 } from '@/types/api';
-import { fromTheme } from 'tailwind-merge';
 
 // ===========================================
 // CONTEXT TYPES
@@ -302,29 +301,105 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   useEffect(() => {
     const initializeAuth = async () => {
+      console.log('🔐 Initializing authentication...');
       setIsLoading(true);
       
       try {
-        // Check if we have valid tokens
-        if (BaseApi.isAuthenticated()) {
-          // For now, we'll rely on token-based authentication
-          // The user info will be available from JWT claims via getCurrentUserRole
-          // In a full implementation, you might want to fetch user profile
-          const role = BaseApi.getCurrentUserRole();
-          if (role) {
-            // Create a minimal user object for compatibility
-            // In a real app, you'd fetch the full user profile here
-            setUser({ email: 'user@example.com' } as User);
+        // Get detailed authentication status
+        const authStatus = BaseApi.getAuthStatus();
+        console.log('📊 Auth status:', authStatus);
+        
+        // Case 1: No tokens at all - redirect to login
+        if (!authStatus.hasTokens) {
+          console.log('❌ No tokens found - user needs to login');
+          setUser(null);
+          setIsLoading(false);
+          return;
+        }
+        
+        // Case 2: Tokens expired but can be refreshed
+        if (authStatus.needsRefresh) {
+          console.log('🔄 Access token expired - attempting refresh...');
+          try {
+            const refreshedTokens = await BaseApi.refreshTokens();
+            BaseApi.setTokens(refreshedTokens);
+            console.log('✅ Tokens refreshed successfully');
+            
+            // Continue to fetch user details with refreshed tokens
+            await fetchUserDetails();
+          } catch (refreshError) {
+            console.error('❌ Token refresh failed:', refreshError);
+            // BaseApi.clearTokens();
+            setUser(null);
+            // Redirect to login will happen in ProtectedRoute components
+            setIsLoading(false);
+            return;
           }
-        } else {
+        }
+        
+        // Case 3: Tokens are valid - fetch user details
+        else if (authStatus.isAuthenticated) {
+          console.log('✅ Valid tokens found - fetching user details...');
+          await fetchUserDetails();
+        }
+        
+        // Case 4: Tokens exist but are expired and cannot be refreshed
+        else {
+          console.log('❌ Tokens expired and cannot be refreshed - clearing tokens');
+          BaseApi.clearTokens();
           setUser(null);
         }
+        
       } catch (error) {
-        console.error('Auth initialization failed:', error);
-        BaseApi.clearTokens();
+        console.error('🔥 Auth initialization failed:', error);
+        // BaseApi.clearTokens();
         setUser(null);
       } finally {
         setIsLoading(false);
+      }
+    };
+
+    /**
+     * Fetch user details based on role
+     */
+    const fetchUserDetails = async () => {
+      try {
+        const role = BaseApi.getCurrentUserRole();
+        console.log('👤 User role:', role);
+        
+        if (!role) {
+          console.error('❌ No role found in token');
+          throw new Error('Invalid token - no role found');
+        }
+        
+        // Fetch user details based on role
+        if (role === 'student') {
+          const studentSub = BaseApi.getStudentSub();
+          if (studentSub) {
+            console.log('📚 Fetching student details...');
+            const response = await StudentApi.getStudentById(studentSub);
+            if (response.success && response.data) {
+              setUser(response.data);
+              console.log('✅ Student details loaded:', response.data);
+            } else {
+              throw new Error('Failed to fetch student details');
+            }
+          }
+        } else if (role === 'professor') {
+          // TODO: Implement professor details fetching
+          console.log('👨‍🏫 Professor role detected - implement details fetching');
+          // For now, create a minimal user object
+          setUser({ email: 'professor@example.com' } as User);
+        } else if (role === 'admin') {
+          // TODO: Implement admin details fetching
+          console.log('👨‍💼 Admin role detected - implement details fetching');
+          // For now, create a minimal user object
+          setUser({ email: 'admin@example.com' } as User);
+        }
+        
+      } catch (error) {
+        console.error('❌ Failed to fetch user details:', error);
+        throw error;
       }
     };
 

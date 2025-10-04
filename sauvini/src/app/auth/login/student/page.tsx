@@ -20,27 +20,28 @@ export default function StudentLoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
+  const [isDesktop, setIsDesktop] = useState(false)
   const { t, language } = useLanguage()
   const isRTL = RTL_LANGUAGES.includes(language)
   const searchParams = useSearchParams()
 
   const {loginStudent, loginProfessor} = useAuth()
 
-  // Check for verification success
+  // Detect screen size - lg breakpoint is 1024px in Tailwind
   useEffect(() => {
-    if (searchParams.get('verified') === 'true') {
-      setSuccessMessage("Email verified successfully! You can now log in.");
-      // Clear success message after 5 seconds
-      const timer = setTimeout(() => setSuccessMessage(null), 5000);
-      return () => clearTimeout(timer);
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1024)
     }
-    if (searchParams.get('reset') === 'success') {
-      setSuccessMessage("Password reset successfully! You can now log in with your new password.");
-      // Clear success message after 5 seconds
-      const timer = setTimeout(() => setSuccessMessage(null), 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [searchParams]);
+    
+    // Check on mount
+    checkScreenSize()
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkScreenSize)
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
 
   // Add form data ref to persist across steps without triggering re-renders
   const formDataRef = useRef<Partial<LoginRequest>>({});
@@ -48,7 +49,6 @@ export default function StudentLoginPage() {
   const router = useRouter();
 
   const handleLogin = async (values: LoginRequest) => {
-    const errors: Partial<Record<keyof LoginRequest, string>> = {};
   
     setIsLoading(true);
     setErrors({}); // Clear previous errors
@@ -94,12 +94,14 @@ export default function StudentLoginPage() {
 
   return (
     <>
-      {/* DESKTOP Layout */}
-      <div
-        className={[
-          "hidden lg:block overflow-hidden shadow-2xl",
-          "bg-[var(--neutral-100)] dark:bg-[var(--Surface-Level-2,_#1A1A1A)]",
-        ].join(" ")}
+      {/* Conditionally render based on screen size */}
+      {isDesktop ? (
+        /* DESKTOP Layout */
+        <div
+          className={[
+            "overflow-hidden shadow-2xl",
+            "bg-[var(--neutral-100)] dark:bg-[var(--Surface-Level-2,_#1A1A1A)]",
+          ].join(" ")}
         style={{
           width: "1200px",
           height: "700px",
@@ -215,14 +217,11 @@ export default function StudentLoginPage() {
                 e.preventDefault();
                 handleSubmit();
               }} className="flex flex-col" style={{ gap: "6px" }}>
-                {/* Email */}
-                <div className="mb-4">
-                  <SimpleInput label={t("auth.login.email")} value="email" type="email" {...register("email")} errors={errors.email} />
+                <div>
+                  <SimpleInput label={t("auth.login.email")} value="email" type="email" {...register("email")} />
                 </div>
-
-                {/* Password */}
-                <div className="mb-4">
-                  <SimpleInput label={t("auth.login.password")} value="password" type="password" {...register("password")} errors={errors.password} />
+                <div>
+                  <SimpleInput label={t("auth.login.password")} value="password" type="password" {...register("password")} />
                 </div>
 
                 {/* Forgot password link */}
@@ -327,10 +326,10 @@ export default function StudentLoginPage() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* MOBILE/Tablet Layout */}
-      <div className="lg:hidden fixed inset-0">
+        </div>
+      ) : (
+        /* MOBILE/Tablet Layout */
+        <div className="fixed inset-0">
         <div
           className={[
             "absolute bottom-0 left-0 right-0 overflow-hidden",
@@ -376,7 +375,10 @@ export default function StudentLoginPage() {
                   {successMessage}
                 </div>
               )}
-              <div className="space-y-8 sm:space-y-9">
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }} className="space-y-8 sm:space-y-9">
                 <div>
                   <SimpleInput label={t("auth.login.email")} value="email" type="email" {...register("email")} />
                 </div>
@@ -412,11 +414,12 @@ export default function StudentLoginPage() {
                     {t("auth.login.signUp")}
                   </Link>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      )}
     </>
   )
 }

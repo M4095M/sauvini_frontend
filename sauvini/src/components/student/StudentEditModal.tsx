@@ -5,7 +5,7 @@ import Button from "@/components/ui/button";
 import type { UserProfile } from "@/types/modules";
 import { X, Trash } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
-import { Student } from "@/api";
+import { Student, StudentApi } from "@/api";
 
 interface Props {
   open: boolean;
@@ -18,6 +18,7 @@ export default function StudentEditModal({ open, user, onClose, onSave }: Props)
   const { t, isRTL } = useLanguage();
 
   const [form, setForm] = useState({
+    id: user.id ?? "",
     name: user.first_name ?? "",
     lastname: user.last_name ?? "",
     phoneNumber: user.phone_number ?? "",
@@ -64,34 +65,53 @@ export default function StudentEditModal({ open, user, onClose, onSave }: Props)
 
   const handleSave = async () => {
     setSaving(true);
-    const payload: Partial<UserProfile> = {
-      name: form.name.trim(),
-      lastname: form.lastname?.trim(),
-      phoneNumber: form.phoneNumber.trim(),
-      email: form.email.trim(),
-      wilaya: form.wilaya.trim(),
-      academicStream: form.academicStream.trim() as any,
+    
+    if (!user.id) {
+      console.error("User ID is missing");
+      setSaving(false);
+      return;
+    }
+
+    const user_id = user.id.tb + ":" +  user.id.id.String 
+
+    const profileData = {
+      id: user_id,
+      first_name: form.name,
+      last_name: form.lastname,
+      phone_number: form.phoneNumber.trim(),
+      wilaya: form.wilaya,
+      academic_stream: form.academicStream,
     };
 
+    console.log("Saving profile data:", profileData, "with avatar file:", avatarFile);
+
     try {
-      if (avatarFile) {
-        const fd = new FormData();
-        fd.append("file", avatarFile);
-        fd.append("payload", JSON.stringify(payload));
-        await fetch("/api/profile", { method: "PUT", body: fd });
+      const response = await StudentApi.updateProfile(
+        profileData,
+        avatarFile ?? undefined
+      );
+      
+      if (response.success && response.data) {
+        // Call onSave callback with the updated data if provided
+        const payload: Partial<UserProfile> = {
+          name: response.data.first_name,
+          lastname: response.data.last_name,
+          phoneNumber: response.data.phone_number,
+          email: response.data.email,
+          wilaya: response.data.wilaya,
+          academicStream: response.data.academic_stream as any,
+        };
+        await onSave?.(payload);
+        onClose();
       } else {
-        await fetch("/api/profile", {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
+        console.error("Failed to update profile");
+        // Optionally show an error message to the user
       }
-      await onSave?.(payload);
-    } catch {
-      onSave?.(payload);
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      // Optionally show an error message to the user
     } finally {
       setSaving(false);
-      onClose();
     }
   };
 

@@ -3,60 +3,15 @@
 import StudentProfile from "@/components/student/StudentProfile";
 import { StudentOnlyRoute } from "@/components/auth/ProtectedRoute";
 import { useAuth } from "@/context/AuthContext";
-import { useEffect, useState } from "react";
 import type { Student } from "@/types/api";
-import { StudentApi } from "@/api";
-import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 
 export default function Page() {
-  // const { getUserRole, isAuthenticated, getStudentSub } = useAuth();
-  const router = useRouter();
-  
-  const [studentData, setStudentData] = useState<Student | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // Get user info from AuthContext - already fetched during initialization
+  const { user, isLoading, error } = useAuth();
 
-
-  // useEffect(() => {
-  //   const fetchStudentInfo = async () => {
-  //     try {
-  //       setIsLoading(true);
-  //       setError(null);
-        
-  //       const studentSub = getStudentSub();
-  //       if (studentSub) {
-  //         const response = await StudentApi.getStudentById(studentSub);
-          
-  //         if (response.success && response.data) {
-  //           setStudentData(response.data);
-  //         } else {
-  //           setError(response.message || 'Failed to fetch student data');
-  //         }
-  //       } else {
-  //         setError('No student ID found');
-  //       }
-  //     } catch (err) {
-  //       console.error('Error fetching student info:', err);
-  //       setError('An error occurred while fetching student data');
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   if (isAuthenticated && getUserRole() === "student") {
-  //     fetchStudentInfo();
-  //   }
-  // }, [isAuthenticated, getUserRole, getStudentSub]);
-
-  // // Redirect if not authenticated or not a student
-  // useEffect(() => {
-  //   if (!isAuthenticated && getUserRole() !== "student") {
-  //     router.push("/auth/login/student");
-  //   }
-  // }, [isAuthenticated, getUserRole, router]);
-
-  // Loading state
+  // Loading state - AuthContext is still initializing
   if (isLoading) {
     return (
       <StudentOnlyRoute>
@@ -70,7 +25,7 @@ export default function Page() {
     );
   }
 
-  // Error state
+  // Error state - AuthContext encountered an error
   if (error) {
     return (
       <StudentOnlyRoute>
@@ -89,9 +44,10 @@ export default function Page() {
     );
   }
 
+  // Main content - display student profile
   return (
     <StudentOnlyRoute>
-      {studentData && <StudentProfile user={studentData} />}
+      {user && <StudentProfile user={user as Student} />}
     </StudentOnlyRoute>
   );
 }

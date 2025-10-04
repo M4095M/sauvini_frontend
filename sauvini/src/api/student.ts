@@ -44,16 +44,34 @@ export class StudentApi extends BaseApi {
   /**
    * Update student profile information
    * @param profileData - Updated profile data
+   * @param profilePicture - Optional profile picture file
    * @returns Promise with updated student data
    */
-  static async updateProfile(profileData: {
-    first_name?: string;
-    last_name?: string;
-    phone_number?: string;
-    wilaya?: string;
-    academic_stream?: string;
-  }): Promise<ApiResponse<Student>> {
-    return this.put<Student>('/student/profile', profileData, { requiresAuth: true });
+  static async updateProfile(
+    profileData: {
+      id: string;
+      first_name?: string;
+      last_name?: string;
+      phone_number?: string;
+      wilaya?: string;
+      academic_stream?: string;
+    },
+    profilePicture?: File
+  ): Promise<ApiResponse<Student>> {
+    const formData = new FormData();
+    
+    // Append student data as JSON blob
+    const studentBlob = new Blob([JSON.stringify(profileData)], {
+      type: 'application/json'
+    });
+    formData.append('student', studentBlob);
+    
+    // Append profile picture if provided
+    if (profilePicture) {
+      formData.append('profile_picture', profilePicture);
+    }
+
+    return this.put<Student>('/auth/student/update', formData, { requiresAuth: true });
   }
 
   /**
