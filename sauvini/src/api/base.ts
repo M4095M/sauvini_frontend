@@ -568,6 +568,7 @@ export abstract class BaseApi {
    * @param callback - Function to execute if authenticated
    */
   static async requiresAuth(callback: () => void | Promise<void>): Promise<void> {
+    
     const authStatus = this.getAuthStatus();
     
     // If no tokens at all, redirect to login

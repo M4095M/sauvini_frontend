@@ -115,7 +115,7 @@ export const ApiUtils = {
    * Execute callback only if authenticated
    * @param callback Function to execute
    */
-  requiresAuth: (callback: () => void): void => BaseApi.requiresAuth(callback),
+  requiresAuth: async (callback: () => void): Promise<void> => await BaseApi.requiresAuth(callback),
 };
 
 // ===========================================
