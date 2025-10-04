@@ -238,3 +238,6 @@ function activeButtonAnimationColor(style: string): string {
       return "text-neutral-300";
   }
 }
+
+// Named export for compatibility
+export { Button };

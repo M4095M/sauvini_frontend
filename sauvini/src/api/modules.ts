@@ -1,85 +1,71 @@
-import { BaseApi } from './base';
-import type { ApiResponse } from '@/types/api';
+import { BaseApi } from "./base";
+import type { ApiResponse } from "@/types/api";
 
 /**
- * Module types
+ * Backend Module structure from the API
  */
-export interface Module {
+export interface BackendModule {
+  id: {
+    tb: string;
+    id: {
+      String: string;
+    };
+  };
+  name: string;
+  description: string;
+  image_path: string | null;
+  color: string;
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+/**
+ * Frontend Module structure (compatible with existing components)
+ */
+export interface FrontendModule {
   id: string;
   name: string;
   description: string;
-  image_path?: string;
-  chaptersCount: number;
-  lessonsCount: number;
-  isCompleted?: boolean;
-  progress?: number; // 0-100
-  professorId?: string;
-  created_at: string;
-  updated_at: string;
-}
-
-export interface CreateModuleData {
-  title: string;
-  description: string;
-  imageUrl?: string;
-  professorId?: string;
-}
-
-export interface UpdateModuleData {
-  title?: string;
-  description?: string;
-  imageUrl?: string;
-  professorId?: string;
-}
-
-export interface AssignModuleData {
-  professorId: string;
+  illustration: string;
+  color: string;
+  totalLessons: number;
+  completedLessons: number;
+  isUnlocked: boolean;
+  hasPurchasedChapters: boolean;
+  academicStreams: string[];
+  chapters: any[]; // Will be populated separately
 }
 
 /**
- * ModulesApi class handles all module management related API calls
- * 
- * Features:
- * - List all modules (public or authenticated)
- * - Get module by ID
- * - Create new modules (admin/professor)
- * - Update existing modules (admin/professor)
- * - Delete modules (admin)
- * - Assign modules to professors (admin)
- * - Automatic authentication handling via BaseApi
+ * ModulesApi class handles all module-related API calls
  */
 export class ModulesApi extends BaseApi {
-  
-  // ===========================================
-  // MODULE METHODS
-  // ===========================================
-
   /**
    * Get all available modules
-   * @param requiresAuth - Whether authentication is required (default: true)
    * @returns Promise resolving to array of modules
    */
-  static async getModules(requiresAuth = true): Promise<ApiResponse<Module[]>> {
+  static async getAllModules(): Promise<ApiResponse<BackendModule[]>> {
     try {
-      return await this.get<Module[]>(`/module`, {
-        requiresAuth: !requiresAuth,
+      return await this.get<BackendModule[]>("/module", {
+        requiresAuth: false, // Public endpoint
       });
     } catch (error) {
-      console.error('Failed to fetch modules:', error);
+      console.error("Failed to fetch modules:", error);
       throw error;
     }
   }
 
   /**
-   * Get detailed information about a specific module
+   * Get module by ID
    * @param moduleId - The ID of the module to fetch
-   * @param requiresAuth - Whether authentication is required (default: true)
    * @returns Promise resolving to module details
    */
-  static async getModuleById(moduleId: string, requiresAuth = true): Promise<ApiResponse<Module>> {
+  static async getModuleById(
+    moduleId: string
+  ): Promise<ApiResponse<BackendModule>> {
     try {
-      return await this.get<Module>(`/modules/${moduleId}`, {
-        requiresAuth,
+      return await this.get<BackendModule>(`/module/${moduleId}`, {
+        requiresAuth: false,
       });
     } catch (error) {
       console.error(`Failed to fetch module ${moduleId}:`, error);
@@ -88,93 +74,74 @@ export class ModulesApi extends BaseApi {
   }
 
   /**
-   * Create a new module
-   * Requires authentication (admin or professor)
-   * @param data - Module creation data
-   * @returns Promise resolving to created module
+   * Get modules with academic streams
+   * @returns Promise resolving to modules with academic streams
    */
-  static async createModule(data: CreateModuleData): Promise<ApiResponse<Module>> {
+  static async getModulesWithAcademicStreams(): Promise<ApiResponse<any[]>> {
     try {
-      return await this.post<Module>('/modules', data, {
-        requiresAuth: true,
+      return await this.get<any[]>("/module/with-academic-streams", {
+        requiresAuth: false,
       });
     } catch (error) {
-      console.error('Failed to create module:', error);
+      console.error("Failed to fetch modules with academic streams:", error);
       throw error;
     }
   }
 
   /**
-   * Update an existing module
-   * Requires authentication (admin or professor)
-   * @param moduleId - The ID of the module to update
-   * @param data - Module update data
-   * @returns Promise resolving to updated module
+   * Transform backend module to frontend module format
+   * @param backendModule - Backend module data
+   * @returns Frontend module format
    */
-  static async updateModule(moduleId: string, data: UpdateModuleData): Promise<ApiResponse<Module>> {
-    try {
-      return await this.put<Module>(`/modules/${moduleId}`, data, {
-        requiresAuth: true,
-      });
-    } catch (error) {
-      console.error(`Failed to update module ${moduleId}:`, error);
-      throw error;
-    }
+  static transformModule(backendModule: BackendModule): FrontendModule {
+    return {
+      id: backendModule.id.id.String,
+      name: backendModule.name,
+      description: backendModule.description,
+      illustration: backendModule.image_path || "/placeholder.svg",
+      color: backendModule.color,
+      totalLessons: 0, // Will be populated when chapters are loaded
+      completedLessons: 0, // Will be populated from user progress
+      isUnlocked: true, // All modules are unlocked for now
+      hasPurchasedChapters: false, // Will be populated from user data
+      academicStreams: [], // Will be populated when academic streams are loaded
+      chapters: [], // Will be populated separately
+    };
   }
 
   /**
-   * Delete a module
-   * Requires authentication (admin only)
-   * @param moduleId - The ID of the module to delete
-   * @returns Promise resolving to success response
+   * Get modules in frontend format
+   * @returns Promise resolving to frontend modules
    */
-  static async deleteModule(moduleId: string): Promise<ApiResponse<void>> {
+  static async getModulesForFrontend(): Promise<ApiResponse<FrontendModule[]>> {
     try {
-      return await this.delete<void>(`/modules/${moduleId}`, {
-        requiresAuth: true,
-      });
-    } catch (error) {
-      console.error(`Failed to delete module ${moduleId}:`, error);
-      throw error;
-    }
-  }
+      const response = await this.getAllModules();
 
-  // ===========================================
-  // PROFESSOR MODULE METHODS
-  // ===========================================
+      if (!response.success || !response.data) {
+        return {
+          success: false,
+          data: null,
+          message: response.message || "Failed to fetch modules",
+          request_id: response.request_id,
+          timestamp: response.timestamp,
+        };
+      }
 
-  /**
-   * Get all modules assigned to a specific professor
-   * Requires authentication
-   * @param professorId - The ID of the professor
-   * @returns Promise resolving to array of modules
-   */
-  static async getProfessorModules(professorId: string): Promise<ApiResponse<Module[]>> {
-    try {
-      return await this.get<Module[]>(`/professor/${professorId}/modules`, {
-        requiresAuth: true,
-      });
-    } catch (error) {
-      console.error(`Failed to fetch modules for professor ${professorId}:`, error);
-      throw error;
-    }
-  }
+      const frontendModules = response.data.map((module) =>
+        this.transformModule(module)
+      );
 
-  /**
-   * Assign a module to a professor
-   * Requires authentication (admin only)
-   * @param moduleId - The ID of the module to assign
-   * @param data - Assignment data containing professorId
-   * @returns Promise resolving to success response
-   */
-  static async assignModuleToProfessor(moduleId: string, data: AssignModuleData): Promise<ApiResponse<void>> {
-    try {
-      return await this.post<void>(`/modules/${moduleId}/assign`, data, {
-        requiresAuth: true,
-      });
+      return {
+        success: true,
+        data: frontendModules,
+        message: "Modules fetched successfully",
+        request_id: response.request_id,
+        timestamp: response.timestamp,
+      };
     } catch (error) {
-      console.error(`Failed to assign module ${moduleId}:`, error);
+      console.error("Failed to fetch modules for frontend:", error);
       throw error;
     }
   }
 }
+

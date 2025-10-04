@@ -1,73 +1,97 @@
-"use client"
+"use client";
 
-import UserHeader, { ThemeToggleButton } from '@/components/modules/UserHeader'
-import MobileHeader from '@/components/modules/MobileHeader'
-import Footer from '@/components/ui/footer'
-import { useLanguage } from '@/hooks/useLanguage'
-import { RTL_LANGUAGES } from '@/lib/language'
-import { MOCK_USER_PROFILE } from '@/data/mockModules'
-import Sidebar from '@/components/modules/SideBar'
-import { SidebarProvider } from '@/context/SideBarContext'
-import { ThemeSwitcher } from '@/components/ui/theme-switcher'
-import { LanguageSwitcher } from '@/components/ui/language-switcher'
+import { useState, useEffect } from "react";
+import UserHeader from "@/components/modules/UserHeader";
+import Footer from "@/components/ui/footer";
+import { useLanguage } from "@/hooks/useLanguage";
+import { RTL_LANGUAGES } from "@/lib/language";
+import { MOCK_USER_PROFILE } from "@/data/mockModules";
+import Image from "next/image";
+import Link from "next/link";
+import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { ThemeSwitcher } from "@/components/ui/theme-switcher";
+import Sidebar from "@/components/modules/SideBar";
+import { SidebarProvider } from "@/context/SideBarContext";
 
 export default function LearningLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const { language } = useLanguage()
-  const isRTL = RTL_LANGUAGES.includes(language)
-  const userProfile = MOCK_USER_PROFILE
+  const { language } = useLanguage();
+  const isRTL = RTL_LANGUAGES.includes(language);
+  const [isMobile, setIsMobile] = useState(false);
+  const userProfile = MOCK_USER_PROFILE;
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   return (
     <SidebarProvider>
-      {/* Desktop Layout - Two Column Fixed Sidebar Pattern */}
-      <div className="hidden md:block min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
-        {/* Fixed Sidebar - 240px (w-60) */}
+      {/* Desktop */}
+
+      <div className="hidden md:flex min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 justify-center">
+        {/* Sidebar */}
         <Sidebar />
 
-        {/* Main Content Area - Offset by sidebar width */}
+        {/* Main Content */}
         <div
-          className={`min-h-screen ${isRTL ? 'pr-60' : 'pl-60'}`}
-          dir={isRTL ? 'rtl' : 'ltr'}
+          style={{
+            display: "flex",
+            width: 1200,
+            padding: "20px 12px 0 12px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: 10,
+            flexShrink: 0,
+            marginLeft: isRTL ? 0 : 240,
+            marginRight: isRTL ? 240 : 0,
+            direction: isRTL ? "rtl" : "ltr",
+          }}
         >
-          {/* Centered Content Container - Responsive with proper overflow control */}
-          <div className="flex flex-col w-full max-w-[1200px] mx-auto px-3 md:px-4 lg:px-6 pt-5 pb-6 gap-6 overflow-x-hidden">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
+              gap: 24,
+              alignSelf: "stretch",
+              width: "100%",
+            }}
+          >
             <UserHeader userProfile={userProfile} />
-            <div className="w-full min-w-0">
-              {children}
-            </div>
+            {children}
             <Footer isRTL={isRTL} />
           </div>
         </div>
       </div>
 
-      {/* Mobile Layout - Full Width with Off-Canvas Drawer */}
+      {/* Mobile */}
       <div
-        className="flex flex-col min-h-screen md:hidden bg-gradient-to-br from-purple-100 to-blue-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800"
-        dir={isRTL ? 'rtl' : 'ltr'}
+        className="flex flex-col min-h-screen w-full md:hidden bg-gradient-to-br from-purple-100 to-blue-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800"
+        style={{
+          paddingTop: 60,
+          gap: 24,
+          direction: isRTL ? "rtl" : "ltr",
+        }}
       >
-        {/* Mobile Header with Hamburger Menu - Fixed at top */}
-        {/* <MobileHeader userProfile={userProfile} /> */}
-
-        {/* Theme and Language Switcher: */}
-        <div className="flex flex-col gap-4 bottom-0 right-0 m-4 z-100 fixed">
-          <LanguageSwitcher />
-          <ThemeToggleButton />
-        </div>
-
-        {/* Off-Canvas Sidebar Drawer (Controlled by SidebarContext) */}
+        {/* Mobile Sidebar Drawer */}
         <Sidebar />
 
-        {/* Main Content */}
-        <main className="flex-1 flex flex-col w-full px-4 pt-14 pb-6 gap-6 overflow-x-hidden">
-          {children}
-        </main>
+        {children}
 
-        {/* Footer */}
-        <Footer isMobile isRTL={isRTL} />
+        <div className="mt-auto w-full">
+          <Footer isMobile isRTL={isRTL} />
+        </div>
       </div>
     </SidebarProvider>
-  )
+  );
 }

@@ -9,7 +9,7 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-
+import { useRouter } from "next/navigation";
 import { AuthApi, BaseApi } from "@/api";
 import type {
   User,
@@ -20,18 +20,22 @@ import type {
   LoginRequest,
   RegisterStudentData,
   RegisterProfessorData,
+  TokenPair,
 } from "@/types/api";
 
 // ===========================================
 // CONTEXT TYPES
 // ===========================================
 
-interface AuthContextType {
-  // User state
+interface AuthState {
   user: User | null;
   isLoading: boolean;
   isAuthenticated: boolean;
+  isInitialized: boolean;
+  error: string | null;
+}
 
+interface AuthContextType extends AuthState {
   // Authentication methods
   loginStudent: (email: string, password: string) => Promise<Student>;
   loginProfessor: (email: string, password: string) => Promise<Professor>;
@@ -50,10 +54,15 @@ interface AuthContextType {
   getUserRole: () => UserRole | null;
   hasRole: (role: UserRole) => boolean;
   getUserFullName: () => string | null;
+  refreshUser: () => Promise<void>;
 
   // Error handling
-  error: string | null;
   clearError: () => void;
+  setError: (error: string) => void;
+
+  // Token management
+  refreshTokens: () => Promise<void>;
+  isTokenExpired: () => boolean;
 }
 
 interface AuthProviderProps {
@@ -71,37 +80,64 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 // ===========================================
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
-  const isAuthenticated = useMemo(() => {
-    return BaseApi.isAuthenticated() && user !== null;
-  }, [user]);
+  const [authState, setAuthState] = useState<AuthState>({
+    user: null,
+    isLoading: true,
+    isAuthenticated: false,
+    isInitialized: false,
+    error: null,
+  });
+
+  // ===========================================
+  // STATE UPDATERS
+  // ===========================================
+
+  const updateAuthState = useCallback((updates: Partial<AuthState>) => {
+    setAuthState((prev) => ({ ...prev, ...updates }));
+  }, []);
+
+  const setLoading = useCallback(
+    (isLoading: boolean) => {
+      updateAuthState({ isLoading });
+    },
+    [updateAuthState]
+  );
+
+  const setError = useCallback(
+    (error: string) => {
+      updateAuthState({ error });
+    },
+    [updateAuthState]
+  );
+
+  const clearError = useCallback(() => {
+    updateAuthState({ error: null });
+  }, [updateAuthState]);
 
   // ===========================================
   // ERROR HANDLING
   // ===========================================
 
-  const handleApiError = useCallback((error: unknown): string => {
-    let message = "An unexpected error occurred";
+  const handleApiError = useCallback(
+    (error: unknown): string => {
+      let message = "An unexpected error occurred";
 
-    if (typeof error === "string") {
-      message = error;
-    } else if (typeof error === "object" && error !== null) {
-      const errorObj = error as Record<string, unknown>;
-      if (typeof errorObj.message === "string") {
-        message = errorObj.message;
+      if (typeof error === "string") {
+        message = error;
+      } else if (typeof error === "object" && error !== null) {
+        const errorObj = error as Record<string, unknown>;
+        if (typeof errorObj.message === "string") {
+          message = errorObj.message;
+        }
       }
-    }
 
-    setError(message);
-    return message;
-  }, []);
-
-  const clearError = useCallback(() => {
-    setError(null);
-  }, []);
+      setError(message);
+      return message;
+    },
+    [setError]
+  );
 
   // ===========================================
   // AUTHENTICATION METHODS
@@ -109,7 +145,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const loginStudent = useCallback(
     async (email: string, password: string): Promise<Student> => {
-      setIsLoading(true);
+      setLoading(true);
       clearError();
 
       try {
@@ -124,22 +160,25 @@ export function AuthProvider({ children }: AuthProviderProps) {
         BaseApi.setTokens(response.data.token);
 
         // Update user state
-        setUser(response.data.user);
+        updateAuthState({
+          user: response.data.user,
+          isAuthenticated: true,
+          isLoading: false,
+        });
 
         return response.data.user;
       } catch (error: unknown) {
         const errorMessage = handleApiError(error);
+        setLoading(false);
         throw new Error(errorMessage);
-      } finally {
-        setIsLoading(false);
       }
     },
-    [handleApiError, clearError]
+    [handleApiError, clearError, setLoading, updateAuthState]
   );
 
   const loginProfessor = useCallback(
     async (email: string, password: string): Promise<Professor> => {
-      setIsLoading(true);
+      setLoading(true);
       clearError();
 
       try {
@@ -151,22 +190,25 @@ export function AuthProvider({ children }: AuthProviderProps) {
         }
 
         BaseApi.setTokens(response.data.token);
-        setUser(response.data.user);
+        updateAuthState({
+          user: response.data.user,
+          isAuthenticated: true,
+          isLoading: false,
+        });
 
         return response.data.user;
       } catch (error: unknown) {
         const errorMessage = handleApiError(error);
+        setLoading(false);
         throw new Error(errorMessage);
-      } finally {
-        setIsLoading(false);
       }
     },
-    [handleApiError, clearError]
+    [handleApiError, clearError, setLoading, updateAuthState]
   );
 
   const loginAdmin = useCallback(
     async (email: string, password: string): Promise<Admin> => {
-      setIsLoading(true);
+      setLoading(true);
       clearError();
 
       try {
@@ -178,32 +220,42 @@ export function AuthProvider({ children }: AuthProviderProps) {
         }
 
         BaseApi.setTokens(response.data.token);
-        setUser(response.data.user);
+        updateAuthState({
+          user: response.data.user,
+          isAuthenticated: true,
+          isLoading: false,
+        });
 
         return response.data.user;
       } catch (error: unknown) {
         const errorMessage = handleApiError(error);
+        setLoading(false);
         throw new Error(errorMessage);
-      } finally {
-        setIsLoading(false);
       }
     },
-    [handleApiError, clearError]
+    [handleApiError, clearError, setLoading, updateAuthState]
   );
 
   const logout = useCallback(async (): Promise<void> => {
-    setIsLoading(true);
+    setLoading(true);
 
     try {
       await AuthApi.logout();
     } catch (error) {
       console.error("Logout error (continuing anyway):", error);
     } finally {
-      setUser(null);
-      setError(null);
-      setIsLoading(false);
+      BaseApi.clearTokens();
+      updateAuthState({
+        user: null,
+        isAuthenticated: false,
+        isLoading: false,
+        error: null,
+      });
+
+      // Force direct navigation to login page to bypass route protection
+      window.location.href = "/auth/login";
     }
-  }, []);
+  }, [setLoading, updateAuthState]);
 
   // ===========================================
   // REGISTRATION METHODS
@@ -211,7 +263,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const registerStudent = useCallback(
     async (data: RegisterStudentData): Promise<{ message: string }> => {
-      setIsLoading(true);
+      setLoading(true);
       clearError();
 
       try {
@@ -221,15 +273,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
           throw new Error(response.message || "Registration failed");
         }
 
+        setLoading(false);
         return response.data;
       } catch (error: unknown) {
         const errorMessage = handleApiError(error);
+        setLoading(false);
         throw new Error(errorMessage);
-      } finally {
-        setIsLoading(false);
       }
     },
-    [handleApiError, clearError]
+    [handleApiError, clearError, setLoading]
   );
 
   const registerProfessor = useCallback(
@@ -238,7 +290,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       cvFile: File,
       profilePicture?: File
     ): Promise<{ message: string }> => {
-      setIsLoading(true);
+      setLoading(true);
       clearError();
 
       try {
@@ -252,15 +304,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
           throw new Error(response.message || "Registration failed");
         }
 
+        setLoading(false);
         return response.data;
       } catch (error: unknown) {
         const errorMessage = handleApiError(error);
+        setLoading(false);
         throw new Error(errorMessage);
-      } finally {
-        setIsLoading(false);
       }
     },
-    [handleApiError, clearError]
+    [handleApiError, clearError, setLoading]
   );
 
   // ===========================================
@@ -276,15 +328,77 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   const getUserFullName = useCallback((): string | null => {
-    if (!user) return null;
+    if (!authState.user) return null;
 
     // Type-safe access to name fields
-    if ("first_name" in user && "last_name" in user) {
-      return `${user.first_name} ${user.last_name}`.trim();
+    if ("first_name" in authState.user && "last_name" in authState.user) {
+      return `${authState.user.first_name} ${authState.user.last_name}`.trim();
     }
 
     return null;
-  }, [user]);
+  }, [authState.user]);
+
+  const refreshUser = useCallback(async (): Promise<void> => {
+    if (!BaseApi.isAuthenticated()) {
+      updateAuthState({
+        user: null,
+        isAuthenticated: false,
+        isLoading: false,
+      });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // In a real app, you'd fetch the full user profile here
+      // For now, we'll just update the authentication state
+      const role = BaseApi.getCurrentUserRole();
+      if (role) {
+        updateAuthState({
+          isAuthenticated: true,
+          isLoading: false,
+        });
+      }
+    } catch (error) {
+      console.error("Failed to refresh user:", error);
+      BaseApi.clearTokens();
+      updateAuthState({
+        user: null,
+        isAuthenticated: false,
+        isLoading: false,
+      });
+    }
+  }, [setLoading, updateAuthState]);
+
+  const refreshTokens = useCallback(async (): Promise<void> => {
+    if (!BaseApi.isAuthenticated()) {
+      return;
+    }
+
+    try {
+      const tokens = BaseApi.getTokens();
+      if (tokens?.refresh_token) {
+        const response = await AuthApi.refreshAuthTokens(tokens.refresh_token);
+        if (response.success && response.data) {
+          BaseApi.setTokens(response.data);
+        }
+      }
+    } catch (error) {
+      console.error("Token refresh failed:", error);
+      BaseApi.clearTokens();
+      updateAuthState({
+        user: null,
+        isAuthenticated: false,
+        isLoading: false,
+      });
+    }
+  }, [updateAuthState]);
+
+  const isTokenExpired = useCallback((): boolean => {
+    const tokens = BaseApi.getTokens();
+    if (!tokens) return true;
+    return BaseApi.isTokenExpired(tokens);
+  }, []);
 
   // ===========================================
   // INITIALIZATION EFFECT
@@ -292,34 +406,65 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   useEffect(() => {
     const initializeAuth = async () => {
-      setIsLoading(true);
-
       try {
         // Check if we have valid tokens
         if (BaseApi.isAuthenticated()) {
-          // For now, we'll rely on token-based authentication
-          // The user info will be available from JWT claims via getCurrentUserRole
-          // In a full implementation, you might want to fetch user profile
           const role = BaseApi.getCurrentUserRole();
           if (role) {
             // Create a minimal user object for compatibility
             // In a real app, you'd fetch the full user profile here
-            setUser({ email: "user@example.com" } as User);
+            updateAuthState({
+              user: { email: "user@example.com" } as User,
+              isAuthenticated: true,
+              isLoading: false,
+              isInitialized: true,
+            });
+          } else {
+            updateAuthState({
+              user: null,
+              isAuthenticated: false,
+              isLoading: false,
+              isInitialized: true,
+            });
           }
         } else {
-          setUser(null);
+          updateAuthState({
+            user: null,
+            isAuthenticated: false,
+            isLoading: false,
+            isInitialized: true,
+          });
         }
       } catch (error) {
         console.error("Auth initialization failed:", error);
         BaseApi.clearTokens();
-        setUser(null);
-      } finally {
-        setIsLoading(false);
+        updateAuthState({
+          user: null,
+          isAuthenticated: false,
+          isLoading: false,
+          isInitialized: true,
+        });
       }
     };
 
     initializeAuth();
-  }, []);
+  }, [updateAuthState]);
+
+  // ===========================================
+  // TOKEN REFRESH INTERVAL
+  // ===========================================
+
+  useEffect(() => {
+    if (!authState.isAuthenticated) return;
+
+    const interval = setInterval(() => {
+      if (isTokenExpired()) {
+        refreshTokens();
+      }
+    }, 60000); // Check every minute
+
+    return () => clearInterval(interval);
+  }, [authState.isAuthenticated, isTokenExpired, refreshTokens]);
 
   // ===========================================
   // CONTEXT VALUE
@@ -327,10 +472,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const contextValue = useMemo<AuthContextType>(
     () => ({
-      // User state
-      user,
-      isLoading,
-      isAuthenticated,
+      // State
+      ...authState,
 
       // Authentication methods
       loginStudent,
@@ -346,15 +489,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
       getUserRole,
       hasRole,
       getUserFullName,
+      refreshUser,
 
       // Error handling
-      error,
       clearError,
+      setError,
+
+      // Token management
+      refreshTokens,
+      isTokenExpired,
     }),
     [
-      user,
-      isLoading,
-      isAuthenticated,
+      authState,
       loginStudent,
       loginProfessor,
       loginAdmin,
@@ -364,8 +510,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
       getUserRole,
       hasRole,
       getUserFullName,
-      error,
+      refreshUser,
       clearError,
+      setError,
+      refreshTokens,
+      isTokenExpired,
     ]
   );
 

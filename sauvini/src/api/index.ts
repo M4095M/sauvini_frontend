@@ -1,9 +1,9 @@
 /**
  * API Module Exports
- * 
+ *
  * This file provides convenient access to all API classes and types.
  * Import from here to get consistent, typed access to your API layer.
- * 
+ *
  * Example usage:
  * ```typescript
  * import { AuthApi, LessonsApi, BaseApi } from '@/api';
@@ -15,13 +15,11 @@
 // API CLASSES
 // ===========================================
 
-export { BaseApi } from './base';
-export { AuthApi } from './auth';
-export { AdminApi } from './admin';
-export { ProfessorApi } from './professor';
-export { StudentApi } from './student';
-export { LessonsApi } from './lessons';
-export { ModulesApi } from './modules';
+export { BaseApi } from "./base";
+export { AuthApi } from "./auth";
+export { LessonsApi } from "./lessons";
+export { ModulesApi } from "./modules";
+export { ChaptersApi } from "./chapters";
 
 // ===========================================
 // API TYPES
@@ -49,7 +47,7 @@ export type {
   ApiError,
   ServiceError,
   UserContext,
-} from '../types/api';
+} from "../types/api";
 
 // Re-export lesson-related types
 export type {
@@ -59,27 +57,16 @@ export type {
   LessonProgress,
   Quiz,
   QuizQuestion,
-} from './lessons';
-
-// Re-export module management types
-export type {
-  Module as ModuleType,
-  CreateModuleData,
-  UpdateModuleData,
-  AssignModuleData,
-} from './modules';
+} from "./lessons";
 
 // ===========================================
 // API UTILITIES
 // ===========================================
 
 // Import the classes for utility functions
-import { BaseApi } from './base';
-import { AuthApi } from './auth';
-import { AdminApi } from './admin';
-import { ProfessorApi } from './professor';
-import { StudentApi } from './student';
-import type { UserRole } from '../types/api';
+import { BaseApi } from "./base";
+import { AuthApi } from "./auth";
+import type { UserRole } from "../types/api";
 
 /**
  * Utility functions for API usage
@@ -115,7 +102,7 @@ export const ApiUtils = {
    * Execute callback only if authenticated
    * @param callback Function to execute
    */
-  requiresAuth: async (callback: () => void): Promise<void> => await BaseApi.requiresAuth(callback),
+  requiresAuth: (callback: () => void): void => BaseApi.requiresAuth(callback),
 };
 
 // ===========================================
@@ -128,16 +115,16 @@ export const ApiUtils = {
 export const API_CONSTANTS = {
   /** Default request timeout in milliseconds */
   DEFAULT_TIMEOUT: 30000,
-  
+
   /** Token refresh buffer time in seconds (30 seconds) */
   TOKEN_REFRESH_BUFFER: 30,
-  
+
   /** localStorage key for auth tokens */
-  TOKEN_STORAGE_KEY: 'sauvini_auth_tokens',
-  
+  TOKEN_STORAGE_KEY: "sauvini_auth_tokens",
+
   /** sessionStorage key for post-login redirect */
-  REDIRECT_STORAGE_KEY: 'redirect_after_login',
-  
+  REDIRECT_STORAGE_KEY: "redirect_after_login",
+
   /** Common HTTP status codes */
   HTTP_STATUS: {
     OK: 200,
@@ -148,59 +135,32 @@ export const API_CONSTANTS = {
     NOT_FOUND: 404,
     INTERNAL_SERVER_ERROR: 500,
   } as const,
-  
+
   /** API endpoints that match backend routes */
   ENDPOINTS: {
     AUTH: {
-      LOGIN_STUDENT: '/auth/student/login',
-      LOGIN_PROFESSOR: '/auth/professor/login',
-      LOGIN_ADMIN: '/auth/admin/login',
-      REGISTER_STUDENT: '/auth/student/register',
-      REGISTER_PROFESSOR: '/auth/professor/register',
-      LOGOUT: '/auth/logout',
-      REFRESH: '/auth/refresh',
-      FORGOT_PASSWORD_ADMIN: '/auth/admin/forgot-password',
-      RESET_PASSWORD_ADMIN: '/auth/admin/reset-password',
-      VERIFY_EMAIL_STUDENT: '/auth/student/verify-email',
-      RESEND_VERIFICATION: '/auth/resend-verification',
-      ADMIN_ALL_PROFESSORS: '/auth/admin/all-professors',
-      ADMIN_APPROVE_PROFESSOR: '/auth/admin/approve-professor',
-      ADMIN_REJECT_PROFESSOR: '/auth/admin/reject-professor',
-    },
-    ADMIN: {
-      DASHBOARD_STATS: '/auth/admin/dashboard/stats',
-      ALL_STUDENTS: '/auth/admin/all-students',
-      ALL_ADMINS: '/auth/admin/all-admins',
-      CREATE_ADMIN: '/auth/admin/create-admin',
-      SYSTEM_HEALTH: '/auth/admin/system/health',
-      CLEAR_CACHE: '/auth/admin/system/clear-cache',
-      EXPORT_DATA: '/auth/admin/export',
-    },
-    PROFESSOR: {
-      PROFILE: '/professor/profile',
-      COURSES: '/professor/courses',
-      STUDENTS: '/professor/students',
-      ANALYTICS: '/professor/analytics',
-      LESSONS: '/professor/lessons',
-      QUIZZES: '/professor/quizzes',
-    },
-    STUDENT: {
-      PROFILE: '/student/profile',
-      COURSES_AVAILABLE: '/student/courses/available',
-      COURSES_ENROLLED: '/student/courses/enrolled',
-      PROGRESS_OVERALL: '/student/progress/overall',
-      RECOMMENDATIONS_COURSES: '/student/recommendations/courses',
-      RECOMMENDATIONS_LESSONS: '/student/recommendations/lessons',
-      CERTIFICATES: '/student/certificates',
-      ACHIEVEMENTS: '/student/achievements',
+      LOGIN_STUDENT: "/auth/student/login",
+      LOGIN_PROFESSOR: "/auth/professor/login",
+      LOGIN_ADMIN: "/auth/admin/login",
+      REGISTER_STUDENT: "/auth/student/register",
+      REGISTER_PROFESSOR: "/auth/professor/register",
+      LOGOUT: "/auth/logout",
+      REFRESH: "/auth/refresh",
+      FORGOT_PASSWORD: "/auth/forgot-password",
+      RESET_PASSWORD_CONFIRM: "/auth/reset-password-confirm",
+      VERIFY_EMAIL: "/auth/verify-email",
+      RESEND_VERIFICATION: "/auth/resend-verification",
+      ADMIN_PENDING_PROFESSORS: "/auth/admin/professors/pending",
+      ADMIN_APPROVE_PROFESSOR: "/auth/admin/professors/approve",
+      ADMIN_REJECT_PROFESSOR: "/auth/admin/professors/reject",
     },
     LESSONS: {
-      MODULES: '/modules',
-      CHAPTERS: '/chapters',
-      LESSONS: '/lessons',
-      PROGRESS: '/progress',
-      SEARCH: '/lessons/search',
-      RECOMMENDED: '/lessons/recommended',
+      MODULES: "/modules",
+      CHAPTERS: "/chapters",
+      LESSONS: "/lessons",
+      PROGRESS: "/progress",
+      SEARCH: "/lessons/search",
+      RECOMMENDED: "/lessons/recommended",
     },
   } as const,
 } as const;
@@ -219,10 +179,13 @@ export const ErrorHandlers = {
    * @returns True if it's an auth error
    */
   isAuthError: (error: unknown): boolean => {
-    if (typeof error !== 'object' || error === null) return false;
+    if (typeof error !== "object" || error === null) return false;
     const errorObj = error as Record<string, unknown>;
-    return errorObj.status === 401 || 
-           (typeof errorObj.message === 'string' && errorObj.message.includes('Authentication'));
+    return (
+      errorObj.status === 401 ||
+      (typeof errorObj.message === "string" &&
+        errorObj.message.includes("Authentication"))
+    );
   },
 
   /**
@@ -231,10 +194,13 @@ export const ErrorHandlers = {
    * @returns True if it's a network error
    */
   isNetworkError: (error: unknown): boolean => {
-    if (typeof error !== 'object' || error === null) return false;
+    if (typeof error !== "object" || error === null) return false;
     const errorObj = error as Record<string, unknown>;
-    return typeof errorObj.message === 'string' &&
-           (errorObj.message.includes('fetch') || errorObj.message.includes('network'));
+    return (
+      typeof errorObj.message === "string" &&
+      (errorObj.message.includes("fetch") ||
+        errorObj.message.includes("network"))
+    );
   },
 
   /**
@@ -244,18 +210,18 @@ export const ErrorHandlers = {
    */
   getUserFriendlyMessage: (error: unknown): string => {
     if (ErrorHandlers.isAuthError(error)) {
-      return 'Authentication required. Please log in again.';
+      return "Authentication required. Please log in again.";
     }
-    
+
     if (ErrorHandlers.isNetworkError(error)) {
-      return 'Network error. Please check your connection and try again.';
+      return "Network error. Please check your connection and try again.";
     }
-    
-    if (typeof error === 'object' && error !== null && 'message' in error) {
+
+    if (typeof error === "object" && error !== null && "message" in error) {
       return String((error as { message: unknown }).message);
     }
-    
-    return 'An unexpected error occurred. Please try again.';
+
+    return "An unexpected error occurred. Please try again.";
   },
 };
 
@@ -264,14 +230,16 @@ export const ErrorHandlers = {
  * @param error The object to check
  * @returns True if it's an ApiError
  */
-export function isApiError(error: unknown): error is import('../types/api').ApiError {
+export function isApiError(
+  error: unknown
+): error is import("../types/api").ApiError {
   return (
-    typeof error === 'object' &&
+    typeof error === "object" &&
     error !== null &&
-    'message' in error &&
-    typeof (error as Record<string, unknown>).message === 'string' &&
-    'status' in error &&
-    typeof (error as Record<string, unknown>).status === 'number'
+    "message" in error &&
+    typeof (error as Record<string, unknown>).message === "string" &&
+    "status" in error &&
+    typeof (error as Record<string, unknown>).status === "number"
   );
 }
 
@@ -280,6 +248,8 @@ export function isApiError(error: unknown): error is import('../types/api').ApiE
  * @param response The response to check
  * @returns True if the response indicates success
  */
-export function isApiSuccess<T>(response: import('../types/api').ApiResponse<T>): response is import('../types/api').ApiResponse<T> & { success: true } {
+export function isApiSuccess<T>(
+  response: import("../types/api").ApiResponse<T>
+): response is import("../types/api").ApiResponse<T> & { success: true } {
   return response.success === true;
 }

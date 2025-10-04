@@ -3,6 +3,7 @@ import LockIcon from "./lockIcon";
 import Button from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { type FrontendModule } from "@/api/modules";
 
 import DummyImage from "@/app/public/assets/Math.svg";
 import Image from "next/image";
@@ -10,9 +11,10 @@ import Image from "next/image";
 type ModuleCardProps = {
   t: any;
   isRTL: boolean;
+  module?: FrontendModule;
 };
 
-export default function ModuleCard({ t, isRTL }: ModuleCardProps) {
+export default function ModuleCard({ t, isRTL, module }: ModuleCardProps) {
   return (
     <div
       className="px-3 py-3 rounded-3xl bg-white border border-neutral-300 flex flex-col gap-4 max-w-[350px] w-full"
@@ -22,38 +24,58 @@ export default function ModuleCard({ t, isRTL }: ModuleCardProps) {
       <div className="flex flex-row gap-3" dir={isRTL ? "rtl" : "ltr"}>
         {/* image */}
         <div className="max-w-28 h-32 grow bg-neutral-200 w-full ">
-          <Image src={DummyImage} alt={""} />
+          <Image
+            src={module?.illustration || DummyImage}
+            alt={module?.name || "Module"}
+            width={112}
+            height={128}
+            className="w-full h-full object-cover"
+          />
         </div>
         {/* title and lock icon */}
         <div className="flex w-fit shrink">
           {/* title */}
           <div className="flex flex-col gap-1">
             <div className="text-neutral-600 font-medium text-xl">
-              Module title
+              {module?.name || "Module title"}
             </div>
             <div className="text-neutral-400 font-normal text-xs">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              nec odio. Praesent libero.
+              {module?.description ||
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero."}
             </div>
           </div>
           {/* lock */}
           <div className="">
-            <LockIcon className="bg-warning-100 text-warning-400" />
+            <LockIcon
+              className={
+                module?.isUnlocked
+                  ? "bg-green-100 text-green-400"
+                  : "bg-warning-100 text-warning-400"
+              }
+            />
           </div>
         </div>
       </div>
       {/* tags */}
       <div className="flex gap-1 items-center justify-start flex-wrap">
-        <Tag
-          icon={undefined}
-          text={"Mathematics"}
-          className={"bg-warning-100 text-warning-400"}
-        />
-        <Tag
-          icon={undefined}
-          text={"Mathematics"}
-          className={"bg-warning-100 text-warning-400"}
-        />
+        {module?.academicStreams && module.academicStreams.length > 0 ? (
+          module.academicStreams.map((stream, index) => (
+            <Tag
+              key={index}
+              icon={undefined}
+              text={stream}
+              className={`bg-${module.color}-100 text-${module.color}-400`}
+            />
+          ))
+        ) : (
+          <Tag
+            icon={undefined}
+            text={module?.name || "General"}
+            className={`bg-${module?.color || "blue"}-100 text-${
+              module?.color || "blue"
+            }-400`}
+          />
+        )}
       </div>
       {/* actions */}
       <div className="flex gap-3">

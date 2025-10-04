@@ -4,16 +4,20 @@ import { useState } from "react";
 import Button from "@/components/ui/button";
 import { Edit } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
-import { Student } from "@/api";
+import type { UserProfile } from "@/types/modules";
 import StudentEditModal from "./StudentEditModal";
 
 interface Props {
-  user: Student;
+  user: UserProfile;
   className?: string;
-  onSave?: (payload: Partial<Student>) => Promise<void> | void;
+  onSave?: (payload: Partial<UserProfile>) => Promise<void> | void;
 }
 
-export default function StudentInformation({ user, className = "", onSave }: Props) {
+export default function StudentInformation({
+  user,
+  className = "",
+  onSave,
+}: Props) {
   const { t, isRTL } = useLanguage();
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -26,7 +30,9 @@ export default function StudentInformation({ user, className = "", onSave }: Pro
       aria-label={titleText}
     >
       <div className="flex items-center justify-between w-full">
-        <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white">{titleText}</h2>
+        <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white">
+          {titleText}
+        </h2>
 
         <div className="flex items-center gap-2">
           <Button
@@ -43,32 +49,57 @@ export default function StudentInformation({ user, className = "", onSave }: Pro
 
       <div className="w-full flex flex-col items-start gap-6 self-stretch">
         <div className="w-full flex flex-col items-start gap-2">
-          <div className="text-lg text-neutral-900 dark:text-neutral-300">{t("admin.manageStudents.fullName") ?? "Full Name"}</div>
-          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.first_name} {user.last_name}</div>
+          <div className="text-lg text-neutral-900 dark:text-neutral-300">
+            {t("admin.manageStudents.fullName") ?? "Full Name"}
+          </div>
+          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">
+            {user.name} {user.lastname}
+          </div>
         </div>
 
         <div className="w-full flex flex-col items-start gap-2">
-          <div className="text-lg text-neutral-900 dark:text-neutral-300">{t("admin.manageStudents.phoneNumber") ?? "Phone Number"}</div>
-          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.phone_number ?? "—"}</div>
+          <div className="text-lg text-neutral-900 dark:text-neutral-300">
+            {t("admin.manageStudents.phoneNumber") ?? "Phone Number"}
+          </div>
+          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">
+            {user.phoneNumber ?? "—"}
+          </div>
         </div>
 
         <div className="w-full flex flex-col items-start gap-2">
-          <div className="text-lg text-neutral-900 dark:text-neutral-300">{t("admin.manageStudents.email") ?? "Email Address"}</div>
-          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.email ?? "—"}</div>
+          <div className="text-lg text-neutral-900 dark:text-neutral-300">
+            {t("admin.manageStudents.email") ?? "Email Address"}
+          </div>
+          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">
+            {user.email ?? "—"}
+          </div>
         </div>
 
         <div className="w-full flex flex-col items-start gap-2">
-          <div className="text-lg text-neutral-900 dark:text-neutral-300">{t("admin.manageStudents.wilaya") ?? "Wilaya"}</div>
-          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.wilaya ?? "—"}</div>
+          <div className="text-lg text-neutral-900 dark:text-neutral-300">
+            {t("admin.manageStudents.wilaya") ?? "Wilaya"}
+          </div>
+          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">
+            {user.wilaya ?? "—"}
+          </div>
         </div>
 
         <div className="w-full flex flex-col items-start gap-2">
-          <div className="text-lg text-neutral-900 dark:text-neutral-300">{t("admin.manageStudents.academicStream") ?? "Academic Stream"}</div>
-          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">{user.academic_stream ?? "—"}</div>
+          <div className="text-lg text-neutral-900 dark:text-neutral-300">
+            {t("admin.manageStudents.academicStream") ?? "Academic Stream"}
+          </div>
+          <div className="mt-1 text-sm text-neutral-800 dark:text-neutral-100">
+            {user.academicStream ?? "—"}
+          </div>
         </div>
       </div>
 
-      <StudentEditModal open={modalOpen} user={user} onClose={() => setModalOpen(false)} onSave={onSave} />
+      <StudentEditModal
+        open={modalOpen}
+        user={user}
+        onClose={() => setModalOpen(false)}
+        onSave={onSave}
+      />
     </section>
   );
 }

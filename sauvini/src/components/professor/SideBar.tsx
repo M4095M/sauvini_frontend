@@ -1,13 +1,15 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState, useEffect } from "react"
+import type React from "react";
+import { useState, useEffect } from "react";
 
-import Link from "next/link"
-import Image from "next/image"
-import { usePathname } from "next/navigation"
-import { useLanguage } from "@/hooks/useLanguage"
-import { useSidebar } from "@/context/SideBarContext"
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useLanguage } from "@/hooks/useLanguage";
+import { useSidebar } from "@/context/SideBarContext";
+import { useAuth } from "@/hooks/useAuth";
+import { useRouter } from "next/navigation";
 import {
   Settings,
   FileCheck,
@@ -20,52 +22,85 @@ import {
   BriefcaseBusiness,
   CreditCard,
   GraduationCap,
-  Sun,
-  Moon,
-  Globe
-} from "lucide-react"
-import { useTheme } from "@/hooks/useTheme"
+} from "lucide-react";
 
 interface NavItem {
-  href: string
-  label: string
-  icon: React.ElementType
+  href: string;
+  label: string;
+  icon: React.ElementType;
 }
 
 const navigationItems: NavItem[] = [
   { href: "/professor/manage-content", label: "manageContent", icon: Settings },
   { href: "/professor/correct-exams", label: "correctExams", icon: FileCheck },
-  { href: "/professor/correct-exercises", label: "correctExercises", icon: PenTool },
-  { href: "/professor/answer-questions", label: "answerQuestions", icon: MessageSquare },
+  {
+    href: "/professor/correct-exercises",
+    label: "correctExercises",
+    icon: PenTool,
+  },
+  {
+    href: "/professor/answer-questions",
+    label: "answerQuestions",
+    icon: MessageSquare,
+  },
   { href: "/professor/notifications", label: "notifications", icon: Bell },
-]
+];
 
 // Admin-only links (rendered only when isAdmin === true)
 const adminLinks: NavItem[] = [
-  { href: "/professor/professor-management", label: "manageProfessors", icon: BriefcaseBusiness },
-  { href: "/professor/manage-purchases", label: "managePurchases", icon: CreditCard },
-  { href: "/professor/manage-students", label: "manageStudents", icon: GraduationCap },
-]
+  {
+    href: "/professor/professor-management",
+    label: "manageProfessors",
+    icon: BriefcaseBusiness,
+  },
+  {
+    href: "/professor/manage-purchases",
+    label: "managePurchases",
+    icon: CreditCard,
+  },
+  {
+    href: "/professor/manage-students",
+    label: "manageStudents",
+    icon: GraduationCap,
+  },
+];
 
 function DesktopSidebar() {
-  const pathname = usePathname()
-  const { isRTL, t } = useLanguage()
+  const pathname = usePathname();
+  const { isRTL, t } = useLanguage();
+  const { logout } = useAuth();
+  const router = useRouter();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  // DUMMY admin flag 
-  const [isAdmin, setIsAdmin] = useState(false)
+  // DUMMY admin flag
+  const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
     // to be replaced with real API/context check
-    setIsAdmin(Boolean((window as any).__IS_ADMIN__) || true)
-  }, [])
+    setIsAdmin(Boolean((window as any).__IS_ADMIN__) || true);
+  }, []);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await logout();
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
 
   // check if user is on any content management page
   const isOnContentManagementPages =
     pathname.startsWith("/professor/manage-content") ||
     pathname.startsWith("/professor/manage-chapter") ||
-    pathname.startsWith("/professor/create-lesson")
+    pathname.startsWith("/professor/create-lesson");
 
   return (
-    <aside className={`fixed top-0 z-20 h-screen ${isRTL ? "right-0" : "left-0"}`} style={{ width: 240 }}>
+    <aside
+      className={`fixed top-0 z-20 h-screen ${isRTL ? "right-0" : "left-0"}`}
+      style={{ width: 240 }}
+    >
       <div
         className={`h-full bg-[#F8F8F8] dark:bg-[#1A1A1A] flex flex-col py-6 ${
           isRTL ? "rounded-l-[44px]" : "rounded-r-[44px]"
@@ -105,7 +140,8 @@ function DesktopSidebar() {
             {/* Admin links (top) */}
             {isAdmin &&
               adminLinks.map(({ href, label, icon: Icon }) => {
-                const isActive = pathname === href || pathname.startsWith(`${href}/`)
+                const isActive =
+                  pathname === href || pathname.startsWith(`${href}/`);
                 return (
                   <Link
                     key={href}
@@ -127,11 +163,15 @@ function DesktopSidebar() {
                     }}
                   >
                     <Icon className="w-5 h-5 flex-shrink-0" />
-                    <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                    <span
+                      className={`text-sm font-medium ${
+                        isRTL ? "font-arabic text-right" : "font-sans text-left"
+                      }`}
+                    >
                       {t(`admin.navigation.${label}`) || label}
                     </span>
                   </Link>
-                )
+                );
               })}
 
             {/* Professor links */}
@@ -140,7 +180,7 @@ function DesktopSidebar() {
               const isActive =
                 href === "/professor/manage-content"
                   ? isOnContentManagementPages
-                  : pathname === href || pathname.startsWith(`${href}/`)
+                  : pathname === href || pathname.startsWith(`${href}/`);
 
               return (
                 <Link
@@ -163,11 +203,15 @@ function DesktopSidebar() {
                   }}
                 >
                   <Icon className="w-5 h-5 flex-shrink-0" />
-                  <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                  <span
+                    className={`text-sm font-medium ${
+                      isRTL ? "font-arabic text-right" : "font-sans text-left"
+                    }`}
+                  >
                     {t(`professor.navigation.${label}`) || label}
                   </span>
                 </Link>
-              )
+              );
             })}
           </nav>
         </div>
@@ -196,7 +240,11 @@ function DesktopSidebar() {
             }}
           >
             <User className="w-5 h-5 flex-shrink-0" />
-            <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+            <span
+              className={`text-sm font-medium ${
+                isRTL ? "font-arabic text-right" : "font-sans text-left"
+              }`}
+            >
               {t("professor.navigation.accountDetails") || "Account Details"}
             </span>
           </Link>
@@ -213,39 +261,54 @@ function DesktopSidebar() {
               borderRadius: 26,
               direction: isRTL ? "rtl" : "ltr",
             }}
-            onClick={() => {
-              // Handle logout logic here
-              console.log("Logout clicked")
-            }}
+            onClick={handleLogout}
+            disabled={isLoggingOut}
           >
             <LogOut className="w-5 h-5 flex-shrink-0" />
-            <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+            <span
+              className={`text-sm font-medium ${
+                isRTL ? "font-arabic text-right" : "font-sans text-left"
+              }`}
+            >
               {t("professor.navigation.logout") || "Log out"}
             </span>
           </button>
         </div>
       </div>
     </aside>
-  )
+  );
 }
 
 function MobileDrawer() {
-  const { isOpen, close } = useSidebar()
-  const pathname = usePathname()
-  const { isRTL, t, language, setLanguage } = useLanguage()
-  const { resolvedTheme, toggleTheme } = useTheme()
+  const { isOpen, close } = useSidebar();
+  const pathname = usePathname();
+  const { isRTL, t } = useLanguage();
+  const { logout } = useAuth();
+  const router = useRouter();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   // DUMMY admin flag
-  const [isAdmin, setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
-    setIsAdmin(Boolean((window as any).__IS_ADMIN__) || false)
-  }, [])
+    setIsAdmin(Boolean((window as any).__IS_ADMIN__) || false);
+  }, []);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await logout();
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
 
   // check if user is on any content management page
   const isOnContentManagementPages =
     pathname.startsWith("/professor/manage-content") ||
     pathname.startsWith("/professor/manage-chapter") ||
-    pathname.startsWith("/professor/create-lesson")
+    pathname.startsWith("/professor/create-lesson");
 
   return (
     <>
@@ -262,7 +325,13 @@ function MobileDrawer() {
       <div
         className={`fixed top-0 z-50 h-full w-80 max-w-[85vw] bg-[#F8F8F8] dark:bg-[#1A1A1A] shadow-2xl transform transition-all duration-300 ease-out ${
           isRTL ? "right-0" : "left-0"
-        } ${isOpen ? "translate-x-0 scale-100" : isRTL ? "translate-x-full scale-95" : "-translate-x-full scale-95"}`}
+        } ${
+          isOpen
+            ? "translate-x-0 scale-100"
+            : isRTL
+            ? "translate-x-full scale-95"
+            : "-translate-x-full scale-95"
+        }`}
         style={{
           borderRadius: isRTL ? "24px 0 0 24px" : "0 24px 24px 0",
         }}
@@ -272,7 +341,9 @@ function MobileDrawer() {
           <div
             className={`flex items-center justify-between mb-8 transform transition-all duration-500 ease-out ${
               isRTL ? "flex-row-reverse" : ""
-            } ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}`}
+            } ${
+              isOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
+            }`}
             style={{ transitionDelay: isOpen ? "100ms" : "0ms" }}
           >
             <Image
@@ -297,7 +368,8 @@ function MobileDrawer() {
               {/* Admin links (top) */}
               {isAdmin &&
                 adminLinks.map(({ href, label, icon: Icon }, index) => {
-                  const isActive = pathname === href || pathname.startsWith(`${href}/`)
+                  const isActive =
+                    pathname === href || pathname.startsWith(`${href}/`);
                   return (
                     <Link
                       key={href}
@@ -310,22 +382,34 @@ function MobileDrawer() {
                           ? "bg-[#324C72] text-white"
                           : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                       } ${
-                        isOpen ? "translate-x-0 opacity-100" : isRTL ? "translate-x-8 opacity-0" : "-translate-x-8 opacity-0"
+                        isOpen
+                          ? "translate-x-0 opacity-100"
+                          : isRTL
+                          ? "translate-x-8 opacity-0"
+                          : "-translate-x-8 opacity-0"
                       }`}
                       style={{
                         padding: "12px 20px",
                         gap: 12,
                         borderRadius: 26,
-                        transitionDelay: isOpen ? `${200 + index * 50}ms` : "0ms",
+                        transitionDelay: isOpen
+                          ? `${200 + index * 50}ms`
+                          : "0ms",
                         direction: isRTL ? "rtl" : "ltr",
                       }}
                     >
                       <Icon className="w-5 h-5 flex-shrink-0" />
-                      <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                      <span
+                        className={`text-sm font-medium ${
+                          isRTL
+                            ? "font-arabic text-right"
+                            : "font-sans text-left"
+                        }`}
+                      >
                         {t(`admin.navigation.${label}`) || label}
                       </span>
                     </Link>
-                  )
+                  );
                 })}
 
               {navigationItems.map(({ href, label, icon: Icon }, index) => {
@@ -333,7 +417,7 @@ function MobileDrawer() {
                 const isActive =
                   href === "/professor/manage-content"
                     ? isOnContentManagementPages
-                    : pathname === href || pathname.startsWith(`${href}/`)
+                    : pathname === href || pathname.startsWith(`${href}/`);
 
                 return (
                   <Link
@@ -347,7 +431,11 @@ function MobileDrawer() {
                         ? "bg-[#324C72] text-white"
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                     } ${
-                      isOpen ? "translate-x-0 opacity-100" : isRTL ? "translate-x-8 opacity-0" : "-translate-x-8 opacity-0"
+                      isOpen
+                        ? "translate-x-0 opacity-100"
+                        : isRTL
+                        ? "translate-x-8 opacity-0"
+                        : "-translate-x-8 opacity-0"
                     }`}
                     style={{
                       padding: "12px 20px",
@@ -358,11 +446,15 @@ function MobileDrawer() {
                     }}
                   >
                     <Icon className="w-5 h-5 flex-shrink-0" />
-                    <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                    <span
+                      className={`text-sm font-medium ${
+                        isRTL ? "font-arabic text-right" : "font-sans text-left"
+                      }`}
+                    >
                       {t(`professor.navigation.${label}`) || label}
                     </span>
                   </Link>
-                )
+                );
               })}
             </div>
           </nav>
@@ -376,82 +468,6 @@ function MobileDrawer() {
             style={{ transitionDelay: isOpen ? "400ms" : "0ms" }}
           >
             <div className="flex flex-col" style={{ gap: 16 }}>
-              {/* Theme Toggle */}
-              <button
-                type="button"
-                onClick={toggleTheme}
-                className={`flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 ${
-                  isRTL ? "flex-row-reverse text-right" : "text-left"
-                }`}
-                style={{
-                  padding: "12px 20px",
-                  gap: 12,
-                  borderRadius: 26,
-                  direction: isRTL ? "rtl" : "ltr",
-                }}
-              >
-                {resolvedTheme === "dark" ? (
-                  <Sun className="w-5 h-5 flex-shrink-0 text-yellow-500" />
-                ) : (
-                  <Moon className="w-5 h-5 flex-shrink-0 text-blue-600" />
-                )}
-                <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
-                  {resolvedTheme === "dark" ? t("common.lightMode") || "Light Mode" : t("common.darkMode") || "Dark Mode"}
-                </span>
-              </button>
-
-              {/* Language Switcher */}
-              <div className="flex flex-col" style={{ gap: 8 }}>
-                <div
-                  className={`flex items-center text-gray-500 dark:text-gray-400 ${
-                    isRTL ? "flex-row-reverse text-right" : "text-left"
-                  }`}
-                  style={{
-                    padding: "0 20px",
-                    gap: 12,
-                  }}
-                >
-                  <Globe className="w-4 h-4 flex-shrink-0" />
-                  <span className={`text-xs font-medium uppercase ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
-                    {t("common.language") || "Language"}
-                  </span>
-                </div>
-                <div className="flex flex-col" style={{ gap: 4 }}>
-                  {[
-                    { code: "en", label: "English" },
-                    { code: "fr", label: "Français" },
-                    { code: "ar", label: "العربية" },
-                  ].map((lang) => (
-                    <button
-                      key={lang.code}
-                      type="button"
-                      onClick={() => setLanguage(lang.code as "en" | "fr" | "ar")}
-                      className={`flex items-center transition-all duration-200 ${
-                        isRTL ? "flex-row-reverse text-right" : "text-left"
-                      } ${
-                        language === lang.code
-                          ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
-                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                      }`}
-                      style={{
-                        padding: "8px 20px",
-                        gap: 12,
-                        borderRadius: 20,
-                        direction: isRTL ? "rtl" : "ltr",
-                      }}
-                    >
-                      <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
-                        {lang.label}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Divider */}
-              <div className="border-t border-gray-200 dark:border-gray-700 my-2" />
-
-              {/* Account Details */}
               <Link
                 href="/professor/profile"
                 onClick={close}
@@ -466,18 +482,23 @@ function MobileDrawer() {
                 }}
               >
                 <User className="w-5 h-5 flex-shrink-0" />
-                <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
-                  {t("professor.navigation.accountDetails") || "Account Details"}
+                <span
+                  className={`text-sm font-medium ${
+                    isRTL ? "font-arabic text-right" : "font-sans text-left"
+                  }`}
+                >
+                  {t("professor.navigation.accountDetails") ||
+                    "Account Details"}
                 </span>
               </Link>
 
-              {/* Logout */}
               <button
                 type="button"
-                onClick={() => {
-                  console.log("Logout clicked")
-                  close()
+                onClick={async () => {
+                  await handleLogout();
+                  close();
                 }}
+                disabled={isLoggingOut}
                 className={`flex items-center text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200 ${
                   isRTL ? "flex-row-reverse text-right" : "text-left"
                 }`}
@@ -489,7 +510,11 @@ function MobileDrawer() {
                 }}
               >
                 <LogOut className="w-5 h-5 flex-shrink-0" />
-                <span className={`text-sm font-medium ${isRTL ? "font-arabic text-right" : "font-sans text-left"}`}>
+                <span
+                  className={`text-sm font-medium ${
+                    isRTL ? "font-arabic text-right" : "font-sans text-left"
+                  }`}
+                >
                   {t("professor.navigation.logout") || "Log out"}
                 </span>
               </button>
@@ -498,7 +523,7 @@ function MobileDrawer() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default function ProfessorSidebar() {
@@ -514,5 +539,5 @@ export default function ProfessorSidebar() {
         <MobileDrawer />
       </div>
     </>
-  )
+  );
 }

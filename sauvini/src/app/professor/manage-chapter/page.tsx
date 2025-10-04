@@ -1,8 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { MOCK_PROFESSOR_MODULES } from "@/data/mockProfessor";
+import { ChaptersApi, type FrontendChapter } from "@/api/chapters";
+import { ModulesApi, type FrontendModule } from "@/api/modules";
 import DropDown from "@/components/input/dropDown";
 import InputButton from "@/components/input/InputButton";
 import FileAttachement from "@/components/lesson/fileAttachment";
@@ -15,6 +17,7 @@ import LessonCard from "@/components/professor/lessonCard";
 import UpdateLessonPopUp from "../create-lesson/updateLessonPopup";
 import ViewLessonPopup from "../create-lesson/viewLessonPopup";
 import { useLanguage } from "@/context/LanguageContext";
+import Loader from "@/components/ui/Loader";
 
 export default function ProfessorManageChapter() {
   const { t, language, isRTL } = useLanguage();
@@ -22,34 +25,10 @@ export default function ProfessorManageChapter() {
   const chapterId = searchParams?.get("chapterId") || null;
   const moduleId = searchParams?.get("moduleId") || null;
 
-  const { module: mod, chapter } = useMemo(() => {
-    const modul =
-      MOCK_PROFESSOR_MODULES.find((m) => m.id === moduleId) || null;
-    const chapter =
-      modul?.chapters?.find((c: any) => c.id === chapterId) ||
-      // fallback: search across all modules
-      MOCK_PROFESSOR_MODULES.flatMap((m) => m.chapters).find(
-        (c: any) => c.id === chapterId
-      ) ||
-      null;
-    return { module: modul, chapter };
-  }, [chapterId, moduleId]);
-
-  const resolveChapterTitle = (id?: string) => {
-    if (!id) return id;
-    const found = MOCK_PROFESSOR_MODULES.flatMap((m) => m.chapters).find(
-      (c) => c.id === id
-    );
-    return found ? found.title : id;
-  };
-
-  const displayedStreams = chapter?.academicStreams?.length
-    ? chapter.academicStreams
-    : mod?.academicStreams ?? [];
-
-  const dependencies = chapter?.prerequisites ?? [];
-
-  const lessons = chapter?.lessons ?? [];
+  const [module, setModule] = useState<FrontendModule | null>(null);
+  const [chapter, setChapter] = useState<FrontendChapter | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // manage popupss states
   const [showCreateLessonPopup, setShowCreateLessonPopup] = useState(false);
@@ -58,11 +37,108 @@ export default function ProfessorManageChapter() {
   const [showUpdateChapterPopup, setShowUpdateChapterPopup] = useState(false);
   const [showLessonDetailsPopup, setShowLessonDetailsPopup] = useState(false);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!chapterId || !moduleId) return;
+
+      try {
+        setLoading(true);
+        setError(null);
+
+        // Fetch module data
+        const moduleResponse = await ModulesApi.getModuleById(moduleId);
+        if (!moduleResponse.success || !moduleResponse.data) {
+          throw new Error("Module not found");
+        }
+        const moduleData = ModulesApi.transformModule(moduleResponse.data);
+        setModule(moduleData);
+
+        // Fetch chapter data
+        const chapterResponse = await ChaptersApi.getChapterWithModuleAndStream(
+          chapterId
+        );
+        if (!chapterResponse.success || !chapterResponse.data) {
+          throw new Error("Chapter not found");
+        }
+        const chapterData = ChaptersApi.transformChapterWithModuleAndStream(
+          chapterResponse.data
+        );
+        setChapter(chapterData);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setError("Failed to load chapter data. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [chapterId, moduleId]);
+
+  const resolveChapterTitle = (id?: string) => {
+    if (!id) return id;
+    // For now, return the ID as we don't have a way to fetch all chapters
+    return id;
+  };
+
+  const displayedStreams = chapter?.academicStreams?.length
+    ? chapter.academicStreams
+    : module?.academicStreams ?? [];
+
+  const dependencies = chapter?.prerequisites ?? [];
+
+  const lessons = chapter?.lessons ?? [];
+
+  if (loading) {
+    return (
+      <div className="flex flex-col gap-6 w-full">
+        <div className="w-full flex flex-col gap-12 py-11 px-3 rounded-[52px] bg-neutral-100">
+          <div className="flex justify-center items-center py-8">
+            <Loader label="Loading chapter..." />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col gap-6 w-full">
+        <div className="w-full flex flex-col gap-12 py-11 px-3 rounded-[52px] bg-neutral-100">
+          <div className="flex justify-center items-center py-8">
+            <div className="text-center">
+              <p className="text-red-600 mb-4">{error}</p>
+              <button
+                onClick={() => window.location.reload()}
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              >
+                Retry
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!chapter || !module) {
+    return (
+      <div className="flex flex-col gap-6 w-full">
+        <div className="w-full flex flex-col gap-12 py-11 px-3 rounded-[52px] bg-neutral-100">
+          <div className="flex justify-center items-center py-8">
+            <div className="text-center">
+              <p className="text-gray-600 mb-4">Chapter not found</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // callback function for form elements:
   const handleAddStream = (value: string) => {
     console.log("selected stream: ", value);
-  }
+  };
 
   return (
     <div className="flex flex-col gap-6 w-full">
@@ -76,7 +152,7 @@ export default function ProfessorManageChapter() {
               {chapter?.title ?? "Chapter title"}
             </span>
             <span className="font-medium text-2xl text-neutral-400">
-              {mod?.name ?? "Module name"}
+              {module?.name ?? "Module name"}
             </span>
           </div>
           {/* action button */}

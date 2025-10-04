@@ -1,42 +1,42 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import ExamsGrid from "@/components/exams/ExamsGrid"
-import { MOCK_EXAMS_DATA } from "@/data/mockModules"
-import Loader from '@/components/ui/Loader'
+import { useEffect, useState } from "react";
+import ExamsGrid from "@/components/exams/ExamsGrid";
+import { MOCK_EXAMS_DATA } from "@/data/mockModules";
+import Loader from "@/components/ui/Loader";
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false
-    return window.innerWidth < 768
-  })
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 768;
+  });
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
+      setIsMobile(window.innerWidth < 768);
+    };
 
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  return isMobile
+  return isMobile;
 }
 
 export default function ExamsPage() {
-  const isMobile = useIsMobile()
-  const [isLoaded, setIsLoaded] = useState(false)
+  const isMobile = useIsMobile();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+    setIsLoaded(true);
+  }, []);
 
   if (!isLoaded) {
     return (
       <div className="self-stretch w-full">
         <Loader label="Loading exams..." />
       </div>
-    )
+    );
   }
 
   return (
@@ -46,5 +46,5 @@ export default function ExamsPage() {
       isMobile={isMobile}
       userLevel={MOCK_EXAMS_DATA.userProfile?.level || 1}
     />
-  )
+  );
 }

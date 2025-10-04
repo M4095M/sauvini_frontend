@@ -1,15 +1,15 @@
-import type { 
-  ApiResponse, 
-  TokenPair, 
-  ApiRequestConfig, 
+import type {
+  ApiResponse,
+  TokenPair,
+  ApiRequestConfig,
   ApiError,
-  UserRole
-} from '@/types/api';
+  UserRole,
+} from "@/types/api";
 
 /**
  * BaseApi class that provides fundamental HTTP methods and authentication logic
  * All other API classes should inherit from this class to get consistent behavior
- * 
+ *
  * Features:
  * - Automatic token management (storage, refresh, expiration)
  * - Middleware-like request interception for authentication
@@ -19,20 +19,17 @@ import type {
  */
 export abstract class BaseApi {
   /** Base URL for all API requests */
-  protected static readonly baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api/v1';
-  
-  static {
-    console.log('🔧 BaseApi initialized with URL:', this.baseURL);
-  }
-  
+  protected static readonly baseURL =
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api/v1";
+
   /** Current authentication tokens */
   private static authTokens: TokenPair | null = null;
-  
+
   /** Promise to prevent multiple simultaneous token refresh attempts */
   private static refreshPromise: Promise<TokenPair> | null = null;
-  
+
   /** Key used for localStorage token storage */
-  private static readonly TOKEN_STORAGE_KEY = 'sauvini_auth_tokens';
+  private static readonly TOKEN_STORAGE_KEY = "sauvini_auth_tokens";
 
   // ===========================================
   // TOKEN MANAGEMENT METHODS
@@ -44,13 +41,13 @@ export abstract class BaseApi {
    */
   static setTokens(tokens: TokenPair): void {
     this.authTokens = tokens;
-    
+
     // Only access localStorage on client side
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       try {
         localStorage.setItem(this.TOKEN_STORAGE_KEY, JSON.stringify(tokens));
       } catch (error) {
-        console.error('Failed to save tokens to localStorage:', error);
+        console.error("Failed to save tokens to localStorage:", error);
       }
     }
   }
@@ -64,9 +61,9 @@ export abstract class BaseApi {
     if (this.authTokens) {
       return this.authTokens;
     }
-    
+
     // Try to load from localStorage on client side
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       try {
         const stored = localStorage.getItem(this.TOKEN_STORAGE_KEY);
         if (stored) {
@@ -74,11 +71,11 @@ export abstract class BaseApi {
           return this.authTokens;
         }
       } catch (error) {
-        console.error('Failed to parse stored tokens:', error);
+        console.error("Failed to parse stored tokens:", error);
         this.clearTokens();
       }
     }
-    
+
     return null;
   }
 
@@ -87,12 +84,12 @@ export abstract class BaseApi {
    */
   static clearTokens(): void {
     this.authTokens = null;
-    
-    if (typeof window !== 'undefined') {
+
+    if (typeof window !== "undefined") {
       try {
         localStorage.removeItem(this.TOKEN_STORAGE_KEY);
       } catch (error) {
-        console.error('Failed to clear tokens from localStorage:', error);
+        console.error("Failed to clear tokens from localStorage:", error);
       }
     }
   }
@@ -105,70 +102,21 @@ export abstract class BaseApi {
   static isTokenExpired(tokens: TokenPair): boolean {
     try {
       // Decode the JWT payload without verification (for expiry check only)
-      const payload = JSON.parse(atob(tokens.access_token.split('.')[1]));
+      const payload = JSON.parse(atob(tokens.access_token.split(".")[1]));
       const thirtySeconds = 30; // 30 second buffer in seconds
-      return Date.now() / 1000 >= (payload.exp - thirtySeconds);
+      return Date.now() / 1000 >= payload.exp - thirtySeconds;
     } catch {
       return true; // If we can't decode, assume expired
     }
   }
 
   /**
-   * Get authentication status with detailed information
-   * @returns Object containing authentication state details
-   */
-  static getAuthStatus(): {
-    isAuthenticated: boolean;
-    hasTokens: boolean;
-    isExpired: boolean;
-    needsRefresh: boolean;
-  } {
-    const tokens = this.getTokens();
-    
-    if (!tokens) {
-      return {
-        isAuthenticated: false,
-        hasTokens: false,
-        isExpired: false,
-        needsRefresh: false,
-      };
-    }
-
-    const isExpired = this.isTokenExpired(tokens);
-    
-    return {
-      isAuthenticated: !isExpired,
-      hasTokens: true,
-      isExpired,
-      needsRefresh: isExpired && !!tokens.refresh_token,
-    };
-  }
-
-  /**
    * Check if user is currently authenticated with valid tokens
-   * @returns True if user has valid (non-expired) tokens
+   * @returns True if user has valid authentication
    */
   static isAuthenticated(): boolean {
     const tokens = this.getTokens();
     return tokens !== null && !this.isTokenExpired(tokens);
-  }
-
-  /**
-   * Check if user has tokens (regardless of expiration)
-   * @returns True if tokens exist
-   */
-  static hasTokens(): boolean {
-    return this.getTokens() !== null;
-  }
-
-  /**
-   * Check if user needs token refresh
-   * @returns True if tokens exist but are expired and refresh token is available
-   */
-  static needsTokenRefresh(): boolean {
-    const tokens = this.getTokens();
-    if (!tokens) return false;
-    return this.isTokenExpired(tokens) && !!tokens.refresh_token;
   }
 
   // ===========================================
@@ -181,7 +129,7 @@ export abstract class BaseApi {
    * @returns Promise that resolves to new tokens
    * @throws Error if refresh fails
    */
-  static async refreshTokens(): Promise<TokenPair> {
+  private static async refreshTokens(): Promise<TokenPair> {
     // If refresh is already in progress, wait for it
     if (this.refreshPromise) {
       return this.refreshPromise;
@@ -189,18 +137,16 @@ export abstract class BaseApi {
 
     const tokens = this.getTokens();
     if (!tokens?.refresh_token) {
-      const error = new Error('No refresh token available');
-      this.clearTokens();
-      this.redirectToLogin();
-      throw error;
+      throw new Error("No refresh token available");
     }
 
     // Start the refresh process
-    this.refreshPromise = this.performTokenRefresh(tokens.refresh_token)
-      .finally(() => {
-        // Clear the promise when done (success or failure)
-        this.refreshPromise = null;
-      });
+    this.refreshPromise = this.performTokenRefresh(
+      tokens.refresh_token
+    ).finally(() => {
+      // Clear the promise when done (success or failure)
+      this.refreshPromise = null;
+    });
 
     return this.refreshPromise;
   }
@@ -210,12 +156,14 @@ export abstract class BaseApi {
    * @param refreshToken - The refresh token to use
    * @returns Promise that resolves to new tokens
    */
-  private static async performTokenRefresh(refreshToken: string): Promise<TokenPair> {
+  private static async performTokenRefresh(
+    refreshToken: string
+  ): Promise<TokenPair> {
     try {
       const response = await fetch(`${this.baseURL}/auth/refresh`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ token: refreshToken }),
       });
@@ -225,15 +173,14 @@ export abstract class BaseApi {
       }
 
       const data: ApiResponse<TokenPair> = await response.json();
-      
+
       if (!data.success || !data.data) {
-        throw new Error(data.message || 'Token refresh failed');
+        throw new Error(data.message || "Token refresh failed");
       }
 
       // Store the new tokens
       this.setTokens(data.data);
       return data.data;
-
     } catch (error) {
       // Clear invalid tokens and redirect to login
       this.clearTokens();
@@ -249,7 +196,7 @@ export abstract class BaseApi {
   /**
    * Main request method that handles all HTTP requests with authentication middleware
    * This is the core of our "middleware" functionality for the frontend
-   * 
+   *
    * @param url - The API endpoint URL
    * @param options - Fetch options
    * @param config - Custom configuration for this request
@@ -260,46 +207,29 @@ export abstract class BaseApi {
     options: RequestInit = {},
     config: ApiRequestConfig = {}
   ): Promise<ApiResponse<T>> {
-    
     // Construct full URL
-    const fullUrl = url.startsWith('http') ? url : `${this.baseURL}${url}`;
-    
-    // Check if body is FormData (important for multipart/form-data)
-    const isFormData = options.body instanceof FormData;
-    
-    // Add detailed logging for debugging
-    console.log('🌐 Making API Request:', {
-      method: options.method || 'GET',
-      url: fullUrl,
-      hasBody: !!options.body,
-      bodyType: options.body ? typeof options.body : 'none',
-      isFormData,
-      config,
-      timestamp: new Date().toISOString()
-    });
-    
+    const fullUrl = url.startsWith("http") ? url : `${this.baseURL}${url}`;
+
     // Prepare headers
-    // IMPORTANT: For FormData, DO NOT set Content-Type - let browser set it with boundary
     const headers: Record<string, string> = {
-      ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
+      "Content-Type": "application/json",
       ...config.headers,
       ...(options.headers as Record<string, string>),
     };
 
     // Handle authentication (this is our middleware logic)
     if (config.requiresAuth !== false) {
-      try {
-        const authHeader = await this.getAuthorizationHeader(config.skipAuthRefresh);
+      const authHeader = await this.getAuthorizationHeader(
+        config.skipAuthRefresh
+      );
+      if (authHeader) {
         headers.Authorization = authHeader;
-      } catch (error) {
-        console.error('Failed to get authorization header:', error);
-        throw error;
       }
     }
 
     // Create abort controller for timeout
     const controller = new AbortController();
-    const timeoutId = config.timeout 
+    const timeoutId = config.timeout
       ? setTimeout(() => controller.abort(), config.timeout)
       : null;
 
@@ -311,42 +241,30 @@ export abstract class BaseApi {
         signal: controller.signal,
       });
 
-      console.log('📡 Response received:', {
-        status: response.status,
-        statusText: response.statusText,
-        url: fullUrl,
-        ok: response.ok,
-        timestamp: new Date().toISOString()
-      });
-
       // Handle authentication errors with retry logic
-      if (response.status === 401 && config.requiresAuth !== false && !config.skipAuthRefresh) {
-        console.log('🔐 Handling 401 - attempting token refresh');
+      if (
+        response.status === 401 &&
+        config.requiresAuth !== false &&
+        !config.skipAuthRefresh
+      ) {
         return this.handleUnauthorizedResponse<T>(fullUrl, options);
       }
 
       // Handle other HTTP errors
       if (!response.ok) {
-        const apiError = await this.createApiError(response);
-        console.error('❌ HTTP Error:', apiError);
-        throw apiError;
+        throw await this.createApiError(response);
       }
 
       // Parse and return successful response
-      const responseData = await response.json();
-      console.log('✅ Successful response:', responseData);
-      return responseData;
-
+      return await response.json();
     } catch (error) {
-      console.error('🔥 Request failed:', {
-        url: fullUrl,
-        error,
-        timestamp: new Date().toISOString()
-      });
-      
-      if (typeof error === 'object' && error !== null && 'name' in error && (error as Error).name === 'AbortError') {
-        console.error('⏱️ Request timeout');
-        throw new Error('Request timeout');
+      if (
+        typeof error === "object" &&
+        error !== null &&
+        "name" in error &&
+        (error as Error).name === "AbortError"
+      ) {
+        throw new Error("Request timeout");
       }
       throw error;
     } finally {
@@ -359,27 +277,23 @@ export abstract class BaseApi {
   /**
    * Get authorization header with automatic token refresh
    * @param skipRefresh - Whether to skip token refresh
-   * @returns Authorization header value
-   * @throws Error if authentication fails
+   * @returns Authorization header value or null
    */
-  private static async getAuthorizationHeader(skipRefresh?: boolean): Promise<string> {
+  private static async getAuthorizationHeader(
+    skipRefresh?: boolean
+  ): Promise<string | null> {
     let tokens = this.getTokens();
-    
+
     if (!tokens) {
-      this.clearTokens();
       this.redirectToLogin();
-      throw new Error('Authentication required');
+      throw new Error("Authentication required");
     }
 
     // Check if token needs refresh
     if (this.isTokenExpired(tokens) && !skipRefresh) {
       try {
-        const refreshedTokens = await this.refreshTokens();
-        this.setTokens(refreshedTokens);
-        tokens = refreshedTokens;
+        tokens = await this.refreshTokens();
       } catch (error) {
-        console.error('Token refresh failed:', error);
-        this.clearTokens();
         this.redirectToLogin();
         throw error;
       }
@@ -399,37 +313,27 @@ export abstract class BaseApi {
     options: RequestInit
   ): Promise<ApiResponse<T>> {
     try {
-      console.log('🔄 Attempting to refresh tokens and retry request...');
-      
       // Try to refresh tokens
-      const refreshedTokens = await this.refreshTokens();
-      this.setTokens(refreshedTokens);
-      
+      await this.refreshTokens();
+
       // Retry the original request with new tokens
       const authHeader = await this.getAuthorizationHeader(true); // Skip refresh on retry
       const retryOptions = {
         ...options,
         headers: {
           ...options.headers,
-          Authorization: authHeader,
+          ...(authHeader && { Authorization: authHeader }),
         },
       };
 
       const retryResponse = await fetch(url, retryOptions);
-      
+
       if (retryResponse.ok) {
-        const data = await retryResponse.json();
-        console.log('✅ Retry successful after token refresh');
-        return data;
+        return await retryResponse.json();
       } else {
-        const apiError = await this.createApiError(retryResponse);
-        console.error('❌ Retry failed after token refresh:', apiError);
-        throw apiError;
+        throw await this.createApiError(retryResponse);
       }
-      
     } catch (error) {
-      console.error('🔥 Token refresh and retry failed:', error);
-      // this.clearTokens();
       this.redirectToLogin();
       throw error;
     }
@@ -472,18 +376,15 @@ export abstract class BaseApi {
     url: string,
     config: ApiRequestConfig = {}
   ): Promise<ApiResponse<T>> {
-    return this.makeRequest<T>(url, { method: 'GET' }, config);
+    return this.makeRequest<T>(url, { method: "GET" }, config);
   }
 
   /**
    * Make a POST request
    * @param url - The endpoint URL
-   * @param data - Data to send in request body (JSON object or FormData for file uploads)
+   * @param data - Data to send in request body
    * @param config - Request configuration
    * @returns Promise that resolves to typed response
-   * 
-   * Note: For FormData, Content-Type header is automatically set by the browser
-   * with the correct multipart/form-data boundary. Do not manually set it.
    */
   protected static async post<T>(
     url: string,
@@ -491,13 +392,14 @@ export abstract class BaseApi {
     config: ApiRequestConfig = {}
   ): Promise<ApiResponse<T>> {
     const isFormData = data instanceof FormData;
-    const body = isFormData ? data : (data ? JSON.stringify(data) : undefined);
-    // For FormData, use empty headers - browser will set Content-Type with boundary
-    const headers: Record<string, string> = isFormData ? {} : { 'Content-Type': 'application/json' };
-    
+    const body = isFormData ? data : data ? JSON.stringify(data) : undefined;
+    const headers: Record<string, string> = isFormData
+      ? {}
+      : { "Content-Type": "application/json" };
+
     return this.makeRequest<T>(
       url,
-      { method: 'POST', body },
+      { method: "POST", body },
       { ...config, headers: { ...headers, ...config.headers } }
     );
   }
@@ -505,12 +407,9 @@ export abstract class BaseApi {
   /**
    * Make a PUT request
    * @param url - The endpoint URL
-   * @param data - Data to send in request body (JSON object or FormData for file uploads)
+   * @param data - Data to send in request body
    * @param config - Request configuration
    * @returns Promise that resolves to typed response
-   * 
-   * Note: For FormData, Content-Type header is automatically set by the browser
-   * with the correct multipart/form-data boundary. Do not manually set it.
    */
   protected static async put<T>(
     url: string,
@@ -518,13 +417,14 @@ export abstract class BaseApi {
     config: ApiRequestConfig = {}
   ): Promise<ApiResponse<T>> {
     const isFormData = data instanceof FormData;
-    const body = isFormData ? data : (data ? JSON.stringify(data) : undefined);
-    // For FormData, use empty headers - browser will set Content-Type with boundary
-    const headers: Record<string, string> = isFormData ? {} : { 'Content-Type': 'application/json' };
-    
+    const body = isFormData ? data : data ? JSON.stringify(data) : undefined;
+    const headers: Record<string, string> = isFormData
+      ? {}
+      : { "Content-Type": "application/json" };
+
     return this.makeRequest<T>(
       url,
-      { method: 'PUT', body },
+      { method: "PUT", body },
       { ...config, headers: { ...headers, ...config.headers } }
     );
   }
@@ -539,7 +439,7 @@ export abstract class BaseApi {
     url: string,
     config: ApiRequestConfig = {}
   ): Promise<ApiResponse<T>> {
-    return this.makeRequest<T>(url, { method: 'DELETE' }, config);
+    return this.makeRequest<T>(url, { method: "DELETE" }, config);
   }
 
   // ===========================================
@@ -551,57 +451,27 @@ export abstract class BaseApi {
    * Only works on client side
    */
   private static redirectToLogin(): void {
-    console.log("Redirecting to login...");
-    // if (typeof window !== 'undefined') {
-    //   // Store the current page to redirect back after login
-    //   const currentPath = window.location.pathname;
-    //   if (currentPath !== '/auth/login' && currentPath !== '/auth/register') {
-    //     sessionStorage.setItem('redirect_after_login', currentPath);
-    //   }
-      
-    //   window.location.href = '/auth/select-role';
-    // }
+    if (typeof window !== "undefined") {
+      // Store the current page to redirect back after login
+      const currentPath = window.location.pathname;
+      if (currentPath !== "/auth/login" && currentPath !== "/auth/register") {
+        sessionStorage.setItem("redirect_after_login", currentPath);
+      }
+
+      window.location.href = "/auth/login";
+    }
   }
 
   /**
-   * Execute callback only if user is authenticated, otherwise try to refresh or redirect to login
+   * Execute callback only if user is authenticated, otherwise redirect to login
    * @param callback - Function to execute if authenticated
    */
-  static async requiresAuth(callback: () => void | Promise<void>): Promise<void> {
-    
-    const authStatus = this.getAuthStatus();
-    
-    // If no tokens at all, redirect to login
-    if (!authStatus.hasTokens) {
-      this.clearTokens();
+  static requiresAuth(callback: () => void): void {
+    if (!this.isAuthenticated()) {
       this.redirectToLogin();
       return;
     }
-    
-    // If tokens are expired but can be refreshed
-    if (authStatus.needsRefresh) {
-      try {
-        console.log('🔄 Tokens expired, refreshing before execution...');
-        const refreshedTokens = await this.refreshTokens();
-        this.setTokens(refreshedTokens);
-        console.log('✅ Tokens refreshed successfully');
-      } catch (error) {
-        console.error('❌ Token refresh failed:', error);
-        this.clearTokens();
-        this.redirectToLogin();
-        return;
-      }
-    }
-    
-    // If tokens are expired and cannot be refreshed, redirect to login
-    if (authStatus.isExpired && !authStatus.needsRefresh) {
-      this.clearTokens();
-      this.redirectToLogin();
-      return;
-    }
-    
-    // User is authenticated, execute callback
-    await callback();
+    callback();
   }
 
   /**
@@ -611,26 +481,11 @@ export abstract class BaseApi {
   static getCurrentUserRole(): UserRole | null {
     const tokens = this.getTokens();
     if (!tokens?.access_token) return null;
-    
-    try {
-      // Decode JWT payload to get user role
-      const payload = JSON.parse(atob(tokens.access_token.split('.')[1]));
-      console.log('Decoded JWT payload:', payload);
-      return payload.role || null;
-    } catch {
-      return null;
-    }
-  }
 
-  static getStudentSub(): string | null {
-    const tokens = this.getTokens();
-    if (!tokens?.access_token) return null;
-    
     try {
       // Decode JWT payload to get user role
-      const payload = JSON.parse(atob(tokens.access_token.split('.')[1]));
-      console.log('Decoded JWT payload:', payload);
-      return payload.sub || null;
+      const payload = JSON.parse(atob(tokens.access_token.split(".")[1]));
+      return payload.role || null;
     } catch {
       return null;
     }
