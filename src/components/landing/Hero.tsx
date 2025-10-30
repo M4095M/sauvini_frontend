@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Button from "@/components/ui/button"
-import { useLanguage } from "@/hooks/useLanguage"
+import Image from "next/image";
+import Button from "@/components/ui/button";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export default function Hero() {
-  const { t, isRTL } = useLanguage()
+  const { t, isRTL } = useLanguage();
 
   const handleExploreModules = () => {
-    window.location.href = "/modules"
-  }
+    window.location.href = "/modules";
+  };
 
   const handleStartLearning = () => {
-    window.location.href = "/register"
-  }
+    window.location.href = "/register";
+  };
 
   return (
     <section
@@ -69,7 +69,8 @@ export default function Hero() {
                   letterSpacing: "-0.48px",
                 }}
               >
-                {t("landing.hero.description") || "Learn, practice, and succeed with trusted teachers. Unlock chapters, track progress, and reach your goals."}
+                {t("landing.hero.description") ||
+                  "Learn, practice, and succeed with trusted teachers. Unlock chapters, track progress, and reach your goals."}
               </p>
             </div>
 
@@ -111,7 +112,10 @@ export default function Hero() {
         >
           <Image
             src="/rafiki.svg"
-            alt={t("landing.hero.imageAlt") || "Students learning and achieving their goals"}
+            alt={
+              t("landing.hero.imageAlt") ||
+              "Students learning and achieving their goals"
+            }
             width={592}
             height={527}
             className="w-full h-full object-contain"
@@ -155,7 +159,8 @@ export default function Hero() {
                   letterSpacing: "-0.48px",
                 }}
               >
-                {t("landing.hero.description") || "Learn, practice, and succeed with trusted teachers. Unlock chapters, track progress, and reach your goals."}
+                {t("landing.hero.description") ||
+                  "Learn, practice, and succeed with trusted teachers. Unlock chapters, track progress, and reach your goals."}
               </p>
             </div>
 
@@ -188,5 +193,5 @@ export default function Hero() {
         )}
       </div>
     </section>
-  )
+  );
 }
