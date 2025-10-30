@@ -34,3 +34,26 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Production
+
+1. Configure environment variables (copy `env.example` to `.env` in your deploy environment):
+
+```bash
+NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api/v1
+NEXT_PUBLIC_JITSI_DOMAIN=meet.yourdomain.com
+# Optional: comma-separated remote image domains (no scheme)
+NEXT_IMAGE_DOMAINS=cdn.yourdomain.com,s3.yourdomain.com
+```
+
+2. Build and start:
+
+```bash
+npm run build
+npm run start
+```
+
+Notes:
+
+- In production, API proxy rewrites are disabled; set `NEXT_PUBLIC_API_URL` to an absolute URL.
+- The build uses `output: "standalone"` suitable for Docker or custom servers.

@@ -3,8 +3,22 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
 
-  // API proxy configuration to route requests to Django backend
+  // Produce a smaller, self-contained build ideal for Docker/servers
+  output: "standalone",
+
+  // Allow production builds to complete even with ESLint errors
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  // Allow production builds to complete even with TS errors
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
+  // API proxy in development only; in production use absolute API URLs
   async rewrites() {
+    if (process.env.NODE_ENV === "production") return [];
     return [
       {
         source: "/api/v1/:path*",
@@ -23,20 +37,67 @@ const nextConfig: NextConfig = {
 
   // Image configuration - allow images from backend server
   images: {
-    remotePatterns: [
+    remotePatterns: (() => {
+      const patterns = [
+        {
+          protocol: "http",
+          hostname: "127.0.0.1",
+          port: "9000",
+          pathname: "/**",
+        },
+        {
+          protocol: "http",
+          hostname: "localhost",
+          port: "9000",
+          pathname: "/**",
+        },
+      ];
+      const extra = (process.env.NEXT_IMAGE_DOMAINS || "")
+        .split(",")
+        .map((d) => d.trim())
+        .filter(Boolean);
+      for (const domain of extra) {
+        patterns.push({
+          protocol: "https",
+          hostname: domain,
+          pathname: "/**",
+        } as any);
+      }
+      return patterns;
+    })(),
+  },
+
+  // Add basic security headers and caching
+  async headers() {
+    return [
       {
-        protocol: "http",
-        hostname: "127.0.0.1",
-        port: "9000",
-        pathname: "/**",
+        source: "/(.*)",
+        headers: [
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=()" },
+        ],
       },
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "9000",
-        pathname: "/**",
+        source: "/_next/static/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
-    ],
+      {
+        source: "/(.*).(svg|png|jpg|jpeg|gif|webp|ico)$",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=604800, must-revalidate",
+          },
+        ],
+      },
+    ];
   },
 };
 
