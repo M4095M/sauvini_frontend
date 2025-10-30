@@ -36,13 +36,48 @@ export default function SendMessage() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      // EmailJS configuration - you'll need to replace these with your actual values
-      const serviceId =
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "your_service_id";
-      const templateId =
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "your_template_id";
-      const publicKey =
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "your_public_key";
+      // EmailJS configuration - validate environment variables
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      // Validate that all EmailJS configuration is set
+      if (!serviceId || serviceId === "your_service_id" || !serviceId.trim()) {
+        console.error("EmailJS Service ID is not configured");
+        setSubmitStatus({
+          type: "error",
+          message:
+            "Email service is not properly configured. Please contact support.",
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      if (
+        !templateId ||
+        templateId === "your_template_id" ||
+        !templateId.trim()
+      ) {
+        console.error("EmailJS Template ID is not configured");
+        setSubmitStatus({
+          type: "error",
+          message:
+            "Email service is not properly configured. Please contact support.",
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      if (!publicKey || publicKey === "your_public_key" || !publicKey.trim()) {
+        console.error("EmailJS Public Key is not configured");
+        setSubmitStatus({
+          type: "error",
+          message:
+            "Email service is not properly configured. Please contact support.",
+        });
+        setIsLoading(false);
+        return;
+      }
 
       // Prepare template parameters
       const templateParams = {
@@ -69,12 +104,27 @@ export default function SendMessage() {
         subject: "",
         message: "",
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("EmailJS error:", error);
+
+      // Provide more specific error messages
+      let errorMessage =
+        "Sorry, there was an error sending your message. Please try again or contact us directly.";
+
+      if (error?.text?.includes("Public Key")) {
+        errorMessage =
+          "Email service configuration error. Please contact support with this error code: EMAILJS_KEY_INVALID";
+      } else if (error?.text?.includes("Service ID")) {
+        errorMessage =
+          "Email service configuration error. Please contact support with this error code: EMAILJS_SERVICE_INVALID";
+      } else if (error?.text?.includes("Template")) {
+        errorMessage =
+          "Email service configuration error. Please contact support with this error code: EMAILJS_TEMPLATE_INVALID";
+      }
+
       setSubmitStatus({
         type: "error",
-        message:
-          "Sorry, there was an error sending your message. Please try again or contact us directly.",
+        message: errorMessage,
       });
     } finally {
       setIsLoading(false);
