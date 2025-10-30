@@ -1,0 +1,1882 @@
+
+> sauvini@0.1.0 translation:extract
+> node scripts/translation-validator.js
+
+🔍 Scanning codebase for translation usage...
+
+🔍 TRANSLATION VALIDATION REPORT
+================================
+
+📊 Total translation keys found: 633
+❌ Missing translations: 230
+🗑️  Unused keys: 251
+
+❌ MISSING TRANSLATIONS:
+========================
+
+Key: /courses/module
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/utils/api.ts:88
+
+Key: /courses/module/${id}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/utils/api.ts:92
+
+Key: /courses/chapter/${cleanId}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/utils/api.ts:104
+
+Key: .
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 7 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/lib/translations.ts:18
+
+Key: -
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/lib/cookies.ts:28
+
+Key: ../types/api
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 3 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/index.ts:251
+
+Key: /exercises/lesson/${lessonId}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts:84
+
+Key: /exercises/chapter/${chapterId}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts:90
+
+Key: /exercises/${exerciseId}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts:94
+
+Key: /exercises/${exerciseId}/submission
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts:100
+
+Key: /exercises/${exerciseId}/submissions
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts:133
+
+Key: admin.navigation.${label}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/SideBar.tsx:178
+
+Key: professor.navigation.${label}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/SideBar.tsx:218
+
+Key: professor.general
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/ProfessorCard.tsx:16
+
+Key: navigation.${label}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 3 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/SideBar.tsx:127
+
+Key: modules.clickToViewChapters
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/ModuleCard.tsx:199
+
+Key: chapters.purchaseChapter
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/ChapterCard.tsx:230
+
+Key: [data-dropdown-container]
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/input/dropDown.tsx:148
+
+Key: حجم الملف كبير جداً. الحد الأقصى ${max_size} ميجابايت
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/input/attachementField.tsx:78
+
+Key: a
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 3 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/files/SecureFileAccess.tsx:249
+
+Key: exams.statusNew
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/exams/ExamsGrid.tsx:99
+
+Key: exams.statusSubmitted
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/exams/ExamsGrid.tsx:100
+
+Key: exams.statusPassed
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/exams/ExamsGrid.tsx:101
+
+Key: exams.statusFailed
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/exams/ExamsGrid.tsx:102
+
+Key: exams.examPdf
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/exams/ExamDetailsGrid.tsx:116
+
+Key: landing.whySauvini.structuredLearning.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:25
+
+Key: landing.whySauvini.structuredLearning.desc
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:26
+
+Key: landing.whySauvini.expertProfessors.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:32
+
+Key: landing.whySauvini.expertProfessors.desc
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:33
+
+Key: landing.whySauvini.trackProgress.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:39
+
+Key: landing.whySauvini.trackProgress.desc
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:40
+
+Key: landing.whySauvini.gamifiedLearning.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:46
+
+Key: landing.whySauvini.gamifiedLearning.desc
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:47
+
+Key: landing.whySauvini.trustedSecure.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:53
+
+Key: landing.whySauvini.trustedSecure.desc
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:54
+
+Key: landing.whySauvini.accessibleAnywhere.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:60
+
+Key: landing.whySauvini.accessibleAnywhere.desc
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:61
+
+Key: landing.whySauvini.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx:267
+
+Key: landing.nav.home
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx:51
+
+Key: landing.nav.whyUs
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx:54
+
+Key: landing.nav.whatWeOffer
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx:59
+
+Key: landing.nav.exploreModules
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx:64
+
+Key: landing.nav.login
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx:253
+
+Key: landing.nav.signUp
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx:262
+
+Key: landing.team.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/MeetOurTeam.tsx:151
+
+Key: landing.footer.explore
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:20
+
+Key: landing.footer.home
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:22
+
+Key: landing.footer.whyUs
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:23
+
+Key: landing.footer.whatWeOffer
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:24
+
+Key: landing.footer.exploreModules
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:25
+
+Key: landing.footer.contact
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:29
+
+Key: landing.footer.emailUs
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:31
+
+Key: landing.footer.instagram
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:32
+
+Key: landing.footer.facebook
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:33
+
+Key: landing.footer.language
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:37
+
+Key: landing.footer.english
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:39
+
+Key: landing.footer.arabic
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:40
+
+Key: landing.footer.french
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:41
+
+Key: landing.footer.access
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:45
+
+Key: landing.footer.signUpStudent
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:47
+
+Key: landing.footer.applyTeacher
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:48
+
+Key: landing.footer.logIn
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx:49
+
+Key: landing.hero.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx:60
+
+Key: landing.hero.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx:72
+
+Key: landing.hero.exploreModules
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 3 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx:87
+
+Key: landing.hero.startLearning
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 3 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx:96
+
+Key: landing.hero.imageAlt
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx:114
+
+Key: landing.for.forStudents
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/ForWhom.tsx:65
+
+Key: landing.for.forProfessors
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/ForWhom.tsx:93
+
+Key: landing.for.applyNow
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/ForWhom.tsx:225
+
+Key: Sensitive action performed!
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/examples/AuthExample.tsx:78
+
+Key: Admin action performed!
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/examples/AuthExample.tsx:83
+
+Key: Tokens are still valid. No refresh needed.
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/debug/TokenRefreshDebug.tsx:43
+
+Key: Token refresh successful! New tokens stored.
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/debug/TokenRefreshDebug.tsx:55
+
+Key: Tokens cleared
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/debug/TokenRefreshDebug.tsx:87
+
+Key: register.verify-email.resend
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/auth/otpInput.tsx:28
+
+Key: exercises.statusNew
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/exercises/ExercisesGrid.tsx:89
+
+Key: exercises.statusSubmitted
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/exercises/ExercisesGrid.tsx:90
+
+Key: exercises.statusGraded
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/exercises/ExercisesGrid.tsx:91
+
+Key: exercises.exercisePdf
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/exercises/ExerciseDetailsGrid.tsx:87
+
+Key: email
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/verify-email/page.tsx:11
+
+Key: register.professor.page_3.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher3.tsx:54
+
+Key: register.professor.page_3.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher3.tsx:57
+
+Key: register.common.email
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher3.tsx:73
+
+Key: register.common.password
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher3.tsx:85
+
+Key: register.common.confirm_password
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher3.tsx:94
+
+Key: register.common.previous
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 5 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher3.tsx:110
+
+Key: register.common.next
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 5 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher3.tsx:119
+
+Key: register.professor.page_2.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher2.tsx:185
+
+Key: register.professor.page_2.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher2.tsx:188
+
+Key: register.professor.page_2.questions.q_1
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher2.tsx:210
+
+Key: register.common.no
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 3 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher2.tsx:213
+
+Key: register.common.yes
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 3 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher2.tsx:213
+
+Key: register.professor.page_2.questions.q_2
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher2.tsx:227
+
+Key: register.professor.page_2.questions.q_3
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher2.tsx:244
+
+Key: register.professor.page_2.questions.q_4
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher2.tsx:261
+
+Key: register.professor.page_2.questions.q_5
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher2.tsx:280
+
+Key: register.professor.page_1.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:122
+
+Key: register.professor.page_1.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:125
+
+Key: register.common.firstname
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:144
+
+Key: register.common.lastname
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:155
+
+Key: register.common.gender
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:168
+
+Key: register.common.male
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:171
+
+Key: register.common.Female
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:171
+
+Key: register.common.date_of_birth
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:178
+
+Key: register.common.Wilaya
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:189
+
+Key: register.common.phone
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/teacher1.tsx:204
+
+Key: register.submission.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/submit.tsx:27
+
+Key: register.submission.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/submit.tsx:30
+
+Key: register.common.return_home
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/submit.tsx:37
+
+Key: register.student.page_2.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/student2.tsx:93
+
+Key: register.student.page_2.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/student2.tsx:96
+
+Key: register.common.Academic_stream
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/student2.tsx:122
+
+Key: register.student.page_1.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/student1.tsx:123
+
+Key: register.student.page_1.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/student1.tsx:126
+
+Key: register.verify-email-done.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/password-reset-done.tsx:13
+
+Key: register.verify-email-done.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/password-reset-done.tsx:16
+
+Key: register.verify-email.verify.button
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/password-reset-done.tsx:23
+
+Key: register.verify-email.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/otp.tsx:286
+
+Key: register.verify-email.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/otp.tsx:289
+
+Key: register.verify-email.not_received
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/otp.tsx:292
+
+Key: register.intro.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/chooseRole.tsx:26
+
+Key: register.intro.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/chooseRole.tsx:29
+
+Key: register.common.login_desc
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/chooseRole.tsx:158
+
+Key: register.common.login
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/register/chooseRole.tsx:164
+
+Key: professor.quizes.Submit
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/quizes/page.tsx:71
+
+Key: landing.why.cards.c1.title
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:26
+
+Key: landing.why.cards.c1.desc
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:28
+
+Key: landing.why.cards.c2.title
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:33
+
+Key: landing.why.cards.c2.desc
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:34
+
+Key: landing.why.cards.c3.title
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:38
+
+Key: landing.why.cards.c3.desc
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:40
+
+Key: landing.why.cards.c4.title
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:45
+
+Key: landing.why.cards.c4.desc
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:46
+
+Key: landing.for.students.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:80
+
+Key: landing.for.students.desc
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:82
+
+Key: landing.for.professors.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:86
+
+Key: landing.for.professors.desc
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx:88
+
+Key: Test Student
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 11 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/__tests__/integration/student-flow.test.tsx:82
+
+Key: Failed to load profile
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/__tests__/integration/student-flow.test.tsx:140
+
+Key: Updated Student
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/__tests__/integration/student-flow.test.tsx:270
+
+Key:  
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 5 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/tables/students/students_columns.tsx:55
+
+Key: /
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 5 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/tables/purchases/purchases_columns.tsx:83
+
+Key: admin.managePurchases.status.${status}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/tables/purchases/purchases_columns.tsx:137
+
+Key: test@example.com
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx:44
+
+Key: Algiers
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx:45
+
+Key: 0555123456
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx:46
+
+Key: Mathematics
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx:47
+
+Key: Loading...
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx:57
+
+Key: professor.questions.filter.lesson
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/questions/QuestionsGrid.tsx:146
+
+Key: professor.questions.filter.chapter
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/questions/QuestionsGrid.tsx:172
+
+Key: professor.questions.status.${s.toLowerCase()}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/questions/QuestionsGrid.tsx:193
+
+Key: professor.questions.filter.status
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/questions/QuestionsGrid.tsx:200
+
+Key: professor.questions.replies
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/questions/QuestionCard.tsx:272
+
+Key: professor.academicStreams.${selectedStreamLabel}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/modules/ModulesSection.tsx:189
+
+Key: professor.academicStreams.${stream.labelKey}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/modules/ModulesSection.tsx:220
+
+Key: professor.exercises.filter.lesson
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exercises/ExerciseSubmissionsGrid.tsx:98
+
+Key: professor.exercises.filter.chapter
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exercises/ExerciseSubmissionsGrid.tsx:105
+
+Key: professor.exercises.filter.status
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exercises/ExerciseSubmissionsGrid.tsx:112
+
+Key: professor.exams.filter.selectChapter
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamsSubmissionsGrid.tsx:96
+
+Key: professor.exams.filter.selectStatus
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamsSubmissionsGrid.tsx:109
+
+Key: professor.exams.status.${s.toLowerCase()}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamsSubmissionsGrid.tsx:110
+
+Key: professor.exams.status.corrected
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamSubmissionCard.tsx:63
+
+Key: professor.exams.status.waiting
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamSubmissionCard.tsx:64
+
+Key: professor.exams.correctionFileDefault
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamSubmissionCard.tsx:91
+
+Key: professor.chapters.status.published
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx:70
+
+Key: professor.chapters.status.validated
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx:77
+
+Key: professor.chapters.status.waiting
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx:85
+
+Key: professor.chapters.lessonsCount
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx:362
+
+Key: professor.chapters.lastVersion
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx:439
+
+Key: professor.chapters.incomplete
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx:457
+
+Key: admin.managePurchases.status.${statusKey}
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/adminPurchases/PurchaseDetails.tsx:102
+
+Key: Test Module
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/__tests__/ModuleCard.test.tsx:42
+
+Key: A test module
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/__tests__/ModuleCard.test.tsx:43
+
+Key: chapterId
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/test-chapter/page.tsx:8
+
+Key: moduleId
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/test-chapter/page.tsx:9
+
+Key: lessonId
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/quiz-builder/page.tsx:22
+
+Key: quizId
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/quiz-builder/page.tsx:23
+
+Key: professor.chapters.management
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:216
+
+Key: [data-academic-streams-section]
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:337
+
+Key: Please select a PDF file
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:553
+
+Key: errors.chapter.titleRequired
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:560
+
+Key: errors.chapter.descriptionRequired
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:563
+
+Key: errors.chapter.minScoreExceedsTotal
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:566
+
+Key: professor.chapters.SaveChanges
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:734
+
+Key: professor.chapters.supportedStreams
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:832
+
+Key: professor.chapters.ChapterDepencies
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1062
+
+Key: professor.chapters.AddDepencies
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1092
+
+Key: professor.chapters.ChapterExams
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1107
+
+Key: professor.chapters.UploadExamPDF
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1115
+
+Key: professor.chapters.Upload
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1122
+
+Key: professor.chapters.ExamTotalMark
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1161
+
+Key: professor.chapters.ExamMinScore
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1194
+
+Key: professor.chapters.ExamTotalXP
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1227
+
+Key: professor.chapters.Lessons
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1265
+
+Key: professor.chapters.AddLesson
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1301
+
+Key: professor.chapters.NoLessonYet
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx:1380
+
+Key: errors.lesson.failedToLoad
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/viewLessonPopup.tsx:46
+
+Key: errors.lesson.failedToFetchStreams
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx:215
+
+Key: errors.lesson.unknownError
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx:223
+
+Key: errors.lesson.idRequired
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx:298
+
+Key: errors.lesson.titleRequired
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx:303
+
+Key: errors.lesson.descriptionRequired
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx:308
+
+Key: errors.lesson.academicStreamRequired
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx:128
+
+Key: errors.lesson.chapterIdRequired
+  EN: ✅
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx:133
+
+Key: professor.lessons.CreateLessonTitle
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx:176
+
+Key: professor.lessons.CreateLessonDesc
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx:179
+
+Key: professor.lessons.CreateLesson
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx:510
+
+Key: professor.lessons.AddDepency
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/chapterDependencyPopup.tsx:41
+
+Key: professor.lessons.AddDepencyDesc
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/chapterDependencyPopup.tsx:44
+
+Key: professor.lessons.SaveDepencies
+  EN: ❌
+  AR: ✅
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/chapterDependencyPopup.tsx:87
+
+Key: auth.selectRole.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:71
+
+Key: auth.selectRole.subtitle
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:74
+
+Key: student
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:82
+
+Key: auth.selectRole.student.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:90
+
+Key: auth.selectRole.student.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:93
+
+Key: professor
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:101
+
+Key: auth.selectRole.professor.title
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:109
+
+Key: auth.selectRole.professor.description
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:112
+
+Key: auth.selectRole.noAccount
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:122
+
+Key: auth.selectRole.signUp
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx:124
+
+Key: returnUrl
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 5 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/page.tsx:55
+
+Key: submit
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/page.tsx:280
+
+Key: CV file not available for this professor
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/(admin)/professor-management/viewTeacherApplication.tsx:27
+
+Key: verified
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/professor/page.tsx:30
+
+Key: reset
+  EN: ❌
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/professor/page.tsx:35
+
+Key: auth.login.professorLogin
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/professor/page.tsx:175
+
+Key: auth.login.wrongRole
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/professor/page.tsx:294
+
+Key: auth.login.studentLogin
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 2 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/professor/page.tsx:299
+
+Key: auth.login.professorTagline
+  EN: ✅
+  AR: ❌
+  FR: ❌
+  Used in: 1 places
+  First usage: /Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/professor/page.tsx:364
+
+🗑️  UNUSED KEYS:
+================
+
+  common.language
+  common.nexting
+  common.verifying
+  common.elements
+  common.page
+  common.refresh
+  common.allStreams
+  common.video
+  common.pdf
+  common.image
+  common.document
+  common.file
+  common.untitledLesson
+  common.noDescriptionAvailable
+  common.moduleName
+  common.chapterTitle
+  common.removeVideo
+  common.removeFile
+  common.removePDF
+  common.clearAllSelectedStreams
+  common.removeStream
+  common.addAcademicStream
+  common.errorLoadingStreams
+  common.clickAddLesson
+  common.createFirstLesson
+  common.deleteChapter
+  wilayas.0.wilaya_name
+  wilayas.1.wilaya_name
+  wilayas.2.wilaya_name
+  wilayas.3.wilaya_name
+  wilayas.4.wilaya_name
+  wilayas.5.wilaya_name
+  wilayas.6.wilaya_name
+  wilayas.7.wilaya_name
+  wilayas.8.wilaya_name
+  wilayas.9.wilaya_name
+  wilayas.10.wilaya_name
+  wilayas.11.wilaya_name
+  wilayas.12.wilaya_name
+  wilayas.13.wilaya_name
+  wilayas.14.wilaya_name
+  wilayas.15.wilaya_name
+  wilayas.16.wilaya_name
+  wilayas.17.wilaya_name
+  wilayas.18.wilaya_name
+  wilayas.19.wilaya_name
+  wilayas.20.wilaya_name
+  wilayas.21.wilaya_name
+  wilayas.22.wilaya_name
+  wilayas.23.wilaya_name
+  wilayas.24.wilaya_name
+  wilayas.25.wilaya_name
+  wilayas.26.wilaya_name
+  wilayas.27.wilaya_name
+  wilayas.28.wilaya_name
+  wilayas.29.wilaya_name
+  wilayas.30.wilaya_name
+  wilayas.31.wilaya_name
+  wilayas.32.wilaya_name
+  wilayas.33.wilaya_name
+  wilayas.34.wilaya_name
+  wilayas.35.wilaya_name
+  wilayas.36.wilaya_name
+  wilayas.37.wilaya_name
+  wilayas.38.wilaya_name
+  wilayas.39.wilaya_name
+  wilayas.40.wilaya_name
+  wilayas.41.wilaya_name
+  wilayas.42.wilaya_name
+  wilayas.43.wilaya_name
+  wilayas.44.wilaya_name
+  wilayas.45.wilaya_name
+  wilayas.46.wilaya_name
+  wilayas.47.wilaya_name
+  wilayas.48.wilaya_name
+  wilayas.49.wilaya_name
+  wilayas.50.wilaya_name
+  wilayas.51.wilaya_name
+  wilayas.52.wilaya_name
+  wilayas.53.wilaya_name
+  wilayas.54.wilaya_name
+  wilayas.55.wilaya_name
+  wilayas.56.wilaya_name
+  wilayas.57.wilaya_name
+  register.common.upload
+  register.common.upload_desc
+  register.submission.next_steps
+  register.verify-email.verify.title
+  register.verify-email.verify.description
+  auth.login.emailPlaceholder
+  auth.login.passwordPlaceholder
+  auth.login.errors.email_required
+  auth.login.errors.password_required
+  auth.login.switchRole.toProfessor
+  auth.login.switchRole.toStudent
+  auth.verify.title
+  auth.verify.subtitle
+  auth.verify.helper
+  auth.verify.button
+  auth.verify.tagline
+  auth.verify.email
+  auth.verify.codeLabel
+  chapters.title
+  chapters.backToModules
+  chapters.complete
+  chapters.incomplete
+  chapters.locked
+  chapters.progress
+  chapters.of
+  chapters.noChapters
+  chapters.startLearning
+  chapters.continueChapter
+  chapters.completionStatus
+  chapters.viewLessons
+  chapters.showPurchasedOnly
+  lesson.minutes
+  navigation.modules
+  navigation.exams
+  navigation.exercises
+  navigation.questions
+  navigation.badges
+  navigation.notifications
+  exams.new
+  exams.submitted
+  exams.passed
+  exams.failed
+  exams.submissionInstructions
+  exams.solutionFile
+  exams.selectPdf
+  exams.pdfOnly
+  notFound.title
+  notFound.description
+  notFound.backToHome
+  notFound.backToModules
+  notFound.goHome
+  notFound.lessonTitle
+  notFound.lessonDescription
+  notFound.exerciseTitle
+  notFound.exerciseDescription
+  notFound.backToExercises
+  exercises.new
+  exercises.submitted
+  exercises.totalMarks
+  exercises.failed
+  exercises.passed
+  exercises.graded
+  exercises.statusPassed
+  exercises.statusFailed
+  professor.navigation.manageContent
+  professor.navigation.correctExams
+  professor.navigation.correctExercises
+  professor.navigation.answerQuestions
+  professor.navigation.notifications
+  professor.navigation.accountDetails
+  professor.navigation.manageProfessors
+  professor.navigation.managePurchases
+  professor.navigation.manageStudents
+  professor.academicStreams.mathematics
+  professor.academicStreams.experimentalsciences
+  professor.academicStreams.literature
+  professor.academicStreams.mathtechnique
+  professor.chapters.chapterNameRequired
+  professor.chapters.academicStream
+  professor.chapters.addChapter
+  professor.chapters.noChaptersFound
+  professor.chapters.createNewChapter
+  professor.chapters.createNewChapterSubtitle
+  professor.chapters.chapterName
+  professor.chapters.chapterNamePlaceholder
+  professor.chapters.chapterDescription
+  professor.chapters.chapterPrice
+  professor.chapters.editLaterNote
+  professor.chapters.createChapter
+  professor.exams.filter.chapter
+  professor.exams.filter.status
+  professor.exams.status.all
+  professor.exams.notesPlaceholder
+  professor.exercises.selectLesson
+  professor.exercises.selectChapter
+  professor.exercises.selectStatus
+  professor.exercises.studentNotes
+  professor.notifications.title
+  professor.notifications.noNotifications
+  professor.notifications.markAllAsSeen
+  professor.notifications.sortByImportance
+  professor.notifications.sortByTime
+  professor.questions.status.all
+  professor.questions.professorNotes
+  professor.questions.professorFile
+  professor.profile.title
+  professor.profile.academicStream
+  professor.permissions.contentCreation
+  professor.permissions.questionAnswering
+  professor.permissions.exerciseExamCorrection
+  public.lessons
+  public.lockMessage
+  admin.navigation.manageStudents
+  admin.navigation.manageProfessors
+  admin.navigation.managePurchases
+  admin.manageStudents.viewProfile
+  admin.managePurchases.noPurchases
+  profile.noFileChosen
+  errors.radio.required
+  errors.chapter.failedToUpdate
+  errors.chapter.failedToDelete
+  errors.chapter.failedToLoadLessons
+  errors.chapter.failedToCreate
+  errors.chapter.unknownError
+  errors.chapter.selectPdfFile
+  errors.module.apiFailed
+  errors.module.failedToFetch
+  errors.module.descriptionNotAvailable
+  errors.auth.unexpectedError
+  errors.auth.loginFailed
+  errors.auth.registrationFailed
+  otp.resent
+  terms.agreement
+  terms.continue
+  register.selectRole.title
+  register.selectRole.subtitle
+  register.selectRole.noAccount
+  register.selectRole.signUp
+  register.selectRole.student.title
+  register.selectRole.student.description
+  register.selectRole.professor.title
+  register.selectRole.professor.description
+  exams.examPDF
+  exercises.exercisePDF
+  professor.chapters.chapterDescriptionPlaceholder
+  professor.chapters.complete
+  professor.chapters.AddStream
+  professor.lessons.CreatedOn
+  professor.quizes.QuizTolalMark
+  professor.exams.filter.chapterPrefix
+  professor.exams.filter.statusPrefix
+  exercises.submissionInstructions
+  exercises.solutionFile
+  exercises.selectPdf
+  exercises.pdfOnly
+  professor.Notification
+  professor.exams.filters.chapterPrefix
+  professor.exams.filters.statusPrefix
+  professor.exams.filters.waiting
+  professor.exams.filters.all
+  professor.exams.filters.corrected
+  professor.exams.filters.selectChapter
+  professor.exams.filters.selectStatus
+  professor.notifications.markAsSeen
+  professor.notifications.normal
+  professor.notifications.important
+  professor.notifications.urgent
+
+📄 Detailed report saved to: translation-report.json

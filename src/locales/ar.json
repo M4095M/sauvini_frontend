@@ -1,0 +1,1234 @@
+{
+  "about_us": {
+    "title": "من نحن",
+    "description": "نحن فريق من المطورين المتحمسين الذين يسعون لتقديم أفضل تجربة ممكنة للمستخدمين. نؤمن بقوة التكنولوجيا في تحسين الحياة اليومية."
+  },
+  "common": {
+    "language": "اللغة",
+    "back": "رجوع",
+    "next": "التالي",
+    "nexting": "التالي",
+    "verifying": "جاري التحقق...",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "creating": "جاري الإنشاء...",
+    "search": "بحث",
+    "downloadShort": "تنزيل",
+    "showCount": "عرض {count} عنصر",
+    "all": "الكل",
+    "show": "عرض",
+    "elements": "عناصر",
+    "page": "صفحة",
+    "browse": "تصفح",
+    "gender": {
+      "male": "ذكر",
+      "female": "أنثى"
+    },
+    "uploading": "جارٍ الرفع...",
+    "uploaded": "تم الرفع",
+    "retry": "إعادة المحاولة",
+    "upload": "رفع",
+    "sending": "جارٍ الارسال...",
+    "refresh": "تحديث",
+    "view": "عرض",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "allChapters": "جميع الفصول",
+    "allStreams": "جميع الشعب",
+    "video": "فيديو",
+    "pdf": "PDF",
+    "image": "صورة",
+    "document": "وثيقة",
+    "file": "ملف",
+    "unknown": "غير معروف",
+    "untitledLesson": "درس بدون عنوان",
+    "noDescriptionAvailable": "لا يوجد وصف متاح",
+    "moduleName": "اسم الوحدة",
+    "chapterTitle": "عنوان الفصل",
+    "removeVideo": "إزالة الفيديو",
+    "removeFile": "إزالة الملف",
+    "removePDF": "إزالة PDF",
+    "clearAllSelectedStreams": "مسح جميع الشعب المحددة",
+    "removeStream": "إزالة الشعبة",
+    "addAcademicStream": "إضافة شعبة أكاديمية",
+    "errorLoadingStreams": "خطأ في تحميل الشعب",
+    "enterChapterTitle": "أدخل عنوان الفصل",
+    "enterChapterDescription": "أدخل وصف الفصل",
+    "enterChapterPrice": "أدخل سعر الفصل بالدينار",
+    "enterLessonName": "أدخل اسم الدرس",
+    "enterLessonDescription": "أدخل وصف الدرس",
+    "clickAddLesson": "انقر على \"إضافة درس\" لإنشاء أول درس لك",
+    "createFirstLesson": "إنشاء أول درس",
+    "deleteChapter": "حذف الفصل"
+  },
+  "wilayas": [
+    { "id": 1, "wilaya_name": "01-أدرار" },
+    { "id": 2, "wilaya_name": "02-الشلف" },
+    { "id": 3, "wilaya_name": "03-الأغواط" },
+    { "id": 4, "wilaya_name": "04-أم البواقي" },
+    { "id": 5, "wilaya_name": "05-باتنة" },
+    { "id": 6, "wilaya_name": "06-بجاية" },
+    { "id": 7, "wilaya_name": "07-بسكرة" },
+    { "id": 8, "wilaya_name": "08-بشار" },
+    { "id": 9, "wilaya_name": "09-البليدة" },
+    { "id": 10, "wilaya_name": "10-البويرة" },
+    { "id": 11, "wilaya_name": "11-تمنراست" },
+    { "id": 12, "wilaya_name": "12-تبسة" },
+    { "id": 13, "wilaya_name": "13-تلمسان" },
+    { "id": 14, "wilaya_name": "14-تيارت" },
+    { "id": 15, "wilaya_name": "15-تيزي وزو" },
+    { "id": 16, "wilaya_name": "16-الجزائر" },
+    { "id": 17, "wilaya_name": "17-الجلفة" },
+    { "id": 18, "wilaya_name": "18-جيجل" },
+    { "id": 19, "wilaya_name": "19-سطيف" },
+    { "id": 20, "wilaya_name": "20-سعيدة" },
+    { "id": 21, "wilaya_name": "21-سكيكدة" },
+    { "id": 22, "wilaya_name": "22-سيدي بلعباس" },
+    { "id": 23, "wilaya_name": "23-عنابة" },
+    { "id": 24, "wilaya_name": "24-قالمة" },
+    { "id": 25, "wilaya_name": "25-قسنطينة" },
+    { "id": 26, "wilaya_name": "26-المدية" },
+    { "id": 27, "wilaya_name": "27-مستغانم" },
+    { "id": 28, "wilaya_name": "28-المسيلة" },
+    { "id": 29, "wilaya_name": "29-معسكر" },
+    { "id": 30, "wilaya_name": "30-ورقلة" },
+    { "id": 31, "wilaya_name": "31-وهران" },
+    { "id": 32, "wilaya_name": "32-البيض" },
+    { "id": 33, "wilaya_name": "33-إليزي" },
+    { "id": 34, "wilaya_name": "34-برج بوعريريج" },
+    { "id": 35, "wilaya_name": "35-بومرداس" },
+    { "id": 36, "wilaya_name": "36-الطارف" },
+    { "id": 37, "wilaya_name": "37-تندوف" },
+    { "id": 38, "wilaya_name": "38-تيسمسيلت" },
+    { "id": 39, "wilaya_name": "39-الوادي" },
+    { "id": 40, "wilaya_name": "40-خنشلة" },
+    { "id": 41, "wilaya_name": "41-سوق أهراس" },
+    { "id": 42, "wilaya_name": "42-تيبازة" },
+    { "id": 43, "wilaya_name": "43-ميلة" },
+    { "id": 44, "wilaya_name": "44-عين الدفلى" },
+    { "id": 45, "wilaya_name": "45-النعامة" },
+    { "id": 46, "wilaya_name": "46-عين تموشنت" },
+    { "id": 47, "wilaya_name": "47-غرداية" },
+    { "id": 48, "wilaya_name": "48-غليزان" },
+    { "id": 49, "wilaya_name": "49-المغير" },
+    { "id": 50, "wilaya_name": "50-المنيعة" },
+    { "id": 51, "wilaya_name": "51-أولاد جلال" },
+    { "id": 52, "wilaya_name": "52-برج باجي مختار" },
+    { "id": 53, "wilaya_name": "53-بني عباس" },
+    { "id": 54, "wilaya_name": "54-تيميمون" },
+    { "id": 55, "wilaya_name": "55-تقرت" },
+    { "id": 56, "wilaya_name": "56-جانت" },
+    { "id": 57, "wilaya_name": "57-عين صالح" },
+    { "id": 58, "wilaya_name": "58-عين قزّام" }
+  ],
+  "register": {
+    "common": {
+      "login_desc": "لديك حساب بالفعل؟",
+      "login": "سجّل الدخول",
+      "next": "التالي",
+      "previous": "السابق",
+      "firstname": "الاسم ",
+      "lastname": "اللقب",
+      "name": "الاسم",
+      "Wilaya": "الولاية",
+      "phone": "رقم الهاتف",
+      "Academic_stream": "الشعبة الدراسية",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirm_password": "تأكيد كلمة المرور",
+      "gender": "الجنس",
+      "date_of_birth": "تاريخ الميلاد",
+      "upload": "حمل",
+      "upload_desc": "قم بتحميل سيرتك الذاتية (CV)",
+      "yes": "نعم",
+      "no": "لا",
+      "male": "ذكر",
+      "Female": "أنثى",
+      "return_home": "العودة إلى الصفحة الرئيسية"
+    },
+    "cards": {
+      "role": {
+        "student": {
+          "title": "طالب",
+          "benefit_1": "تعلّم من خلال الفيديوهات والملخصات",
+          "benefit_2": "تابع تقدمك",
+          "benefit_3": "اسأل الأساتذة مباشرة"
+        },
+        "professor": {
+          "title": "أستاذ",
+          "benefit_1": "أنشئ الدروس والاختبارات",
+          "benefit_2": "راجع إجابات الطلاب",
+          "benefit_3": "أجب عن أسئلتهم"
+        }
+      }
+    },
+    "intro": {
+      "title": "ابدأ بإخبارنا من أنت",
+      "description": "سجّل كطالب لتبدأ التعلّم، أو كأستاذ لتشارك خبرتك."
+    },
+    "student": {
+      "page_1": {
+        "title": "أخبرنا قليلاً عن نفسك",
+        "description": "لبداية التسجيل، نحتاج لبعض المعلومات البسيطة عنك"
+      },
+      "page_2": {
+        "title": "لنُكمل إعداد حسابك",
+        "description": "بقيت فقط بعض التفاصيل البسيطة قبل أن تبدأ."
+      }
+    },
+    "professor": {
+      "page_1": {
+        "title": "فلنتعرّف عليك",
+        "description": "سنبدأ بمعلوماتك الأساسية."
+      },
+      "page_3": {
+        "title": "أنشئ حسابك",
+        "description": "أدخل بريدك الإلكتروني وكلمة المرور لإكمال التسجيل"
+      },
+      "page_2": {
+        "title": " أخبرنا عن خبرتك المهنية",
+        "description": "سيساعدنا ذلك في معرفة خلفيتك في التدريس",
+        "questions": {
+          "q_1": "هل لديك خبرة في التدريس في مدرسة ثانوية؟",
+          "q_2": "كم عدد سنوات الخبرة؟",
+          "q_3": "هل لديك خبرة في إعطاء دروس خارج المدارس؟",
+          "q_4": "هل لديك خبرة في إعطاء دروس خارج المدارس عبر الإنترنت؟",
+          "q_5": "قم بتحميل سيرتك الذاتية (CV)"
+        }
+      }
+    },
+    "submission": {
+      "title": "تم إرسال طلبك بنجاح!",
+      "description": "شكرًا لتسجيلك! لقد تم إرسال معلوماتك للمراجعة. ستتلقى رسالة تأكيد عبر البريد الإلكتروني بمجرد التحقق من حسابك. قد تستغرق هذه العملية بضعة أيام.",
+      "next_steps": "العودة إلى الصفحة الرئيسية"
+    },
+    "verify-email": {
+      "title": "تحقق من بريدك الإلكتروني",
+      "description": "أدخل الرمز الذي أرسلناه إلى بريدك",
+      "not_received": "لم يصلك الرمز؟ تحقق من مجلد الرسائل غير المرغوبة أو اطلب رمزًا جديدًا",
+      "resend": "إعادة إرسال الرمز",
+      "button": "تحقق من الرمز",
+      "verify": {
+        "title": "تمّ التحقق من بريدك الإلكتروني!",
+        "description": "أنت جاهز للمتابعة.",
+        "button": "ابدأ التعلم"
+      }
+    },
+    "verify-email-done": {
+      "title": "تمّ التحقق من بريدك الإلكتروني!",
+      "description": "أنت جاهز للمتابعة."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "مرحباً بعودتك",
+      "subtitle": "سجل الدخول للوصول إلى حسابك.",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "loginButton": "تسجيل الدخول",
+      "loggingIn": "جاري تسجيل الدخول...",
+      "noAccount": "ليس لديك حساب؟",
+      "signUp": " سجل الآن",
+      "tagline": "حيث يلتقي التعلم بالهدف",
+      "errors": {
+        "email_required": "البريد الإلكتروني مطلوب",
+        "password_required": "كلمة المرور مطلوبة",
+        "invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة"
+      },
+      "professorLogin": "تسجيل دخول الأستاذ",
+      "studentLogin": "تسجيل دخول الطالب",
+      "wrongRole": "تم اختيار دور خاطئ. يرجى المحاولة مرة أخرى بالدور الصحيح.",
+      "professorTagline": "تمكين المعلمين لإلهام الجيل القادم.",
+      "switchRole": {
+        "toProfessor": "تسجيل الدخول كأستاذ",
+        "toStudent": "تسجيل الدخول كطالب"
+      }
+    },
+    "forgot": {
+      "title": "نسيت كلمة المرور؟",
+      "subtitle": "أدخل البريد الإلكتروني المرتبط بحسابك.",
+      "helper": "سنرسل لك رمز التحقق عبر البريد الإلكتروني.",
+      "email": "البريد الإلكتروني",
+      "tagline": "حيث يلتقي التعلم بالهدف",
+      "errors": {
+        "email_required": "البريد الإلكتروني مطلوب",
+        "invalid_email": "صيغة البريد الإلكتروني غير صحيحة",
+        "email_not_found": "البريد الإلكتروني غير موجود. يرجى التحقق والمحاولة مرة أخرى."
+      }
+    },
+    "verify": {
+      "title": "تحقق من بريدك الإلكتروني",
+      "subtitle": "أدخل الرمز المكون من 6 أرقام الذي أرسلناه لك",
+      "helper": "لم يصلك الرمز؟ تحقق من مجلد الرسائل غير المرغوب فيها أو اطلب رمزًا جديدًا",
+      "resend": "إعادة إرسال الرمز",
+      "button": "تحقق من الرمز",
+      "tagline": "حيث يلتقي التعلم بالهدف",
+      "email": "البريد الإلكتروني",
+      "code": "رمز التحقق",
+      "codeLabel": "رمز التحقق"
+    },
+    "reset": {
+      "title": "إعادة تعيين كلمة المرور",
+      "subtitle": "أدخل الرمز من بريدك الإلكتروني وأنشئ كلمة مرور جديدة",
+      "newPassword": "كلمة المرور الجديدة",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "cta": "إعادة تعيين كلمة المرور",
+      "tagline": "حيث يلتقي التعلم بالهدف",
+      "submitting": "جاري الإرسال...",
+      "successTitle": "تم تغيير كلمة المرور بنجاح!",
+      "successBody": "تم إعادة تعيين كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة.",
+      "successCta": "الذهاب إلى تسجيل الدخول",
+      "submit": "إعادة تعيين كلمة المرور",
+      "errors": {
+        "password_min": "يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل",
+        "password_format": "يجب أن تحتوي كلمة المرور على أحرف كبيرة وصغيرة وأرقام",
+        "confirm_required": "يرجى تأكيد كلمة المرور",
+        "password_mismatch": "كلمات المرور غير متطابقة",
+        "reset_failed": "فشل في إعادة تعيين كلمة المرور. يرجى المحاولة مرة أخرى."
+      }
+    },
+    "branding": {
+      "title": "مرحباً بك في صوڤيني",
+      "subtitle": "رحلة التعلم الخاصة بك تبدأ هنا"
+    }
+  },
+  "footer": {
+    "privacy": "سياسة الخصوصية",
+    "terms": "الشروط",
+    "help": "مساعدة"
+  },
+  "modules": {
+    "keepGoing": "تابع التقدم",
+    "level": "المستوى",
+    "notifications": "الإشعارات",
+    "modulesTitle": "الوحدات",
+    "showPurchasedOnly": "عرض الوحدات المشتراة فقط",
+    "noPurchasedModules": "لم يتم العثور على وحدات مشتراة.",
+    "lessons": "الدروس",
+    "lesson": "الدرس",
+    "unlock": "إلغاء القفل",
+    "viewChapters": "عرض الفصول"
+  },
+  "chapters": {
+    "title": "الفصول",
+    "backToModules": "العودة إلى الوحدات",
+    "complete": "مكتمل",
+    "incomplete": "غير مكتمل",
+    "locked": "مقفل",
+    "progress": "التقدم",
+    "of": "من",
+    "noChapters": "لا توجد فصول متاحة في هذه الوحدة",
+    "startLearning": "ابدأ التعلم",
+    "continueChapter": "متابعة الفصل",
+    "completionStatus": "حالة الإكمال",
+    "chaptersTitle": "فصول",
+    "viewLessons": "عرض الدروس",
+    "showPurchasedOnly": "عرض الوحدات المشتراة فقط",
+    "lesson": "درس",
+    "noPurchasedChapters": "لا توجد فصول مشتراة",
+    "purchaseChapter": "شراء الفصل"
+  },
+  "lesson": {
+    "startLearning": "ابدأ التعلم",
+    "lessonLocked": "الدرس مقفل، أكمل الدروس السابقة لفتحه",
+    "lessonsTitle": "الدروس",
+    "minutes": "دقائق",
+    "noLessons": "لا توجد دروس متاحة"
+  },
+  "navigation": {
+    "modules": "الوحدات",
+    "exams": "الامتحانات",
+    "exercises": "التمارين",
+    "questions": "الأسئلة",
+    "badges": "الشارات",
+    "notifications": "الإشعارات",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج"
+  },
+  "exams": {
+    "title": "امتحاناتي",
+    "description": "عرض جميع امتحاناتك من الفصول التي تمتلكها. قم بتصفية حسب الحالة للعثور على الامتحانات الجديدة، المقدمة، الناجحة أو الفاشلة. انقر على البطاقة للحصول على التفاصيل أو لتقديم الامتحان.",
+    "noExams": "لا توجد امتحانات متاحة",
+    "statusAll": "حالة الامتحان: الكل",
+    "new": "جديد",
+    "submitted": "مقدم",
+    "passed": "ناجح",
+    "failed": "راسب",
+    "modulesAll": "الوحدات: الكل",
+    "details": "التفاصيل",
+    "examPDF": "exam.pdf",
+    "examPdf": "exam.pdf",
+    "submitSolution": "إرسال الحل",
+    "submissions": "التقديمات",
+    "noSubmissions": "لا توجد تقديمات بعد",
+    "downloadSubmissionFile": "تحميل ملف التقديم",
+    "downloadReviewFile": "تحميل ملف المراجعة",
+    "grade": "الدرجة",
+    "submissionInstructions": "اتبع التعليمات لتقديم امتحانك.",
+    "solutionFile": "solution.pdf",
+    "selectPdf": "حدد PDF",
+    "pdfOnly": "PDF فقط",
+    "submit": "إرسال",
+    "submissionSubtitle": "قم بتحميل الحل الخاص بك بتنسيق PDF. إذا كان الحل الخاص بك يحتوي على صور، يرجى تحويلها إلى PDF واحد باستخدام أدوات عبر الإنترنت قبل التحميل.",
+    "dragOrBrowse": "اسحب ملفك أو ",
+    "browse": "استعراض",
+    "maxFilesHint": "الحد الأقصى لحجم الملفات المسموح به هو 10 ميغابايت",
+    "studentNotes": "ملاحظات الطالب",
+    "professorNotes": "ملاحظات الأستاذ",
+    "additionalNotes": "ملاحظات إضافية",
+    "notesPlaceholder": "أدخل أي ملاحظات إضافية هنا...",
+    "statusNew": "جديد",
+    "statusSubmitted": "مقدم",
+    "statusPassed": "ناجح",
+    "statusFailed": "راسب",
+    "pdfOnlyError": "يرجى اختيار ملف PDF",
+    "maxSizeError": "حجم الملف يتجاوز الحد الأقصى",
+    "selectFileError": "يرجى اختيار ملف",
+    "changeFileHint": "انقر لتغيير الملف",
+    "submitting": "جاري الإرسال..."
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "description": "عذرًا، لم نتمكن من العثور على الصفحة التي تبحث عنها.",
+    "backToHome": "العودة إلى الصفحة الرئيسية",
+    "backToModules": "العودة إلى الوحدات",
+    "goHome": "الذهاب إلى الصفحة الرئيسية",
+    "lessonTitle": "الدرس غير موجود",
+    "lessonDescription": "الدرس الذي تبحث عنه غير موجود أو تم نقله.",
+    "exerciseTitle": "تمرين غير موجود",
+    "exerciseDescription": "التمرين الذي تبحث عنه غير موجود أو تم نقله.",
+    "backToExercises": "العودة إلى التمارين"
+  },
+  "exercises": {
+    "title": "تماريني",
+    "description": "استعرض جميع تمارينك من الفصول التي تمتلكها. قم بتصفية حسب الحالة للعثور على التمارين الجديدة، المقدمة، الناجحة أو الفاشلة. انقر على البطاقة للحصول على التفاصيل أو لتقديم التمرين.",
+    "noExercises": "لا توجد تمارين متاحة",
+    "statusAll": "حالة التمرين: الكل",
+    "new": "جديد",
+    "submitted": "مقدم",
+    "passed": "ناجح",
+    "failed": "راسب",
+    "modulesAll": "الوحدات: الكل",
+    "details": "التفاصيل",
+    "exercisePDF": "exercise.pdf",
+    "exercisePdf": "exercise.pdf",
+    "submitSolution": "إرسال الحل",
+    "submissions": "التقديمات",
+    "noSubmissions": "لا توجد تقديمات بعد",
+    "downloadSubmissionFile": "تحميل ملف التقديم",
+    "downloadReviewFile": "تحميل ملف المراجعة",
+    "grade": "الدرجة",
+    "graded": "تم التقدير",
+    "pointsTotal": "إجمالي النقاط",
+    "submissionSubtitle": "قم بتحميل الحل الخاص بك بتنسيق PDF. إذا كان الحل الخاص بك يحتوي على صور، يرجى تحويلها إلى PDF واحد باستخدام أدوات عبر الإنترنت قبل التحميل.",
+    "dragOrBrowse": "اسحب ملفك أو ",
+    "browse": "استعراض",
+    "maxFilesHint": "الحد الأقصى لحجم الملفات المسموح به هو 10 ميغابايت",
+    "additionalNotes": "ملاحظات إضافية",
+    "notesPlaceholder": "أدخل أي ملاحظات إضافية هنا...",
+    "submit": "إرسال",
+    "statusNew": "جديد",
+    "statusSubmitted": "مقدم",
+    "statusGraded": "تم التقدير",
+    "pdfOnlyError": "يرجى اختيار ملف PDF",
+    "maxSizeError": "حجم الملف يتجاوز الحد الأقصى",
+    "selectFileError": "يرجى اختيار ملف",
+    "changeFileHint": "انقر لتغيير الملف",
+    "submitting": "جاري الإرسال...",
+    "studentNotes": "ملاحظات الطالب",
+    "professorNotes": "ملاحظات الأستاذ"
+  },
+  "questions": {
+    "title": "الأسئلة",
+    "description": "اعرض جميع أسئلتك من الفصول التي تمتلكها. صفِّ بالحالة للعثور على الأسئلة الجديدة أو المُجابة أو المُعلقة.",
+    "noQuestions": "لا توجد أسئلة",
+    "filters": {
+      "visibility": "رؤية السؤال",
+      "teacherResponse": "رد المعلم",
+      "module": "المقرر",
+      "all": "الكل",
+      "public": "عام",
+      "private": "خاص",
+      "answered": "مُجاب",
+      "pending": "قيد الانتظار",
+      "closed": "مغلق"
+    },
+    "card": {
+      "answered": "مُجاب",
+      "waiting": "بانتظار الإجابة",
+      "public": "عام",
+      "private": "خاص",
+      "downloadStudent": "تحميل ملفات الطالب المرفقة",
+      "downloadProfessor": "تحميل ملفات الأستاذ المرفقة",
+      "showAnswer": "عرض الإجابة",
+      "hideAnswer": "إخفاء الإجابة",
+      "noAnswerYet": "لا توجد إجابة تفصيلية بعد.",
+      "pathPlaceholder": "المقرر / الفصل / الدرس"
+    }
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "description": "ابق على اطلاع على تقدمك في التعلم والإعلانات المهمة.",
+    "sortByImportance": "ترتيب حسب: الأهمية",
+    "sortByTime": "ترتيب حسب الوقت",
+    "importanceAll": "الأهمية: الكل",
+    "importanceImportant": "مهم",
+    "importanceUrgent": "عاجل",
+    "markAllAsSeen": "تحديد الكل كمقروء",
+    "markAsSeen": "تحديد كمقروء",
+    "noNotifications": "لا توجد إشعارات",
+    "normal": "عادي",
+    "important": "مهم",
+    "urgent": "عاجل"
+  },
+  "professor": {
+    "professor": "أستاذ",
+    "dr": "د.",
+    "notification": "الإشعارات",
+    "navigation": {
+      "manageContent": "إدارة المحتوى",
+      "correctExams": "تصحيح الامتحانات",
+      "correctExercises": "تصحيح التمارين",
+      "answerQuestions": "الإجابة على الأسئلة",
+      "lives": "البث المباشر",
+      "notifications": "الإشعارات",
+      "accountDetails": "تفاصيل الحساب",
+      "logout": "تسجيل الخروج",
+      "manageProfessors": "إدارة الأساتذة",
+      "managePurchases": "إدارة المشتريات",
+      "manageStudents": "إدارة الطلاب"
+    },
+    "numberOfChapters": "عدد الفصول: ",
+    "academicStreams": {
+      "all": "الكل",
+      "mathematics": "الرياضيات",
+      "experimentalsciences": "العلوم التجريبية",
+      "literature": "الآداب",
+      "mathtechnique": "رياضيات تقني"
+    },
+    "modules": {
+      "title": "الوحدات",
+      "academicStream": "التخصص الأكاديمي",
+      "noModulesFound": "لم يتم العثور على وحدات للتخصص الأكاديمي المحدد."
+    },
+    "chapters": {
+      "title": "الفصول",
+      "academicStream": "التخصص الأكاديمي",
+      "addChapter": "إضافة فصل",
+      "createNewChapter": "إنشاء فصل جديد",
+      "createNewChapterSubtitle": "أضف التفاصيل الأساسية لبدء فصلك",
+      "chapterName": "اسم الفصل",
+      "chapterNamePlaceholder": "أدخل اسم الفصل",
+      "chapterDescription": "وصف الفصل",
+      "chapterDescriptionPlaceholder": "أدخل وصف الفصل",
+      "createChapter": "إنشاء فصل",
+      "editLaterNote": "يمكنك تعديل المزيد من التفاصيل لاحقاً في صفحة الفصل",
+      "lessonsCount": "عدد الدروس",
+      "noChaptersFound": "لم يتم العثور على فصول للتخصص الأكاديمي المحدد.",
+      "chapterNameRequired": "اسم الفصل مطلوب",
+      "chapterPrice": "سعر الفصل (دج)",
+      "complete": "مكتمل",
+      "incomplete": "غير مكتمل",
+      "lastVersion": "آخر نسخة",
+      "status": {
+        "waiting": "في الانتظار",
+        "validated": "مصادق عليه",
+        "published": "منشور"
+      },
+      "supportedStreams": "الشعب  الأكاديمية المدعومة",
+      "AddStream": "إضافة شعبة",
+      "ChapterDepencies": "اعتمادات الفصل",
+      "AddDepencies": "إضافة اعتماد",
+      "ChapterExams": "اختبارات الفصل",
+      "Upload": "رفع",
+      "UploadExamPDF": "رفع ملف PDF للاختبار",
+      "ExamTotalMark": "العلامة الإجمالية للاختبار",
+      "ExamMinScore": "العلامة الدنيا للاختبار",
+      "ExamTotalXP": "إجمالي نقاط الخبرة للاختبار",
+      "Lessons": "الدروس",
+      "AddLesson": "إضافة درس",
+      "NoLessonYet": "لا توجد دروس بعد",
+      "SaveChanges": "حفظ التغييرات",
+      "management": "إدارة الفصول"
+    },
+    "lessons": {
+      "CreatedOn": "تم الإنشاء في",
+      "CreateLessonTitle": "إنشاء درس",
+      "CreateLessonDesc": "املأ التفاصيل أدناه لإنشاء درس جديد.",
+      "LessonName": "اسم الدرس",
+      "LessonDescription": "وصف الدرس",
+      "LessonVideo": "فيديو الدرس",
+      "LessonAttachment": "مرفقات الدرس",
+      "ExercicePDF": "ملف PDF للتمرين",
+      "ExerciceTotalMark": "العلامة الإجمالية للتمرين",
+      "ExerciceTotalXP": "إجمالي نقاط الخبرة للتمرين",
+      "SupportedStreams": "المسارات الأكاديمية المدعومة",
+      "Cancel": "إلغاء",
+      "CreateLesson": "إنشاء الدرس",
+      "AddDepency": "إضافة اعتمادات الفصل",
+      "AddDepencyDesc": "اختر الفصول التي يعتمد عليها هذا الفصل",
+      "SaveDepencies": "حفظ الاعتمادات",
+      "UpdateLesson": "تحديث الدرس",
+      "UpdateLessonDesc": "قم بتعديل التفاصيل أو استبدال الملفات لهذا الدرس",
+      "UpdateQuiz": "تحديث الكويز",
+      "Quiz": "الكويز",
+      "confirmDelete": "هل أنت متأكد من حذف هذا الدرس؟",
+      "deleteSuccess": "تم حذف الدرس بنجاح",
+      "deleteError": "فشل في حذف الدرس",
+      "title": "إدارة الدروس",
+      "createNew": "إنشاء درس جديد",
+      "noLessons": "لم يتم العثور على دروس"
+    },
+    "quizes": {
+      "SaveQuiz": "حفظ الكويز",
+      "QuizTotalPoints": "إجمالي نقاط الكويز",
+      "QuizMinScore": "الدرجة الدنيا الكويز",
+      "AddQuestion": "إضافة سؤال",
+      "Questions": "الأسئلة",
+      "Delete": "حذف",
+      "Update": "تحديث",
+      "TotalPoints": "إجمالي النقاط",
+      "Question": "سؤال",
+      "QuestionTitle": "عنوان السؤال",
+      "QuestionText": "نص السؤال",
+      "QuestionType": "نوع السؤال",
+      "Choices": "الخيارات",
+      "CorrectAnswers": "الإجابات الصحيحة",
+      "QuizAttach": "المرفقات",
+      "QuizTolalMark": "العلامة الإجمالية للسؤال",
+      "CreateQuiz": "إنشاء سؤال",
+      "Cancel": "إلغاء",
+      "CreateQuestionDesc": "املأ التفاصيل أدناه لإنشاء سؤال.",
+      "Submit": "إرسال",
+      "MultipleCorrectAnswers": "إجابات متعددة صحيحة",
+      "SingleCorrectAnswer": "إجابة واحدة صحيحة",
+      "CreateQuestion": "إنشاء سؤال"
+    },
+    "exams": {
+      "title": "تسليمات الامتحانات",
+      "noSubmissions": "لا توجد تسليمات",
+      "filter": {
+        "chapterPrefix": "الفصل: ",
+        "statusPrefix": "الحالة: ",
+        "selectChapter": "اختر الفصل",
+        "selectStatus": "اختر الحالة"
+      },
+      "status": {
+        "waiting": "في الانتظار",
+        "all": "الكل",
+        "corrected": "مصحح"
+      },
+      "downloadSubmission": "تحميل تسليم الطالب",
+      "viewDetails": "عرض التفاصيل",
+      "correct": "تصحيح",
+      "professorNotesTitle": "ملاحظات الأستاذ",
+      "gradeTitle": ":درجة",
+      "correctionFileLabel": "ملف التصحيح",
+      "hideDetails": "إخفاء التفاصيل",
+      "hideCorrectionForm": "إخفاء نموذج التصحيح",
+      "saveCorrection": "حفظ التصحيح",
+      "uploadCorrectionLabel": "تحميل ملف التصحيح",
+      "studentTotalMarkLabel": "الدرجة الكلية",
+      "additionalNotesLabel": "ملاحظات إضافية",
+      "notesPlaceholder": "أدخل أي ملاحظات إضافية هنا...",
+      "correctionFileDefault": "ملف التصحيح"
+    },
+    "exercises": {
+      "title": "تسليمات التمارين",
+      "downloadSubmissionFile": "تحميل ملف التسليم",
+      "studentNotesLabel": "ملاحظات الطالب",
+      "uploadReviewLabel": "تحميل ملف المراجعة",
+      "totalMarkLabel": "الدرجة الكلية",
+      "additionalNotesLabel": "ملاحظات إضافية",
+      "saveReview": "حفظ المراجعة",
+      "professorNotesTitle": "ملاحظات الأستاذ",
+      "gradeTitle": "الدرجة:",
+      "correct": "تصحيح",
+      "noSubmissions": "لا توجد تسليمات",
+      "selectLesson": "اختر الدرس",
+      "selectChapter": "اختر الفصل",
+      "selectStatus": "اختر الحالة",
+      "studentNotes": "ملاحظات الطالب",
+      "viewDetails": "عرض التفاصيل",
+      "hideDetails": "إخفاء التفاصيل",
+      "filter": {
+        "lesson": "تصفية حسب الدرس",
+        "chapter": "تصفية حسب الفصل",
+        "status": "تصفية حسب الحالة",
+        "selectLesson": "اختر الدرس",
+        "selectChapter": "اختر الفصل",
+        "selectStatus": "اختر الحالة"
+      },
+      "status": {
+        "corrected": "مصحح",
+        "waiting": "في الانتظار"
+      }
+    },
+    "notifications": {
+      "title": "الإشعارات",
+      "noNotifications": "لا توجد إشعارات",
+      "markAllAsSeen": "تحديد الكل كمقروء",
+      "sortByImportance": "ترتيب حسب: الأهمية",
+      "sortByTime": "ترتيب حسب: الوقت"
+    },
+    "questions": {
+      "title": "الأسئلة",
+      "noQuestions": "لا توجد أسئلة",
+      "filter": {
+        "lesson": "تصفية حسب الدرس",
+        "chapter": "تصفية حسب الفصل",
+        "status": "تصفية حسب الحالة",
+        "selectChapter": "اختر الفصل",
+        "selectLesson": "اختر الدرس",
+        "selectStatus": "اختر الحالة"
+      },
+      "status": {
+        "waiting": "في الانتظار",
+        "answered": "تم الرد",
+        "all": "الكل"
+      },
+      "downloadAttachment": "تحميل المرفق",
+      "sendAnswer": "إرسال الإجابة",
+      "uploadAnswerLabel": "تحميل ملف",
+      "answerLabel": "الإجابة",
+      "viewDetails": "عرض التفاصيل",
+      "hideDetails": "إخفاء التفاصيل",
+      "answer": "الإجابة",
+      "private": "خاص",
+      "public": "عام",
+      "answerPlaceholder": "اكتب إجابتك هنا...",
+      "visibility": "الرؤية",
+      "cancel": "إلغاء",
+      "professorNotes": "ملاحظات الأستاذ",
+      "professorFile": "ملف الأستاذ",
+      "replies": "الردود"
+    },
+    "profile": {
+      "title": "معلومات الأستاذ",
+      "edit": "تعديل التفاصيل",
+      "fullName": "الاسم الكامل",
+      "gender": "الجنس",
+      "dateOfBirth": "تاريخ الميلاد",
+      "phoneNumber": "رقم الهاتف",
+      "emailAddress": "عنوان البريد الإلكتروني",
+      "wilaya": "الولاية",
+      "academicStream": "المسار الأكاديمي",
+      "permissions": "الأذونات",
+      "editTitle": "تعديل الملف الشخصي",
+      "editSubtitle": "قم بتحديث معلوماتك الشخصية أدناه.",
+      "picture": "صورة الملف الشخصي",
+      "dragOrBrowse": "اسحب صورتك أو تصفح",
+      "maxSizeHint": "Max 5 MB. JPG/PNG.",
+      "firstName": "الاسم الأول",
+      "lastName": "الاسم الأخير",
+      "birthdate": "تاريخ الميلاد",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "permissions": {
+      "contentCreation": "إنشاء المحتوى",
+      "questionAnswering": "الإجابة على الأسئلة",
+      "exerciseExamCorrection": "تصحيح التمارين/الامتحانات"
+    },
+    "welcome": "مرحباً",
+    "lives": {
+      "title": "البث المباشر",
+      "scheduledLives": "البث المباشر المجدول",
+      "recordedLives": "البث المباشر المسجل",
+      "noLivesYet": "لا يوجد بث مباشر بعد",
+      "scheduleLive": "جدولة بث مباشر",
+      "scheduleLiveButton": "+ جدولة بث مباشر",
+      "filters": {
+        "academicStream": "التخصص الأكاديمي",
+        "status": "الحالة",
+        "all": "الكل"
+      },
+      "status": {
+        "pending": "في الانتظار",
+        "approved": "موافق عليه",
+        "live": "مباشر",
+        "ended": "انتهى",
+        "cancelled": "ملغى"
+      },
+      "card": {
+        "moduleChapter": "الوحدة / الفصل",
+        "remainingTime": "الوقت المتبقي",
+        "dateAndTime": "التاريخ والوقت",
+        "startLive": "بدء البث المباشر",
+        "cancelLive": "إلغاء البث المباشر",
+        "viewRecording": "مشاهدة التسجيل"
+      },
+      "scheduleModal": {
+        "title": "جدولة بث مباشر",
+        "description": "سيتم مراجعة البث المباشر المجدول من قبل المشرف قبل المصادقة",
+        "liveTitle": "عنوان البث المباشر",
+        "liveDescription": "وصف البث المباشر",
+        "module": "الوحدة",
+        "chapter": "الفصل",
+        "supportedAcademicStreams": "الشعب الأكاديمية المدعومة",
+        "date": "التاريخ",
+        "time": "الوقت",
+        "hours": "س",
+        "minutes": "د",
+        "cancel": "إلغاء",
+        "submit": "إرسال",
+        "selectModule": "اختر وحدة",
+        "selectChapter": "اختر فصلاً",
+        "selectStream": "اختر شعبة"
+      },
+      "cancelModal": {
+        "title": "إلغاء البث المباشر",
+        "message": "هل أنت متأكد أنك تريد إلغاء هذا البث المباشر؟ سيتم إخطار المشرف والطلاب",
+        "keepLive": "الاحتفاظ بالبث المباشر",
+        "cancelLive": "إلغاء البث المباشر"
+      },
+      "endModal": {
+        "title": "إنهاء البث المباشر",
+        "message": "هل أنت متأكد أنك تريد إنهاء هذا البث المباشر؟",
+        "keepLive": "الاحتفاظ بالبث المباشر",
+        "endLive": "إنهاء البث المباشر"
+      },
+      "endedModal": {
+        "title": "انتهى هذا البث المباشر",
+        "subtitle": "سيتم حفظه ضمن البث المباشر المسجل",
+        "liveTitle": "عنوان البث المباشر",
+        "liveDescription": "وصف البث المباشر",
+        "module": "الوحدة",
+        "chapter": "الفصل",
+        "supportedAcademicStreams": "الشعب الأكاديمية المدعومة",
+        "liveRecording": "تسجيل البث المباشر",
+        "submit": "إرسال",
+        "uploadRecording": "رفع التسجيل"
+      },
+      "streaming": {
+        "liveNow": "مباشر الآن",
+        "viewers": "مشاهدين",
+        "endLive": "إنهاء البث المباشر",
+        "openInGoogleMeet": "افتح في Google Meet",
+        "joinGoogleMeet": "انضم إلى Google Meet",
+        "googleMeetDescription": "هذه الجلسة المباشرة مستضافة على Google Meet. انقر على الزر أدناه للانضمام في نافذة منبثقة.",
+        "meetWindowOpen": "Google Meet مفتوح في نافذة منبثقة",
+        "meetWindowDescription": "يجب أن تكون نافذة الاجتماع مرئية. إذا لم تكن كذلك، تحقق من حاجب النوافذ المنبثقة.",
+        "focusMeetWindow": "التركيز على نافذة الاجتماع",
+        "roomNotReady": "في انتظار غرفة الاجتماع...",
+        "fullscreen": "ملء الشاشة",
+        "exitFullscreen": "الخروج من ملء الشاشة",
+        "startRecording": "بدء التسجيل",
+        "stopRecording": "إيقاف التسجيل",
+        "recording": "التسجيل",
+        "recordingError": "خطأ في التسجيل",
+        "cameraOff": "الكاميرا مغلقة",
+        "cameraHint": "حاول تشغيلها أو مشاركة شاشتك",
+        "comments": "التعليقات",
+        "addComment": "إضافة تعليق",
+        "userName": "اسم المستخدم",
+        "controls": {
+          "mic": "الميكروفون",
+          "camera": "الكاميرا",
+          "screenShare": "مشاركة الشاشة"
+        }
+      },
+      "player": {
+        "back": "رجوع",
+        "chapterName": "اسم الفصل",
+        "liveTitle": "عنوان البث المباشر"
+      },
+      "recording": {
+        "loading": "جارٍ تحميل التسجيل...",
+        "recordingTitle": "التسجيل",
+        "noRecording": "لا يوجد تسجيل متاح",
+        "noRecordingDescription": "لا يحتوي هذا البث المباشر على تسجيل. قد يكون التسجيل قيد المعالجة أو لم يتم إنشاؤه.",
+        "dateRecorded": "تم التسجيل في",
+        "duration": "المدة",
+        "download": "تحميل التسجيل",
+        "notAvailable": "غير متاح",
+        "notSupported": "المتصفح الخاص بك لا يدعم علامة الفيديو."
+      }
+    }
+  },
+  "public": {
+    "modules": "الوحدات",
+    "unlock": "فتح القفل",
+    "viewChapters": "عرض الفصول",
+    "AcademicStream": "الشعبة",
+    "chapters": "الفصول",
+    "lessons": "الدروس",
+    "lockMessage": "هذا الدرس مقفل. أكمل الدرس السابق لفتحه."
+  },
+  "admin": {
+    "navigation": {
+      "manageStudents": "إدارة الطلاب",
+      "manageProfessors": "إدارة الأساتذة",
+      "managePurchases": "إدارة المشتريات"
+    },
+    "manageStudents": {
+      "title": "الطلاب",
+      "searchPlaceholder": "بحث ...",
+      "viewProfile": "عرض الملف الشخصي",
+      "backToStudents": "العودة إلى الطلاب",
+      "titleTwo": "معلومات الطالب",
+      "fullName": "الاسم الكامل",
+      "phoneNumber": "رقم الهاتف",
+      "email": "عنوان البريد الإلكتروني",
+      "wilaya": "الولاية",
+      "academicStream": "المسار الأكاديمي",
+      "status": "الحالة"
+    },
+    "managePurchases": {
+      "title": "المشتريات",
+      "noPurchases": "لا توجد مشتريات",
+      "filter": "تصفية",
+      "status": {
+        "validated": "مؤكد",
+        "rejected": "مرفوض",
+        "new": "جديد"
+      },
+      "sort": "ترتيب حسب",
+      "sortTwo": {
+        "new": "الأحدث أولاً",
+        "old": "الأقدم أولاً"
+      },
+      "receipt": "Receipt.pdf",
+      "viewDetails": "عرض التفاصيل",
+      "validate": "تأكيد",
+      "reject": "رفض",
+      "details": {
+        "title": "تفاصيل الشراء",
+        "statusLabel": "الحالة:",
+        "changeToValidated": "تغيير إلى مؤكد",
+        "studentInformation": "معلومات الطالب",
+        "viewProfile": "عرض الملف الشخصي",
+        "fullName": "الاسم الكامل",
+        "phoneNumber": "رقم الهاتف",
+        "emailAddress": "عنوان البريد الإلكتروني",
+        "academicStream": "المسار الأكاديمي",
+        "purchaseInfoTitle": "معلومات الشراء",
+        "module": "الوحدة",
+        "chapter": "الفصل",
+        "price": "السعر",
+        "receipt": "ملف الإيصال"
+      },
+      "error": {
+        "updateFailed": "فشل في تحديث حالة الشراء"
+      },
+      "prompt": {
+        "rejectionReason": "سبب الرفض (اختياري):"
+      }
+    }
+  },
+  "profile": {
+    "title": "ملفي الشخصي",
+    "edit": "تعديل التفاصيل",
+    "editTitle": "تعديل الملف الشخصي",
+    "editSubtitle": "قم بتحديث معلوماتك الشخصية أدناه.",
+    "saveChanges": "حفظ التغييرات",
+    "picture": "صورة الملف الشخصي",
+    "noFileChosen": "لا يوجد ملف مختار",
+    "firstName": "الاسم الأول",
+    "lastName": "الاسم الأخير",
+    "phoneNumber": "رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "wilaya": "الولاية",
+    "academicStream": "المسار الأكاديمي",
+    "dragOrBrowse": "اسحب صورتك أو تصفح",
+    "maxSizeHint": "Max 5 MB. JPG/PNG."
+  },
+  "landing": {
+    "nav": {
+      "home": "الرئيسية",
+      "whyUs": "لماذا نحن",
+      "whatWeOffer": "ماذا نقدم",
+      "exploreModules": "استكشاف الوحدات",
+      "login": "تسجيل الدخول",
+      "signUp": "إنشاء حساب"
+    },
+    "hero": {
+      "title": "مستقبلك يبدأ هنا",
+      "description": "تعلم، مارس، وانجح مع معلمين موثوقين. افتح الفصول، تتبع تقدمك، وحقق أهدافك.",
+      "exploreModules": "استكشاف الوحدات",
+      "startLearning": "ابدأ التعلم",
+      "imageAlt": "طالب يستخدم سافيني"
+    },
+    "footer": {
+      "explore": "استكشاف",
+      "contact": "اتصل",
+      "language": "اللغة",
+      "access": "الوصول",
+      "home": "الرئيسية",
+      "whyUs": "لماذا نحن",
+      "whatWeOffer": "ماذا نقدم",
+      "exploreModules": "استكشاف الوحدات",
+      "emailUs": "اتصل بنا عبر البريد الإلكتروني",
+      "instagram": "إنستغرام",
+      "facebook": "فيسبوك",
+      "english": "الإنجليزية",
+      "french": "الفرنسية",
+      "arabic": "العربية",
+      "signUpStudent": "سجل كطالب",
+      "applyTeacher": "تقدم لوظيفة معلم",
+      "logIn": "تسجيل الدخول"
+    },
+    "whySauvini": {
+      "title": "لماذا Sauvini؟",
+      "structuredLearning": {
+        "title": "تعلم منظم",
+        "desc": "وحدات، فصول، ودروس مصممة لتناسب المسارات الأكاديمية الجزائرية."
+      },
+      "expertProfessors": {
+        "title": "أساتذة خبراء",
+        "desc": "تعلم من معلمين موثوقين لديهم سنوات من الخبرة الحقيقية."
+      },
+      "trackProgress": {
+        "title": "تتبع التقدم",
+        "desc": "ابق على اطلاع على دروسك وإنجازاتك المكتملة."
+      },
+      "gamifiedLearning": {
+        "title": "تعلم معزز بالألعاب",
+        "desc": "اكسب نقاط الخبرة، افتح الشارات، وتقدم في المستويات أثناء دراستك."
+      },
+      "trustedSecure": {
+        "title": "موثوق وآمن",
+        "desc": "بياناتك ومدفوعاتك آمنة، والمحتوى معتمد من قبل المسؤولين."
+      },
+      "accessibleAnywhere": {
+        "title": "متاح في كل مكان",
+        "desc": "تعلم بالسرعة التي تناسبك، في أي وقت، وفي أي مكان، وعلى أي جهاز."
+      }
+    },
+    "for": {
+      "students": {
+        "title": "للطلاب",
+        "desc": "تعلّم من خلال وحدات منظمة، دروس فيديو، اختبارات وامتحانات؛ كلها مصممة خصيصًا للمسارات الأكاديمية الجزائرية."
+      },
+      "professors": {
+        "title": "للاساتذة",
+        "desc": "شارك خبرتك عبر إنشاء فصول، دروس وامتحانات. تفاعل مع الطلاب وتتبع تقدمهم."
+      },
+      "forStudents": "للطلاب",
+      "forProfessors": "للاساتذة",
+      "applyNow": "قدّم كأستاذ"
+    }
+  },
+  "errors": {
+    "radio": {
+      "required": "يرجى اختيار خيار"
+    },
+    "lesson": {
+      "idRequired": "معرف الدرس مطلوب",
+      "titleRequired": "عنوان الدرس مطلوب",
+      "descriptionRequired": "وصف الدرس مطلوب",
+      "academicStreamRequired": "يرجى اختيار شعبة أكاديمية واحدة على الأقل",
+      "chapterIdRequired": "معرف الفصل مطلوب",
+      "failedToLoad": "فشل في تحميل بيانات الدرس",
+      "failedToFetchStreams": "فشل في جلب الشعب الأكاديمية",
+      "unknownError": "خطأ غير معروف"
+    },
+    "chapter": {
+      "titleRequired": "عنوان الفصل مطلوب",
+      "descriptionRequired": "وصف الفصل مطلوب",
+      "minScoreExceedsTotal": "الدرجة الدنيا لا يمكن أن تتجاوز الدرجات الإجمالية",
+      "failedToUpdate": "فشل في تحديث الفصل",
+      "failedToDelete": "فشل في حذف الفصل",
+      "failedToLoadLessons": "فشل في تحميل الدروس",
+      "failedToCreate": "فشل في إنشاء الفصل",
+      "unknownError": "حدث خطأ غير معروف",
+      "selectPdfFile": "يرجى اختيار ملف PDF"
+    },
+    "module": {
+      "apiFailed": "فشل في API الوحدة",
+      "failedToFetch": "فشل في جلب الوحدة",
+      "descriptionNotAvailable": "وصف الوحدة غير متاح"
+    },
+    "auth": {
+      "unexpectedError": "حدث خطأ غير متوقع",
+      "loginFailed": "فشل في تسجيل الدخول",
+      "registrationFailed": "فشل في التسجيل"
+    }
+  },
+  "otp": {
+    "resent": "تمت إعادة إرسال رمز التحقق بنجاح"
+  },
+  "terms": {
+    "title": "شروط استخدام المنصة",
+    "subtitle": "من خلال الوصول إلى المنصة واستخدامها، يوافق المستخدم بشكل كامل وبدون تحفظ على شروط الاستخدام هذه. أي انتهاك قد يؤدي إلى عقوبات، بما في ذلك التحذيرات، أو تعليق الحساب بشكل مؤقت أو دائم، وكذلك اتخاذ إجراءات قانونية إذا لزم الأمر.",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. الملكية الفكرية وحقوق النشر",
+        "item1": "جميع المحتويات المتاحة على المنصة (الدروس، الفيديوهات، الاختبارات، المواد التعليمية، الوثائق، إلخ) محمية بموجب قوانين الملكية الفكرية.",
+        "item2": "يُحظر تمامًا نسخ أو إعادة إنتاج أو تسجيل أو تنزيل أو مشاركة أو توزيع هذا المحتوى خارج المنصة بدون إذن كتابي مسبق.",
+        "item3": "أي سرقة أو توزيع غير قانوني سيعرض المستخدم للمساءلة القانونية."
+      },
+      "respect": {
+        "title": "2. الاحترام والمجاملة",
+        "item1": "يتعهد المستخدمون بالتصرف باحترام تجاه الأساتذة، الطلاب الآخرين، وفريق المنصة.",
+        "item2": "يُحظر تمامًا الشتائم، التصريحات التشهيرية، التهديدات، اللغة المسيئة، الملاحظات التمييزية أو التحرش.",
+        "item3": "تسري هذه القواعد على جميع مساحات التواصل: أقسام التعليقات، المنتديات، الدردشات أو أي أداة أخرى مدمجة.",
+        "item4": "يُحظر تمامًا نسخ أو إعادة إنتاج أو تسجيل أو تنزيل أو مشاركة أو توزيع هذا المحتوى خارج المنصة بدون إذن كتابي مسبق.",
+        "item5": "أي سرقة أو توزيع غير قانوني سيعرض المستخدم للمساءلة القانونية."
+      },
+      "deadlines": {
+        "title": "3. احترام المواعيد النهائية وقوانين الاختبارات",
+        "item1": "يجب على الطلاب الالتزام الصارم بالمواعيد النهائية المحددة للامتحانات والاختبارات والتقييمات الأخرى.",
+        "item2": "أي تأخير غير مبرر أو محاولة غش قد تؤدي إلى عقوبات، بما في ذلك التعليق أو الطرد النهائي من المنصة."
+      },
+      "security": {
+        "title": "4. أمان الحساب",
+        "item1": "كل مستخدم مسؤول عن سرية بيانات تسجيل الدخول الخاصة به (اسم المستخدم وكلمة المرور).",
+        "item2": "يُحظر مشاركة الحساب مع شخص آخر.",
+        "item3": "يجب الإبلاغ فورًا عن أي نشاط مشبوه أو احتيالي لإدارة المنصة."
+      },
+      "fraud": {
+        "title": "5. حظر الغش والاحتيال",
+        "item1": "يُحظر تمامًا أي محاولة للغش (نسخ الإجابات، استخدام وسائل ممنوعة، انتحال شخصية طالب آخر، إلخ).",
+        "item2": "في حالة ثبوت الغش، قد يُعاقب المستخدم بإلغاء الاختبار أو التعليق أو الطرد."
+      },
+      "technical": {
+        "title": "6. الحماية التقنية للموقع",
+        "item1": "يُحظر تمامًا محاولة الوصول إلى الشيفرة المصدرية أو تجاوز التدابير الأمنية أو تعطيل سير عمل المنصة (الاختراق، الحقن، إلخ).",
+        "item2": "سيتم إبلاغ السلطات المختصة بأي محاولة لهجوم إلكتروني."
+      },
+      "privacy": {
+        "title": "7. الخصوصية وحماية البيانات",
+        "item1": "يتم جمع البيانات الشخصية للمستخدمين فقط لأغراض تعليمية وإدارية.",
+        "item2": "لن تتم مشاركتها مع أطراف ثالثة دون موافقة، إلا إذا كان ذلك مطلوبًا قانونيًا.",
+        "item3": "يتعهد المستخدم بعدم الكشف عن أي معلومات سرية تخص المنصة أو أعضائها."
+      },
+      "responsibility": {
+        "title": "8. مسؤولية الطالب",
+        "item1": "كل طالب مسؤول عن طريقة استخدامه للدروس، الفيديوهات، الاختبارات والامتحانات المتاحة له.",
+        "item2": "في حالة سوء الاستخدام (توزيع غير قانوني، مشاركة غير مصرح بها، غش، شتائم، إلخ)، يخضع الطالب لعقوبات تأديبية (تحذير، تعليق، طرد) وإذا لزم الأمر، إجراءات قانونية.",
+        "item3": "تحتفظ المنصة بالحق في اتخاذ جميع التدابير اللازمة لحماية محتواها ومجتمعها."
+      }
+    },
+    "agreement": "أوافق على شروط الاستخدام",
+    "continue": "متابعة"
+  },
+  "landing": {
+    "team": {
+      "title": "تعرف على فريقنا"
+    },
+    "about": {
+      "title": "حول سافيني",
+      "subtitle": "مهمتنا هي ديمقراطية التعليم عالي الجودة",
+      "story": "ولدت سافيني من قناعة أن كل طالب جزائري يستحق الحصول على تعليم عالي الجودة، مخصص لخصوصيات نظامنا التعليمي.",
+      "question": "لماذا سافيني؟",
+      "turningPoint": {
+        "title": "النقطة الفاصلة",
+        "description": "أدركنا أن التعليم التقليدي لا يلبي الاحتياجات الخاصة للطلاب الجزائريين. وهكذا ولدت سافيني."
+      }
+    }
+  },
+  "register": {
+    "common": {
+      "login_desc": "هل لديك حساب بالفعل؟",
+      "login": "تسجيل الدخول",
+      "next": "التالي",
+      "previous": "السابق",
+      "firstname": "الاسم الأول",
+      "lastname": "الاسم الأخير",
+      "Wilaya": "الولاية",
+      "phone": "رقم الهاتف",
+      "Academic_stream": "الشعبة الأكاديمية",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirm_password": "تأكيد كلمة المرور",
+      "gender": "الجنس",
+      "date_of_birth": "تاريخ الميلاد",
+      "upload": "رفع",
+      "upload_desc": "قم برفع وثيقة سيرتك الذاتية",
+      "yes": "نعم",
+      "no": "لا",
+      "male": "ذكر",
+      "Female": "أنثى",
+      "return_home": "العودة إلى الصفحة الرئيسية"
+    },
+    "cards": {
+      "role": {
+        "student": {
+          "title": "طالب",
+          "benefit_1": "تعلم بالفيديوهات والملاحظات",
+          "benefit_2": "تتبع تقدمك",
+          "benefit_3": "اسأل الأساتذة مباشرة"
+        },
+        "professor": {
+          "title": "أستاذ",
+          "benefit_1": "إنشاء الدروس والاختبارات",
+          "benefit_2": "مراجعة عمل الطلاب",
+          "benefit_3": "الإجابة على الأسئلة"
+        }
+      }
+    },
+    "intro": {
+      "title": "ابدأ بإخبارنا من أنت",
+      "description": "انضم كطالب لبدء التعلم، أو كأستاذ لمشاركة خبرتك."
+    },
+    "student": {
+      "page_1": {
+        "title": "أخبرنا قليلاً عن نفسك",
+        "description": "للبدء، سنحتاج إلى بعض المعلومات عنك."
+      },
+      "page_2": {
+        "title": "لنكمل إعدادك",
+        "description": "فقط بعض التفاصيل الإضافية قبل أن نبدأ."
+      }
+    },
+    "professor": {
+      "page_1": {
+        "title": "دعنا نتعرف عليك",
+        "description": "سنبدأ بمعلوماتك الأساسية."
+      },
+      "page_2": {
+        "title": "أخبرنا عن خبرتك",
+        "description": "سيساعدنا هذا على فهم خلفيتك التدريسية.",
+        "questions": {
+          "q_1": "هل لديك خبرة في التدريس بالمدرسة الثانوية؟",
+          "q_2": "كم سنة من الخبرة؟",
+          "q_3": "هل لديك خبرة في الدورات الخارجية؟",
+          "q_4": "هل لديك خبرة في الدورات الخارجية عبر الإنترنت؟",
+          "q_5": "قم برفع وثيقة سيرتك الذاتية"
+        }
+      },
+      "page_3": {
+        "title": "إنشاء حسابك",
+        "description": "أدخل بريدك الإلكتروني وكلمة المرور لإكمال التسجيل."
+      }
+    },
+    "submission": {
+      "title": "تم إرسال الطلب!",
+      "description": "شكراً لتسجيلك! تم إرسال معلوماتك للمراجعة. ستتلقى بريداً إلكترونياً للتأكيد بمجرد التحقق من حسابك. قد يستغرق هذا بضعة أيام.",
+      "next_steps": "العودة إلى الصفحة الرئيسية"
+    },
+    "verify-email": {
+      "title": "تحقق من بريدك الإلكتروني",
+      "description": "أدخل الرمز الذي أرسلناه إلى بريدك الإلكتروني",
+      "not_received": "لم تستلمه؟ تحقق من مجلد الرسائل غير المرغوب فيها أو اطلب رمزاً جديداً",
+      "resend": "إعادة إرسال الرمز",
+      "button": "تحقق من الرمز",
+      "verify": {
+        "title": "تم التحقق من بريدك الإلكتروني!",
+        "description": "أنت جاهز للمتابعة.",
+        "button": "ابدأ التعلم"
+      }
+    },
+    "verify-email-done": {
+      "title": "تم التحقق من بريدك الإلكتروني!",
+      "description": "أنت جاهز للمتابعة."
+    },
+    "selectRole": {
+      "title": "مرحباً بك في سافيني",
+      "subtitle": "يرجى اختيار دورك للمتابعة",
+      "noAccount": "ليس لديك حساب؟",
+      "signUp": "إنشاء حساب",
+      "student": {
+        "title": "أنا طالب",
+        "description": "الوصول إلى دوراتك، تتبع تقدمك، ومتابعة التعلم"
+      },
+      "professor": {
+        "title": "أنا أستاذ",
+        "description": "إدارة دوراتك، الطلاب، والمواد التعليمية"
+      }
+    }
+  }
+}

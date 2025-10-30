@@ -1,0 +1,2235 @@
+{
+  "summary": {
+    "totalKeys": 633,
+    "missingTranslations": 162,
+    "unusedKeys": 251
+  },
+  "missingKeys": [
+    {
+      "key": "/courses/module",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/utils/api.ts"
+      ]
+    },
+    {
+      "key": "/courses/module/${id}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/utils/api.ts"
+      ]
+    },
+    {
+      "key": "/courses/chapter/${cleanId}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/utils/api.ts"
+      ]
+    },
+    {
+      "key": ".",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 7,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/lib/translations.ts",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/base.ts"
+      ]
+    },
+    {
+      "key": "-",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/lib/cookies.ts"
+      ]
+    },
+    {
+      "key": "../types/api",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 3,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/index.ts"
+      ]
+    },
+    {
+      "key": "/exercises/lesson/${lessonId}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts"
+      ]
+    },
+    {
+      "key": "/exercises/chapter/${chapterId}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts"
+      ]
+    },
+    {
+      "key": "/exercises/${exerciseId}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts"
+      ]
+    },
+    {
+      "key": "/exercises/${exerciseId}/submission",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts"
+      ]
+    },
+    {
+      "key": "/exercises/${exerciseId}/submissions",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/api/exercise.ts"
+      ]
+    },
+    {
+      "key": "admin.navigation.${label}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/SideBar.tsx"
+      ]
+    },
+    {
+      "key": "professor.navigation.${label}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/SideBar.tsx"
+      ]
+    },
+    {
+      "key": "professor.general",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/ProfessorCard.tsx"
+      ]
+    },
+    {
+      "key": "navigation.${label}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 3,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/SideBar.tsx"
+      ]
+    },
+    {
+      "key": "modules.clickToViewChapters",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/ModuleCard.tsx"
+      ]
+    },
+    {
+      "key": "[data-dropdown-container]",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/input/dropDown.tsx"
+      ]
+    },
+    {
+      "key": "حجم الملف كبير جداً. الحد الأقصى ${max_size} ميجابايت",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/input/attachementField.tsx"
+      ]
+    },
+    {
+      "key": "Sensitive action performed!",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/examples/AuthExample.tsx"
+      ]
+    },
+    {
+      "key": "Admin action performed!",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/examples/AuthExample.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.structuredLearning.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.structuredLearning.desc",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.expertProfessors.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.expertProfessors.desc",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.trackProgress.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.trackProgress.desc",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.gamifiedLearning.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.gamifiedLearning.desc",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.trustedSecure.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.trustedSecure.desc",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.accessibleAnywhere.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.accessibleAnywhere.desc",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.whySauvini.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/WhySauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.nav.home",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarAuthed.tsx"
+      ]
+    },
+    {
+      "key": "landing.nav.whyUs",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarAuthed.tsx"
+      ]
+    },
+    {
+      "key": "landing.nav.whatWeOffer",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarAuthed.tsx"
+      ]
+    },
+    {
+      "key": "landing.nav.exploreModules",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarAuthed.tsx"
+      ]
+    },
+    {
+      "key": "landing.nav.login",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx"
+      ]
+    },
+    {
+      "key": "landing.nav.signUp",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/NavBarGuest.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.explore",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.home",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.whyUs",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.whatWeOffer",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.exploreModules",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.contact",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.emailUs",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.instagram",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.facebook",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.language",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.english",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.arabic",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.french",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.access",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.signUpStudent",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.applyTeacher",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.footer.logIn",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/LandingFooter.tsx"
+      ]
+    },
+    {
+      "key": "landing.hero.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx"
+      ]
+    },
+    {
+      "key": "landing.hero.description",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx"
+      ]
+    },
+    {
+      "key": "landing.hero.exploreModules",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 3,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/ForWhom.tsx"
+      ]
+    },
+    {
+      "key": "landing.hero.startLearning",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 3,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/ForWhom.tsx"
+      ]
+    },
+    {
+      "key": "landing.hero.imageAlt",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/Hero.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/AboutSauvini.tsx"
+      ]
+    },
+    {
+      "key": "landing.for.forStudents",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/ForWhom.tsx"
+      ]
+    },
+    {
+      "key": "landing.for.forProfessors",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/ForWhom.tsx"
+      ]
+    },
+    {
+      "key": "landing.for.applyNow",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/landing/ForWhom.tsx"
+      ]
+    },
+    {
+      "key": "Tokens are still valid. No refresh needed.",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/debug/TokenRefreshDebug.tsx"
+      ]
+    },
+    {
+      "key": "Token refresh successful! New tokens stored.",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/debug/TokenRefreshDebug.tsx"
+      ]
+    },
+    {
+      "key": "Tokens cleared",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/debug/TokenRefreshDebug.tsx"
+      ]
+    },
+    {
+      "key": "a",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 3,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/files/SecureFileAccess.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/(admin)/professor-management/viewTeacherApplication.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/(admin)/professor-management/page.tsx"
+      ]
+    },
+    {
+      "key": "email",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/verify-email/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.quizes.Submit",
+      "exists": {
+        "en": false,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/quizes/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.why.cards.c1.title",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.why.cards.c1.desc",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.why.cards.c2.title",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.why.cards.c2.desc",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.why.cards.c3.title",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.why.cards.c3.desc",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.why.cards.c4.title",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.why.cards.c4.desc",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.for.students.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.for.students.desc",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.for.professors.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "landing.for.professors.desc",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/(landing)/page.tsx"
+      ]
+    },
+    {
+      "key": "Test Student",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 11,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/__tests__/integration/student-flow.test.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx"
+      ]
+    },
+    {
+      "key": "Failed to load profile",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/__tests__/integration/student-flow.test.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx"
+      ]
+    },
+    {
+      "key": "Updated Student",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/__tests__/integration/student-flow.test.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx"
+      ]
+    },
+    {
+      "key": " ",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 5,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/tables/students/students_columns.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/tables/professors/professor_columns.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/questions/QuestionCard.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exercises/ExerciseSubmissionCard.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamSubmissionCard.tsx"
+      ]
+    },
+    {
+      "key": "/",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 5,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/tables/purchases/purchases_columns.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamSubmissionCard.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/adminPurchases/PurchaseDetails.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/(admin)/professor-management/viewTeacherApplication.tsx"
+      ]
+    },
+    {
+      "key": "admin.managePurchases.status.${status}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/tables/purchases/purchases_columns.tsx"
+      ]
+    },
+    {
+      "key": "test@example.com",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx"
+      ]
+    },
+    {
+      "key": "Algiers",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx"
+      ]
+    },
+    {
+      "key": "0555123456",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx"
+      ]
+    },
+    {
+      "key": "Mathematics",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/__tests__/ModuleCard.test.tsx"
+      ]
+    },
+    {
+      "key": "Loading...",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/student/__tests__/StudentProfile.test.tsx"
+      ]
+    },
+    {
+      "key": "professor.questions.status.${s.toLowerCase()}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/questions/QuestionsGrid.tsx"
+      ]
+    },
+    {
+      "key": "professor.questions.replies",
+      "exists": {
+        "en": false,
+        "ar": true,
+        "fr": true
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/questions/QuestionCard.tsx"
+      ]
+    },
+    {
+      "key": "professor.academicStreams.${selectedStreamLabel}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/modules/ModulesSection.tsx"
+      ]
+    },
+    {
+      "key": "professor.academicStreams.${stream.labelKey}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/modules/ModulesSection.tsx"
+      ]
+    },
+    {
+      "key": "professor.exams.filter.selectChapter",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamsSubmissionsGrid.tsx"
+      ]
+    },
+    {
+      "key": "professor.exams.filter.selectStatus",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamsSubmissionsGrid.tsx"
+      ]
+    },
+    {
+      "key": "professor.exams.status.${s.toLowerCase()}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamsSubmissionsGrid.tsx"
+      ]
+    },
+    {
+      "key": "professor.exams.correctionFileDefault",
+      "exists": {
+        "en": false,
+        "ar": true,
+        "fr": true
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/exams/ExamSubmissionCard.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.status.published",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.status.validated",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.status.waiting",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.lessonsCount",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.lastVersion",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.incomplete",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/chapters/ChapterCard.tsx"
+      ]
+    },
+    {
+      "key": "admin.managePurchases.status.${statusKey}",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/professor/adminPurchases/PurchaseDetails.tsx"
+      ]
+    },
+    {
+      "key": "Test Module",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/__tests__/ModuleCard.test.tsx"
+      ]
+    },
+    {
+      "key": "A test module",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/components/modules/__tests__/ModuleCard.test.tsx"
+      ]
+    },
+    {
+      "key": "chapterId",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/test-chapter/page.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "moduleId",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/test-chapter/page.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "lessonId",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/quiz-builder/page.tsx"
+      ]
+    },
+    {
+      "key": "quizId",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/quiz-builder/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.management",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "[data-academic-streams-section]",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "Please select a PDF file",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "errors.chapter.titleRequired",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "errors.chapter.descriptionRequired",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "errors.chapter.minScoreExceedsTotal",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.SaveChanges",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.supportedStreams",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.ChapterDepencies",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.AddDepencies",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.ChapterExams",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.UploadExamPDF",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.Upload",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.ExamTotalMark",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.ExamMinScore",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.ExamTotalXP",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.Lessons",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.AddLesson",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "professor.chapters.NoLessonYet",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/manage-chapter/page.tsx"
+      ]
+    },
+    {
+      "key": "errors.lesson.failedToLoad",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/viewLessonPopup.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "errors.lesson.failedToFetchStreams",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "errors.lesson.unknownError",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "errors.lesson.idRequired",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "errors.lesson.titleRequired",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "errors.lesson.descriptionRequired",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/updateLessonPopup.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "errors.lesson.academicStreamRequired",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "errors.lesson.chapterIdRequired",
+      "exists": {
+        "en": true,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "professor.lessons.CreateLessonTitle",
+      "exists": {
+        "en": false,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "professor.lessons.CreateLessonDesc",
+      "exists": {
+        "en": false,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "professor.lessons.CreateLesson",
+      "exists": {
+        "en": false,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/createLessonPopup.tsx"
+      ]
+    },
+    {
+      "key": "professor.lessons.AddDepency",
+      "exists": {
+        "en": false,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/chapterDependencyPopup.tsx"
+      ]
+    },
+    {
+      "key": "professor.lessons.AddDepencyDesc",
+      "exists": {
+        "en": false,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/chapterDependencyPopup.tsx"
+      ]
+    },
+    {
+      "key": "professor.lessons.SaveDepencies",
+      "exists": {
+        "en": false,
+        "ar": true,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/create-lesson/chapterDependencyPopup.tsx"
+      ]
+    },
+    {
+      "key": "auth.selectRole.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "auth.selectRole.subtitle",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "student",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "auth.selectRole.student.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "auth.selectRole.student.description",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "professor",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "auth.selectRole.professor.title",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "auth.selectRole.professor.description",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "auth.selectRole.noAccount",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "auth.selectRole.signUp",
+      "exists": {
+        "en": true,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/select-role/page.tsx"
+      ]
+    },
+    {
+      "key": "returnUrl",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 5,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/page.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/page-enhanced.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/student/page.tsx"
+      ]
+    },
+    {
+      "key": "submit",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 2,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/page.tsx",
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/student/page.tsx"
+      ]
+    },
+    {
+      "key": "CV file not available for this professor",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/professor/(admin)/professor-management/viewTeacherApplication.tsx"
+      ]
+    },
+    {
+      "key": "verified",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/professor/page.tsx"
+      ]
+    },
+    {
+      "key": "reset",
+      "exists": {
+        "en": false,
+        "ar": false,
+        "fr": false
+      },
+      "usageCount": 1,
+      "files": [
+        "/Users/MAC/Code/sauvini/sauvini_frontend/sauvini/src/app/auth/login/professor/page.tsx"
+      ]
+    }
+  ],
+  "unusedKeys": [
+    "common.language",
+    "common.nexting",
+    "common.verifying",
+    "common.elements",
+    "common.page",
+    "common.refresh",
+    "common.allStreams",
+    "common.video",
+    "common.pdf",
+    "common.image",
+    "common.document",
+    "common.file",
+    "common.untitledLesson",
+    "common.noDescriptionAvailable",
+    "common.moduleName",
+    "common.chapterTitle",
+    "common.removeVideo",
+    "common.removeFile",
+    "common.removePDF",
+    "common.clearAllSelectedStreams",
+    "common.removeStream",
+    "common.addAcademicStream",
+    "common.errorLoadingStreams",
+    "common.clickAddLesson",
+    "common.createFirstLesson",
+    "common.deleteChapter",
+    "wilayas.0.wilaya_name",
+    "wilayas.1.wilaya_name",
+    "wilayas.2.wilaya_name",
+    "wilayas.3.wilaya_name",
+    "wilayas.4.wilaya_name",
+    "wilayas.5.wilaya_name",
+    "wilayas.6.wilaya_name",
+    "wilayas.7.wilaya_name",
+    "wilayas.8.wilaya_name",
+    "wilayas.9.wilaya_name",
+    "wilayas.10.wilaya_name",
+    "wilayas.11.wilaya_name",
+    "wilayas.12.wilaya_name",
+    "wilayas.13.wilaya_name",
+    "wilayas.14.wilaya_name",
+    "wilayas.15.wilaya_name",
+    "wilayas.16.wilaya_name",
+    "wilayas.17.wilaya_name",
+    "wilayas.18.wilaya_name",
+    "wilayas.19.wilaya_name",
+    "wilayas.20.wilaya_name",
+    "wilayas.21.wilaya_name",
+    "wilayas.22.wilaya_name",
+    "wilayas.23.wilaya_name",
+    "wilayas.24.wilaya_name",
+    "wilayas.25.wilaya_name",
+    "wilayas.26.wilaya_name",
+    "wilayas.27.wilaya_name",
+    "wilayas.28.wilaya_name",
+    "wilayas.29.wilaya_name",
+    "wilayas.30.wilaya_name",
+    "wilayas.31.wilaya_name",
+    "wilayas.32.wilaya_name",
+    "wilayas.33.wilaya_name",
+    "wilayas.34.wilaya_name",
+    "wilayas.35.wilaya_name",
+    "wilayas.36.wilaya_name",
+    "wilayas.37.wilaya_name",
+    "wilayas.38.wilaya_name",
+    "wilayas.39.wilaya_name",
+    "wilayas.40.wilaya_name",
+    "wilayas.41.wilaya_name",
+    "wilayas.42.wilaya_name",
+    "wilayas.43.wilaya_name",
+    "wilayas.44.wilaya_name",
+    "wilayas.45.wilaya_name",
+    "wilayas.46.wilaya_name",
+    "wilayas.47.wilaya_name",
+    "wilayas.48.wilaya_name",
+    "wilayas.49.wilaya_name",
+    "wilayas.50.wilaya_name",
+    "wilayas.51.wilaya_name",
+    "wilayas.52.wilaya_name",
+    "wilayas.53.wilaya_name",
+    "wilayas.54.wilaya_name",
+    "wilayas.55.wilaya_name",
+    "wilayas.56.wilaya_name",
+    "wilayas.57.wilaya_name",
+    "register.common.upload",
+    "register.common.upload_desc",
+    "register.submission.next_steps",
+    "register.verify-email.verify.title",
+    "register.verify-email.verify.description",
+    "auth.login.emailPlaceholder",
+    "auth.login.passwordPlaceholder",
+    "auth.login.errors.email_required",
+    "auth.login.errors.password_required",
+    "auth.login.switchRole.toProfessor",
+    "auth.login.switchRole.toStudent",
+    "auth.verify.title",
+    "auth.verify.subtitle",
+    "auth.verify.helper",
+    "auth.verify.button",
+    "auth.verify.tagline",
+    "auth.verify.email",
+    "auth.verify.codeLabel",
+    "chapters.title",
+    "chapters.backToModules",
+    "chapters.complete",
+    "chapters.incomplete",
+    "chapters.locked",
+    "chapters.progress",
+    "chapters.of",
+    "chapters.noChapters",
+    "chapters.startLearning",
+    "chapters.continueChapter",
+    "chapters.completionStatus",
+    "chapters.viewLessons",
+    "chapters.showPurchasedOnly",
+    "lesson.minutes",
+    "navigation.modules",
+    "navigation.exams",
+    "navigation.exercises",
+    "navigation.questions",
+    "navigation.badges",
+    "navigation.notifications",
+    "exams.new",
+    "exams.submitted",
+    "exams.passed",
+    "exams.failed",
+    "exams.submissionInstructions",
+    "exams.solutionFile",
+    "exams.selectPdf",
+    "exams.pdfOnly",
+    "notFound.title",
+    "notFound.description",
+    "notFound.backToHome",
+    "notFound.backToModules",
+    "notFound.goHome",
+    "notFound.lessonTitle",
+    "notFound.lessonDescription",
+    "notFound.exerciseTitle",
+    "notFound.exerciseDescription",
+    "notFound.backToExercises",
+    "exercises.new",
+    "exercises.submitted",
+    "exercises.totalMarks",
+    "exercises.failed",
+    "exercises.passed",
+    "exercises.graded",
+    "exercises.statusPassed",
+    "exercises.statusFailed",
+    "professor.navigation.manageContent",
+    "professor.navigation.correctExams",
+    "professor.navigation.correctExercises",
+    "professor.navigation.answerQuestions",
+    "professor.navigation.notifications",
+    "professor.navigation.accountDetails",
+    "professor.navigation.manageProfessors",
+    "professor.navigation.managePurchases",
+    "professor.navigation.manageStudents",
+    "professor.academicStreams.mathematics",
+    "professor.academicStreams.experimentalsciences",
+    "professor.academicStreams.literature",
+    "professor.academicStreams.mathtechnique",
+    "professor.chapters.chapterNameRequired",
+    "professor.chapters.academicStream",
+    "professor.chapters.addChapter",
+    "professor.chapters.noChaptersFound",
+    "professor.chapters.createNewChapter",
+    "professor.chapters.createNewChapterSubtitle",
+    "professor.chapters.chapterName",
+    "professor.chapters.chapterNamePlaceholder",
+    "professor.chapters.chapterDescription",
+    "professor.chapters.chapterPrice",
+    "professor.chapters.editLaterNote",
+    "professor.chapters.createChapter",
+    "professor.chapters.complete",
+    "professor.chapters.AddStream",
+    "professor.quizes.QuizTolalMark",
+    "professor.exams.filter.chapter",
+    "professor.exams.filter.status",
+    "professor.exams.status.all",
+    "professor.exams.notesPlaceholder",
+    "professor.exercises.selectLesson",
+    "professor.exercises.selectChapter",
+    "professor.exercises.selectStatus",
+    "professor.exercises.studentNotes",
+    "professor.notifications.title",
+    "professor.notifications.noNotifications",
+    "professor.notifications.markAllAsSeen",
+    "professor.notifications.sortByImportance",
+    "professor.notifications.sortByTime",
+    "professor.questions.status.all",
+    "professor.questions.professorNotes",
+    "professor.questions.professorFile",
+    "professor.profile.title",
+    "professor.profile.academicStream",
+    "professor.permissions.contentCreation",
+    "professor.permissions.questionAnswering",
+    "professor.permissions.exerciseExamCorrection",
+    "public.lessons",
+    "public.lockMessage",
+    "admin.navigation.manageStudents",
+    "admin.navigation.manageProfessors",
+    "admin.navigation.managePurchases",
+    "admin.manageStudents.viewProfile",
+    "admin.managePurchases.noPurchases",
+    "profile.noFileChosen",
+    "errors.radio.required",
+    "errors.chapter.failedToUpdate",
+    "errors.chapter.failedToDelete",
+    "errors.chapter.failedToLoadLessons",
+    "errors.chapter.failedToCreate",
+    "errors.chapter.unknownError",
+    "errors.chapter.selectPdfFile",
+    "errors.module.apiFailed",
+    "errors.module.failedToFetch",
+    "errors.module.descriptionNotAvailable",
+    "errors.auth.unexpectedError",
+    "errors.auth.loginFailed",
+    "errors.auth.registrationFailed",
+    "otp.resent",
+    "terms.agreement",
+    "terms.continue",
+    "register.selectRole.title",
+    "register.selectRole.subtitle",
+    "register.selectRole.noAccount",
+    "register.selectRole.signUp",
+    "register.selectRole.student.title",
+    "register.selectRole.student.description",
+    "register.selectRole.professor.title",
+    "register.selectRole.professor.description",
+    "exams.examPDF",
+    "exercises.exercisePDF",
+    "professor.chapters.chapterDescriptionPlaceholder",
+    "professor.lessons.CreatedOn",
+    "professor.exams.filter.chapterPrefix",
+    "professor.exams.filter.statusPrefix",
+    "exercises.submissionInstructions",
+    "exercises.solutionFile",
+    "exercises.selectPdf",
+    "exercises.pdfOnly",
+    "professor.Notification",
+    "professor.exams.filters.chapterPrefix",
+    "professor.exams.filters.statusPrefix",
+    "professor.exams.filters.waiting",
+    "professor.exams.filters.all",
+    "professor.exams.filters.corrected",
+    "professor.exams.filters.selectChapter",
+    "professor.exams.filters.selectStatus",
+    "professor.notifications.markAsSeen",
+    "professor.notifications.normal",
+    "professor.notifications.important",
+    "professor.notifications.urgent"
+  ]
+}

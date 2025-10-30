@@ -1,0 +1,1194 @@
+{
+  "about_us": {
+    "title": "À Propos de Nous",
+    "description": "Nous sommes une équipe de développeurs passionnés qui s'efforcent d'offrir la meilleure expérience possible à nos utilisateurs. Nous croyons au pouvoir de la technologie pour améliorer la vie quotidienne."
+  },
+  "common": {
+    "language": "Langue",
+    "back": "Retour",
+    "next": "Suivant",
+    "nexting": "Suivant",
+    "verifying": "Vérification...",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "creating": "Création...",
+    "search": "Rechercher",
+    "downloadShort": "Télécharger",
+    "showCount": "Afficher {count} éléments",
+    "all": "Tout",
+    "show": "Afficher",
+    "elements": "éléments",
+    "page": "page",
+    "browse": "Parcourir",
+    "gender": {
+      "male": "Homme",
+      "female": "Femme"
+    },
+    "uploading": "Téléchargement...",
+    "uploaded": "Téléchargé",
+    "retry": "Réessayer",
+    "upload": "Télécharger",
+    "sending": "Envoi...",
+    "refresh": "Actualiser",
+    "view": "Voir",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "allChapters": "Tous les chapitres",
+    "allStreams": "Toutes les filières",
+    "video": "Vidéo",
+    "pdf": "PDF",
+    "image": "Image",
+    "document": "Document",
+    "file": "Fichier",
+    "unknown": "Inconnu",
+    "untitledLesson": "Leçon sans titre",
+    "noDescriptionAvailable": "Aucune description disponible",
+    "moduleName": "Nom du module",
+    "chapterTitle": "Titre du chapitre",
+    "removeVideo": "Supprimer la vidéo",
+    "removeFile": "Supprimer le fichier",
+    "removePDF": "Supprimer le PDF",
+    "clearAllSelectedStreams": "Effacer toutes les filières sélectionnées",
+    "removeStream": "Supprimer la filière",
+    "addAcademicStream": "Ajouter une filière académique",
+    "errorLoadingStreams": "Erreur lors du chargement des filières",
+    "enterChapterTitle": "Entrez le titre du chapitre",
+    "enterChapterDescription": "Entrez la description du chapitre",
+    "enterChapterPrice": "Entrez le prix du chapitre en DA",
+    "enterLessonName": "Entrez le nom de la leçon",
+    "enterLessonDescription": "Entrez la description de la leçon",
+    "clickAddLesson": "Cliquez sur \"Ajouter une leçon\" pour créer votre première leçon",
+    "createFirstLesson": "Créer la première leçon",
+    "deleteChapter": "Supprimer le chapitre"
+  },
+  "wilayas": [
+    { "id": 1, "wilaya_name": "01-Adrar" },
+    { "id": 2, "wilaya_name": "02-Chlef" },
+    { "id": 3, "wilaya_name": "03-Laghouat" },
+    { "id": 4, "wilaya_name": "04-Oum El Bouaghi" },
+    { "id": 5, "wilaya_name": "05-Batna" },
+    { "id": 6, "wilaya_name": "06-Béjaïa" },
+    { "id": 7, "wilaya_name": "07-Biskra" },
+    { "id": 8, "wilaya_name": "08-Béchar" },
+    { "id": 9, "wilaya_name": "09-Blida" },
+    { "id": 10, "wilaya_name": "10-Bouira" },
+    { "id": 11, "wilaya_name": "11-Tamanrasset" },
+    { "id": 12, "wilaya_name": "12-Tébessa" },
+    { "id": 13, "wilaya_name": "13-Tlemcen" },
+    { "id": 14, "wilaya_name": "14-Tiaret" },
+    { "id": 15, "wilaya_name": "15-Tizi Ouzou" },
+    { "id": 16, "wilaya_name": "16-Alger" },
+    { "id": 17, "wilaya_name": "17-Djelfa" },
+    { "id": 18, "wilaya_name": "18-Jijel" },
+    { "id": 19, "wilaya_name": "19-Sétif" },
+    { "id": 20, "wilaya_name": "20-Saïda" },
+    { "id": 21, "wilaya_name": "21-Skikda" },
+    { "id": 22, "wilaya_name": "22-Sidi Bel Abbès" },
+    { "id": 23, "wilaya_name": "23-Annaba" },
+    { "id": 24, "wilaya_name": "24-Guelma" },
+    { "id": 25, "wilaya_name": "25-Constantine" },
+    { "id": 26, "wilaya_name": "26-Médéa" },
+    { "id": 27, "wilaya_name": "27-Mostaganem" },
+    { "id": 28, "wilaya_name": "28-M'Sila" },
+    { "id": 29, "wilaya_name": "29-Mascara" },
+    { "id": 30, "wilaya_name": "30-Ouargla" },
+    { "id": 31, "wilaya_name": "31-Oran" },
+    { "id": 32, "wilaya_name": "32-El Bayadh" },
+    { "id": 33, "wilaya_name": "33-Illizi" },
+    { "id": 34, "wilaya_name": "34-Bordj Bou Arreridj" },
+    { "id": 35, "wilaya_name": "35-Boumerdès" },
+    { "id": 36, "wilaya_name": "36-El Tarf" },
+    { "id": 37, "wilaya_name": "37-Tindouf" },
+    { "id": 38, "wilaya_name": "38-Tissemsilt" },
+    { "id": 39, "wilaya_name": "39-El Oued" },
+    { "id": 40, "wilaya_name": "40-Khenchela" },
+    { "id": 41, "wilaya_name": "41-Souk Ahras" },
+    { "id": 42, "wilaya_name": "42-Tipaza" },
+    { "id": 43, "wilaya_name": "43-Mila" },
+    { "id": 44, "wilaya_name": "44-Aïn Defla" },
+    { "id": 45, "wilaya_name": "45-Naâma" },
+    { "id": 46, "wilaya_name": "46-Aïn Témouchent" },
+    { "id": 47, "wilaya_name": "47-Ghardaïa" },
+    { "id": 48, "wilaya_name": "48-Relizane" },
+    { "id": 49, "wilaya_name": "49-El M'Ghair" },
+    { "id": 50, "wilaya_name": "50-El Menia" },
+    { "id": 51, "wilaya_name": "51-Ouled Djellal" },
+    { "id": 52, "wilaya_name": "52-Bordj Badji Mokhtar" },
+    { "id": 53, "wilaya_name": "53-Béni Abbès" },
+    { "id": 54, "wilaya_name": "54-Timimoun" },
+    { "id": 55, "wilaya_name": "55-Touggourt" },
+    { "id": 56, "wilaya_name": "56-Djanet" },
+    { "id": 57, "wilaya_name": "57-In Salah" },
+    { "id": 58, "wilaya_name": "58-In Guezzam" }
+  ],
+  "auth": {
+    "login": {
+      "title": "Content de vous revoir",
+      "subtitle": "Connectez-vous pour accéder à votre compte.",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "emailPlaceholder": "Entrez votre e-mail",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "forgotPassword": "Mot de passe oublié ?",
+      "loginButton": "Se connecter",
+      "loggingIn": "Connexion en cours...",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "signUp": " S'inscrire",
+      "tagline": "Où l'apprentissage rencontre un but",
+      "errors": {
+        "email_required": "L'e-mail est requis",
+        "password_required": "Le mot de passe est requis",
+        "invalid_credentials": "E-mail ou mot de passe invalide"
+      },
+      "professorLogin": "Connexion professeur",
+      "studentLogin": "Connexion étudiant",
+      "wrongRole": "Mauvais rôle sélectionné. Veuillez réessayer avec le bon rôle.",
+      "professorTagline": "Donner aux éducateurs les moyens d'inspirer la prochaine génération.",
+      "switchRole": {
+        "toProfessor": "Se connecter en tant que professeur",
+        "toStudent": "Se connecter en tant qu'étudiant"
+      }
+    },
+    "forgot": {
+      "title": "Mot de passe oublié ?",
+      "subtitle": "Entrez l'e-mail lié à votre compte.",
+      "helper": "Nous vous enverrons un code de vérification par e-mail.",
+      "email": "E-mail",
+      "tagline": "Où l'apprentissage rencontre un but",
+      "errors": {
+        "email_required": "L'e-mail est requis",
+        "invalid_email": "Format d'e-mail invalide",
+        "email_not_found": "E-mail introuvable. Veuillez vérifier et réessayer."
+      }
+    },
+    "verify": {
+      "title": "Vérifiez votre e-mail",
+      "subtitle": "Entrez le code à 6 chiffres que nous vous avons envoyé",
+      "helper": "Vous ne l'avez pas reçu ? Vérifiez votre dossier spam ou demandez un nouveau code",
+      "resend": "Renvoyer le code",
+      "button": "Vérifier le code",
+      "tagline": "Où l'apprentissage rencontre un but",
+      "email": "E-mail",
+      "code": "Code de vérification",
+      "codeLabel": "Code de vérification"
+    },
+    "reset": {
+      "title": "Réinitialiser votre mot de passe",
+      "subtitle": "Entrez le code de votre e-mail et créez un nouveau mot de passe",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "cta": "Réinitialiser le mot de passe",
+      "tagline": "Où l'apprentissage rencontre un but",
+      "submitting": "Envoi en cours...",
+      "successTitle": "Mot de passe changé avec succès !",
+      "successBody": "Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+      "successCta": "Aller à la connexion",
+      "submit": "Réinitialiser le mot de passe",
+      "errors": {
+        "password_min": "Le mot de passe doit contenir au moins 8 caractères",
+        "password_format": "Le mot de passe doit contenir des majuscules, des minuscules et des chiffres",
+        "confirm_required": "Veuillez confirmer votre mot de passe",
+        "password_mismatch": "Les mots de passe ne correspondent pas",
+        "reset_failed": "Échec de la réinitialisation du mot de passe. Veuillez réessayer."
+      }
+    },
+    "branding": {
+      "title": "Bienvenue chez Sauvini",
+      "subtitle": "Votre parcours d'apprentissage commence ici"
+    }
+  },
+  "footer": {
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions",
+    "help": "Aide"
+  },
+  "modules": {
+    "keepGoing": "Continuez",
+    "level": "Niveau",
+    "notifications": "Notifications",
+    "modulesTitle": "Modules",
+    "showPurchasedOnly": "Afficher uniquement les modules achetés",
+    "noPurchasedModules": "Aucun module acheté trouvé.",
+    "lessons": "Leçons",
+    "lesson": "Leçon",
+    "unlock": "Déverrouiller",
+    "viewChapters": "Voir les chapitres"
+  },
+  "chapters": {
+    "title": "Chapitres",
+    "backToModules": "Retour aux modules",
+    "complete": "Terminé",
+    "incomplete": "Incomplet",
+    "locked": "Verrouillé",
+    "progress": "Progression",
+    "of": "sur",
+    "noChapters": "Aucun chapitre disponible dans ce module",
+    "startLearning": "Commencer",
+    "continueChapter": "Continuer le chapitre",
+    "completionStatus": "État d'achèvement",
+    "chaptersTitle": "Chapitres",
+    "viewLessons": "Voir les leçons",
+    "showPurchasedOnly": "Afficher uniquement les modules achetés",
+    "lesson": "Leçons",
+    "noPurchasedChapters": "Aucun chapitre acheté trouvé.",
+    "purchaseChapter": "Acheter le chapitre"
+  },
+  "lesson": {
+    "startLearning": "Commencer l'apprentissage",
+    "lessonLocked": "Leçon verrouillée, Terminez la précédente pour la déverrouiller",
+    "lessonsTitle": "Leçons",
+    "minutes": "minutes",
+    "noLessons": "Aucune leçon disponible"
+  },
+  "navigation": {
+    "modules": "Modules",
+    "exams": "Examens",
+    "exercises": "Exercices",
+    "questions": "Questions",
+    "badges": "Badges",
+    "notifications": "Notifications",
+    "profile": "Profil",
+    "logout": "Se déconnecter"
+  },
+  "exams": {
+    "title": "Mes Examens",
+    "description": "Voir tous vos examens des chapitres que vous possédez. Filtrer par statut pour trouver les nouveaux, soumis, réussis ou échoués. Cliquez sur une carte pour plus de détails ou pour soumettre.",
+    "noExams": "Aucun examen trouvé.",
+    "statusAll": "Statut de l'examen : Tous",
+    "new": "Nouveau",
+    "submitted": "Soumis",
+    "passed": "Réussi",
+    "failed": "Échoué",
+    "modulesAll": "Modules : Tous",
+    "details": "Détails",
+    "examPDF": "exam.pdf",
+    "examPdf": "exam.pdf",
+    "submitSolution": "Soumettre votre solution",
+    "submissions": "Soumissions",
+    "noSubmissions": "Aucune soumission pour le moment",
+    "downloadSubmissionFile": "Télécharger le fichier de soumission",
+    "downloadReviewFile": "Télécharger le fichier de révision",
+    "grade": "Note",
+    "submissionInstructions": "Suivez les instructions pour soumettre votre examen.",
+    "solutionFile": "solution.pdf",
+    "selectPdf": "Sélectionner le PDF",
+    "pdfOnly": "PDF uniquement",
+    "submit": "Soumettre",
+    "submissionSubtitle": "Téléchargez votre solution au format PDF. Si votre solution contient des images, veuillez les convertir en un seul PDF à l'aide d'outils en ligne avant de les télécharger.",
+    "dragOrBrowse": "Faites glisser votre fichier ou ",
+    "browse": "Parcourir",
+    "maxFilesHint": "Max 10 Mo de fichiers sont autorisés",
+    "studentNotes": "Notes de l'étudiant",
+    "professorNotes": "Notes du professeur",
+    "additionalNotes": "Notes supplémentaires",
+    "notesPlaceholder": "Entrez des notes supplémentaires ici...",
+    "pdfOnlyError": "Veuillez sélectionner un fichier PDF",
+    "maxSizeError": "La taille du fichier dépasse la limite maximale",
+    "selectFileError": "Veuillez sélectionner un fichier",
+    "changeFileHint": "Cliquez pour changer le fichier",
+    "submitting": "Soumission...",
+    "statusNew": "Nouveau",
+    "statusSubmitted": "Soumis",
+    "statusPassed": "Réussi",
+    "statusFailed": "Échoué"
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "description": "Désolé, nous n'avons pas pu trouver la page que vous recherchez.",
+    "backToHome": "Retour à l'accueil",
+    "backToModules": "Retour aux modules",
+    "goHome": "Aller à l'accueil",
+    "lessonTitle": "Leçon non trouvée",
+    "lessonDescription": "La leçon que vous recherchez n'existe pas ou a été déplacée.",
+    "exerciseTitle": "Exercice non trouvé",
+    "exerciseDescription": "L'exercice que vous recherchez n'existe pas ou a été déplacé.",
+    "backToExercises": "Retour aux exercices"
+  },
+  "exercises": {
+    "title": "Exercices",
+    "description": "Voir tous vos exercices des chapitres que vous possédez. Filtrer par statut pour trouver les nouveaux, soumis, réussis ou échoués. Cliquez sur une carte pour plus de détails ou pour soumettre.",
+    "noExercises": "Aucun exercice trouvé.",
+    "statusAll": "Statut de l'exercice : Tous",
+    "new": "Nouveau",
+    "submitted": "Soumis",
+    "passed": "Réussi",
+    "failed": "Échoué",
+    "modulesAll": "Modules : Tous",
+    "details": "Détails",
+    "exercisePDF": "exercise.pdf",
+    "exercisePdf": "exercise.pdf",
+    "submitSolution": "Soumettre votre solution",
+    "submissions": "Soumissions",
+    "noSubmissions": "Aucune soumission pour le moment",
+    "downloadSubmissionFile": "Télécharger le fichier de soumission",
+    "downloadReviewFile": "Télécharger le fichier de révision",
+    "grade": "Note",
+    "submissionInstructions": "Suivez les instructions pour soumettre votre exercice.",
+    "solutionFile": "solution.pdf",
+    "selectPdf": "Sélectionner le PDF",
+    "pdfOnly": "PDF uniquement",
+    "submit": "Soumettre",
+    "submissionSubtitle": "Téléchargez votre solution au format PDF. Si votre solution contient des images, veuillez les convertir en un seul PDF à l'aide d'outils en ligne avant de les télécharger.",
+    "dragOrBrowse": "Faites glisser votre fichier ou ",
+    "browse": "Parcourir",
+    "maxFilesHint": "Max 10 Mo de fichiers sont autorisés",
+    "graded": "Noté",
+    "pointsTotal": "points au total",
+    "studentNotes": "Notes de l'étudiant",
+    "professorNotes": "Notes du professeur",
+    "additionalNotes": "Notes supplémentaires",
+    "notesPlaceholder": "Entrez des notes supplémentaires ici...",
+    "pdfOnlyError": "Veuillez sélectionner un fichier PDF",
+    "maxSizeError": "La taille du fichier dépasse la limite maximale",
+    "selectFileError": "Veuillez sélectionner un fichier",
+    "changeFileHint": "Cliquez pour changer le fichier",
+    "submitting": "Soumission...",
+    "statusNew": "Nouveau",
+    "statusSubmitted": "Soumis",
+    "statusGraded": "Noté"
+  },
+  "questions": {
+    "title": "Questions",
+    "description": "Voir toutes vos questions des chapitres que vous possédez. Filtrer par statut pour trouver les nouvelles, répondues ou en attente. Cliquez sur une carte pour plus de détails ou pour soumettre.",
+    "noQuestions": "Aucune question trouvée",
+    "filters": {
+      "visibility": "Visibilité de la question",
+      "teacherResponse": "Réponse de l'enseignant",
+      "module": "Module",
+      "all": "Tous",
+      "public": "Public",
+      "private": "Privé",
+      "answered": "Répondu",
+      "pending": "En attente",
+      "closed": "Fermé"
+    },
+    "card": {
+      "answered": "Répondu",
+      "waiting": "En attente de réponse",
+      "public": "Public",
+      "private": "Privé",
+      "downloadStudent": "Télécharger les fichiers joints de l'étudiant",
+      "downloadProfessor": "Télécharger les fichiers joints du professeur",
+      "showAnswer": "Afficher la réponse",
+      "hideAnswer": "Masquer la réponse",
+      "noAnswerYet": "Aucune réponse détaillée disponible pour le moment.",
+      "pathPlaceholder": "Module / Chapitre / Leçon"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "description": "Stay updated with your learning progress and important announcements.",
+    "sortByImportance": "Sort by: Importance",
+    "sortByTime": "Order by time",
+    "importanceAll": "Importance: All",
+    "importanceImportant": "Important",
+    "importanceUrgent": "Urgent",
+    "markAllAsSeen": "Mark all as seen",
+    "markAsSeen": "Mark as seen",
+    "noNotifications": "No notifications found",
+    "normal": "Normal",
+    "important": "Important",
+    "urgent": "Urgent"
+  },
+  "professor": {
+    "professor": "Professeur",
+    "dr": "Dr.",
+    "notification": "Notifications",
+    "Notification": "Notifications",
+    "navigation": {
+      "manageContent": "Gérer le contenu",
+      "correctExams": "Corriger les examens",
+      "correctExercises": "Corriger les exercices",
+      "answerQuestions": "Répondre aux questions",
+      "lives": "Lives",
+      "notifications": "Notifications",
+      "accountDetails": "Détails du compte",
+      "logout": "Se déconnecter",
+      "manageProfessors": "Gérer les professeurs",
+      "managePurchases": "Gérer les achats",
+      "manageStudents": "Gérer les étudiants"
+    },
+    "numberOfChapters": "Nombre de chapitres : ",
+    "academicStreams": {
+      "all": "Tous",
+      "mathematics": "Mathématiques",
+      "experimentalsciences": "Sciences expérimentales",
+      "literature": "Littérature",
+      "mathtechnique": "Math-Technique"
+    },
+    "modules": {
+      "title": "Modules",
+      "academicStream": "Filière académique",
+      "noModulesFound": "Aucun module trouvé pour la filière académique sélectionnée."
+    },
+    "chapters": {
+      "title": "Chapitres",
+      "academicStream": "Filière académique",
+      "addChapter": "Ajouter un chapitre",
+      "createNewChapter": "Créer un nouveau chapitre",
+      "createNewChapterSubtitle": "Ajoutez les détails de base pour commencer votre chapitre",
+      "chapterName": "Nom du chapitre",
+      "chapterNamePlaceholder": "Entrez le nom du chapitre",
+      "chapterDescription": "Description du chapitre",
+      "chapterDescriptionPlaceholder": "Entrez la description du chapitre",
+      "chapterPrice": "Prix du chapitre (DA)",
+      "createChapter": "Créer un chapitre",
+      "editLaterNote": "Vous pouvez modifier plus de détails plus tard sur la page du chapitre.",
+      "lessonsCount": "Nombre de leçons",
+      "noChaptersFound": "Aucun chapitre trouvé pour la filière académique sélectionnée.",
+      "complete": "Complet",
+      "incomplete": "Incomplet",
+      "lastVersion": "Dernière version",
+      "status": {
+        "waiting": "En attente",
+        "validated": "Validé",
+        "published": "Publié"
+      },
+      "supportedStreams": "Filières académiques prises en charge",
+      "AddStream": "Ajouter une filière",
+      "ChapterDepencies": "Dépendances du chapitre",
+      "AddDepencies": "Ajouter une dépendance",
+      "ChapterExams": "Examens du chapitre",
+      "Upload": "Téléverser",
+      "UploadExamPDF": "Téléverser le PDF de l'examen",
+      "ExamTotalMark": "Note totale de l'examen",
+      "ExamMinScore": "Note minimale de l'examen",
+      "ExamTotalXP": "XP total de l'examen",
+      "Lessons": "Leçons",
+      "AddLesson": "Ajouter une leçon",
+      "NoLessonYet": "Aucune leçon pour le moment",
+      "SaveChanges": "Enregistrer les modifications",
+      "management": "Gestion des chapitres"
+    },
+    "lessons": {
+      "CreatedOn": "Créé le",
+      "CreateLessonTitle": "Créer une leçon",
+      "CreateLessonDesc": "Remplissez les détails ci-dessous pour créer une nouvelle leçon.",
+      "LessonName": "Nom de la leçon",
+      "LessonDescription": "Description de la leçon",
+      "LessonVideo": "Vidéo de la leçon",
+      "LessonAttachment": "Pièces jointes de la leçon",
+      "ExercicePDF": "PDF de l'exercice",
+      "ExerciceTotalMark": "Note totale de l'exercice",
+      "ExerciceTotalXP": "XP total de l'exercice",
+      "SupportedStreams": "Filières académiques prises en charge",
+      "Cancel": "Annuler",
+      "CreateLesson": "Créer la leçon",
+      "AddDepency": "Ajouter des dépendances de chapitre",
+      "AddDepencyDesc": "Sélectionnez les chapitres dont dépend celui-ci",
+      "SaveDepencies": "Enregistrer les dépendances",
+      "UpdateLesson": "Mettre à jour la leçon",
+      "UpdateLessonDesc": "Modifier les détails ou remplacer les fichiers de cette leçon",
+      "UpdateQuiz": "Mettre à jour le quiz",
+      "Quiz": "Quiz"
+    },
+    "quizes": {
+      "SaveQuiz": "Enregistrer le quiz",
+      "QuizTotalPoints": "Points totaux du quiz",
+      "QuizMinScore": "Score minimum du quiz",
+      "AddQuestion": "Ajouter une question",
+      "Questions": "Questions",
+      "Delete": "Supprimer",
+      "Update": "Mettre à jour",
+      "TotalPoints": "Points totaux",
+      "Question": "Question",
+      "QuestionTitle": "Titre de la question",
+      "QuestionText": "Texte de la question",
+      "QuestionType": "Type de question",
+      "Choices": "Choix",
+      "CorrectAnswers": "Réponses correctes",
+      "QuizAttach": "Pièces jointes",
+      "QuizTolalMark": "Note totale du quiz",
+      "CreateQuiz": "Créer un quiz",
+      "Cancel": "Annuler",
+      "CreateQuestionDesc": "Remplissez les détails ci-dessous pour créer une question.",
+      "Submit": "Soumettre"
+    },
+    "exams": {
+      "title": "Soumissions d'examens",
+      "noSubmissions": "Aucune soumission trouvée",
+      "filters": {
+        "chapterPrefix": "Chapitre: ",
+        "statusPrefix": "Statut: ",
+        "waiting": "En attente",
+        "all": "Tous",
+        "corrected": "Corrigé",
+        "selectChapter": "Sélectionner un chapitre",
+        "selectStatus": "Sélectionner un statut"
+      },
+      "downloadSubmission": "Télécharger la soumission de l'étudiant",
+      "viewDetails": "Voir les détails",
+      "correct": "Corriger",
+      "professorNotesTitle": "Notes du professeur",
+      "gradeTitle": "Note:",
+      "correctionFileLabel": "Fichier de correction",
+      "hideDetails": "Masquer les détails",
+      "hideCorrectionForm": "Masquer le formulaire de correction",
+      "saveCorrection": "Enregistrer la correction",
+      "uploadCorrectionLabel": "Télécharger le fichier de correction",
+      "studentTotalMarkLabel": "Note totale",
+      "additionalNotesLabel": "Notes supplémentaires",
+      "notesPlaceholder": "Entrez vos notes supplémentaires ici...",
+      "status": {
+        "corrected": "Corrigé",
+        "waiting": "En attente"
+      },
+      "correctionFileDefault": "Fichier de correction"
+    },
+    "exercises": {
+      "title": "Soumissions d'exercices",
+      "downloadSubmissionFile": "Télécharger le fichier de soumission",
+      "studentNotesLabel": "Notes de l'étudiant",
+      "uploadReviewLabel": "Télécharger le fichier de révision",
+      "totalMarkLabel": "Note totale",
+      "additionalNotesLabel": "Notes supplémentaires",
+      "saveReview": "Enregistrer la révision",
+      "professorNotesTitle": "Notes du professeur",
+      "gradeTitle": "Note:",
+      "correct": "Corriger",
+      "noSubmissions": "Aucune soumission trouvée",
+      "selectLesson": "Sélectionner une leçon",
+      "selectChapter": "Sélectionner un chapitre",
+      "selectStatus": "Sélectionner un statut",
+      "studentNotes": "Notes de l'étudiant",
+      "viewDetails": "Voir les détails",
+      "hideDetails": "Masquer les détails",
+      "filter": {
+        "lesson": "Filtrer par leçon",
+        "chapter": "Filtrer par chapitre",
+        "status": "Filtrer par statut",
+        "selectLesson": "Sélectionner une leçon",
+        "selectChapter": "Sélectionner un chapitre",
+        "selectStatus": "Sélectionner un statut"
+      },
+      "status": {
+        "corrected": "Corrigé",
+        "waiting": "En attente"
+      }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "noNotifications": "Aucune notification trouvée",
+      "markAllAsSeen": "Marquer tout comme vu",
+      "markAsSeen": "Marquer comme vu",
+      "normal": "Normal",
+      "important": "Important",
+      "urgent": "Urgent"
+    },
+    "questions": {
+      "title": "Questions",
+      "noQuestions": "Aucune question trouvée",
+      "filter": {
+        "lesson": "Filtrer par leçon",
+        "chapter": "Filtrer par chapitre",
+        "status": "Filtrer par statut",
+        "selectChapter": "Sélectionner un chapitre",
+        "selectLesson": "Sélectionner une leçon",
+        "selectStatus": "Sélectionner un statut"
+      },
+      "status": {
+        "waiting": "En attente",
+        "answered": "Répondu",
+        "all": "Tous"
+      },
+      "downloadAttachment": "Télécharger la pièce jointe",
+      "sendAnswer": "Envoyer la réponse",
+      "uploadAnswerLabel": "Télécharger un fichier",
+      "answerLabel": "Réponse",
+      "viewDetails": "Voir les détails",
+      "hideDetails": "Masquer les détails",
+      "answer": "Réponse",
+      "private": "Privé",
+      "public": "Public",
+      "answerPlaceholder": "Tapez votre réponse ici...",
+      "visibility": "Visibilité",
+      "cancel": "Annuler",
+      "professorNotes": "Notes du professeur",
+      "professorFile": "Fichier du professeur",
+      "replies": "Réponses"
+    },
+    "profile": {
+      "title": "Mon Profil",
+      "edit": "Modifier les détails",
+      "fullName": "Nom complet",
+      "gender": "Genre",
+      "dateOfBirth": "Date de naissance",
+      "phoneNumber": "Numéro de téléphone",
+      "emailAddress": "Adresse e-mail",
+      "wilaya": "Wilaya",
+      "academicStream": "Parcours académique",
+      "permissions": "Permissions",
+      "editTitle": "Modifier le profil",
+      "editSubtitle": "Mettez à jour vos informations personnelles ci-dessous.",
+      "picture": "Photo de profil",
+      "dragOrBrowse": "Faites glisser votre image ou parcourez",
+      "maxSizeHint": "Max 5 Mo. JPG/PNG.",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "birthdate": "Date de naissance",
+      "saveChanges": "Enregistrer les modifications"
+    },
+    "permissions": {
+      "contentCreation": "Création de contenu",
+      "questionAnswering": "Réponse aux questions",
+      "exerciseExamCorrection": "Correction d'exercices/examens"
+    },
+    "welcome": "Bienvenue",
+    "lives": {
+      "title": "Lives",
+      "scheduledLives": "Lives Programmés",
+      "recordedLives": "Lives Enregistrés",
+      "noLivesYet": "Aucun Live pour le moment",
+      "scheduleLive": "Programmer un live",
+      "scheduleLiveButton": "+ Programmer un live",
+      "filters": {
+        "academicStream": "Filière Académique",
+        "status": "Statut",
+        "all": "Tous"
+      },
+      "status": {
+        "pending": "En attente",
+        "approved": "Approuvé",
+        "live": "En direct",
+        "ended": "Terminé",
+        "cancelled": "Annulé"
+      },
+      "card": {
+        "moduleChapter": "Module / Chapitre",
+        "remainingTime": "Temps restant",
+        "dateAndTime": "Date et Heure",
+        "startLive": "Démarrer le Live",
+        "cancelLive": "Annuler le Live",
+        "viewRecording": "Voir l'enregistrement"
+      },
+      "scheduleModal": {
+        "title": "Programmer un live",
+        "description": "Le live programmé sera examiné par un administrateur avant validation",
+        "liveTitle": "Titre du Live",
+        "liveDescription": "Description du Live",
+        "module": "Module",
+        "chapter": "Chapitre",
+        "supportedAcademicStreams": "Filières Académiques Supportées",
+        "date": "Date",
+        "time": "Heure",
+        "hours": "h",
+        "minutes": "min",
+        "cancel": "Annuler",
+        "submit": "Soumettre",
+        "selectModule": "Sélectionner un module",
+        "selectChapter": "Sélectionner un chapitre",
+        "selectStream": "Sélectionner une filière"
+      },
+      "cancelModal": {
+        "title": "Annuler le Live",
+        "message": "Êtes-vous sûr de vouloir annuler ce live ? L'administrateur et les étudiants seront notifiés",
+        "keepLive": "Garder le Live",
+        "cancelLive": "Annuler le Live"
+      },
+      "endModal": {
+        "title": "Terminer le Live",
+        "message": "Êtes-vous sûr de vouloir terminer ce live ?",
+        "keepLive": "Garder le Live",
+        "endLive": "Terminer le Live"
+      },
+      "endedModal": {
+        "title": "Ce Live est Terminé",
+        "subtitle": "Il sera sauvegardé dans les lives enregistrés",
+        "liveTitle": "Titre du Live",
+        "liveDescription": "Description du Live",
+        "module": "Module",
+        "chapter": "Chapitre",
+        "supportedAcademicStreams": "Filières Académiques Supportées",
+        "liveRecording": "Enregistrement du Live",
+        "submit": "Soumettre",
+        "uploadRecording": "Télécharger l'enregistrement"
+      },
+      "streaming": {
+        "liveNow": "En direct",
+        "viewers": "spectateurs",
+        "endLive": "Terminer le Live",
+        "openInGoogleMeet": "Ouvrir dans Google Meet",
+        "joinGoogleMeet": "Rejoindre Google Meet",
+        "googleMeetDescription": "Cette session en direct est hébergée sur Google Meet. Cliquez sur le bouton ci-dessous pour rejoindre dans une fenêtre contextuelle.",
+        "meetWindowOpen": "Google Meet est ouvert dans une fenêtre contextuelle",
+        "meetWindowDescription": "La fenêtre de réunion devrait être visible. Sinon, vérifiez votre bloqueur de fenêtres contextuelles.",
+        "focusMeetWindow": "Mettre la fenêtre de réunion au premier plan",
+        "roomNotReady": "En attente de la salle de réunion...",
+        "fullscreen": "Plein écran",
+        "exitFullscreen": "Quitter le plein écran",
+        "startRecording": "Démarrer l'enregistrement",
+        "stopRecording": "Arrêter l'enregistrement",
+        "recording": "Enregistrement",
+        "recordingError": "Erreur d'enregistrement",
+        "cameraOff": "Votre caméra est éteinte",
+        "cameraHint": "Essayez de l'activer ou de partager votre écran",
+        "comments": "Commentaires",
+        "addComment": "Ajouter un commentaire",
+        "userName": "Nom d'utilisateur",
+        "controls": {
+          "mic": "Microphone",
+          "camera": "Caméra",
+          "screenShare": "Partage d'écran"
+        }
+      },
+      "player": {
+        "back": "Retour",
+        "chapterName": "Nom du Chapitre",
+        "liveTitle": "Titre du Live"
+      },
+      "recording": {
+        "loading": "Chargement de l'enregistrement...",
+        "recordingTitle": "Enregistrement",
+        "noRecording": "Aucun enregistrement disponible",
+        "noRecordingDescription": "Cette session en direct n'a pas d'enregistrement. L'enregistrement peut encore être en cours de traitement ou n'a peut-être pas été créé.",
+        "dateRecorded": "Enregistré le",
+        "duration": "Durée",
+        "download": "Télécharger l'enregistrement",
+        "notAvailable": "Non disponible",
+        "notSupported": "Votre navigateur ne prend pas en charge la balise vidéo."
+      }
+    },
+    "quizes": {
+      "Question": "Question",
+      "CreateQuestionDesc": "Créer une nouvelle question pour votre quiz",
+      "QuestionTitle": "Titre de la question",
+      "QuestionText": "Texte de la question",
+      "QuestionType": "Type de question",
+      "MultipleCorrectAnswers": "Réponses multiples correctes",
+      "SingleCorrectAnswer": "Une seule réponse correcte",
+      "Choices": "Choix",
+      "CorrectAnswers": "Réponses correctes",
+      "QuizAttach": "Pièce jointe du quiz",
+      "Cancel": "Annuler",
+      "CreateQuestion": "Créer une question",
+      "CreateQuiz": "Créer un quiz",
+      "SaveQuiz": "Enregistrer le quiz",
+      "QuizTotalPoints": "Points totaux du quiz",
+      "QuizMinScore": "Score minimum du quiz",
+      "Questions": "Questions",
+      "AddQuestion": "Ajouter une question",
+      "TotalPoints": "Points totaux",
+      "Delete": "Supprimer",
+      "Update": "Mettre à jour"
+    },
+    "lessons": {
+      "UpdateLesson": "Mettre à jour la leçon",
+      "UpdateLessonDesc": "Mettre à jour les informations de votre leçon",
+      "LessonName": "Nom de la leçon",
+      "LessonDescription": "Description de la leçon",
+      "LessonVideo": "Vidéo de la leçon",
+      "LessonAttachment": "Pièce jointe de la leçon",
+      "ExercicePDF": "PDF de l'exercice",
+      "ExerciceTotalMark": "Note totale de l'exercice",
+      "ExerciceTotalXP": "XP total de l'exercice",
+      "SupportedStreams": "Filières supportées",
+      "Quiz": "Quiz",
+      "UpdateQuiz": "Mettre à jour le quiz",
+      "Cancel": "Annuler",
+      "confirmDelete": "Êtes-vous sûr de vouloir supprimer cette leçon ?",
+      "deleteSuccess": "Leçon supprimée avec succès",
+      "deleteError": "Échec de la suppression de la leçon",
+      "title": "Gestion des leçons",
+      "createNew": "Créer une nouvelle leçon",
+      "noLessons": "Aucune leçon trouvée"
+    },
+    "chapters": {
+      "chapterNameRequired": "Le nom du chapitre est requis",
+      "title": "Chapitres",
+      "academicStream": "Filière académique",
+      "addChapter": "Ajouter un chapitre",
+      "noChaptersFound": "Aucun chapitre trouvé",
+      "createNewChapter": "Créer un nouveau chapitre",
+      "createNewChapterSubtitle": "Ajouter un nouveau chapitre pour organiser vos leçons",
+      "chapterName": "Nom du chapitre",
+      "chapterNamePlaceholder": "Entrez le nom du chapitre",
+      "chapterDescription": "Description du chapitre",
+      "chapterPrice": "Prix du chapitre (DA)",
+      "editLaterNote": "Vous pouvez modifier ces détails plus tard",
+      "createChapter": "Créer un chapitre"
+    }
+  },
+  "public": {
+    "modules": "Modules",
+    "unlock": "Déverrouiller",
+    "viewChapters": "Voir les chapitres",
+    "AcademicStream": "Filière académique",
+    "chapters": "Chapitres",
+    "lessons": "Leçons",
+    "lockMessage": "Cette leçon est verrouillée. Terminez la précédente pour la déverrouiller."
+  },
+  "admin": {
+    "navigation": {
+      "manageStudents": "Gérer les étudiants",
+      "manageProfessors": "Gérer les professeurs",
+      "managePurchases": "Gérer les achats"
+    },
+    "manageStudents": {
+      "title": "Étudiants",
+      "searchPlaceholder": "Rechercher ...",
+      "viewProfile": "Voir le profil",
+      "backToStudents": "Retour aux étudiants",
+      "titleTwo": "Informations sur l'étudiant",
+      "fullName": "Nom complet",
+      "phoneNumber": "Numéro de téléphone",
+      "email": "Adresse e-mail",
+      "wilaya": "Wilaya",
+      "academicStream": "Parcours académique",
+      "status": "Statut"
+    },
+    "managePurchases": {
+      "title": "Achats",
+      "noPurchases": "Aucun achat trouvé",
+      "filter": "Filtrer",
+      "status": {
+        "validated": "Validé",
+        "rejected": "Rejeté",
+        "new": "Nouveau"
+      },
+      "sort": "Trier par",
+      "sortTwo": {
+        "new": "Le plus récent d'abord",
+        "old": "Le plus ancien d'abord"
+      },
+      "receipt": "Receipt.pdf",
+      "viewDetails": "Voir les détails",
+      "validate": "Valider",
+      "reject": "Rejeter",
+      "details": {
+        "title": "Détails de l'achat",
+        "statusLabel": "Statut:",
+        "changeToValidated": "Changer en Validé",
+        "studentInformation": "Informations sur l'étudiant",
+        "viewProfile": "Voir le profil",
+        "fullName": "Nom complet",
+        "phoneNumber": "Numéro de téléphone",
+        "emailAddress": "Adresse e-mail",
+        "academicStream": "Parcours académique",
+        "purchaseInfoTitle": "Informations sur l'achat",
+        "module": "Module",
+        "chapter": "Chapitre",
+        "price": "Prix",
+        "receipt": "Fichier de reçu"
+      },
+      "error": {
+        "updateFailed": "Échec de la mise à jour du statut de l'achat"
+      },
+      "prompt": {
+        "rejectionReason": "Raison du rejet (optionnel) :"
+      }
+    }
+  },
+  "profile": {
+    "title": "Mon Profil",
+    "edit": "Modifier les détails",
+    "editTitle": "Modifier le profil",
+    "editSubtitle": "Mettez à jour vos informations personnelles ci-dessous.",
+    "saveChanges": "Enregistrer les modifications",
+    "picture": "Photo de profil",
+    "noFileChosen": "Aucun fichier choisi",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "phoneNumber": "Numéro de téléphone",
+    "email": "Adresse e-mail",
+    "wilaya": "Wilaya",
+    "academicStream": "Parcours académique",
+    "dragOrBrowse": "Faites glisser votre image ou parcourez",
+    "maxSizeHint": "Max 5 Mo. JPG/PNG."
+  },
+  "landing": {
+    "nav": {
+      "home": "Accueil",
+      "whyUs": "Pourquoi nous choisir",
+      "whatWeOffer": "Ce que nous offrons",
+      "exploreModules": "Explorer les modules",
+      "login": "Se connecter",
+      "signUp": "S'inscrire"
+    },
+    "hero": {
+      "title": "Votre avenir commence ici",
+      "description": "Apprenez, pratiquez et réussissez avec des enseignants de confiance. Déverrouillez des chapitres, suivez vos progrès et atteignez vos objectifs.",
+      "exploreModules": "Explorer les modules",
+      "startLearning": "Commencer à apprendre",
+      "imageAlt": "Étudiant utilisant Sauvini"
+    },
+    "footer": {
+      "explore": "Explorer",
+      "contact": "Contact",
+      "language": "Langue",
+      "access": "Accès",
+      "home": "Accueil",
+      "whyUs": "Pourquoi nous choisir",
+      "whatWeOffer": "Ce que nous offrons",
+      "exploreModules": "Explorer les modules",
+      "emailUs": "Nous contacter",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "english": "Anglais",
+      "french": "Français",
+      "arabic": "Arabe",
+      "signUpStudent": "S'inscrire en tant qu'étudiant",
+      "applyTeacher": "Postuler pour un poste d'enseignant",
+      "logIn": "Se connecter"
+    },
+    "whySauvini": {
+      "title": "Pourquoi Sauvini?",
+      "structuredLearning": {
+        "title": "Apprentissage Structuré",
+        "desc": "Modules, chapitres et leçons pour les filières algériennes."
+      },
+      "expertProfessors": {
+        "title": "Professeurs Experts",
+        "desc": "Apprenez auprès d'enseignants vérifiés avec des années d'expérience réelle."
+      },
+      "trackProgress": {
+        "title": "Suivi des Progrès",
+        "desc": "Restez informé de vos leçons et réalisations terminées."
+      },
+      "gamifiedLearning": {
+        "title": "Apprentissage Gamifié",
+        "desc": "Gagnez des XP, des badges et montez de niveau en étudiant."
+      },
+      "trustedSecure": {
+        "title": "Fiable & Sécurisé",
+        "desc": "Vos données, paiements et contenus sont en sécurité, et validés par des admins."
+      },
+      "accessibleAnywhere": {
+        "title": "Accessible Partout",
+        "desc": "Apprenez à votre rythme, à tout moment, n'importe où, sur n'importe quel appareil."
+      }
+    },
+    "for": {
+      "students": {
+        "title": "Pour les étudiants",
+        "desc": "Apprenez avec des modules structurés, des leçons vidéo, des quiz et des examens ; tous conçus pour les filières académiques algériennes."
+      },
+      "professors": {
+        "title": "Pour les professeurs",
+        "desc": "Partagez votre expertise en créant des chapitres, des leçons et des examens. Interagissez avec les étudiants et suivez leur progression."
+      },
+      "forStudents": "Pour les étudiants",
+      "forProfessors": "Pour les professeurs",
+      "applyNow": "Postuler en tant que professeur"
+    },
+    "errors": {
+      "radio": {
+        "required": "Veuillez sélectionner une option"
+      },
+      "lesson": {
+        "idRequired": "L'ID de la leçon est requis",
+        "titleRequired": "Le titre de la leçon est requis",
+        "descriptionRequired": "La description de la leçon est requise",
+        "academicStreamRequired": "Veuillez sélectionner au moins une filière académique",
+        "chapterIdRequired": "L'ID du chapitre est requis",
+        "failedToLoad": "Échec du chargement des données de la leçon",
+        "failedToFetchStreams": "Échec de la récupération des filières académiques",
+        "unknownError": "Erreur inconnue"
+      },
+      "chapter": {
+        "titleRequired": "Le titre du chapitre est requis",
+        "descriptionRequired": "La description du chapitre est requise",
+        "minScoreExceedsTotal": "La note minimale ne peut pas dépasser les notes totales",
+        "failedToUpdate": "Échec de la mise à jour du chapitre",
+        "failedToDelete": "Échec de la suppression du chapitre",
+        "failedToLoadLessons": "Échec du chargement des leçons",
+        "failedToCreate": "Échec de la création du chapitre",
+        "unknownError": "Une erreur inconnue s'est produite",
+        "selectPdfFile": "Veuillez sélectionner un fichier PDF"
+      },
+      "module": {
+        "apiFailed": "L'API du module a échoué",
+        "failedToFetch": "Échec de la récupération du module",
+        "descriptionNotAvailable": "Description du module non disponible"
+      },
+      "auth": {
+        "unexpectedError": "Une erreur inattendue s'est produite",
+        "loginFailed": "Échec de la connexion",
+        "registrationFailed": "Échec de l'inscription"
+      }
+    }
+  },
+  "otp": {
+    "resent": "OTP renvoyé avec succès"
+  },
+  "terms": {
+    "title": "Conditions d’utilisation de la plateforme",
+    "subtitle": "En accédant et en utilisant la plateforme, l’utilisateur accepte pleinement et sans réserve ces conditions d’utilisation. Toute violation peut entraîner des sanctions, y compris des avertissements, la suspension temporaire ou définitive du compte, ainsi que des poursuites judiciaires si nécessaire.",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. Propriété intellectuelle et droits d’auteur",
+        "item1": "Tout le contenu disponible sur la plateforme (cours, vidéos, quiz, matières, supports éducatifs, documents, etc.) est protégé par les lois sur la propriété intellectuelle.",
+        "item2": "Il est strictement interdit de copier, reproduire, enregistrer, télécharger, partager ou distribuer ce contenu en dehors de la plateforme sans autorisation écrite préalable.",
+        "item3": "Tout vol ou distribution illégale exposera l’utilisateur à des poursuites judiciaires."
+      },
+      "respect": {
+        "title": "2. Respect et courtoisie",
+        "item1": "Les utilisateurs s’engagent à se comporter respectueusement envers les enseignants, les autres étudiants et l’équipe de la plateforme.",
+        "item2": "Les insultes, déclarations diffamatoires, menaces, langage offensant, remarques discriminatoires ou le harcèlement sont strictement interdits.",
+        "item3": "Ces règles s’appliquent à tous les espaces de communication : sections de commentaires, forums, chats ou tout autre outil intégré.",
+        "item4": "Il est strictement interdit de copier, reproduire, enregistrer, télécharger, partager ou distribuer ce contenu en dehors de la plateforme sans autorisation écrite préalable.",
+        "item5": "Tout vol ou distribution illégale exposera l’utilisateur à des poursuites judiciaires."
+      },
+      "deadlines": {
+        "title": "3. Respect des délais et règles d’examen",
+        "item1": "Les étudiants doivent respecter strictement les délais fixés pour les examens, quiz et autres évaluations.",
+        "item2": "Tout retard injustifié ou toute tentative de tricherie peut entraîner des sanctions, y compris la suspension ou l’exclusion définitive de la plateforme."
+      },
+      "security": {
+        "title": "4. Sécurité du compte",
+        "item1": "Chaque utilisateur est responsable de la confidentialité de ses identifiants (nom d’utilisateur et mot de passe).",
+        "item2": "Il est interdit de partager un compte avec une autre personne.",
+        "item3": "Toute activité suspecte ou frauduleuse doit être signalée immédiatement à l’administration de la plateforme."
+      },
+      "fraud": {
+        "title": "5. Interdiction de la fraude et de la tricherie",
+        "item1": "Toute tentative de fraude (copie de réponses, utilisation de moyens interdits, usurpation d’identité d’un autre étudiant, etc.) est strictement interdite.",
+        "item2": "En cas de tricherie avérée, l’utilisateur peut être sanctionné par l’annulation de l’épreuve, une suspension ou une exclusion."
+      },
+      "technical": {
+        "title": "6. Protection technique du site",
+        "item1": "Il est strictement interdit de tenter d’accéder au code source, de contourner les mesures de sécurité ou de perturber le bon fonctionnement de la plateforme (piratage, injections, etc.).",
+        "item2": "Toute tentative de cyberattaque sera signalée aux autorités compétentes."
+      },
+      "privacy": {
+        "title": "7. Vie privée et protection des données",
+        "item1": "Les données personnelles des utilisateurs sont collectées uniquement à des fins éducatives et administratives.",
+        "item2": "Elles ne seront jamais partagées avec des tiers sans consentement, sauf si la loi l’exige.",
+        "item3": "L’utilisateur s’engage à ne pas divulguer d’informations confidentielles concernant la plateforme ou ses membres."
+      },
+      "responsibility": {
+        "title": "8. Responsabilité de l’étudiant",
+        "item1": "Chaque étudiant est responsable de la manière dont il utilise les cours, vidéos, quiz et examens mis à sa disposition.",
+        "item2": "En cas de mauvaise utilisation (distribution illégale, partage non autorisé, fraude, insultes, etc.), l’étudiant est soumis à des sanctions disciplinaires (avertissement, suspension, exclusion) et, si nécessaire, à des poursuites judiciaires.",
+        "item3": "La plateforme se réserve le droit de prendre toutes les mesures nécessaires pour protéger son contenu et sa communauté."
+      }
+    },
+    "agreement": "J'accepte les conditions d'utilisation",
+    "continue": "Continuer"
+  },
+  "landing": {
+    "team": {
+      "title": "Rencontrez notre équipe"
+    },
+    "about": {
+      "title": "À propos de Sauvini",
+      "subtitle": "Notre mission est de démocratiser l'éducation de qualité",
+      "story": "Sauvini est né de la conviction que chaque étudiant algérien mérite un accès à une éducation de qualité, adaptée aux spécificités de notre système éducatif.",
+      "question": "Pourquoi Sauvini?",
+      "turningPoint": {
+        "title": "Le tournant décisif",
+        "description": "Nous avons réalisé que l'éducation traditionnelle ne répondait pas aux besoins spécifiques des étudiants algériens. C'est ainsi qu'est né Sauvini."
+      }
+    }
+  },
+  "register": {
+    "common": {
+      "login_desc": "Vous avez déjà un compte ?",
+      "login": "se connecter",
+      "next": "Suivant",
+      "previous": "Précédent",
+      "firstname": "Prénom",
+      "lastname": "Nom de famille",
+      "Wilaya": "Wilaya",
+      "phone": "Numéro de téléphone",
+      "Academic_stream": "Filière académique",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "confirm_password": "Confirmer le mot de passe",
+      "gender": "Genre",
+      "date_of_birth": "Date de naissance",
+      "upload": "Télécharger",
+      "upload_desc": "Téléchargez votre document CV",
+      "yes": "Oui",
+      "no": "Non",
+      "male": "Homme",
+      "Female": "Femme",
+      "return_home": "Retour à l'accueil"
+    },
+    "cards": {
+      "role": {
+        "student": {
+          "title": "Étudiant",
+          "benefit_1": "Apprendre avec des vidéos et des notes",
+          "benefit_2": "Suivre vos progrès",
+          "benefit_3": "Poser des questions directement aux professeurs"
+        },
+        "professor": {
+          "title": "Professeur",
+          "benefit_1": "Créer des leçons et des quiz",
+          "benefit_2": "Réviser le travail des étudiants",
+          "benefit_3": "Répondre aux questions"
+        }
+      }
+    },
+    "intro": {
+      "title": "Commencez par nous dire qui vous êtes",
+      "description": "Rejoignez-nous en tant qu'étudiant pour commencer à apprendre, ou en tant que professeur pour partager votre expertise."
+    },
+    "student": {
+      "page_1": {
+        "title": "Parlez-nous un peu de vous",
+        "description": "Pour commencer, nous aurons besoin de quelques informations sur vous."
+      },
+      "page_2": {
+        "title": "Finalisons votre configuration",
+        "description": "Juste quelques détails supplémentaires avant de commencer."
+      }
+    },
+    "professor": {
+      "page_1": {
+        "title": "Faisons connaissance",
+        "description": "Nous commencerons par vos informations de base."
+      },
+      "page_2": {
+        "title": "Parlez-nous de votre expérience",
+        "description": "Cela nous aidera à comprendre votre parcours d'enseignement.",
+        "questions": {
+          "q_1": "Avez-vous de l'expérience dans l'enseignement au lycée ?",
+          "q_2": "Combien d'années d'expérience ?",
+          "q_3": "Avez-vous de l'expérience avec les cours extrascolaires ?",
+          "q_4": "Avez-vous de l'expérience avec les cours en ligne extrascolaires ?",
+          "q_5": "Téléchargez votre document CV"
+        }
+      },
+      "page_3": {
+        "title": "Créez votre compte",
+        "description": "Entrez votre e-mail et votre mot de passe pour terminer votre inscription."
+      }
+    },
+    "submission": {
+      "title": "Candidature soumise !",
+      "description": "Merci de vous être inscrit ! Vos informations ont été envoyées pour examen. Vous recevrez un e-mail de confirmation une fois votre compte vérifié. Cela peut prendre jusqu'à quelques jours.",
+      "next_steps": "Retour à l'accueil"
+    },
+    "verify-email": {
+      "title": "Vérifiez votre e-mail",
+      "description": "Entrez le code que nous avons envoyé à votre e-mail",
+      "not_received": "Vous ne l'avez pas reçu ? Vérifiez votre dossier spam ou demandez un nouveau code",
+      "resend": "Renvoyer le code",
+      "button": "Vérifier le code",
+      "verify": {
+        "title": "Votre e-mail a été vérifié !",
+        "description": "Vous êtes prêt à continuer.",
+        "button": "Commencer à apprendre"
+      }
+    },
+    "verify-email-done": {
+      "title": "Votre e-mail a été vérifié !",
+      "description": "Vous êtes prêt à continuer."
+    },
+    "selectRole": {
+      "title": "Bienvenue sur Sauvini",
+      "subtitle": "Veuillez sélectionner votre rôle pour continuer",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "signUp": "S'inscrire",
+      "student": {
+        "title": "Je suis étudiant",
+        "description": "Accédez à vos cours, suivez vos progrès et continuez à apprendre"
+      },
+      "professor": {
+        "title": "Je suis professeur",
+        "description": "Gérez vos cours, étudiants et matériel pédagogique"
+      }
+    }
+  }
+}
