@@ -142,10 +142,19 @@ export default function WhySauvini() {
       };
     }
 
-    // Desktop: carousel view
-    const CARD_SPACING = 22;
-    const ACTIVE_CARD_WIDTH = 444;
-    const INACTIVE_CARD_WIDTH = 390;
+    // Tablet and Desktop: carousel view with responsive spacing
+    const viewportWidth =
+      typeof window !== "undefined" ? window.innerWidth : 1024;
+    let CARD_SPACING = 22;
+    let ACTIVE_CARD_WIDTH = 444;
+    let INACTIVE_CARD_WIDTH = 390;
+
+    // Adjust for tablet sizes
+    if (viewportWidth < 1024) {
+      CARD_SPACING = 16;
+      ACTIVE_CARD_WIDTH = 350;
+      INACTIVE_CARD_WIDTH = 300;
+    }
 
     const cardWidth = isActive ? ACTIVE_CARD_WIDTH : INACTIVE_CARD_WIDTH;
     const translateX = position * (cardWidth + CARD_SPACING);
@@ -179,34 +188,37 @@ export default function WhySauvini() {
           duration: 0.5,
           ease: "easeInOut",
         }}
-        className="absolute cursor-pointer w-[calc(100%-2rem)] max-w-[444px] md:w-[390px] lg:w-auto"
+        className={`absolute cursor-pointer flex flex-col items-center flex-shrink-0
+          ${
+            isMobile
+              ? "w-[calc(100%-2rem)] max-w-[320px] sm:max-w-[380px]"
+              : isActive
+              ? "w-[280px] sm:w-[320px] md:w-[350px] lg:w-[444px]"
+              : "w-[250px] sm:w-[280px] md:w-[300px] lg:w-[390px]"
+          }
+          min-h-[300px] sm:min-h-[350px] md:min-h-[400px]
+          p-4 sm:p-6 md:p-8 lg:p-10
+          gap-4 sm:gap-6 md:gap-8
+          rounded-2xl sm:rounded-3xl md:rounded-[40px] lg:rounded-[52px]
+          bg-[var(--neutral-100,#F8F8F8)]
+          ${isActive ? "shadow-lg" : ""}
+        `}
         onClick={() => handleCardClick(position)}
         onMouseEnter={() => setIsAutoPlaying(false)}
         onMouseLeave={() => setIsAutoPlaying(true)}
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: isActive ? "min(444px, calc(100% - 2rem))" : "390px",
-          height: isActive ? "auto" : "476px",
-          minHeight: isActive ? "400px" : "400px",
-          padding: "40px 20px",
-          gap: "32px",
-          flexShrink: 0,
-          borderRadius: "52px",
-          background: "var(--neutral-100, #F8F8F8)",
-          border: isActive ? `4px solid ${card.borderColor}` : "none",
+          border: isActive ? `3px solid ${card.borderColor}` : "none",
           boxShadow: isActive ? "0 4px 8px 0 rgba(0, 0, 0, 0.25)" : "none",
         }}
       >
         {/* Card Image */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 w-full flex justify-center">
           <Image
             src={card.image}
             alt={card.title}
             width={242}
             height={180}
-            className="object-contain w-full max-w-[180px] sm:max-w-[220px] lg:max-w-[241.571px] h-auto"
+            className="object-contain w-full max-w-[120px] sm:max-w-[150px] md:max-w-[180px] lg:max-w-[220px] xl:max-w-[241.571px] h-auto"
             style={{
               aspectRatio: "51/38",
             }}
@@ -214,15 +226,9 @@ export default function WhySauvini() {
         </div>
 
         {/* Card Content */}
-        <div
-          className="flex flex-col items-center self-stretch"
-          style={{
-            gap: "16px",
-            borderRadius: isActive ? "70px" : "0",
-          }}
-        >
+        <div className="flex flex-col items-center self-stretch gap-3 sm:gap-4 md:gap-[16px]">
           <h3
-            className="text-center font-semibold transition-colors duration-200 text-xl sm:text-2xl md:text-3xl lg:text-[36px] leading-tight"
+            className="text-center font-semibold transition-colors duration-200 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[36px] leading-tight"
             style={{
               letterSpacing: "-0.36px",
               fontWeight: 600,
@@ -233,7 +239,7 @@ export default function WhySauvini() {
           </h3>
 
           <p
-            className="self-stretch text-center font-medium transition-colors duration-200 text-sm sm:text-base md:text-lg lg:text-[24px] leading-relaxed"
+            className="self-stretch text-center font-medium transition-colors duration-200 text-xs sm:text-sm md:text-base lg:text-lg xl:text-[24px] leading-relaxed"
             style={{
               letterSpacing: "-0.24px",
               fontWeight: 500,
@@ -256,17 +262,19 @@ export default function WhySauvini() {
   }) => (
     <motion.button
       onClick={onClick}
-      className="absolute top-1/2 -translate-y-1/2 z-20 flex items-center justify-center
+      className={`absolute top-1/2 -translate-y-1/2 z-20 flex items-center justify-center
                  bg-primary-50 backdrop-blur-sm 
                  text-primary-600
                  transition-all duration-200 ease-out
                  hover:bg-white hover:border-neutral-400
                  dark:hover:bg-neutral-200
-                 w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14
-                 rounded-full"
-      style={{
-        [direction === "left" ? "left" : "right"]: "10px",
-      }}
+                 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14
+                 rounded-full
+                 ${
+                   direction === "left"
+                     ? "left-2 sm:left-4 md:left-6 lg:left-[10px]"
+                     : "right-2 sm:right-4 md:right-6 lg:right-[10px]"
+                 }`}
       whileHover={{
         scale: 1.05,
         boxShadow: "0 8px 25px rgba(0, 0, 0, 0.12)",
@@ -275,16 +283,22 @@ export default function WhySauvini() {
       aria-label={direction === "left" ? "Previous card" : "Next card"}
     >
       {direction === "left" ? (
-        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
+        <ChevronLeft
+          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
+          strokeWidth={2}
+        />
       ) : (
-        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
+        <ChevronRight
+          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
+          strokeWidth={2}
+        />
       )}
     </motion.button>
   );
 
   return (
     <section
-      className="w-full overflow-hidden min-h-[600px] md:min-h-[700px] lg:h-[747px] py-8 md:py-12 lg:py-0"
+      className="w-full overflow-hidden min-h-[500px] sm:min-h-[600px] md:min-h-[700px] lg:min-h-[747px] py-4 sm:py-6 md:py-8 lg:py-12 xl:py-0"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="w-full h-full flex flex-col">
@@ -304,7 +318,7 @@ export default function WhySauvini() {
         </div>
 
         {/* Cards Slider */}
-        <div className="relative flex-1 min-h-[500px] md:min-h-[550px]">
+        <div className="relative flex-1 min-h-[400px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[550px]">
           {/* Navigation Buttons */}
           <NavigationButton
             direction="left"
@@ -315,8 +329,8 @@ export default function WhySauvini() {
             onClick={isRTL ? prevCard : nextCard}
           />
 
-          <div className="inline-flex items-center overflow-hidden gap-4 md:gap-5 lg:gap-[22px] px-4 py-8 md:py-12 lg:py-20 w-full h-full justify-center">
-            <div className="relative flex items-center justify-center w-full h-full">
+          <div className="inline-flex items-center overflow-hidden gap-2 sm:gap-4 md:gap-5 lg:gap-[22px] px-2 sm:px-4 py-4 sm:py-6 md:py-8 lg:py-12 xl:py-20 w-full h-full justify-center">
+            <div className="relative flex items-center justify-center w-full h-full min-h-[400px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[550px]">
               {getVisibleCards().map(renderCard)}
             </div>
           </div>
