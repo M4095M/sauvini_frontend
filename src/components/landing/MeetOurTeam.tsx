@@ -145,9 +145,9 @@ export default function MeetOurTeam() {
           }
         }
       `}</style>
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-10 md:mb-12 text-center">
             {t("landing.team.title") || "Meet our team"}
           </h2>
 
@@ -155,22 +155,22 @@ export default function MeetOurTeam() {
             {/* Navigation Arrows */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:shadow-xl hover:scale-110 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 group"
+              className="absolute left-2 sm:left-4 md:left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl hover:scale-110 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 group"
               aria-label="Previous team members"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300" />
             </button>
 
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:shadow-xl hover:scale-110 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 group"
+              className="absolute right-2 sm:right-4 md:right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl hover:scale-110 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 group"
               aria-label="Next team members"
             >
-              <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300" />
             </button>
 
             {/* Team Members Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-12 transition-opacity duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-8 md:px-12 transition-opacity duration-300">
               {getVisibleMembers().map((member, index) => (
                 <div
                   key={`${member.id}-${currentIndex}`}

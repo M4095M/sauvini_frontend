@@ -50,7 +50,7 @@ export default function LandingPage() {
   );
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-6 sm:gap-8 md:gap-12 lg:gap-16">
       {isAuthenticated ? (
         <NavBarAuthed
           userProfile={{

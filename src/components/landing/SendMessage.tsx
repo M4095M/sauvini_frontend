@@ -132,16 +132,16 @@ export default function SendMessage() {
   };
 
   return (
-    <section className="w-full py-16 px-4">
+    <section className="w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg p-6 sm:p-8 md:p-12">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Send Us a Message
             </h2>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
             {/* Form Fields */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Name Field */}
@@ -159,7 +159,7 @@ export default function SendMessage() {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Name"
-                  className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-200 transition-colors text-neutral-600"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-200 transition-colors text-neutral-600 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -179,7 +179,7 @@ export default function SendMessage() {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-200 transition-colors text-neutral-600"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-200 transition-colors text-neutral-600 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -199,7 +199,7 @@ export default function SendMessage() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-200 transition-colors appearance-none bg-white text-neutral-600"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-200 transition-colors appearance-none bg-white text-neutral-600 text-sm sm:text-base"
                   required
                 >
                   <option value="">Select a subject</option>
@@ -228,7 +228,7 @@ export default function SendMessage() {
                 onChange={handleInputChange}
                 placeholder="Tell us how we can help you..."
                 rows={6}
-                className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-200 transition-colors resize-none text-neutral-600"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-200 transition-colors resize-none text-neutral-600 text-sm sm:text-base"
                 required
               />
             </div>
@@ -253,11 +253,11 @@ export default function SendMessage() {
             </p>
 
             {/* Submit Button */}
-            <div className="flex justify-end">
+            <div className="flex justify-center sm:justify-end">
               <button
                 type="submit"
                 disabled={isLoading}
-                className="bg-primary-300 hover:bg-primary-200 disabled:bg-neutral-200 disabled:cursor-not-allowed text-neutral-100 px-8 py-3 rounded-xl font-semibold flex items-center space-x-2 transition-colors"
+                className="bg-primary-300 hover:bg-primary-200 disabled:bg-neutral-200 disabled:cursor-not-allowed text-neutral-100 px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-colors w-full sm:w-auto text-sm sm:text-base"
               >
                 {isLoading ? (
                   <>
